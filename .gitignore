@@ -13,9 +13,16 @@ wheels/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+.coverage
 
 # Vscode
 .vscode
 
 # macos
 *.DS_Store
+
+# envs folder
+envs/
+
+# mkdocs local site folder
+site/

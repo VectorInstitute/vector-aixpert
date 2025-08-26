@@ -1,30 +1,47 @@
-# AI Engineering template (with uv)
+# AIXpert
 
 ----------------------------------------------------------------------------------------
 
-[![code checks](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/code_checks.yml)
-[![integration tests](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/integration_tests.yml)
-[![docs](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/docs.yml)
-[![codecov](https://codecov.io/github/VectorInstitute/aieng-template-uv/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/aieng-template-uv)
-![GitHub License](https://img.shields.io/github/license/VectorInstitute/aieng-template-uv)
+[![code checks](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml)
+[![integration tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml)
+[![docs](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml)
 
-A template repo for AI Engineering projects (using ``python``) and ``uv``. This
-template is like our original AI Engineering [template](https://github.com/VectorInstitute/aieng-template),
-however, unlike how that template uses poetry, this one uses uv for dependency
-management (as well as packaging and publishing).
 
-## 🧑🏿‍💻 Developing
+<!-- TODO: Uncomment this with the right credentials once codecov is set up for this repo.
+[![codecov](https://codecov.io/github/VectorInstitute/AIXpert/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/AIXpert)
+-->
+<!-- TODO: Uncomment this when the repository is made public
+![GitHub License](https://img.shields.io/github/license/VectorInstitute/AIXpert)
+-->
+
+<!--
+TODO: Add picture / logo
+-->
+
+<!--
+TODO: Add introduction about AIXpert here
+-->
+
+
+## 🧑🏿‍💻 Installation
 
 ### Installing dependencies
 
 The development environment can be set up using
-[uv](https://github.com/astral-sh/uv?tab=readme-ov-file#installation). Hence, make sure it is
-installed and then run:
+[uv](https://github.com/astral-sh/uv?tab=readme-ov-file#installation).
+Instructions for installing uv can be found [here](https://docs.astral.sh/uv/getting-started/installation/).
+
+
+Once installed, run:
 
 ```bash
 uv sync
 source .venv/bin/activate
 ```
+Note that uv supports [optional dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups)
+which helps to manage dependencies for different parts of development such as
+`documentation`, `testing`, etc.
+The core dependencies are installed using the command `uv sync`
 
 In order to install dependencies for testing (codestyle, unit tests, integration tests),
 run:
@@ -41,33 +58,33 @@ run:
 uv sync --no-group docs
 ```
 
-If you're coming from `poetry` then you'll notice that the virtual environment
-is actually stored in the project root folder and is by default named as `.venv`.
-The other important note is that while `poetry` uses a "flat" layout of the project,
-`uv` opts for the the "src" layout. (For more info, see [here](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/))
+>[!IMPORTANT]
+    By default, the `mypy` configuration in the `pyproject.toml` disallows subclassing
+    the `Any` type - `allow_subclassing_any = false`. In cases where the type checker
+    is not able to determine the types of objects in some external library
+    (e.g. `PyTorch`), it will treat them as `Any` and raise errors. If your codebase
+    has many of such cases, you can set `allow_subclassing_any = true` in the
+    `mypy` configuration or remove it entirely to use the default value
+    (which is `true`). For example, in a `PyTorch` project, subclassing
+    `nn.Module` will raise errors if `allow_subclassing_any` is set to `false`.
 
-### Poetry to UV
 
-The table below provides the `uv` equivalent counterparts for some of the more
-common `poetry` commands.
+## Getting Started
 
-| Poetry                                               | UV                                          |
-|------------------------------------------------------|---------------------------------------------|
-| `poetry new <project-name>`  # creates new project   | `uv init <project-name>`                    |
-| `poetry install`  # installs existing project        | `uv sync`                                   |
-| `poetry install --with docs,test`                    | `uv sync --group docs --group test`         |
-| `poetry add numpy`                                   | `uv add numpy`                              |
-| `poetry add pytest pytest-asyncio --groups dev`      | `uv add pytest pytest-asyncio --groups dev` |
-| `poetry remove numpy`                                | `uv remove numpy`                           |
-| `poetry lock`                                        | `uv lock`                                   |
-| `poetry run <cmd>`  # runs cmd with the project venv | `uv run <cmd>`                              |
-| `poetry build`                                       | `uv build`                                  |
-| `poetry publish`                                     | `uv publish`                                |
-| `poetry cache clear pypi --all`                      | `uv cache clean`                            |
+## Features / Components
 
-For the full list of `uv` commands, you can visit the official [docs](https://docs.astral.sh/uv/reference/cli/#uv).
+## Examples
 
-### Tidbit
+## Contributing
+If you are interested in contributing to the library, please see
+[CONTRIBUTING.MD](CONTRIBUTING.MD). This file contains many details around contributing
+to the code base, including development practices, code checks, tests, and more.
 
-If you're curious about what "uv" stands for, it appears to have been more or
-less chosen [randomly](https://github.com/astral-sh/uv/issues/1349#issuecomment-1986451785).
+<!--
+TODO:
+
+## Acknowledgements
+
+## Citation
+
+-->
