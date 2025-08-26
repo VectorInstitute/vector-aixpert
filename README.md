@@ -1,30 +1,47 @@
-# AI Engineering template (with uv)
+# AIXpert
 
 ----------------------------------------------------------------------------------------
 
-[![code checks](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/code_checks.yml)
-[![integration tests](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/integration_tests.yml)
-[![docs](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/aieng-template-uv/actions/workflows/docs.yml)
-[![codecov](https://codecov.io/github/VectorInstitute/aieng-template-uv/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/aieng-template-uv)
-![GitHub License](https://img.shields.io/github/license/VectorInstitute/aieng-template-uv)
+[![code checks](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml)
+[![integration tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml)
+[![docs](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml)
 
-A template repo for AI Engineering projects (using ``python``) and ``uv``. This
-template is like our original AI Engineering [template](https://github.com/VectorInstitute/aieng-template),
-however, unlike how that template uses poetry, this one uses uv for dependency
-management (as well as packaging and publishing).
 
-## 🧑🏿‍💻 Developing
+<!-- TODO: Uncomment this with the right credentials once codecov is set up for this repo.
+[![codecov](https://codecov.io/github/VectorInstitute/AIXpert/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/AIXpert)
+-->
+<!-- TODO: Uncomment this when the repository is made public
+![GitHub License](https://img.shields.io/github/license/VectorInstitute/AIXpert)
+-->
+
+<!--
+TODO: Add picture / logo
+-->
+
+<!--
+TODO: Add introduction about AIXpert here
+-->
+
+
+## 🧑🏿‍💻 Installation
 
 ### Installing dependencies
 
 The development environment can be set up using
-[uv](https://github.com/astral-sh/uv?tab=readme-ov-file#installation). Hence, make sure it is
-installed and then run:
+[uv](https://github.com/astral-sh/uv?tab=readme-ov-file#installation).
+Instructions for installing uv can be found [here](https://docs.astral.sh/uv/getting-started/installation/).
+
+
+Once installed, run:
 
 ```bash
 uv sync
 source .venv/bin/activate
 ```
+Note that uv supports [optional dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups)
+which helps to manage dependencies for different parts of development such as
+`documentation`, `testing`, etc.
+The core dependencies are installed using the command `uv sync`
 
 In order to install dependencies for testing (codestyle, unit tests, integration tests),
 run:
