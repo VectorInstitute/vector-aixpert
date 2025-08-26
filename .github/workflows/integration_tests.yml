@@ -56,7 +56,7 @@ jobs:
       - name: Install the project
         run: uv sync --all-extras --dev
 
-      - name: Install dependencies and check code
+      - name: Run check code
         run: |
           uv run pytest -m "integration_test" --cov src/aixpert --cov-report=xml tests
 

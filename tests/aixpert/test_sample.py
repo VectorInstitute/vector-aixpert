@@ -1,8 +1,11 @@
 """Sample test."""
 
+import pytest
+
 import src.aixpert
 
 
+@pytest.mark.integration_test()
 def test_import():
     assert hasattr(src.aixpert, "__name__")
 

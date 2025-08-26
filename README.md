@@ -3,6 +3,7 @@
 ----------------------------------------------------------------------------------------
 
 [![code checks](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml)
+[![unit tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/unit_tests.yml)
 [![integration tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml)
 [![docs](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml)
 
@@ -57,17 +58,6 @@ run:
 ```bash
 uv sync --no-group docs
 ```
-
->[!IMPORTANT]
-    By default, the `mypy` configuration in the `pyproject.toml` disallows subclassing
-    the `Any` type - `allow_subclassing_any = false`. In cases where the type checker
-    is not able to determine the types of objects in some external library
-    (e.g. `PyTorch`), it will treat them as `Any` and raise errors. If your codebase
-    has many of such cases, you can set `allow_subclassing_any = true` in the
-    `mypy` configuration or remove it entirely to use the default value
-    (which is `true`). For example, in a `PyTorch` project, subclassing
-    `nn.Module` will raise errors if `allow_subclassing_any` is set to `false`.
-
 
 ## Getting Started
 
