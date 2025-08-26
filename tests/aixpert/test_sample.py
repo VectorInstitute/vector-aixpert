@@ -1,4 +1,10 @@
-"""Sample unit test."""
+"""Sample test."""
+
+import src.aixpert
+
+
+def test_import():
+    assert hasattr(src.aixpert, "__name__")
 
 
 # TODO: Replace this
