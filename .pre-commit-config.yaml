@@ -41,11 +41,7 @@ repos:
       exclude: "tests"
 
   - repo: https://github.com/crate-ci/typos
-<<<<<<< HEAD
-    rev: v1
-=======
     rev: v1.35.0  # v1.19.0
->>>>>>> 900a67a... Feature/synthetic image generation pipeline (#14)
     hooks:
       - id: typos
         args: []
@@ -67,13 +63,6 @@ repos:
 
   - repo: local
     hooks:
-    - id: pytest
-      name: pytest
-      entry: python3 -m pytest -m "not integration_test"
-      language: system
-      pass_filenames: false
-      always_run: true
-=======
       - id: pytest
         name: pytest
         entry: pytest -m "not integration_test"
@@ -82,7 +71,6 @@ repos:
         pass_filenames: false
         always_run: true
         additional_dependencies: [pytest]
->>>>>>> 900a67a... Feature/synthetic image generation pipeline (#14)
 
 ci:
     autofix_commit_msg: |

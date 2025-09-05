@@ -564,6 +564,17 @@ wheels = [
 ]
 
 [[package]]
+name = "dotenv"
+version = "0.9.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "python-dotenv" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b2/b7/545d2c10c1fc15e48653c91efde329a790f2eecfbbf2bd16003b5db2bab0/dotenv-0.9.9-py2.py3-none-any.whl", hash = "sha256:29cf74a087b31dafdb5a446b6d7e11cbce8ed2741540e2339c69fbef92c94ce9", size = 1892, upload-time = "2025-02-19T22:15:01.647Z" },
+]
+
+[[package]]
 name = "durationpy"
 version = "0.10"
 >>>>>>> 900a67a... Feature/synthetic image generation pipeline (#14)
@@ -632,6 +643,18 @@ wheels = [
 ]
 
 [[package]]
+name = "google"
+version = "3.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/89/97/b49c69893cddea912c7a660a4b6102c6b02cd268f8c7162dd70b7c16f753/google-3.0.0.tar.gz", hash = "sha256:143530122ee5130509ad5e989f0512f7cb218b2d4eddbafbad40fd10e8d8ccbe", size = 44978, upload-time = "2020-07-11T14:50:45.678Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ac/35/17c9141c4ae21e9a29a43acdfd848e3e468a810517f862cad07977bf8fe9/google-3.0.0-py2.py3-none-any.whl", hash = "sha256:889cf695f84e4ae2c55fbc0cfdaf4c1e729417fa52ab1db0485202ba173e4935", size = 45258, upload-time = "2020-07-11T14:49:58.287Z" },
+]
+
+[[package]]
 name = "google-auth"
 version = "2.40.3"
 >>>>>>> 900a67a... Feature/synthetic image generation pipeline (#14)
@@ -661,6 +684,25 @@ wheels = [
 name = "ipython"
 version = "9.6.0"
 =======
+name = "google-genai"
+version = "1.31.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "google-auth" },
+    { name = "httpx" },
+    { name = "pydantic" },
+    { name = "requests" },
+    { name = "tenacity" },
+    { name = "typing-extensions" },
+    { name = "websockets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e0/1b/da30fa6e2966942d7028a58eb7aa7d04544dcc3aa66194365b2e0adac570/google_genai-1.31.0.tar.gz", hash = "sha256:8572b47aa684357c3e5e10d290ec772c65414114939e3ad2955203e27cd2fcbc", size = 233482, upload-time = "2025-08-18T23:40:21.733Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/41/27/1525bc9cbec58660f0842ebcbfe910a1dde908c2672373804879666e0bb8/google_genai-1.31.0-py3-none-any.whl", hash = "sha256:5c6959bcf862714e8ed0922db3aaf41885bacf6318751b3421bf1e459f78892f", size = 231876, upload-time = "2025-08-18T23:40:20.385Z" },
+]
+
+[[package]]
 name = "google-genai"
 version = "1.31.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1631,6 +1673,15 @@ wheels = [
 ]
 
 [[package]]
+name = "soupsieve"
+version = "2.8"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6d/e6/21ccce3262dd4889aa3332e5a119a3491a95e8f60939870a3a035aabac0d/soupsieve-2.8.tar.gz", hash = "sha256:e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f", size = 103472, upload-time = "2025-08-27T15:39:51.78Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/a0/bb38d3b76b8cae341dad93a2dd83ab7462e6dbcdd84d43f54ee60a8dc167/soupsieve-2.8-py3-none-any.whl", hash = "sha256:0cc76456a30e20f5d7f2e14a98a4ae2ee4e5abdc7c5ea0aafe795f344bc7984c", size = 36679, upload-time = "2025-08-27T15:39:50.179Z" },
+]
+
+[[package]]
 name = "sqlalchemy"
 version = "2.0.41"
 source = { registry = "https://pypi.org/simple" }
@@ -1731,6 +1782,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/eb/79/72064e6a701c2183016abbbfedaba506d81e30e232a68c9f0d6f6fcd1574/traitlets-5.14.3.tar.gz", hash = "sha256:9ed0579d3502c94b4b3732ac120375cda96f923114522847de4b3bb98b96b6b7", size = 161621 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/00/c0/8f5d070730d7836adc9c9b6408dec68c6ced86b304a9b26a14df072a6e8c/traitlets-5.14.3-py3-none-any.whl", hash = "sha256:b74e89e397b1ed28cc831db7aea759ba6640cb3de13090ca145426688ff1ac4f", size = 85359 },
+]
+
+[[package]]
+name = "types-pyyaml"
+version = "6.0.12.20250822"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/49/85/90a442e538359ab5c9e30de415006fb22567aa4301c908c09f19e42975c2/types_pyyaml-6.0.12.20250822.tar.gz", hash = "sha256:259f1d93079d335730a9db7cff2bcaf65d7e04b4a56b5927d49a612199b59413", size = 17481, upload-time = "2025-08-22T03:02:16.209Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/8e/8f0aca667c97c0d76024b37cffa39e76e2ce39ca54a38f285a64e6ae33ba/types_pyyaml-6.0.12.20250822-py3-none-any.whl", hash = "sha256:1fe1a5e146aa315483592d292b72a172b65b946a6d98aa6ddd8e4aa838ab7098", size = 20314, upload-time = "2025-08-22T03:02:15.002Z" },
 ]
 
 [[package]]

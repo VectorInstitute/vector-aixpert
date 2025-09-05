@@ -56,4 +56,3 @@ site/
 
 # All files inside ./src/data_generation/synthetic_data_generation/images/misc
 src/aixpert/data_generation/synthetic_data_generation/images/misc/*
->>>>>>> 900a67a... Feature/synthetic image generation pipeline (#14)
