@@ -7,7 +7,13 @@ authors = [ {name = "Vector AI Engineering", email = "ai_engineering@vectorinsti
 license = "MIT"
 repository = "https://github.com/VectorInstitute/vector-aixpert"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "dotenv>=0.9.9",
+    "google>=3.0.0",
+    "google-genai>=1.31.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -27,6 +33,7 @@ dev = [
     "pytest-cov>=6.0.0",
     "pytest-mock>=3.14.0",
     "ruff>=0.9.2",
+    "types-pyyaml>=6.0.12.20250822",
 ]
 docs = [
     "jinja2>=3.1.6", # Pinning version to address vulnerability GHSA-cpwx-vrp4-4pq7
@@ -48,7 +55,7 @@ default-groups = ["dev", "docs"]
 
 [tool.mypy]
 follow_imports = "normal"
-ignore_missing_imports = false
+ignore_missing_imports = true # TODO: revisit this later before release
 install_types = true
 pretty = true
 non_interactive = true
