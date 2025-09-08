@@ -48,7 +48,6 @@ repos:
     hooks:
       - id: typos
         args: []
-        exclude_types: [json]
 
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
