@@ -39,12 +39,16 @@ repos:
     - id: mypy
       args: [--config-file=pyproject.toml]
       exclude: "tests"
+      additional_dependencies:
+        - pydantic
+        - pydantic-settings
 
   - repo: https://github.com/crate-ci/typos
     rev: v1.35.0  # v1.19.0
     hooks:
       - id: typos
         args: []
+        exclude_types: [json]
 
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
