@@ -6,9 +6,9 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
 
-# Third-party imports
-from dotenv import load_dotenv
+from decouple import AutoConfig
 
 # Local utility functions for configuration and prompt generation
 from utils import generate_prompts_with_userprompt, load_config
@@ -16,7 +16,11 @@ from utils import generate_prompts_with_userprompt, load_config
 
 # Ensure local modules are importable
 sys.path.append(os.path.dirname(__file__))
-from system_prompt import prompt_legal_toxicity
+from system_prompt import image_prompt_generation
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[5]
+config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
 def get_arguments() -> argparse.Namespace:
@@ -26,6 +30,19 @@ def get_arguments() -> argparse.Namespace:
     )
     parser.add_argument(
         "--config_file", type=str, required=True, help="Path to the configuration file"
+    )
+    parser.add_argument(
+        "--domain",
+        type=str,
+        choices=["hiring", "legal", "healthcare"],
+        required=True,
+        help="Domain for which to generate prompts",
+    )
+    parser.add_argument(
+        "--risk",
+        type=str,
+        required=True,
+        help="Risk category for the prompts (e.g., bias_v1, toxicity etc. based on the system prompt file)",
     )
     # The system_prompt_path argument is commented out; ignoring for now
     # parser.add_argument('--system_prompt_path',
@@ -44,20 +61,19 @@ def main() -> None:
     """Generate prompts and save them to a file."""
     # Parse arguments and load configuration
     args = get_arguments()
-    config = load_config(args.config_file)
-    load_dotenv()
+    yaml_config = load_config(args.config_file)
 
     # Ensure the OpenAI API key is provided via environment variable
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = config("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable is not set")
     print("Using OpenAI API Key from environment variable.")
 
     # Retrieve model parameters from configuration
-    model = config["gpt_config"].get("model", "gpt-4o")  # Model choice
-    batch_size = config["gpt_config"].get("batch_size", 5)  # Batch size for processing
-    max_tokens = config["gpt_config"].get("max_tokens", 2048)  # Max tokens for response
-    temperature = config["gpt_config"].get(
+    model = yaml_config["gpt"].get("model", "gpt-4o")  # Model choice
+    batch_size = yaml_config["gpt"].get("batch_size", 5)  # Batch size for processing
+    max_tokens = yaml_config["gpt"].get("max_tokens", 2048)  # Max tokens for response
+    temperature = yaml_config["gpt"].get(
         "temperature", 0.7
     )  # Temperature for response variability
     print(
@@ -65,7 +81,9 @@ def main() -> None:
     )
 
     # Select the system prompt to be used for generating prompts
-    system_prompt = prompt_legal_toxicity
+    domain = args.domain
+    risk = args.risk
+    system_prompt = image_prompt_generation[domain][risk]
     print(f"Using system prompt:\n{system_prompt}")
 
     # Generate prompts using the provided system prompt and OpenAI API key
@@ -96,3 +114,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# To run the script, use a command like:
+# uv run prompt_generation.py --config_file path/to/config.yaml \
+# --domain hiring \
+# --risk bias_v1 \
+# --output_file prompts.jsonl
