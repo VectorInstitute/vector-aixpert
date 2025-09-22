@@ -1,0 +1,57 @@
+# config.yaml
+
+# -------- Global defaults --------
+common:
+  num_samples_per_setting: 5   # 5 cats × 2 sets × 10 = 100 images
+  retries:
+    max_attempts: 5
+    max_backoff: 16
+  flush_every: 10            # flush to CSV every N images
+
+# -------- Providers --------
+# Set enabled: true to run from main.py (or pass --provider)
+providers:
+
+  # === OpenAI (GPT images: gpt-image-1 / dall-e-3) ===
+  gpt:
+    enabled: True
+    model_name: "dall-e-3"         # or "gpt-image-1"
+    image_size: "1024x1024"        # dall-e-3: 1024x1024, 1024x1792, 1792x1024; gpt-image-1: 256/512/1024
+    outdir: "images"
+    csv_path: "annotations.csv"
+    env_key: "OPENAI_API_KEY"
+
+  # === Google Imagen-4 via Gemini REST ===
+  gemini:
+    enabled: false
+    model_name: "imagen-4.0-generate-001"
+    predict_url: "https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict"
+    sample_count: 1                 # one image per request
+    outdir: "images_imagen_4_0_generate_001"
+    csv_path: "annotations_imagen_4_0_generate_001.csv"
+    env_key: "GOOGLE_API_KEY"
+
+  # === FAL.ai (Flux/Recraft/SD v3.5 large) ===
+  flux:
+    enabled: false
+    model_name: "fal-ai/flux/dev"  # or "fal-ai/recraft-v3", "fal-ai/stable-diffusion-v35-large"
+    outdir: "images_fal"
+    csv_path: "annotations_fal.csv"
+    env_key: "FAL_API_KEY"
+
+  # === xAI Grok images ===
+  grok:
+    enabled: false
+    model_name: "grok-2-image"
+    image_format: "url"
+    outdir: "images_grok"
+    csv_path: "annotations_grok.csv"
+    env_key: "XAI_API_KEY"
+
+  sdxl:
+    enabled: false
+    model_name: "grok-2-image"
+    image_format: "url"
+    outdir: "images_grok"
+    csv_path: "annotations_grok.csv"
+    env_key: "XAI_API_KEY"
