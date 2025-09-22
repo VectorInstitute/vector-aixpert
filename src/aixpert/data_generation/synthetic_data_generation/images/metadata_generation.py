@@ -6,9 +6,11 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
+
+from decouple import AutoConfig
 
 # Third-party imports
-from dotenv import load_dotenv
 from utils import (
     generate_prompts_without_image,
     load_checkpoint,
@@ -19,7 +21,11 @@ from utils import (
 
 # Local imports
 sys.path.append(os.path.dirname(__file__))
-from system_prompt import prompt_metadata
+from system_prompt import metadata_prompt
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[5]
+config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
 def process_image_prompt(
@@ -91,6 +97,12 @@ def get_arguments() -> argparse.Namespace:
     #                     type=str, required=True,
     #                     help='Path to the system prompt file') # Ignore for now
     parser.add_argument(
+        "--prompt_variant",
+        type=str,
+        default="v1",
+        help="Version of the system prompt to use",
+    )
+    parser.add_argument(
         "--image_prompt_file",
         type=str,
         required=True,
@@ -123,10 +135,7 @@ def main() -> None:
     args = get_arguments()
 
     # Load configuration settings from file
-    config = load_config(args.config_file)
-
-    # Load environment variables from .env file
-    load_dotenv()
+    yaml_config = load_config(args.config_file)
 
     # Load image prompts from the specified JSONL file
     image_prompt_file = args.image_prompt_file
@@ -143,15 +152,15 @@ def main() -> None:
     image_prompt = image_prompts[0]["image_prompt"]
 
     # Retrieve OpenAI API key from environment variables
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = config("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable is not set")
 
     # Set model parameters from configuration
-    model = config["gpt_config"].get("model", "gpt-4o")  # Model choice
-    batch_size = config["gpt_config"].get("batch_size", 5)  # Batch size for processing
-    max_tokens = config["gpt_config"].get("max_tokens", 2048)  # Max tokens for response
-    temperature = config["gpt_config"].get(
+    model = yaml_config["gpt"].get("model", "gpt-4o")  # Model choice
+    batch_size = yaml_config["gpt"].get("batch_size", 5)  # Batch size for processing
+    max_tokens = yaml_config["gpt"].get("max_tokens", 2048)  # Max tokens for response
+    temperature = yaml_config["gpt"].get(
         "temperature", 0.7
     )  # Temperature for response variability
     print(
@@ -159,7 +168,7 @@ def main() -> None:
     )
 
     # Load system prompt used for generating metadata
-    system_prompt = prompt_metadata
+    system_prompt = metadata_prompt[args.prompt_variant]
     print(f"Using system prompt:\n{system_prompt}")
 
     # Ensure the output directory exists
@@ -236,11 +245,13 @@ if __name__ == "__main__":
 # To run this script, use the following command from the terminal:
 #
 # uv run metadataGeneration.py --config_file <path_to_config_yaml> \
+# --prompt_variant <prompt_version> \
 # --image_prompts_file <path_to_image_prompts_jsonl> \
 # --output_file <output_jsonl_file>
 #
 # Example:
 # uv run metadata_generation.py --config_file ../../config.yaml \
+# --prompt_variant v1 \
 # --image_prompt_file prompts/hiring-representation_gaps.jsonl \
 # --images_folder hiring_representation_gaps_images/ \
 # --output_file hiring_representation_gaps.jsonl

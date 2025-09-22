@@ -2,11 +2,16 @@
 
 import argparse
 import os
+from pathlib import Path
 
-from dotenv import load_dotenv
+from decouple import AutoConfig
 
 # OpenAI packages
 from utils import generate_image_gemini, load_config, load_prompt, load_prompt_path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[5]
+config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
 def get_arguments() -> argparse.Namespace:
@@ -37,26 +42,25 @@ def main() -> None:
     args = get_arguments()
 
     # Load configuration and prompt paths.
-    config = load_config(args.config_file)
+    yaml_config = load_config(args.config_file)
     prompts = load_prompt_path(args.prompt_yaml)
-    load_dotenv()
 
     # Ensure the OpenAI API key is available from environment variables.
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = config("GEMINI_API_KEY")
     if not api_key:
         raise ValueError("GEMINI_API_KEY environment variable is not set")
     print("Using GEMINI_API_KEY from environment variables.")
 
     # Retrieve GEMINI configuration options.
-    model = config["gemini_config"].get(
+    model = yaml_config["gemini"].get(
         "model", "imagen-4.0-generate-001"
     )  # Model choice
-    number_of_images = config["gemini_config"].get(
+    number_of_images = yaml_config["gemini"].get(
         "numberOfImages", 1
     )  # Number of images to generate per prompt
-    img_size = config["gemini_config"].get("sampleImageSize", "1024x1024")  # Image size
-    aspect_ratio = config["gemini_config"].get("aspectRatio", "1:1")  # Aspect ratio
-    person_generation = config["gemini_config"].get(
+    img_size = yaml_config["gemini"].get("sampleImageSize", "1024x1024")  # Image size
+    aspect_ratio = yaml_config["gemini"].get("aspectRatio", "1:1")  # Aspect ratio
+    person_generation = yaml_config["gemini"].get(
         "personGeneration", "ALLOW_ALL"
     )  # Person generation setting
 

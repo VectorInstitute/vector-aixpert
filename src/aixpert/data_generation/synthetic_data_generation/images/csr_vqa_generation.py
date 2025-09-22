@@ -6,16 +6,21 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
+
+from decouple import AutoConfig
 
 # Third-party imports
-from dotenv import load_dotenv
 from utils import generate_prompts_vqa, load_checkpoint, load_config, save_checkpoint
 
 
 # Local imports
 sys.path.append(os.path.dirname(__file__))
-# from system_prompt import prompt_vqa_csr_physical
-from system_prompt import prompt_vqa_csr_simple
+from system_prompt import vqa_prompts
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[5]
+config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
 def process_image_prompt(
@@ -110,6 +115,19 @@ def get_arguments() -> argparse.Namespace:
     #                     type=str, required=True,
     #                     help='Path to the system prompt file') # Ignore for now
     parser.add_argument(
+        "--prompt_domain",
+        type=str,
+        default="csr",
+        help="Top-level prompt family to use.",
+    )
+    parser.add_argument(
+        "--prompt_variant",
+        type=str,
+        choices=["v1", "simple", "physical"],
+        default="simple",
+        help="Variant of the prompt to use (e.g., v1)",
+    )
+    parser.add_argument(
         "--image_prompt_file",
         type=str,
         required=True,
@@ -141,10 +159,7 @@ def main() -> None:
     args = get_arguments()
 
     # Load configuration from the provided file
-    config = load_config(args.config_file)
-
-    # Load environment variables (e.g., OpenAI API key)
-    load_dotenv()
+    yaml_config = load_config(args.config_file)
 
     # Load image prompts from a jsonl file
     image_prompt_file = args.image_prompt_file
@@ -158,15 +173,15 @@ def main() -> None:
         )
 
     # Validate that the OpenAI API key is set in the environment
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = config("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable is not set")
 
     # Set model parameters from configuration
-    model = config["gpt_config"].get("model", "gpt-4o")  # Model choice
-    batch_size = config["gpt_config"].get("batch_size", 5)  # Batch size for API calls
-    max_tokens = config["gpt_config"].get("max_tokens", 2048)  # Max tokens for response
-    temperature = config["gpt_config"].get(
+    model = yaml_config["gpt"].get("model", "gpt-4o")  # Model choice
+    batch_size = yaml_config["gpt"].get("batch_size", 5)  # Batch size for API calls
+    max_tokens = yaml_config["gpt"].get("max_tokens", 2048)  # Max tokens for response
+    temperature = yaml_config["gpt"].get(
         "temperature", 0.7
     )  # Temperature for response randomness
     print(
@@ -174,7 +189,7 @@ def main() -> None:
     )
 
     # Load system prompt from the imported module
-    system_prompt = prompt_vqa_csr_simple
+    system_prompt = vqa_prompts[args.prompt_domain][args.prompt_variant]
 
     # Create output directory if it doesn't exist
     output_dir = args.output_dir
@@ -258,11 +273,16 @@ if __name__ == "__main__":
 
 # To run this script, use the following command from the terminal:
 # uv run csr_vqa_generation.py --config_file <path_to_config_yaml> \
-# --image_prompts_file <path_to_image_prompts_jsonl> --output_file <output_jsonl_file>
+# --image_prompts_file <path_to_image_prompts_jsonl>
+# --images_folder <folder_with_images> \
+# --prompt_domain <domain> \
+# --prompt_variant <variant> \
+# --output_file <output_jsonl_file>
 
 
 # Example:
 # uv run csr_vqa_generation.py --config_file ../../config.yaml \
 # --image_prompt_file prompts/hiring-representation_gaps.jsonl \
 # --images_folder hiring_representation_gaps_images/ \
+# --prompt_domain csr --prompt_variant simple \
 # --output_file hiring_representation_gaps.jsonl

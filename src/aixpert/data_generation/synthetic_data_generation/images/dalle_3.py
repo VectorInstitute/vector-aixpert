@@ -1,12 +1,16 @@
 """Image generation using DALL-E 3 from OpenAI."""
 
 import argparse
-
-# OpenAI packages
 import os
+from pathlib import Path
 
+from decouple import AutoConfig
 from dotenv import load_dotenv
 from utils import generate_image_openai, load_config, load_prompt, load_prompt_path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[5]
+config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
 def get_arguments() -> argparse.Namespace:
@@ -37,21 +41,21 @@ def main() -> None:
     args = get_arguments()
 
     # Load configuration and prompt paths.
-    config = load_config(args.config_file)
+    yaml_config = load_config(args.config_file)
     prompts = load_prompt_path(args.prompt_yaml)
     load_dotenv()
 
     # Ensure the OpenAI API key is available from environment variables.
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = config("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable is not set")
     print("Using OpenAI API Key from environment variable.")
 
     # Retrieve DALL-E configuration options.
-    model = config["dalle_config"].get("model", "dall-e-3")  # Model choice
-    quality = config["dalle_config"].get("quality", "standard")  # Quality setting
-    style = config["dalle_config"].get("style", "vivid")  # Style setting
-    img_size = config["dalle_config"].get("img_size", "1024x1024")  # Image size
+    model = yaml_config["dalle"].get("model", "dall-e-3")  # Model choice
+    quality = yaml_config["dalle"].get("quality", "standard")  # Quality setting
+    style = yaml_config["dalle"].get("style", "vivid")  # Style setting
+    img_size = yaml_config["dalle"].get("img_size", "1024x1024")  # Image size
 
     print(
         f"Using model: {model} with quality: {quality}, style: {style}, image size: {img_size}"
@@ -108,7 +112,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
 # To run this script, use the following command:
 # python dalle_3.py --config_file path/to/config.yaml \
