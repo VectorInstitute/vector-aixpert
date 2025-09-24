@@ -8,6 +8,7 @@ based on specified domain and risk type.
 import argparse
 import json
 import pprint
+import sys
 import time
 from collections import OrderedDict
 from typing import Any, List, Optional
@@ -16,9 +17,38 @@ import openai
 import yaml
 from decouple import Config, RepositoryEnv
 from openai import OpenAI
+from prompt_gen_utils import (
+    generate_prompts_healthcare,
+    generate_prompts_hiring,
+    generate_prompts_legal,
+)
 from prompts import mcq_user_prompts, system_prompts
-from schema import MCQ, RepGapMCQ, Scene, ToxicMCQ
-from utils import load_checkpoint, retry, save_results
+from schema import MCQ, HealthcareBias, LegalBias, RepGapMCQ, Scene, ToxicMCQ
+from utils import (
+    load_checkpoint,
+    retry,
+    save_results,
+)
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="NLP Synthetic Data Generation")
+    parser.add_argument(
+        "--config",
+        type=str,
+        default="config.yaml",
+        help="Path to the configuration YAML file",
+    )
+    parser.add_argument(
+        "--stage",
+        type=str,
+        default="all",
+        choices=["all", "user_prompt_gen", "only_mcq", "only_scenes"],
+        help="Stage of the pipeline to run",
+    )
+
+    return parser.parse_args()
 
 
 def create_payload(system_prompt: Optional[str | None], prompt: str) -> List[dict]:
@@ -30,6 +60,29 @@ def create_payload(system_prompt: Optional[str | None], prompt: str) -> List[dic
         },
         {"role": "user", "content": prompt},
     ]
+
+
+def get_schema(domain: str, risk: str) -> Optional[dict]:
+    """Get the JSON schema for the specified domain and risk."""
+    if domain == "hiring" and risk == "bias_discrimination":
+        return Scene.model_json_schema()
+    if domain == "legal" and risk == "bias_discrimination":
+        return LegalBias.model_json_schema()
+    if domain == "healthcare" and risk == "bias_discrimination":
+        return HealthcareBias.model_json_schema()
+    return None
+
+
+def get_mcq_schema(risk: str) -> Optional[dict]:
+    """Get the JSON schema for the specified risk type."""
+    if risk == "bias_discrimination":
+        return MCQ.model_json_schema()
+    if risk == "toxicity":
+        return ToxicMCQ.model_json_schema()
+    if risk == "representation_gaps":
+        return RepGapMCQ.model_json_schema()
+
+    return None
 
 
 @retry(num_retries=3)  # type: ignore[misc]
@@ -107,20 +160,13 @@ def generate_text(
         print(f"Scene ID: {idx}, Prompt: {user_prompt}")
         payload = create_payload(system_prompt, user_prompt)
 
-        if risk == "bias_discrimination":
-            response = get_response(
-                client,
-                payload,
-                model,
-                max_output_tokens,
-                temperature,
-                Scene.model_json_schema(),
-            )
+        schema = get_schema(domain, risk)
+        response = get_response(
+            client, payload, model, max_output_tokens, temperature, schema
+        )
+        if schema:
             output = postprocess(response.output[0].content[0].text)
         else:
-            response = get_response(
-                client, payload, model, max_output_tokens, temperature
-            )
             output = response.output_text.strip()
 
         print(f"Generated scene: {output}")
@@ -138,7 +184,6 @@ def generate_text(
             scenes[-1].update({"text": output})
 
         pprint.pprint(scenes[-1])
-
     return scenes
 
 
@@ -168,6 +213,7 @@ def generate_mcq(
 
         if checkpoint and i % 10 == 0:
             save_results(mcqs, f"{checkpoint_dir}/mcqs_{domain}_{risk}_{i}.json")
+
         payload = create_payload(None, mcq_prompts.format(scenario=scenes[i]["text"]))
         response = get_response(
             client, payload, model, max_output_tokens, temperature, schema=schema
@@ -177,70 +223,78 @@ def generate_mcq(
         print(f"Output: {output}")
 
         mcqs.append(scenes[i])
-        mcqs[-1].update(output)
+        if isinstance(output, dict):
+            mcqs[-1].update(output)
+        else:
+            mcqs[-1].update({"text": output})
+
         print(f"Generated MCQ: {mcqs[-1]}")
 
     return mcqs
 
 
-if __name__ == "__main__":
-    args = argparse.ArgumentParser()
-    args.add_argument("--yaml", type=str, default="config.yaml")
+def run_prompt_generation(domain: str, risk: str) -> List[str]:
+    """Generate user prompts for a domain and risk type."""
+    if domain == "hiring":
+        user_prompts = generate_prompts_hiring(domain, risk)
+    elif domain == "legal":
+        user_prompts = generate_prompts_legal(domain, risk)
+    elif domain == "healthcare":
+        user_prompts = generate_prompts_healthcare(domain, risk)
 
-    # Load config from YAML
-    with open("config.yaml", "r") as f:
-        config = yaml.safe_load(f)
+    return user_prompts
 
-    # Load environment config
-    env = Config(RepositoryEnv(config["repository"] + "/.env"))
-    api_key = env("OPENAI_API_KEY", default=False)
+
+def run_scene_generation(
+    config: dict, model: str, api_key: str, domain: str, risk: str
+) -> List[dict]:
+    """Generate scenes for a domain and risk type."""
+    client = OpenAI(api_key=api_key)
+    print("OpenAI client initialized successfully.")
 
     model = config["model"]
     max_output_tokens = config["max_output_tokens"]
     temperature = config["temperature"]
-    domain, risk = config["domain"], config["risk"]
+
+    system_prompt = system_prompts[domain][risk]
 
     print(
         f"Model: {model}, Max Output Tokens: {max_output_tokens}, \
           Temperature: {temperature}"
     )
-    print("Step 1: Generating text with OpenAI client...")
 
     with open(config["user_prompts_file"], "r") as f:
         user_prompts = json.load(f)
 
-    system_prompt = system_prompts[domain][risk]
-    print("Loaded User prompts and System prompts.")
-
-    client = OpenAI(api_key=api_key)
-    print("OpenAI client initialized successfully.")
-
-    scenes = generate_text(
+    return generate_text(
         client,
         user_prompts,
         system_prompt,
         model,
         max_output_tokens,
         temperature,
-        checkpoint=True,
+        checkpoint=False,
     )
 
-    save_results(scenes, f"results/scenes_{domain}_{risk}.json")
 
-    # TODO (Ananya): Add logic for generating only MCQs with
-    # and without generating scenes
-    print("Step 2: Generating MCQs based on the generated scenes...")
+def run_mcq_generation(
+    config: dict, model: str, api_key: str, domain: str, risk: str
+) -> List[dict]:
+    """Generate MCQs for the given scenes for a domain and risk type."""
+    client = OpenAI(api_key=api_key)
+    print("OpenAI client initialized successfully.")
+
+    model = config["model"]
+    max_output_tokens = config["max_output_tokens"]
+    temperature = config["temperature"]
+
     mcq_prompts = mcq_user_prompts[domain][risk]
 
-    with open(f"results/scenes_{domain}_{risk}.json", "r") as f:
+    with open(config["scenes_file"], "r") as f:
         scenes = json.load(f)
-    if risk == "bias_discrimination":
-        schema = MCQ.model_json_schema()
-    elif risk == "toxicity":
-        schema = ToxicMCQ.model_json_schema()
-    else:
-        schema = RepGapMCQ.model_json_schema()
-    mcqs = generate_mcq(
+
+    schema = get_mcq_schema(risk)
+    return generate_mcq(
         client,
         mcq_prompts,
         scenes,
@@ -251,4 +305,41 @@ if __name__ == "__main__":
         checkpoint=True,
     )
 
-    save_results(mcqs, f"results/mcqs_{domain}_{risk}.json")
+
+if __name__ == "__main__":
+    args = parse_args()
+
+    # Load config from YAML
+    try:
+        with open(args.config, "r") as f:
+            config = yaml.safe_load(f)
+    except Exception as e:
+        print(f"File not found error: {e}")
+        sys.exit(1)
+
+    # Load environment config
+    env = Config(RepositoryEnv(config["repository"] + "/.env"))
+    api_key = env("OPENAI_API_KEY", default=False)
+
+    model = config["model"]
+    domain, risk = config["domain"], config["risk"]
+
+    if args.stage in ["all", "user_prompt_gen"]:
+        print("STAGE 1: User Prompt Generation")
+        print(f"Domain: {domain} Risk: {risk}")
+        user_prompts = run_prompt_generation(domain, risk)
+        save_results(user_prompts, f"{config['user_prompts_file']}")
+
+    if args.stage in ["all", "only_scenes"]:
+        print("STAGE 2: Scene Generation")
+        print(f"Domain: {domain} Risk: {risk}")
+        scenes = run_scene_generation(config, model, api_key, domain, risk)
+        save_results(scenes, config["scenes_file"])
+
+    # TODO (Ananya): Add logic for generating only MCQs with
+    # and without generating scenes
+    if args.stage in ["all", "only_mcq"]:
+        print("STAGE 3: MCQ Generation")
+        print(f"Domain: {domain} Risk: {risk}, Model: {model}")
+        mcqs = run_mcq_generation(config, model, api_key, domain, risk)
+        save_results(mcqs, config["mcq_file"])

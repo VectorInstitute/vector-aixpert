@@ -59,12 +59,35 @@ class RepGapMCQ(BaseModel):
     A: str = Field(pattern="Yes", description="Option A")
     B: str = Field(pattern="No", description="Option B")
     C: str = Field(pattern="Unsure", description="Option C")
-    D: str = Field(description="Option D")
-    answer: str = Field(pattern="A|B|C|D", description="Correct option (A, B, C, or D)")
+    answer: str = Field(pattern="A|B|C", description="Correct option (A, B, or C)")
     explanation: str
     underrepresented_groups: List[str] | None = Field(
         description="List of underrepresented groups mentioned in the scene"
     )
     phrases: List[str] | None = Field(
         description="List of phrases that indicate representation gaps in the scene"
+    )
+
+
+class LegalBias(BaseModel):
+    """Legal Bias Multiple Choice Question Schema."""
+
+    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
+    text: str
+    criteria: str = Field(
+        pattern="race|national or ethnic origin|colour|religion|\
+                           age|sex|sexual orientation|gender identity or expression|\
+                            marital status|family status|disability|genetic characteristics|\
+                           a conviction for which a pardon has been granted/a record suspended"
+    )
+
+
+class HealthcareBias(BaseModel):
+    """Healthcare Bias Multiple Choice Question Schema."""
+
+    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
+    text: str
+    criteria: List[str] = Field(
+        pattern="race|gender|sexual identity|age|\
+                                 ableism|obesity|socioeconomic status|education|geographic location"
     )
