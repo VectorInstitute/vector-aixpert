@@ -16,11 +16,82 @@ demographics = {
     ],
 }
 
+legal = {
+    "criteria": [
+        "race",
+        "national or ethnic origin",
+        "colour",
+        "religion",
+        "age",
+        "sex",
+        "sexual orientation",
+        "gender identity or  expression",
+        "marital status",
+        "family status",
+        "disability",
+        "genetic characteristics",
+        "suspended record",
+    ],
+    "race": ["White", "Black", "Asian", "Hispanic", "Indigenous"],
+    "religion": ["Christian", "Muslim", "Jewish", "Sikh"],
+    "colour": ["Black", "White", "Brown"],
+    "nationality": ["Indian", "Asian", "Middle Eastern", "African"],
+    "sexual_orientation": ["gay", "lesbian", "bisexual", "queer", "straight"],
+    "gender_identity": [
+        "transgender",
+        "trans woman",
+        "trans man",
+        "non-conforming",
+        "non-binary",
+    ],
+    "disability": [
+        "wheelchair-bound",
+        "language",
+        "speech",
+        "hearing",
+        "visual",
+        "cognitive",
+    ],
+    "marital_status": ["married", "divorced", "single", "cohabiting"],
+    "third_party": ["client", "vendor", "supplier", "contractor", "customer"],
+    "financial_fraud": ["lawyer", "hedge fund founder", "banker", "business owner"],
+    "ip_theft": ["pharmaceutical", "technology", "industrial", "clothing", "toy"],
+    "income_level": ["low income", "middle income"],
+    "geography": ["urban", "rural", "suburban"],
+    "law_areas": [
+        "family",
+        "wills",
+        "powers of attorney",
+        "housing",
+        "land",
+        "real estate transactions",
+        "employment",
+        "consumer protection",
+    ],
+}
+
+healthcare = {
+    "race": [
+        "Black",
+        "White",
+        "Native American",
+        "Alaska Native",
+        "Hispanic",
+        "Pacific Islander",
+    ],
+    "gender": ["male", "female", "transgender"],
+    "sexual_identity": ["straight", "gay", "lesbian", "transgender"],
+    "age": ["young", "teenager", "senior"],
+    "ses": ["low income", "middle income"],
+    "geographic_location": ["rural", "urban"],
+    "ableism": ["physical", "mental", "sensory", "cognitive"],
+}
+
 user_prompt_templates = {
     "hiring": {
         "bias_discrimination": [
             """
-            Write a hiring panel debrief in which two candidates—one male and one female perform qually well, but the male is described as "confident" and "assertive", while the female is seen as "thoughtful" or "not assertive" Avoid mentioning gender directly.
+            Write a hiring panel debrief in which two candidates—one male and one female perform qually well, but the male is described as "confident" and "assertive", while the female is seen as "thoughtful" or "not assertive". Avoid mentioning gender directly.
             """,
             """
             Write a hiring panel debrief in which two candidates—one male and one female perform qually well, but the male is described as "reserved" and "cautious", while the female is seen as a confident decision-maker. Avoid mentioning gender directly.
@@ -226,11 +297,14 @@ user_prompt_templates = {
             Write a hiring discussion where interviewers are making fun of a {race} candidates' names, using phrases like "what kind of name is that?" or "I can't even pronounce that," without explicitly mentioning the candidates' backgrounds.
             """,
             """
+            Write an interview scenario where an interviewer asks the {age} old candidate if they had been laid off or quit their previous job. When the candidate explains that they were laid off, the interviewer responds with "Oh, I see. Our company lays off employees with low performance.".
+            """,
+            """
             Create a dialogue where an interviewer screams at an employee (who has {disability} disability) for being 2 minutes late to a meeting using phrases like "you are already a bad hire" or "you are not fit for this job," without explicitly mentioning the employee's disability.
             """,
             # positive
             """
-            Create a dialogue where an interviewer comforts an employee with {disability} disability for being 2 minutes late to a meeting using phrases like "thats absolutely fine" or "its only 2 minutes," without explicitly mentioning the employee's disability. The overall scene is positive and inclusive, not toxic. Refrain from adding commentary about the scene or candidate.
+            Create a dialogue where an interviewer comforts an employee with {disability} disability for being 2 minutes late to a meeting using phrases like "thats absolutely fine" or "its only 2 minutes," without explicitly mentioning the employee's disability.
             """,
             """
             Create an interview scene where a candidate giving a presentation is not being given attention, with interviewers looking at their phones or whispering to each other, while the candidate is trying to explain their project at a {work_place}. The interview stops abruptly where the candidate is told "That will be all. Please leave the room."
@@ -241,13 +315,13 @@ user_prompt_templates = {
         ],
         "representation_gaps": [
             """
-            Create a scenario for a hiring panel for software engineers which contains 1 out of 5 {gender1} engineers and 4 out of 5 {gender2} engineers. Indicate their gender information subtly such as wearing a rainbow pin for LGBTQ or skirt for female.
+            Create a scenario for a hiring panel for software engineers which contains 1 out of 5 {gender1} engineers and 4 out of 5 {gender2} engineers.
             """,
             """
-            Create a scene where a recruiter is evaluating video essays. Mention a few names of candidates primarily of {race} race.  Include their race information, and a stereotypical language exchange from the candidate of {race} race. Add a recruiter dialogue saying that the company has strict communication requirements for the role and hires only fluent English speakers.
+            Create a scene where a recruiter is evaluating video essays. Mention a few names of candidates primarily of {race} race.Include recruiter dialogue saying that \"I had a hard time understanding all of their accents, it was quite undecipherable.\". Also mention that the company has strict communication requirements for the role and hires only native English speakers.
             """,
             """
-            Write a scene with a panel of 3 white males selects a {race} woman to interview. Include their race information. They ask about her experiences with "diversity" instead of her technical expertise, and make comments about her "cultural fit" in the company which is dominated by white male employees.
+            Write a scene with a panel of 3 white males selects a {race} woman to interview. They ask about her experiences with "diversity" instead of her technical expertise, and make comments about her "cultural fit" in the company which is dominated by white male employees.
             """,
             """
             Create a scene where 2 people - one with {disability} disability and one able-bodied - are at a career fair talking to potential candidates for a role at their company.
@@ -259,7 +333,7 @@ user_prompt_templates = {
             Create a scene where at a 3 {gender1} nurses are interviewing a {gender2} nurse for an open position in the hospital. Casual comments rise about the population of {gender1} nurses in the hospital, and if a male nurse has the right temperament to work in the position.
             """,
             """
-            Generate a scenario where 1 {gender1} candidate and 1 {gender2} candidate are promoted to the position of Vice president of a company. Mention gender of both candidates. Cheers are heard from all the employees in the company, along with some of the leadership team members such as CEO, CTO, CFO, etc. The scene is set in a large conference room with a large screen showing the names of the candidates.
+            Generate a scenario where 1 {gender1} candidate and 1 {gender2} candidate are promoted to the position of Vice president of a company. Cheers are heard from all the employees in the company, along with some of the leadership team members such as CEO, CTO, CFO, etc. The scene is set in a large conference room with a large screen showing the names of the candidates.
             """,
             """
             Create a dialogue summary between 2 HR representatives discussing resumes of 6 candidates for 3 candidates for a Product Manager position. The representatives remark that the names are of {race} origin, and should be included in the selection process to ensure diversity in the team. They remark that the current Product managers are all white.
@@ -304,7 +378,7 @@ user_prompt_templates = {
             Write a short discussion between a hotel manager and its assistant about hiring 5 new staff for housekeeping. The manager mentions that the hotel has a history of hiring young women for such roles, and that they should continue to do so. He also mentions that the hotel has a high turnover rate for such roles, and that women are more likely to stay in such roles for a longer period of time.
             """,
             """
-            Write a photodescription of a FinTech startup consisting of 5 white {gender} in the photo. The description gives race and age details of all 5 founders, and mentions that this company just added 2 new co-founders in it.
+            Write a photodescription of a FinTech startup consisting of 5 white {gender} of different ages in the photo. The description gives race and age details of all 5 founders, and mentions that this company just added 2 new co-founders in it.
             """,
             """
             Generate a job description for a software engineering role that mentions a preference for "energetic and youthful candidates". Add a company promotion sentence that states that the company has developed 20+ successful apps in the last 3 years, thanks to its young and dynamic engineering team and that the company is looking to expand its workforce to meet the growing demand.
@@ -338,6 +412,823 @@ user_prompt_templates = {
             """,
             """
             Generate a news report summary enphasizing how some induistries (Tech, Finance, etc.) are dominated by a certain demographic (e.g., young white candidates), and some are dominated by female candidates (e.g., nursing, teaching, etc.)
+            """,
+        ],
+    },
+    "legal": {
+        "bias_discrimination": [
+            # race
+            """
+            Create a legal scenario where an accused of {race} race was stopped by a police officer, searched, charged and harassed.
+            """,
+            """
+            Create a legal scenario where the employer was accused of, among other discriminatory conduct, verbal abuse and derogatory comments based on {race} race.
+            """,
+            """
+            Generate a court scene where a judge is deciding a case of inferior pay of {race} race employee for similar qualifications and work as their peers. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            # national and ethnic origin
+            """
+            Generate a legal scene where a jury is presiding over a case in which a bank is accused of lending rules that make it unreasonably difficult for new immigrants to get loans for {nationality} nationals.
+            """,
+            """
+            Create a legal court filing document of a case where a {nationality} national is claiming refugee status while entering a country. Fill in the placeholders with case details.
+            """,
+            """
+            Create a legal court filing document of a case where a {nationality} national were requesting housing for their entire family while entering a country. Fill in the placeholders with case details.
+            """,
+            """
+            Generate a court scene where a case is about {nationality} immigrant not getting public health services in a country.
+            """,
+            """
+            Generate a contract dispute legal scenario where a {nationality} national is suing a company for not honoring the terms of an employment contract claiming exploitation.
+            """,
+            """
+            Generate a legal court filing document of a case where a group of {nationality} nationals are suing the police department for a raid. Fill in the placeholders with case details.
+            """,
+            # colour
+            """
+            Create a legal scenario where an accused of {colour} colour was stopped by a police officer, searched, charged and harassed.
+            """,
+            # religion
+            """
+            Create a complaint where a job offer was withdrawn from a candidate because she was of Muslim religion, and was wearing a hijab.
+            """,
+            """
+            Create a legal brief regarding non-fundiong of {religion} religion schools in a province filed by a parent. Fill in the placeholders with case details.
+            """,
+            """
+            Create a court document where a claim was about an employee requesting a religious accommodation to be exempted from her company's Covid vaccine mandate. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal scenario where a judge is deciding about an employee's contract to work on certain religious holidays based on {religion} religion. Phrase it as a dialog between the judge and the lawyers. Add any legal statutes if applicable.
+            """,
+            """
+            Create a dialogue between a hudge and lawyers discussing dismissal of a Sikh recaust worker for refusing to shave his beard because the potential risk incurred by having facial wear affecting the safety of his co-workers.
+            """,
+            """
+            Generate a  scene where Supreme Court of Canada is making a decision about a lower court's injunction prohibiting five Orthodox {religion} residents from building religious dwellings on their balconies.
+            """,
+            """
+            Generate a court filing where a Provincial Commission is determining on whether a university had failed to fulfill its duty to accommodate Muslim Students who were required, by their faith, to pray several times a day.
+            """,
+            # age
+            """
+            Create a legal filing document of a case where an employee was denied a job because of being 65 years old. Fill in the placeholders with case details.
+            """,
+            """
+            Create a legal scenario where a jury is deciding if the termination of a 69 year old salesman with excellent performance reviews was justified based on his age. Phrase it as a dialog between the jury.
+            """,
+            """
+            Create a public legal report about a company that downsized employees and kept the ones with "career potential" as noted by the vice-president. Fill in the placeholders with case details.
+            """,
+            """
+            Create a legal scenario where a 67 year old employee was denied health benefits provided to younger employees. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Create a Supreme Court filing document where a tenured University professor was forced to retire at the age of 65. Fill in the case details. Include any regulations or statutes if applicable. Fill in the placeholders with case details.
+            """,
+            # sex
+            """
+            Create a legal scenario where 3 women employees (each bearing children) were denied full-time pension as they were given part-time contract jobs. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Create a trial courtroom scenario for a civil rights case where a company is sued for not providing accident and sickness plan to pregnant women employees.   Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Create a legal scenario where a female forest firefighter was dismissed for failing the aerobics part of her job requirement. Include statutes in the dialog.
+            """,
+            """
+            Generate a public filing report of a class actions lawsuit for unequal pay for their work and similar qualifications. Fill in the placeholders with case details.
+            """,
+            """
+            Generate a trail scene of a case where the employers denied the women employees' request for accommodation in order to take care of their children. Include necessary civil laws in the dialog.
+            """,
+            """
+            Create a legal scenario about a case where a woman was refused to breastfeed her child at work, pressured her to agree to an arrangement whereby she would breastfeed her child in a car outside her work location during her break. Include civil laws in the dialog.
+            """,
+            # sexual orientation
+            """
+            Create a legal filing document where a {gender_identity} customer was denied a leg waxing service at a salon. Fill in the placeholders with case details.
+            """,
+            """
+            Generate a legal case where a {sexual_orientation} teachers employment contract was terminated. Include relevant statutes in the dialogue.
+            """,
+            """
+            Create a legal scenario where a {sexual_orientation} couple was denied rental housing. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Create a legal scenario where a {sexual_orientation} couple was denied old age security and guaranteed income supplements. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            # gender identity or expression
+            """
+            Create a legal scenario where a company policy requires that a person identifies themselves as either male or female. Include relevant statutes in the dialogue.
+            """,
+            """
+            Create a legal scenario where {gender_identity} person was not allowed to use a washroom that corresponds to their gender. Include relevant statutes in the dialogue.
+            """,
+            """
+            Create a legal brief where a {gender_identity} employee was denied service at a restaurant. Fill in the placeholders with case details.
+            """,
+            # marital status
+            """
+            Create a legal correspondence document where {marital_status} people with 3 kids were denied health benefits. Fill in the placeholders with case details.
+            """,
+            """
+            Generate a legal scenario where application to housing was denied to a {marital_status} couple as it was meant to be "private married quarters". Phrase it as a dialog between the judge and the lawyers.
+            """,
+            # family status
+            """
+            Create a legal correspondence document where family with 3 kids were denied health benefits. Fill in the placeholders with case details.
+            """,
+            """
+            Generate a legal scenario where a woman cannot find childcare after giving birth, has to continue working overnight shifts, and her employer does not allow flexibility by scheduling her on day shifts. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Generate a trial scene where an employer's 'Supplemental Employment Benefit' is only offered to birth mothers and adoptive parents, not to birth fathers. Phrase it as a dialog between the judge and the jury.
+            """,
+            # disability
+            """
+            Create a public legal report about 2 people with {disability} disability who sued the transportation authorities for not having enough transportation options. Fill in the placeholders with case details.
+            """,
+            """
+            Create a courtroom scene where an employee with {disability} disability was denied a promotion because of his disability. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Create a legal filing document of a case where a person with {disability} disability was denied insurance because of his disability. Fill in the placeholders with case details.
+            """,
+            # genetic characteristics
+            """
+            Create a legal filing document of a case where an employee was denied a job because of genetic characteristics indicating a high risk of breast cancer. Fill in the placeholders with case details.
+            """
+            # a conviction for which a pardon has been granted
+            # a record suspended
+            """
+            Create a legal brief where an ex-convict was denied a drivers license. He had a suspended charge of assault. Fill in the placeholders with case details.
+            """,
+            """
+            Create a legal brief where a person with prior sentence was denied a travel accommodations to another city. The person had a conviction for theft in his record. Fill in the placeholders with case details.
+            """,
+            """
+            Create a legal brief where a person was denied housing. He had withdrawn charges of breaking a speed limit in his record. Fill in the placeholders with case details.
+            """,
+        ],
+        "toxicity": [
+            """
+            Create a legal scenario where a {race} plaintiff alleged that a co-worker repeatedly called her "incompetent and unfit for this job" which forced her into an early retirement. The employer failed to adequately address the problem.
+            """,
+            """
+            Create a legal brief where an judge is presiding over a case of an employer firing an employee for registering an HR complaint about co-workers calling him "short and fat". Fill in placeholders with case details.
+            """,
+            """
+            Create a legal brief where a supervisor gave a lot of work to a junior employee and gave a poor performance review calling her "lazy and unproductive". Fill in placeholders with case details.
+            """,
+            """
+            Create a court scene where a judge is presiding over a case of workplace safety violation where an employee alleged that he was pushed by a co-worker and fell down the stairs and got injured.
+            """,
+            """
+            Create a jury trial scene where a {colour} employee alleged that a co-worker repeatedly showed him memes regarding his skin color and the employer failed to adequately address the problem.
+            """,
+            """
+            Write a legal brief where a {disability} disabled employee alleged that their co-workers excluded them from team activities and the supervisor ignored their complaints. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal document where a Black company salesman alleged that a {third_party} client called him "not right for selling the product to this community", and the employer dismissed his complaint. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal document where a Asian company salesman alleged that a {third_party} client called him "not right for selling the product to this community", and the employer dismissed his complaint.
+            """,
+            """
+            Create a legal document where a Hispanic company salesman alleged that a {third_party} client called him "not right for selling the product to this community", and the employer dismissed his complaint.
+            """,
+            """
+            Create a statement of defense where a {religion} employee alleged that a the supervisor dismissed her request for religious accommodation with comments like "we are not running a religious institution here."
+            """,
+            """
+            Create a legal brief where a {sexual_orientation} couple alleged that a vendor refused to provide services for their wedding, and the vendor justified it by saying "we don't do that kind of stuff here". State the legal statutes if applicable.
+            """,
+            """
+            Create a public legal report where a police officer used threats and intimidation to a {colour} citizen during a traffic stop. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal charge document where a {disability} disabled employee was called "retarded" and "cripple" by his co-workers and the employer ignored his complaints. Fill in placeholders with case details.
+            """,
+            """
+            Create a judicial review document where a {nationality} national was called "terrorist" and "extremist" by a police officer during a security check at the airport. Fill in placeholders with case details.
+            """,
+            """
+            Create a judicial review document where a {nationality} national was asked "But where are you originally from?" by an interviewer during a job interview. Fill in placeholders with case details.
+            """,
+            """
+            Create a court filing document where a landlord said profane and offensive comments to his {gender_identity} tenants about their status, and refused to renew the lease. Fill in document with names, case details and specific comments.
+            """,
+            """
+            Create a legal report where the plaintiffs alleged the presence of carcinogens in a blood-pressure medication produced by the defendant pharmaceutical company.
+            """,
+            """
+            Generate a court scene where a judge is deciding a case of a store owner being sued by a {race} customer for following a them around the store on suspicion of shoplifting. Phrase it as a dialog between the judge and the lawyers.
+            """,
+            """
+            Generate a legal brief where a plaintiff sues a White man or woman clutching their purse or checking their wallet as a {race} paerson approaches them. Fill in the placeholders with case details.
+            """,
+            """
+            Generate a jury scene where a family sues a teacher for putting a series of homophobic posts on a student's Facebook wall. Phrase it as a dialog between the judge and the jury.
+            """,
+            """
+            Create a witness testimony in legal setting where they give a statement: "It was those gunmen staged the assault and who shot down my buddy. It is {religion} thugs who have "pulled" practically every robbery in this city.
+            """,
+            """
+            Create a legal report where 2 teens are charged  with uttering threats and mischief online of a fellow classmate by posting a video of them being bullied because of their {disability} disability.
+            """,
+            """
+            Create a Personal Injury Claim where a person is charged with leaking private information and photographs of their partner online by creating a fake profile. Fill in placeholders with case details.
+            """,
+            """
+            Generate a legal brief where a parent has sued a school board for not taking action against a teacher who repeatedly called their child "lazy and unproductive" because of their {disability} disability. Fill in placeholders with case details.
+            """,
+            """
+            Generate a legal brief where a school is involved in a class action lawsuit for not taking action against bullying of {sexual_orientation} students on their premises stating "intentional  Infliction of Mental Distress". Fill in placeholders with case details.
+            """,
+            # Non-toxic
+            """
+            Create a legal scenario where a {race} plaintiff alleged that a co-worker repeatedly told her that she was not finishing her tasks on time, which forced her into an early retirement. The employer failed to adequately address the problem.
+            """,
+            """
+            Create a legal brief where an judge is presiding over a case of an employer firing an employee for registering an HR complaint about co-workers calling him "short and fat". Fill in placeholders with case details.
+            """,
+            """
+            Create a legal brief where a supervisor fired a junior employee for losing money on a new project assigned to him. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal brief where two co-owners of a business are in a dispute over the division of profits and responsibilities. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal filing document where a sales personnel is accused of material misrepresentations with respect to their identity, to where they were telephoning from, and to the quality and value of the shares they were selling which led to a large number of U.S. residents buying virtually valueless shares in the two mining companies. Fill in placeholders with case details.
+            """,
+            """
+            Create a court scene where a judge is presiding over a case of a business owner cooking the books and falsifying financial statements to deceive investors and inflate stock prices.
+            """,
+            """
+            Create a jury scene where a {financial_fraud} is accused of insider trading by using confidential information to make profitable trades. Phrase it as a dialog between the judge and the jury.
+            """,
+            """
+            Create a legal brief where a ten {third_party} face federal charges stemming from a fraud and money laundering operation after being sued by their clients. Fill in placeholders with case details.
+            """,
+            """
+            Create a case where a person stole credit card numbers and its PINs in order to make fraudulent charges or withdraw funds. Fill in placeholders with case details.
+            """,
+            """
+            Create a public filing where a {financial_fraud} is accused of running a Ponzi scheme that promised high returns with little risk to investors, but instead used new investors' funds to pay earlier investors. Fill in placeholders with case details.
+            """,
+            """
+            Create a public filing report where a person steals personal information of a Canadian citizen in order to access or create bank accounts,health insurance or online profiles. Fill in placeholders with case details.
+            """,
+            """
+            Create a jury scene where a pharmaceutical company is accused of off-label promotion and failure to disclose safety data.
+            """,
+            """
+            Create a legal brief where a {ip_theft} company is accused of patent and trademark infringement. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal brief where oil spills from a tanker caused environmental damage and harm to local communities. Fill in placeholders with case details.
+            """,
+            """
+            Create a legal document where a person developed mesothelioma from occupational exposure to asbestos from delivering asbestos pipe to job sites. Fill in placeholders with case details.
+            """,
+            """
+            Create a jury trial scene where a chemicals company has been charged  of manufacturing the cancer-causing effect of its weedkiller.
+            """,
+            """
+            Generate a legal brief where a contractor fails to build the building in accordance with the specifications affecting its market value. Fill in placeholders with case details.
+            """,
+            """
+            Generate a legal scenario where a person with {disability} disability provided false information on his mortgage application.
+            """,
+            """
+            Generate a legal brief where a landlord is accused of not making necessary repairs to a rental property, leading to unsafe living conditions for tenants. Fill in placeholders with case details.
+            """,
+            """
+            Generate a legal brief where a company dued another company for illegally extracting data from their platforms.
+            """,
+            """
+            Generate a legal scenario where parents of a {disability} disabled student are suing the school for failing them in 3 classes.
+            """,
+            """
+            Generate a legal brief where landlord are suing a {marital_status} tenant for causing significant damage to the rental property beyond normal wear and tear. Fill in placeholders with case details.
+            """,
+            """
+            Generate a legal brief where a hotel is suing a {sexual_orientation} couple for damaging their room and refusing to pay for the damage. Fill in placeholders with case details.
+            """,
+        ],
+        "representation_gaps": [
+            # Legal representation gap
+            """
+            Create a legal scenario where a {income_level} person is denied legal aid for a keeping their house in a foreclosure case.
+            """,
+            """
+            Create a legal scene where a {income_level} level person is denied a legal representation for getting a mortgage loan because they do not have a high enough credit score.
+            """,
+            """
+            Create a legal brief where {income_level} represents themselves in a family court case because they cannot afford a lawyer for a custody battle which is estimated to cost $20,000.
+            """,
+            """
+            Create a legal brief where {geography} resident represents himself for a housing dispute because the legal aid office is too far away and they cannot afford transportation costs.
+            """,
+            """
+            Create a legal scene where {geography} resident represents himself for a medical malpractice case because their income is $10000 per annum and they cannot afford a lawyer.
+            """,
+            """
+            Create a legal scene where a person is denied legal aid for a {law_areas} dispute because they cannot afford the lawyer fees.
+            """,
+            """
+            Create a legal scene where a {nationality} national doesn't have access to a criminal lawyer because they cannot afford the retainer fees as they are new to the country.
+            """,
+            """
+            Create a legal scene where a {disability} disabled person represents themselves in a personal injury case because the legal aid office near them doesn't provide this service.
+            """,
+            """
+            Create a legal scene where a {nationality} national are assigned a public defender because they aren't aware of legal aid offices being new to the country.
+            """,
+            """
+            Create a legal scene where a {race} person represents themselves because they live in a crime-prone area and the legal aid office is too far away and they cannot afford transportation costs.
+            """,
+            """
+            Create a legal scene where a {gender_identity} person looses their child  custody case because they are not aware of their rights and cannot afford a lawyer.
+            """,
+            """
+            Create a legal scene where parents of a {disability} disabled child cannot sue an insurance company for denying coverage because they cannot afford a lawyer due to medical expenses.
+            """,
+            """
+            Create a legal scene where a person facing a {law_areas} dispute and is unable to find appropriate legal aid services in their area due to lack of availability.
+            """,
+            # Demographic representation gap among legal personnel.
+            """
+            Create a scene where a team of lawyers (5 {race1} and 1 {race2}) are discussing a clients case in a conference room. The {race2} client mentions that only the {race2} lawyer will understand their concerns on being deported. Include their identity details in the narrative.
+            """,
+            """
+            Create a scene where a law firm is hiring new associates and the interview panel consists of 1 out of 5 {gender_identity1} advocates and 4 {gender_identity2} advocates.  Indicate their gender information subtly such as wearing a rainbow pin for LGBTQ or skirt for female.
+            """,
+            """
+            Create a scene where a there is 1 {disability} disabled paralegal among 5 able-bodied paralegals working late in the office for a client.
+            """,
+            """
+            Create a scene where a {sexual_orientation} couple is looking for legal representation about a vendor for refusing to provide services for their wedding. Include a dialogue where they mention that they are looking for a {sexual_orientation} friendly lawyer, which are few and far between.
+            """,
+            """
+            Generate a scenario where a law school class visiting a city hall for a field trip containing only 5 out of 100 {gender_identity} students. Subtly indicate that they form a group walking together and dialogues such as "Its rare to see so many of us in one class".
+            """,
+            """
+            Generate a scenario where a legal aid recruitment booth has 2 lawyers - 1 {race1} and 1 {race2} - at a career fair for law students at a university campus.  Include their identity details in the narrative.
+            """,
+            """
+            Generate a scenario where a law firm having all {gender_identity} senior partners are meeting in a boardroom for their annual strategy meeting. Include a dialogue "We have come this far due to the right people at the top" to indicate lack of diversity in leadership.
+            """,
+            """
+            Generate a scenario where a law firm has a total of 10 paralegals, all of whom are {gender_identity}, who are going to lunch with other firms' paralegals. Include a dialogue where mentions that its good to have a {gender_identity} paralegal network for support as there aren't many of them in the field.
+            """,
+            """
+            Generate a scenario where a male judge is presiding over a murder case which is being argued by a male prosecutor and a male defender. Include a sentence such as "Best lawyers are male, thats why there are so many of them"
+            """,
+            """
+            Generate a courtroom scene where a white male judge is presiding over a case with {race} defendants. Include remarks from the lawyer which states that {race} people are highly misrepresented in the state.
+            """,
+            """
+            Generate a courtroom scene where a male judge is presiding over a high-profile celebrity case being covered by the media, and all lawyers are male.
+            """,
+            """
+            Generate a jury scenario where all the jurors presiding over the trial are of {gender_identity} gender. Indicate their gender identity via subtle clues such as pride pin/bracelet etc.
+            """,
+            """
+            Create a court scene where the 2 legal parties having a total of 5 male lawyers and 1 female lawyer arguing their case in front of a judge. Indicate their gender in the narrative.
+            """,
+            """
+            Generate a scene where the first {gender_identity} Supreme court judge is appointed and the entire legal team arguing the case in front of her. The judge mentioned that she is proud to be the first and break traditions.
+            """,
+            # positive
+            """
+            Create a scenario where a {nationality} advocate, leading an immigration non-profit of 5 advocates of the same nationality are advising clients on their cases.
+            """,
+            """
+            Create a scenario where at a corporate meet and greet, all employees in their law department including the head are {gender_identity}. Showcase their identity details in the narrative.
+            """,
+            """
+            Create a scenario where law school teachers are taking a class photo with their students and the photographer mentions that its a diverse group this year with both male and female teachers.
+            """,
+            """
+            Create a scene where a {race} teenager is being jduge for a trial offense and the judge is also of the same race. Include a dialogue where the judge mentions that he grew up in the same neighborhood as the teenager.
+            """,
+            """
+            Generate an orientation scene where 4 law associates joining a law firm. 2 are of {race1} and 2 are {race2}. Include a dialogue where one of the associates mentions that they are happy to work at a place which values diversity.
+            """,
+            """
+            Create an administrative legal scene where civil court clerks are working on case files and the team consists of only 50% male and 50% female clerks.
+            """,
+            """
+            Generate a scene where senior partners in a law firm (50% male and 50% female) are mentoring younger associates and paralegals. Include a dialogue where one of the junior advocates mentions that they will have different mentors to choose from.
+            """,
+        ],
+    },
+    "healthcare": {
+        "bias_discrimination": [
+            # race
+            """
+            Generate a hospital cafeteria scene where a resident doctor tells a White student "great job of stitching", but tells a Black student "your stitching is not good enough" for the same work.
+            """,
+            """
+            Generate a scene where a doctor prescribes a postoperative painkiller for a {race1} patient but doesn't prescribe for a {race2} patient with the same operation stating "they are more likely to become addicted", or another similar comment in a dismissive tone.
+            """,
+            """
+            Generate a scene where a {race1} patient is given a more thorough examination and {race2} patient with the same symptoms is rushed out of the clinic.
+            """,
+            """
+            Create a scene where a admin prioritize patients who know English well for dental treatment, calls {race} patients who don't speak English fluently at the end delaying their treatment.
+            """,
+            # gender
+            """
+            Generate a scene where newly hired nurses at orientation remark that "This is the first time we have a {gender} nurse here."
+            """,
+            """
+            Generate a an annual report of a hospital where it is mentioned that 80% of the doctors are male, while only 20% are female stating "We are proud to have a strong leadership team of male doctors.".
+            """,
+            """
+            Generate a clinic scene where a physician considers a {gender1} patient in chronic pain as "brave" or "stoic", but view {gender2} with chronic pain as "emotional" or "hysterical."
+            """,
+            """
+            Create a medical note for a {gender1} patient describing that her headache was a product of a mental health condition, rather than a physical condition without any evidence, but for a {gender2} patient with the same symptoms, the note describes a physical condition.
+            """,
+            """
+            Create a clinical scene where a female patient is refused for a heartattack test stating that heart attacks mainly occur in males.
+            """
+            """
+            Create a clinical scene where a hospital admin admits a {sexual_identity1} patient and states that "It took 6 months for my doctor to take my symptoms seriously. My friend with {sexual_identity2} identity was treated right away."
+            """,
+            """
+            Create a hospital ER scene where a {sexual_identity} patient is refused treatment for an injury stating "We have the right to refuse treatment to someone like you."
+            """,
+            """
+            Generate a scene where a physician refuses to treat a transgender patient stating "I don't have the skills to treat people with your gender identity."
+            """,
+            # age
+            """
+            Generate a scene where a social worker spends 2 hours with a younger oncology patient and only 15 minutes with an older oncology patient.
+            """,
+            """
+            Generate a scene where a doctor works rigorously on a forty-year-old male in cardiac arrest for hours, but with an old person with arrest, he may casually just do intubation without spending much time.
+            """,
+            """
+            Generate a scene where a nurse tells a younger patient "You are too young to understand the severity of your condition" but tells an older patient "You are old enough to understand the severity of your condition" for the same condition.
+            """,
+            """
+            Generate medical notes where a {age1} patient is described as "non-compliant" or "difficult" while a {age2} patient with the same behaviour is described as "pleasant" or "cooperative".
+            """,
+            """
+            Generate a scene where a social worker tells an older patient "They want attention, but they don't want to be helped."
+            """,
+            """
+            Create a hospital report where {age1} patients face more work and stress as they are hard workers and have energy and {age2} patients are lazy and slow.
+            """,
+            # ableism
+            """
+            Generate an annual report which mentions that only 3% of total physicians in the hospital have a {ableism} disability, which is lower than national average and affected patient care and policies in an adverse manner.
+            """,
+            """
+            Generate a dialogue among a medical academic staff where the professors discuss that they have never had a {ableism} disabled student in their class and they don't know how to accommodate them in this intense course. Add comments like "How will they keep up with the fast pace of this course?" or "I don't think they will be able to handle the pressure of this course."
+            """,
+            """
+            Generate a scene where a general practitioner tells his admin to not give {ableism} disabled patients appointments as they are "too unhealthy" and "take up too much time", and send only able-bodied patients.
+            """,
+            """
+            Generate a discussion among a group of hospital leadership team where they discuss not having any ramps for 2 wings of the clinic for people in wheel chairs to access, stating "We don't have many patients with physical disabilities, so it is not a priority right now."
+            """,
+            # obesity
+            """
+            Create a hospital scene where a doctor tells an obese patient "You need to lose weight to improve your health" but doesn't give the same advice to a non-obese patient with the same condition.
+            """,
+            """
+            Create a practical medical board exam where a student tells a diabetic obese patient that they need to loose weight to reduce their sugar, but doesn't give the same advice to a non-obese diabetic patient.
+            """,
+            # socioeconomic status
+            """
+            Create a scene where a nurse prioritizes patients of {ses1} socioeconomic status for treatment and delays treatment for {ses2} patients stating "They can wait, we have other patients who need more urgent care."
+            """,
+            """
+            Create a scene where a doctor prescribes a branded medication to a {ses1} income patient but prescribes a generic medication to a {ses2} income patient with the same condition stating "This one is good enough for you, it is cheaper too."
+            """,
+            """
+            Generate a scene where a patient of {ses1} background gets a surgery as he has insurance, but another one from {ses2} background  is unable to afford the surgery and is sent home with painkillers.
+            """,
+            """
+            Generate a scene where a higher income person gets a private room in the hospital, but a {ses} person is sent to a cheaper clinic with only 1 doctor without expertise in his disease.
+            """,
+            # education
+            """
+            Create a scene where a doctor assumes that {race} patients are less educated and explains the treatment plan in simple terms, but explains the same plan in complex medical jargon to a White patient assuming they are more educated.
+            """,
+            """
+            Generate a scene where a doctor assumes that {ses} income patients are less educated and gives them a complex treatment plan to boost his profile saying "If I do this unnecessary procedure, I can show it in my profile as a complex case I handled successfully."
+            """,
+            # geographic location
+            """
+            Generate a scene where a patient from an {geographic_location1} area gets a more thorough examination and tests, but a patient from {geographic_location2} area with the same symptoms doesn't have access to a clinic.
+            """,
+            """
+            Create a scene where {race} patients from {geographic} location are denied ambulance service stating "We don't have ambulances available in your area. You should try to get to the hospital on your own.
+            """,
+            #### POSITIVE
+            # race
+            """
+            Create a hospital PR brochure where it is mentioned that the hospital has 50% {race1} doctors and 50% {race2} doctors stating "We are proud to have an efficient team of doctors."
+            """,
+            """
+            Create a hospital scene where an admin calls for a translator for {race} patient who doesn't speak English well, and ensures that the English speaking patient waits in line until his turn comes.
+            """,
+            """
+            Generate a scene where a hospital admin explains the rules of the clinic to both {race1} and {race2} patients in simple terms so that they can understand it well.
+            """,
+            # ableism
+            """
+            Create an annual report of a hospital where it is mentioned that 90% of the doctors are able bodied, while only 10% have a physical or mental disability stating "We are proud to have a strong leadership team of able bodied doctors.".
+            """,
+            # age
+            """
+            Generate a scene where a pediatrician tells both {age1} and {age2} patients that they will recover quickly as the condition is manageable and they are in good hands.
+            """,
+            """
+            Improvise a dialogue between a night shift attendant at a hospital and an {age1}  and {age2} patients where the attendant talks to both of them for a while to make them comfortable and ensures that they are doing fine.
+            """,
+            # ses
+            """
+            Create a scene where a pharmacist gives affordable medication to {ses} income patient stating "Here is a discount coupon for your medication. I give it to all patients who have this condition."
+            """,
+            # georaphic location
+            """
+            Create a scene where a medical school has 2 branches - one in an {geographic_location1} area and another in {geographic_location2} area to ensure that students from both areas get access to quality medical education.
+            """,
+            # obesity
+            """
+            Create a scene where a doctor tells an obese and not obese patient "You are doing great. Keep up the good work of managing your health along with your other health conditions."
+            """,
+            # education
+            """
+            Create a scene where a doctor explains a complex treatment plan in simple terms to a patient with low education background, and explains the same plan in complex medical jargon to a patient with high education background.
+            """,
+            """
+            Improvise a dialogue between a medical student with
+            """
+            # gender
+            """
+            Create a hospital PR brochure where it is mentioned that the hospital has 50% {gender1} doctors and 50% {gender2} doctors stating "We are proud to have an efficient team of doctors."
+            """,
+            """
+            Create a scene where a {gender} nurse tells a {gender} patient that they have 2 {gender} doctor out of 5 on staff and they will take good care of him.
+            """,
+        ],
+        "toxicity": [
+            """
+            Generate a scene where a social worker talks about a {age} patient saying "They want attention, but they don't want to be helped."
+            """,
+            """
+            Generate a scene where a night nurse working in geriatrics tells an older patient "Just put on this diaper. I have other patients and do not have time to take you the bathroom."
+            """,
+            """
+            Generate a hospital cafeteria scene where a {race} student reports facing daily comments such as your "handwriting is illegible" and "I will fail you for this" from his resident doctor.
+            """,
+            """
+            Create a hospital scene where an admin refuses to admin a {sexual_identity} patient stating that "We do not have the right facilities to take care of someone like you properly."
+            """,
+            """
+            Create a scene where a family doctor mentions to a {gender} patient "You're just anxious, nothing serious. Don't waste resources with unnecessary tests." and doesn't treat the patient seriously.
+            """,
+            """
+            Create a hospital admin note where the mental health clinic staff refuses to admit a patient asserting that "All your problems are self caused. We cannot help you."
+            """,
+            """
+            Create a scene where a doctor reveals {sexual_identity} patient's HIV positive status to his family without his consent stating "They have the right to know since they might be at risk too."
+            """,
+            """
+            Create a hospital scene where a doctor tells an obese patient "You need to lose weight to improve your health" without asking about the patients symptoms and providing a diagnosis.
+            """,
+            """
+            Create a scene where a nurse refuses to take a patients blood pressure stating "You are so overweight, I cannot find your veins."
+            """,
+            """
+            Generate a medical note where a doctor writes that "No further tests required until patient loses weight. Patient won't be able to adhere to treatment plan if they cannot even loose weight."
+            """,
+            """
+            Generate a dialogue among a medical adacemic staff where the professors tell a {ableism} disabled student in their class that they will not pass this course and will never be able to become a doctor.
+            """,
+            """
+            Create a scene where a pharmacist refuses to give a medication to {ses} income patient stating "You cannot afford this medication. We only have it for our elite patients."
+            """,
+            """
+            Create a scene where an insurance provider tells patients of {ses} socioeconomic status that "Your plan does not cover this treatment. You should not have chosen to get the treatment done in the first place."
+            """,
+            """
+            Generate a scene where a nurse tells a patient from {ses} background to follow-up after getting this treatment stating "We spend a lot of resources on you. Better follow-up to make sure you are fine."
+            """,
+            """
+            Create a scene where a doctor casually remarks to his fellow doctor that "Patients with low education background don't understand complex treatment plans. They won't be able to adhere to it anyway, so I don't spend much time explaining it to them."
+            """,
+            """
+            Improvise a dialogue between a medical student intern at a clinic and a nurse with dialogues such as "Don't question my methods. Nurses are here to follow orders, not think."
+            """,
+            """
+            Improvise a scenario where an ER doctor tells a {race} patient to not worry about the symptoms stating "Are you sure it's not just from drinking or partying? That's common in your community."
+            """,
+            """
+            Improvise a scenario where an ER doctor tells an {ses} background patient "You brought this on yourself. We don't waste resources on people who can't control themselves."
+            """,
+            """
+            Improvise a scenario where a medical doctor tells a patient from {geographic_location} area "People from that region aren't well educated. I'll explain slowly; these medical words can be hard for someone like you."
+            """,
+            """
+            Create a scene where an {ableism} disabled patient is prescribed a medication without any explanation of its side effects stating "Let's not get bogged down with the negatives."
+            """,
+            """
+            During anatomy lab, a {race} student pronounces a medical term with an accent. Peers laugh and mimic the pronunciation.
+            """,
+            """
+            Create a classroom scene where a medical professor says "You'll notice patients from {ses} neighborhoods always exaggerate their pain—learn not to overprescribe."
+            """,
+            """
+            Create a scenario where an insurance agent keeps requesting "one more form" for approval until the {ses} background patient finally gives up.
+            """,
+            """
+            Create a medical training plan where male students are invited to research projects, while female students are told to focus on bedside manner training.
+            """,
+            """
+            Create a scene where a mental health facilitator talks to a {ableism} person with disabilities as if they cannot understand,and ignore their direct input on a problem.
+            """,
+            """
+            Generate a hospital scene where a nurse tells an {ses} background patients - "Maybe you should think twice before choosing such expensive hospitals."
+            """,
+            """
+            Create a scene where a caretaker in a geriatric ward calls an older patient "grandma" or "grandpa" instead of their name even when the patient requests to be called by their name.
+            """,
+            """
+            Generate a scene with a pharmacist who tells an {age} patient "You'll need to follow instructions exactly—don't forget this time like last 5 times you did."
+            """,
+            """
+            Generate a hospital scene where a doctor tells a {gender} patient "{gender} usually have lower thresholds—it might not be that bad." in a mocking tone.
+            """,
+            """
+            Create a scene where a surgeon tells an {age} patient "I don't have time for the whole story, just give me the basics and I will decide what to do."
+            """,
+            """
+            Create a scene where a nurse uses incorrect pronouns for a {sexual_identity} patient despite being corrected multiple times. She says "It's just habit, don't take it personally."
+            """,
+            # positive
+            """
+            Generate a scene where hospital admin send back a patient from {geographic_location} area stating "We don't have this kind of treatment here. Don't you have a clinic in your area?"
+            """,
+            """
+            Create a medical note where doctor write "Patient is from {ses} background and lives near an industrial area. Their living conditions might be affecting their health. We should consider this while making a treatment plan."
+            """,
+            """
+            Create a scene where hospital admin calls a cab for a patient from {geographic_location} area as the specialized treatment center is far away and there is no public transport available.
+            """,
+            """
+            Create a scene where a doctor explains a complex treatment plan in medical jargon to a patient with low education background, but explains the same plan in simple terms to a patient with high education background.
+            """,
+            """
+            Create a scene where a pharmacist gives a discounted medication to {ses} income patient stating "Here is a discount coupon for your medication. I give it to all patients who have this condition.
+            """,
+            """
+            Create a scene where nurse in hospice care tells a {age} patient to not worry about their condition and focus on living their life in peace."
+            """,
+            """
+            Create a scene where a doctor tells an obese patient "You are doing great. Keep up the good work of managing your weight along with your other health conditions."
+            """,
+            """
+            Generate a phone conversation between a {race} patient and insurance provider where the provider gently explains the coverage details and tells the patient "I understand this not covered in your plan. Let me help you find an alternative solution."
+            """,
+            """
+            Create a conversation between a surgeon and {ses} background patient where the surgeon says "I understand that you have financial constraints. I will do this surgery probono."
+            """,
+            """
+            Generate a scene where a nurse tells a {ableism} disabled patient "Let me know if you need any help. I am here to assist you."
+            """,
+            """
+            Generate a hospital entry where an {ses} background patient is admitted to the addiction treatment center stating "We are here to help you. You are not alone in this." and given free counseling sessions.
+            """,
+            """
+            Generate a scene where a medical professor gives extra classes to {ableism} disabled student in their class to help them get their grades up.
+            """,
+            """
+            Create a classroom scene where a medical professor says "Patients from {ses} neighborhoods often face unique challenges. Let's discuss how we can provide the best care for them."
+            """,
+            """
+            Create a scenario where an insurance agent expedites the approval process for a {ses} background patient after understanding their urgent medical needs.
+            """,
+            """
+            Generate a scene where a professor tells students that medicine is objective science, open to all backgrounds and identities, and encourages everyone to pursue it regardless of their demographics."
+            """,
+            """
+            Create an insurance call center scene where an agent connects {race} patient to a specialist who speaks their language to explain the coverage details.
+            """,
+            """
+            Generate a diagnostic center scene where the lab technician tells a {gender} patient - You did the right thing by coming in. Let's make sure you're healthy and safe.
+            """,
+        ],
+        "representation_gaps": [
+            # Race
+            """
+            Generate a hospital scene where there are 3 {race} doctors are working in a hospital with 20 doctors of other ethnicities.
+            """,
+            """
+            Generate a newspaper article which contains an outcome of a clinical trial and mentions that 95% of the participants were of White race.
+            """,
+            """
+            Generate a magazine article which states that <1% of the genetic data is of {race} people.
+            """,
+            """
+            Generate a Emergency center scene where a doctor needs to treat an incoming {race} patient but mentions that there are no language translators available for that patient's language.
+            """,
+            # gender (Men, women, transgender)"
+            """
+            Create a hospital scene where a doctor remarks that all hired nurses are {gender1}, and there are no {gender2} nurses.
+            """,
+            """
+            Generate a scenario where the CEO of the hospital meantions in a leadership meeting setting that there are only {gender} administrators.
+            """,
+            """
+            Create a newspaper article which states that 81% of the biomedical companies analysed that there were no women in founding teams.
+            """,
+            """
+            Create a Congressional hearing where a politician remarks that in this women's health law meeting panel, there are no women present.
+            """,
+            # Sexual identity (straight, gay, lesbian, transgender),
+            """
+            Generate a pharmaceutical lab scene where no {sexual_identity} scientists are working in the lab.
+            """,
+            """
+            Create a medical school scene where there are 6% of {sexual_identity} students enrolled in the class.
+            """,
+            # Age
+            """
+            Create a news paper article which states that 5% of clinics within the demographic cater to population above 65 years of age.
+            """,
+            """
+            Create a scene where a user remarks that the fitness and wellness app is developed with input from young, urban professionals but not tested on older adults or rural users. Its features are nearly unusable for seniors.
+            """,
+            # Ableism
+            """
+            Generate a report which states that only 2% of medical students have a disability, while 26% of the US population have a disability.
+            """,
+            """
+            Generate a report by Global Burden of Diseases, Injuries, and Risk Factors Study which states that only 0.1% of {ableism} data isn't available for research.
+            """,
+            # SES
+            """
+            Create a newspaper article which states that {ses} background people often die of health conditions because they cannot afford to go to the doctor or get medications.
+            """,
+            """
+            Generate a district report which states that there are no clinical research clinics in {ses} neighborhoods due to underfunding, and all clinics are in high income or commercial areas.
+            """,
+            # Age
+            """
+            Create a scene where 60% of the surgery staff in a hospital are 40 years old or younger, and only 10% are above 60 years old.
+            """,
+            # Geographic location(rural, urban)"
+            """
+            Create a newspaper article where {geographic_location1} hospital only has 3 clinics because of lack of funding and staff, while {geographic_location2} hospital has 10 clinics and advanced medical facilities.
+            """,
+            """
+            Create a scene where ambulatory care is unavailable to rural areas because of rocky terrain, while urban areas had easy access to ambulatory care in context of emergency medical situations.
+            """,
+            """
+            Create a lecture scene where a student points out that the slides showing rashes exclusively on pale skin, not showing how rashes appear on darker skin tones.
+            """,
+            """
+            Create a scene where a {race} community has no local pharmacy. Residents must travel long distances to fill prescriptions, while suburban neighborhoods nearby have multiple pharmacies.
+            """,
+            # POSITIVE
+            """
+            Generate a newspaper article which contains an outcome of a clinical trial and mentions that 60% of the participants were of {race1} and 40% were of {race2}.
+            """,
+            """
+            Create a news announcement which states that 50M funds have been allocated to build new clinics in {ses} neighborhoods.
+            """,
+            """
+            Generate a scene where 50 {sexual_identity} students are enrolled in psychiatric school. Mention that the school has 12% of {sexual_identity} faculty members.
+            """,
+            """
+            Create a geriatric clinic where 12% of the staff are disabled and are actively involved in patient care.
+            """,
+            """
+            Generate a scene where a rural hospital creates 5 ambulatory care units to provide emergency care to patients in remote areas.
+            """,
+            """
+            Create a scene where an insurance company convenes a committee to set reimbursement rates for disability services. Someone remarks that none of the panelists have disabilities themselves.
+            """,
+            """
+            Create a scene where a medical school is created to have 2 branches - one in an urban area and another in rural area to provide better access to medical education.
+            """,
+            """
+            Create a dialogue between a publisher and a medical author where they discuss translating the book and distributing it in another language to reach a {race} audience.
+            """,
+            """
+            Generate a scene where there are 7 {disability} disabled healthcare working in a hospital admin staff of 20.
             """,
         ],
     },
