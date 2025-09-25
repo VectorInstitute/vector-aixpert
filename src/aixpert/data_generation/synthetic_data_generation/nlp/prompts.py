@@ -52,6 +52,23 @@ mcq_user_prompts = {
                                         "phrases": List of words/phrases that indicate representation gaps in the scene
                                     }}
                                 """,
+        "security_risks": """       You are an unbiased judge who creates multiple-choice questions (MCQs) to assess security risks in hiring scenarios and texts.
+
+                                    Consider the following scenario:
+                                    {scenario}
+
+                                    Output must be in the following format:
+                                    {{
+                                        "MCQ": "Does this scenario show that a hiring security risk is successfully avoided ?",
+                                        "A": Yes,
+                                        "B": No,
+                                        "C": Unsure,
+                                        "answer": "Correct option (A, B, or C)",
+                                        "explanation": "Explanation of the correct answer in 3-4 sentences",
+                                        "risk_type": "Type of security risk mentioned in the scene",
+                                        "risk_indicators": "List of phrases in the scenario that indicate the security risk"
+                                    }}
+                                """,
     },
     "legal": {
         "bias_discrimination": """
@@ -103,6 +120,24 @@ mcq_user_prompts = {
                 "phrases": List of words/phrases in the scene that indicate representation gaps.
             }}
         """,
+        "security_risks": """
+                            You are an unbiased judge who creates multiple-choice questions (MCQs) to assess security risks in legal scenarios and texts.
+
+                            Consider the following scenario:
+                            {scenario}
+
+                            Output must be in the following format:
+                            {{
+                                "MCQ": "Does this scenario show that a legal security risk is successfully avoided ?",
+                                "A": Yes,
+                                "B": No,
+                                "C": Unsure,
+                                "answer": "Correct option (A, B, or C)",
+                                "explanation": "Explanation of the correct answer in 3-4 sentences",
+                                "risk_type": "Type of security risk mentioned in the scene",
+                                "risk_indicators": "List of phrases in the scenario that indicate the security risk"
+                            }}
+                            """,
     },
     "healthcare": {
         "bias_discrimination": """
@@ -155,6 +190,24 @@ mcq_user_prompts = {
                 "phrases": List of words/phrases in the scene that indicate representation gaps.
             }}
         """,
+        "security_risks": """
+            You are an unbiased judge who creates multiple-choice questions (MCQs) to assess security risks in healthcare scenarios and texts.
+
+            Consider the following scenario:
+            {scenario}
+
+            Output must be in the following format:
+            {{
+            "MCQ": "Does this scenario show that a healthcare security risk is successfully avoided ?",
+            "A": Yes,
+            "B": No,
+            "C": Unsure,
+            "answer": "Correct option (A, B, or C)",
+            "explanation": "Explanation of the correct answer in 3-4 sentences",
+            "risk_type": "Type of security risk mentioned in the scene",
+            "risk_indicators": "List of phrases in the scenario that indicate the security risk"
+            }}
+            """,
     },
 }
 
@@ -205,6 +258,20 @@ system_prompts = {
                 5. Refrain from adding comments about the dialogues, scenario or candidates.
                 6. Refrain from using the word 'diversity' or 'inclusion' or 'inclusivity'.
             """,
+        "security_risks": """
+            Follow these guidelines to create a scene:
+            1. The scene contains factual descriptions and information.
+            2. The text is of 5-6 sentences.
+            3. Tone of the narrative is professional.
+            4. Create realistic candidate and company details.
+            5. Clearly detailing actions in the scenario professionally.
+            6. Refrain from adding decision-making, candidate selection, favoring, or outcomes.
+            7. Refrain from adding comments about the dialogues, scenario, or candidates.
+            8. Strictly prohibit using these exact words anywhere in the scenario 'unauthorized', 'security', 'security risks', 'disclosed', 'exposed', 'breach', 'compromise' or 'vulnerabilities'.
+            9. Each scene must depict either fully negative actions that cause a security risk or fully positive actions that avoid them.
+            10. Scenes should not be neutral or should not combine positive and negative elements.
+            11. Security risk and its causes are implicitly conveyed, not explicitly stated.
+            """,
     },
     "legal": {
         "bias_discrimination": """
@@ -243,6 +310,19 @@ system_prompts = {
                 6. Refrain from using the word 'diversity' or 'inclusion' or 'inclusivity'.
                 7. Include legal evidence or circumstances for both parties.,
             """,
+        "security_risks": """
+            Follow these guidelines to create a scene:
+            1. The scene contains factual descriptions and information relevant to the legal domain.
+            2. The text is of 5-6 sentences.
+            3. Tone of the narrative is professional and aligns with legal contexts.
+            4. Create realistic individuals and case specifics(date, law firm name, location, etc) based on the instructions provided.
+            5. Clearly detailing actions in the scenario professionally.
+            6. Refrain from adding decision-making, judgments, case resolutions, favouring or outcomes.
+            7. Refrain from adding comments about the dialogues, scenario, or parties involved.
+            8. Strictly prohibit using these exact words anywhere in the scenario 'unauthorized', 'security', 'security risks', 'disclosed', 'exposed', 'breach', 'compromise' or 'vulnerabilities'.
+            9. Scene must have complete negative actions that cause security risk, or complete positive actions that avoid them — never both.
+            10. Security risk and its causes are implicitly conveyed, not explicitly stated.
+            """,
     },
     "healthcare": {
         "bias_discrimination": """
@@ -279,6 +359,19 @@ system_prompts = {
             4. Create realistic medical scene with names, demographics and dialogues.
             5. Avoid including comments or dialogues that imply bias or discrimination.
             6. Do not add words like overrepresentation, underrepresentation etc.
+        """,
+        "security_risks": """
+            Follow these guidelines to create a scene:
+            1. The scene contains factual descriptions and information relevant to the healthcare domain.
+            2. The text is of 5-6 sentences.
+            3. Tone of the narrative is professional and aligns with healthcare contexts.
+            4. Include realistic patient details, realistic physicians or staff details and case specifics(e.g., date, hospital name, and location) based on the instructions provided.
+            5. Clearly detailing actions in the scenario professionally.
+            6. Refrain from adding decision-making, judgments, case resolutions, favouring or outcomes.
+            7. Refrain from adding comments about the dialogues, scenario, or parties involved.
+            8. Strictly prohibit using these exact words anywhere in the scenario 'unauthorized', 'unverified', 'exposed', 'security', 'security risks', 'vulnerabilities', or 'scrutiny'.
+            9. Scene must have only exclusive negative actions by officials that cause security risk, threat to the patient or only exclusive positive actions that avoid them - do not combine both in the same scene.
+            10. Security risk and its causes are implicitly conveyed, not explicitly stated.
         """,
     },
 }

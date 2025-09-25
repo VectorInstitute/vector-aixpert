@@ -1,6 +1,6 @@
 """Schema definitions OpenAI API response."""
 
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -90,4 +90,22 @@ class HealthcareBias(BaseModel):
     criteria: List[str] = Field(
         pattern="race|gender|sexual identity|age|\
                                  ableism|obesity|socioeconomic status|education|geographic location"
+    )
+
+
+class SecurityRiskMCQ(BaseModel):
+    """Security Risks Multiple Choice Question Schema."""
+
+    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
+    MCQ: str
+    A: str = Field(pattern="Yes", description="Option A")
+    B: str = Field(pattern="No", description="Option B")
+    C: str = Field(pattern="Unsure", description="Option C")
+    answer: str = Field(pattern="A|B|C", description="Correct option (A, B, or C)")
+    explanation: str
+    risk_type: List[str] | None = Field(
+        description="Type of security risk mentioned in the scene"
+    )
+    risk_indicators: Optional[List[str]] = Field(
+        description="List of phrases in the scenario that indicate the security risk"
     )

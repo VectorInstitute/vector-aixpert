@@ -23,7 +23,15 @@ from prompt_gen_utils import (
     generate_prompts_legal,
 )
 from prompts import mcq_user_prompts, system_prompts
-from schema import MCQ, HealthcareBias, LegalBias, RepGapMCQ, Scene, ToxicMCQ
+from schema import (
+    MCQ,
+    HealthcareBias,
+    LegalBias,
+    RepGapMCQ,
+    Scene,
+    SecurityRiskMCQ,
+    ToxicMCQ,
+)
 from utils import (
     load_checkpoint,
     retry,
@@ -81,6 +89,8 @@ def get_mcq_schema(risk: str) -> Optional[dict]:
         return ToxicMCQ.model_json_schema()
     if risk == "representation_gaps":
         return RepGapMCQ.model_json_schema()
+    if risk == "security_risks":
+        return SecurityRiskMCQ.model_json_schema()
 
     return None
 
@@ -150,6 +160,9 @@ def generate_text(
     # based on domain and risk.
     for idx, user_prompt in enumerate(user_prompts[start_idx:], start=start_idx + 1):
         time.sleep(0.5)  # To avoid rate limiting
+        if any(scene["id"] == idx for scene in scenes):
+            print("Scene ID %s already exists in checkpoint, skipping generation", idx)
+            continue
         print(f"Processing scene ID: {idx}, Prompt: {user_prompt}\n")
         if checkpoint and idx % 10 == 0:
             save_results(
@@ -184,6 +197,10 @@ def generate_text(
             scenes[-1].update({"text": output})
 
         pprint.pprint(scenes[-1])
+        if checkpoint and idx == len(user_prompts):
+            save_results(
+                scenes, f"{checkpoint_dir}/checkpoints_{domain}_{risk}_{idx}.json"
+            )
     return scenes
 
 
@@ -210,6 +227,9 @@ def generate_mcq(
         print(f"Sample {i + 1}:")
         print(f"Scenario: {scenes[i]['text']}")
         time.sleep(0.5)  # To avoid rate limiting
+        if any(mcq["id"] == i + 1 for mcq in mcqs):
+            print("MCQ ID %s already exists in checkpoint, skipping generation", i + 1)
+            continue
 
         if checkpoint and i % 10 == 0:
             save_results(mcqs, f"{checkpoint_dir}/mcqs_{domain}_{risk}_{i}.json")
@@ -229,6 +249,9 @@ def generate_mcq(
             mcqs[-1].update({"text": output})
 
         print(f"Generated MCQ: {mcqs[-1]}")
+        # Save final checkpoint if this is the last scene
+        if checkpoint and i == len(scenes) - 1:
+            save_results(mcqs, f"{checkpoint_dir}/mcqs_{domain}_{risk}_{i + 1}.json")
 
     return mcqs
 

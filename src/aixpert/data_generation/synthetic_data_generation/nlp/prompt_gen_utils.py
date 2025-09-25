@@ -13,7 +13,7 @@ def generate_prompts_hiring(domain: str, risk: str) -> List[str]:
     """Generate user prompts for hiring domain."""
     templates = user_prompt_templates[domain][risk]
     pattern = re.compile(
-        r"{gender\d*}|{age\d*}|{race\d*}|{ses\d*}|{work_place\d*}|{disability\d*}"
+        r"{gender\d*}|{age\d*}|{race\d*}|{ses\d*}|{work_place\d*}|{disability\d*}|{tech_experience\d*}|{location\d*}|{policy_awareness\d*}"
     )
 
     # Format the prompts with the required variables
