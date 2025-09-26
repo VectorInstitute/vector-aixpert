@@ -152,7 +152,7 @@ def generate_text(
         if checkpoint
         else []
     )
-    start_idx = scenes[-1]["id"] - 1 if scenes else 0
+    start_idx = scenes[-1]["id"] if scenes else 0
 
     print(f"Starting from scene ID: {start_idx}")
     print(f"Total user prompts: {len(user_prompts)}")
@@ -160,9 +160,6 @@ def generate_text(
     # based on domain and risk.
     for idx, user_prompt in enumerate(user_prompts[start_idx:], start=start_idx + 1):
         time.sleep(0.5)  # To avoid rate limiting
-        if any(scene["id"] == idx for scene in scenes):
-            print("Scene ID %s already exists in checkpoint, skipping generation", idx)
-            continue
         print(f"Processing scene ID: {idx}, Prompt: {user_prompt}\n")
         if checkpoint and idx % 10 == 0:
             save_results(
@@ -222,15 +219,11 @@ def generate_mcq(
             checkpoint_dir=checkpoint_dir, file_type="mcqs", domain=domain, risk=risk
         )
 
-    start_idx = mcqs[-1]["id"] - 1 if mcqs else 0
+    start_idx = mcqs[-1]["id"] if mcqs else 0
     for i in range(start_idx, len(scenes)):
         print(f"Sample {i + 1}:")
         print(f"Scenario: {scenes[i]['text']}")
         time.sleep(0.5)  # To avoid rate limiting
-        if any(mcq["id"] == i + 1 for mcq in mcqs):
-            print("MCQ ID %s already exists in checkpoint, skipping generation", i + 1)
-            continue
-
         if checkpoint and i % 10 == 0:
             save_results(mcqs, f"{checkpoint_dir}/mcqs_{domain}_{risk}_{i}.json")
 
