@@ -1,0 +1,3 @@
+prompts:
+  healthcare:
+    bias: prompts/healthcare-bias_v1.jsonl
