@@ -8,8 +8,14 @@ from typing import Any, Union
 from agent import create_prompt_agents_and_task
 from crewai import Crew
 from custom_llm import CustomLLM
+from flows.image_generation_flow import GeminiImageGenerationFlow
 from load_text_llm import load_text_llm
-from utils import var_to_dict_prompts
+from utils import load_prompt, read_directory, var_to_dict_prompts
+
+
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+prompts_base_path = os.path.join(current_script_dir, "prompts")
+base_image_folder = os.path.join(current_script_dir, "images")
 
 
 def my_local_model(prompt: str, temperature: float = 0.7) -> str:
@@ -61,6 +67,33 @@ def prompt_generation_flow(llm: Any) -> Union[str, list, None]:
     return prompts if len(prompts) > 1 else (prompts[0] if prompts else None)
 
 
+def image_generation_flow(llm: str) -> None:
+    """Flow for creating the images from the prompt."""
+    prompt_file_names = read_directory(prompts_base_path)
+    os.makedirs(base_image_folder, exist_ok=True)
+
+    for file in prompt_file_names:
+        # print(file)
+        prompts = load_prompt(file)
+        print(len(prompts))
+        for i, elem in enumerate(prompts):
+            domain = elem["domain"]
+            risk = elem["risk"]
+            output_filename = f"{domain}_{risk}_image_{i + 1}.png"
+            image_folder = os.path.join(base_image_folder, llm)
+            os.makedirs(image_folder, exist_ok=True)
+            folder_name = os.path.join(image_folder, f"{domain}_{risk}_images")
+            os.makedirs(folder_name, exist_ok=True)
+            print(f"Saving image to folder: {folder_name}")
+            output_filename = f"{domain}_{risk}_image_{i + 1}.png"
+            output_filename = os.path.join(folder_name, output_filename)
+            if os.path.exists(output_filename):
+                print("file exist so skipping")
+                continue
+            flow = GeminiImageGenerationFlow(elem["image_prompt"], output_filename)
+            flow.kickoff()
+
+
 def crew_create_and_launch(task_list: list) -> None:
     """Create crew and launch."""
     crew = Crew(tasks=task_list, verbose=False)
@@ -68,7 +101,6 @@ def crew_create_and_launch(task_list: list) -> None:
 
 
 if __name__ == "__main__":
-    result = prompt_generation_flow(llm)
-    # print("\n=== FINAL RESULT ===")
-    print(type(result))
+    # result = prompt_generation_flow(llm)
+    image_generation_flow("gemini")
     # print(len(result))
