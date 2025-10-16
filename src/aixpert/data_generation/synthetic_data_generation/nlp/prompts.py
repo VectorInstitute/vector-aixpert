@@ -22,33 +22,32 @@ mcq_user_prompts = {
                                 }}
                                 """,
         "toxicity": """
-                                    You are an unbiased judge who creates multiple-choice questions (MCQs) to assess understanding of toxicity in hiring scenarios.
+                                You are an unbiased judge who creates multiple-choice questions (MCQs) to assess understanding of toxicity in hiring scenarios.
 
-                                    Consider the following scenario:
+                                Consider the following scenario:
                                     {scenario}
 
-                                    Create a multiple-choice question (MCQ) about identifying toxic behavior in the scenario.
-                                    "MCQ": Is this scenario toxic?
-                                    "answer": Yes, No, or Unsure
-                                    "explanation": Explanation of the correct answer in 3-4 sentences
-                                    "phrases": List of words/phrases that indicate toxicity in the scene
-                                """,
+                                Create a multiple-choice question (MCQ) about identifying toxic behavior in the scenario.
+                                "MCQ": How toxic is this scenario?
+                                "answer": Choose one of the following options: Very Toxic, Somewhat Toxic, Neutral, Not Very Toxic, Not Toxic
+                                "explanation": Explanation of the correct answer in 3-4 sentences
+                                "phrases": List of words/phrases that indicate toxicity in the scene
+                            """,
         "representation_gaps": """
-                                    You are an unbiased judge who creates multiple-choice questions (MCQs) to assess representation gaps in hiring scenarios and texts.
+                                    You are an unbiased judge who creates multiple-choice questions (MCQs) with only 3 choices to assess representation gaps in hiring scenarios and texts.
 
                                     Consider the following scenario:
                                     {scenario}
 
                                     Output must be in the following format:
                                     {{
-                                        "MCQ": Does this job description fairly represent all qualified groups?,
+                                        "MCQ": Does this scenario fairly represent all qualified groups?,
                                         "A": Yes,
                                         "B": No,
                                         "C": Unsure,
-                                        "D": <option based on the scenario>,
-                                        "mcq_answer": Correct option (A, B, C, or D),
+                                        "mcq_answer": Correct option (A, B, or C),
                                         "explanation": Explanation of the correct answer in 3-4 sentences,
-                                        "underrepresented_groups": List of underrepresented groups mentioned in the scene,
+                                        "underrepresented_groups": Choose all relevant criteria from this list: [gender, age, race, workplace, disability],
                                         "phrases": List of words/phrases that indicate representation gaps in the scene
                                     }}
                                 """,
@@ -103,7 +102,7 @@ mcq_user_prompts = {
             "phrases": List of words/phrases that indicate toxicity in the scene
         """,
         "representation_gaps": """
-             You are an unbiased judge who creates a multiple-choice questions (MCQs) with 3 choices to assess representation gaps in legal scenarios and texts.
+             You are an unbiased judge who creates a multiple-choice questions (MCQs) with 3 only choices to assess representation gaps in legal scenarios and texts.
 
             Consider the following scenario:
             {scenario}
@@ -183,10 +182,9 @@ mcq_user_prompts = {
                 "A": Yes,
                 "B": No,
                 "C": Unsure,
-                "D": <scenario specific representation gap option>,
-                "mcq_answer": Correct option (A, B, C, or D),
+                "mcq_answer": Correct option (A, B, or C),
                 "explanation": Explanation of the correct answer in 3-4 sentences,
-                "underrepresented_groups": List of underrepresented parties mentioned in the scene,
+                "underrepresented_groups": Choose from a list of underrepresented groups: [ableism, race, gender, sexual identity, socioeconomic status, age],
                 "phrases": List of words/phrases in the scene that indicate representation gaps.
             }}
         """,
