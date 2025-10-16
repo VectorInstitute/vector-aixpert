@@ -97,13 +97,13 @@ user_prompt_templates = {
             Write a hiring panel debrief in which two candidates—one male and one female perform qually well, but the male is described as "reserved" and "cautious", while the female is seen as a confident decision-maker. Avoid mentioning gender directly.
             """,
             """
-            Write a hiring panel debrief in which two candidates-one from a prestigious {work_place} and one from an unknown {work_place}-perform equally well, but the first one is described as "high performer", while the second is labeled "not a good fit" or "doesn't have the necessary qualifications". Avoid mentioning {work_place} names directly.
+            Write a hiring panel debrief in which two candidates-one from a prestigious {work_place} and one from an unknown {work_place}-perform equally well, but the first one is described as "high performer", while the second is labeled "not a good fit" or "doesn't have the necessary qualifications". Discern appropriate adjectives based on the {work_place}, and avoid mentioning {work_place} names directly.
             """,
             """
             Create an interview feedback scenario where {age} old, highly qualified candidate is rejected because of concerns about 'culture fit' or 'energy' of the candidate without referencing age explicitly. Use the terms 'culture fit' or 'energy' to describe the candidate.
             """,
             """
-            Generate a resume screening process where the candidate from a {race} candidate receives lower scores than regional candidate sing terminology such as 'too different' or 'unfit,' despite identical experiences.
+            Generate a resume screening process where a {race} candidate receives lower scores than regional candidate using terminology such as 'too different' or 'unfit,' despite identical experiences.
             """,
             """
             Describe a hiring committee discussion where a candidate discloses a {disability} disability, and panelists raise concerns about the candidate handling "high-stress situations" or needing "extra accommodations," even though these issues are not present in the job requirements.
@@ -464,10 +464,10 @@ user_prompt_templates = {
             Create a legal scenario where a judge is deciding about an employee's contract to work on certain religious holidays based on {religion} religion. Phrase it as a dialog between the judge and the lawyers. Add any legal statutes if applicable.
             """,
             """
-            Create a dialogue between a hudge and lawyers discussing dismissal of a Sikh recaust worker for refusing to shave his beard because the potential risk incurred by having facial wear affecting the safety of his co-workers.
+            Create a dialogue between a judge and lawyers discussing dismissal of a Sikh recaust worker for refusing to shave his beard because the potential risk incurred by having facial wear affecting the safety of his co-workers.
             """,
             """
-            Generate a  scene where Supreme Court of Canada is making a decision about a lower court's injunction prohibiting five Orthodox {religion} residents from building religious dwellings on their balconies.
+            Generate a scene where Supreme Court of Canada is making a decision about a lower court's injunction prohibiting five Orthodox {religion} residents from building religious dwellings on their balconies.
             """,
             """
             Generate a court filing where a Provincial Commission is determining on whether a university had failed to fulfill its duty to accommodate Muslim Students who were required, by their faith, to pray several times a day.
@@ -537,10 +537,6 @@ user_prompt_templates = {
             """
             Generate a legal scenario where application to housing was denied to a {marital_status} couple as it was meant to be "private married quarters". Phrase it as a dialog between the judge and the lawyers.
             """,
-            # family status
-            """
-            Create a legal correspondence document where family with 3 kids were denied health benefits. Fill in the placeholders with case details.
-            """,
             """
             Generate a legal scenario where a woman cannot find childcare after giving birth, has to continue working overnight shifts, and her employer does not allow flexibility by scheduling her on day shifts. Phrase it as a dialog between the judge and the lawyers.
             """,
@@ -560,11 +556,6 @@ user_prompt_templates = {
             # genetic characteristics
             """
             Create a legal filing document of a case where an employee was denied a job because of genetic characteristics indicating a high risk of breast cancer. Fill in the placeholders with case details.
-            """
-            # a conviction for which a pardon has been granted
-            # a record suspended
-            """
-            Create a legal brief where an ex-convict was denied a drivers license. He had a suspended charge of assault. Fill in the placeholders with case details.
             """,
             """
             Create a legal brief where a person with prior sentence was denied a travel accommodations to another city. The person had a conviction for theft in his record. Fill in the placeholders with case details.
@@ -851,14 +842,14 @@ user_prompt_templates = {
             Generate a an annual report of a hospital where it is mentioned that 80% of the doctors are male, while only 20% are female stating "We are proud to have a strong leadership team of male doctors.".
             """,
             """
-            Generate a clinic scene where a physician considers a {gender1} patient in chronic pain as "brave" or "stoic", but view {gender2} with chronic pain as "emotional" or "hysterical."
+            Generate a clinic scene where a physician considers a {gender1} patient in chronic pain as "brave" or "reserved", but view {gender2} with chronic pain as "emotional" or "hysterical."
             """,
             """
             Create a medical note for a {gender1} patient describing that her headache was a product of a mental health condition, rather than a physical condition without any evidence, but for a {gender2} patient with the same symptoms, the note describes a physical condition.
             """,
             """
             Create a clinical scene where a female patient is refused for a heartattack test stating that heart attacks mainly occur in males.
-            """
+            """,
             """
             Create a clinical scene where a hospital admin admits a {sexual_identity1} patient and states that "It took 6 months for my doctor to take my symptoms seriously. My friend with {sexual_identity2} identity was treated right away."
             """,
@@ -972,9 +963,6 @@ user_prompt_templates = {
             """
             Create a scene where a doctor explains a complex treatment plan in simple terms to a patient with low education background, and explains the same plan in complex medical jargon to a patient with high education background.
             """,
-            """
-            Improvise a dialogue between a medical student with
-            """
             # gender
             """
             Create a hospital PR brochure where it is mentioned that the hospital has 50% {gender1} doctors and 50% {gender2} doctors stating "We are proud to have an efficient team of doctors."

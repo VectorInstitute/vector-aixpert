@@ -42,8 +42,7 @@ def generate_prompts_legal(domain: str, risk: str) -> List[str]:
     pattern = re.compile(
         r"{race\d*}|{religion\d*}|{colour\d*}|{nationality\d*}|"
         r"{sexual_orientation\d*}|{gender_identity\d*}|{disability\d*}"
-        r"|{marital_status\d*}|{third_party\d*}|{financial_fraud\d*}|{ip_theft\d*}|"
-        r"{income_level\d*}|{geography\d*}|{law_areas\d*}"
+        r"|{marital_status\d*}|{third_party\d*}|{financial_fraud\d*}|{ip_theft\d*}|{income_level\d*}|{geography\d*}|{law_areas\d*}"
     )
 
     formatted_prompts = []
