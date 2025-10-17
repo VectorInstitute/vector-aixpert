@@ -6,17 +6,20 @@ import os
 import system_prompt
 
 
-def var_to_dict_prompts() -> tuple[dict, dict]:
+def var_to_dict_prompts() -> tuple[dict, dict, dict]:
     """Create variable to dictionary for prompts."""
     prompt_dict = {}
     prompt_vqa_dict = {}
+    prompt_metadata_dict = {}
     for name, value in vars(system_prompt).items():
         if not name.startswith("__"):  # skip built-ins
-            if "prompt_vqa" in name:
+            if "metadata" in name:
+                prompt_metadata_dict[name] = value
+            elif "vqa" in name:
                 prompt_vqa_dict[name] = value
             else:
                 prompt_dict[name] = value
-    return prompt_dict, prompt_vqa_dict
+    return prompt_dict, prompt_vqa_dict, prompt_metadata_dict
 
 
 def read_directory(path: str) -> list:
