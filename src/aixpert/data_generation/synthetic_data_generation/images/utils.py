@@ -62,7 +62,6 @@ def load_prompt(prompt_path: str, domain: str, risk: str) -> list:
     return matching_prompts
 
 
-# Load checkpoint from a file
 def load_checkpoint(checkpoint_file: str) -> int:
     """
     Load the last processed index from a checkpoint file.
@@ -78,7 +77,6 @@ def load_checkpoint(checkpoint_file: str) -> int:
     return -1  # Start from the first prompt
 
 
-# Save checkpoint to a file
 def save_checkpoint(checkpoint_file: str, last_processed_index: int) -> None:
     """
     Save the current processing index to a checkpoint file.
@@ -88,6 +86,37 @@ def save_checkpoint(checkpoint_file: str, last_processed_index: int) -> None:
     with open(checkpoint_file, "w") as f:
         f.write(str(last_processed_index))
     print(f"Checkpoint saved at index {last_processed_index}.")
+
+
+def save_vqa(
+    output_path: str,
+    parsed: dict,
+    image_prompt_info: dict,
+    image_path: str,
+    image_prompt: str,
+) -> None:
+    """Save the generated VQA prompts to the output JSONL file."""
+    # Attach additional metadata to the parsed object
+    parsed["domain"] = image_prompt_info["domain"]
+    parsed["risk"] = image_prompt_info["risk"]
+    parsed["metadata"] = image_prompt_info["metadata"]
+    parsed["image_path"] = image_path
+    parsed["image_prompt"] = image_prompt
+    # Reorder the keys for consistency in the output file.
+    parsed = {
+        "domain": parsed["domain"],
+        "risk": parsed["risk"],
+        "vqa": parsed["vqa"],
+        "image_prompt": parsed["image_prompt"],
+        "image_path": parsed["image_path"],
+        "metadata": parsed["metadata"],
+    }
+
+    # Append the parsed object as a JSON line to the output file
+    with open(output_path, "a", encoding="utf-8") as f:
+        json_line = json.dumps(parsed, ensure_ascii=False)
+        f.write(json_line + "\n")
+    print(f"Prompts for image prompt saved successfully to {output_path}.")
 
 
 def generate_image_openai(
@@ -139,8 +168,7 @@ def generate_image_gemini(
     person_generation: str,
 ) -> bytes:
     """Generate an image using Gemini's image generation API."""
-    client = genai.Client()
-    client.api_key = api_key
+    client = genai.Client(api_key=api_key)
 
     response = None  # Initialize response to None
     try:
@@ -184,8 +212,7 @@ def generate_prompts_without_image(
     temperature: float,
 ) -> list | str | None:
     """Generate prompts using OpenAI's chat completion API without an image."""
-    client = OpenAI()
-    client.api_key = api_key
+    client = OpenAI(api_key=api_key)
 
     try:
         user_message = (
@@ -215,7 +242,6 @@ def generate_prompts_without_image(
         return None
 
 
-# Used for making prompts for image generation
 def generate_prompts_with_userprompt(
     system_prompt: str,
     api_key: str,
@@ -225,8 +251,7 @@ def generate_prompts_with_userprompt(
     temperature: float,
 ) -> list | str | None:
     """Generate prompts using OpenAI's chat completion API with a user prompt."""
-    client = OpenAI()
-    client.api_key = api_key
+    client = OpenAI(api_key=api_key)
 
     try:
         response = client.chat.completions.create(

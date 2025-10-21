@@ -28,7 +28,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[5]
 config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
-def process_image_prompt(
+def process_image_prompt_metadata(
     image_prompt: str,
     system_prompt: str,
     api_key: str,
@@ -204,7 +204,7 @@ def main() -> None:
 
         print(f"Processing image prompt {i + 1}/{len(image_prompts)}: {image_prompt}")
 
-        parsed = process_image_prompt(
+        parsed = process_image_prompt_metadata(
             image_prompt,
             system_prompt,
             api_key,

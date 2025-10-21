@@ -1,7 +1,7 @@
 prompts:
   hiring:
     bias: prompts/hiring-bias_v2.jsonl
-    toxicity: prompts/hiring-toxicity-2.jsonl
+    toxicity: prompts/hiring-toxicity.jsonl
     representation_gaps: prompts/hiring-representation_gaps.jsonl
     security_risks: prompts/hiring-security_risks.jsonl
   legal:
