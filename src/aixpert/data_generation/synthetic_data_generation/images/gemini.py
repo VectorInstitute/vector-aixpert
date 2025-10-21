@@ -32,7 +32,10 @@ def get_arguments() -> argparse.Namespace:
         help="Domain for the image generation",
     )
     parser.add_argument(
-        "--risk", required=True, help="Risk type for the image generation"
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the image generation",
     )
     return parser.parse_args()
 

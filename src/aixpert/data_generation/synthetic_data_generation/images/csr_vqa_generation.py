@@ -11,7 +11,13 @@ from pathlib import Path
 from decouple import AutoConfig
 
 # Third-party imports
-from utils import generate_prompts_vqa, load_checkpoint, load_config, save_checkpoint
+from utils import (
+    generate_prompts_vqa,
+    load_checkpoint,
+    load_config,
+    save_checkpoint,
+    save_vqa,
+)
 
 
 # Local imports
@@ -67,40 +73,6 @@ def process_image_prompt(
         return None
 
     return parsed
-
-
-def save_vqa(
-    output_path: str,
-    parsed: dict,
-    image_prompt_info: dict,
-    image_path: str,
-    image_prompt: str,
-) -> None:
-    """Save the generated VQA prompts to the output JSONL file."""
-    # Attach additional metadata to the parsed object
-    parsed["domain"] = image_prompt_info["domain"]
-    parsed["risk"] = image_prompt_info["risk"]
-    parsed["metadata"] = image_prompt_info["metadata"]
-    parsed["image_path"] = image_path
-    parsed["image_prompt"] = image_prompt
-
-    # Reformat the parsed object to include only necessary keys
-    parsed = {
-        "domain": parsed["domain"],
-        "risk": parsed["risk"],
-        "vqa": parsed["vqa"],
-        "image_prompt": parsed["image_prompt"],
-        "image_path": parsed["image_path"],
-        "metadata": parsed["metadata"],
-    }
-
-    # Append the final JSON line to the output file.
-    # Save the final JSON object to a JSONL file
-
-    with open(output_path, "a", encoding="utf-8") as f:
-        json_line = json.dumps(parsed, ensure_ascii=False)
-        f.write(json_line + "\n")
-    print(f"Prompts for image prompt saved successfully to {output_path}.")
 
 
 def get_arguments() -> argparse.Namespace:
@@ -202,7 +174,9 @@ def main() -> None:
     risk = image_prompts[0].get("risk", "unknown")
 
     # Initialize checkpoint to resume progress if available
-    checkpoint_file = os.path.join(output_dir, f"checkpoint_vqa_{domain}_{risk}.txt")
+    checkpoint_file = os.path.join(
+        output_dir, f"checkpoint_csv_vqa_{domain}_{risk}.txt"
+    )
     last_processed_index = load_checkpoint(checkpoint_file)
 
     print(f"Total image prompts to process: {len(image_prompts)}")
