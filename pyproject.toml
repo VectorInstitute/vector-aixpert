@@ -17,6 +17,7 @@ dependencies = [
     "openai>=1.89.0",
     "pydantic>=2.11.7",
     "python-decouple>=3.8",
+    "crewai>=0.193.2",
 ]
 
 [build-system]
