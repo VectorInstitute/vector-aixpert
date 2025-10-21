@@ -13,14 +13,16 @@ from agent import (
 from crewai import Crew
 from custom_llm import CustomLLM
 from flows.image_generation_flow import GeminiImageGenerationFlow
+from flows.vqa_generation_flow import GeminiVQAGenerationFlow
 from load_text_llm import load_text_llm
-from utils import load_prompt, read_directory, var_to_dict_prompts
+from utils import check_last_index, load_prompt, read_directory, var_to_dict_prompts
 
 
 current_script_dir = os.path.dirname(os.path.abspath(__file__))
 prompts_base_path = os.path.join(current_script_dir, "prompts")
 base_image_folder = os.path.join(current_script_dir, "images")
 metadata_base_path = os.path.join(current_script_dir, "metadata")
+vqa_base_path = os.path.join(current_script_dir, "vqa")
 
 
 def my_local_model(prompt: str, temperature: float = 0.7) -> str:
@@ -137,7 +139,7 @@ def metadata_generation_pipeline(llm: Any) -> None:
             image_folder = os.path.join(base_image_folder, llm)
             folder_name = os.path.join(image_folder, f"{domain}_{risk}_images")
             output_filename = f"{domain}_{risk}_image_{i + 1}.png"
-            #output_filename = os.path.join(folder_name, output_filename)
+            # output_filename = os.path.join(folder_name, output_filename)
             output_filename_path = os.path.join(folder_name, output_filename)
             if not os.path.exists(output_filename_path):
                 print("image file doesn't exist so skipping")
@@ -162,6 +164,45 @@ def metadata_generation_pipeline(llm: Any) -> None:
             print("Metadata saved successfully.")
 
 
+def vqa_generation_pipeline(llm: Any) -> None:
+    """Pipeline for creating the vqa from the image."""
+    prompts, prompts_vqa, prompt_metadata = var_to_dict_prompts()
+    metadata_llm_path = os.path.join(metadata_base_path, llm)
+    metadata_file_names = read_directory(metadata_llm_path)
+    for prompt_name, prompt in prompts_vqa.items():
+        for file in metadata_file_names:
+            prompts = load_prompt(file)
+            # print(len(prompts))
+            for i, elem in enumerate(prompts):
+                # domain = elem["domain"]
+                # risk = elem["risk"]
+                # image_path = elem["image_path"]
+                # image_prompt = elem["image_prompt"]
+                os.makedirs(metadata_base_path, exist_ok=True)
+                vqa_llm_path = os.path.join(vqa_base_path, llm)
+                os.makedirs(vqa_llm_path, exist_ok=True)
+                vqa_type_path = os.path.join(vqa_llm_path, prompt_name)
+                os.makedirs(vqa_type_path, exist_ok=True)
+                output_jsonl_path = os.path.join(
+                    vqa_type_path,
+                    elem["domain"] + "_" + elem["risk"] + "_vqa.jsonl",
+                )
+                parsed = {
+                    "domain": elem["domain"],
+                    "risk": elem["risk"],
+                    "image_prompt": elem["image_prompt"],
+                    "image_path": elem["image_path"],
+                    "metadata": elem["metadata"],
+                }
+                index = check_last_index(output_jsonl_path)
+                if i < index:
+                    continue
+                flow = GeminiVQAGenerationFlow(prompt, output_jsonl_path, parsed)
+                # flow = GeminiImageGenerationFlow("./","test.png")
+                # flow.plot()
+                flow.kickoff()
+
+
 def crew_create_and_launch(task_list: list) -> None:
     """Create crew and launch."""
     crew = Crew(tasks=task_list, verbose=False)
@@ -170,5 +211,6 @@ def crew_create_and_launch(task_list: list) -> None:
 
 if __name__ == "__main__":
     # result = prompt_generation_flow(llm)
-    metadata_generation_pipeline("gemini")
+    # metadata_generation_pipeline("gemini")
+    vqa_generation_pipeline("gemini")
     # print(len(result))

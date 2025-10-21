@@ -63,3 +63,17 @@ def load_prompt(prompt_path: str) -> list:
         print(f"An error occurred: {e}")
 
     return matching_prompts[0] if len(matching_prompts) == 1 else matching_prompts
+
+
+def check_last_index(path: str) -> int:
+    """Return the index of last processed element."""
+    # Prompt_path is a jsonl file where each line is a JSON object
+    # that has domain, risk, and image_prompt keys.
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return sum(1 for _ in f)
+    except FileNotFoundError:
+        return 0
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0
