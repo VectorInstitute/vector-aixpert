@@ -61,6 +61,12 @@ crewai = [
   "ollama>=0.5.1",
 ]
 
+# Test purposes to show conflict example
+# testenv = [
+#    "openai<1.90.0",
+#     "qdrant-client==1.14.3",
+# ]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/aixpert"]
 
