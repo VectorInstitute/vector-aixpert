@@ -1,0 +1,13 @@
+# Configuration for typos spell checker
+# https://github.com/crate-ci/typos
+
+[default.extend-words]
+# Machine Learning / Statistics terms - these are legitimate technical terms
+FPR = "FPR"  # False Positive Rate - ML evaluation metric
+TPR = "TPR"  # True Positive Rate - ML evaluation metric
+EOpp = "EOpp"  # Equal Opportunity - fairness metric
+SPD = "SPD"  # Statistical Parity Difference - fairness metric
+LLM = "LLM"  # Large Language Model
+LLMs = "LLMs"  # Large Language Models (plural)
+VQA = "VQA"  # Visual Question Answering
+IG = "IG"  # Integrated Gradients
