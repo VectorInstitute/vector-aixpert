@@ -94,7 +94,7 @@ Saved as: `<domain>_<risk>_metadata.jsonl` in `./metadata/<llm>/`.
   "metadata": { ... }  // carried forward if available
 }
 ```
-saved as Saved as: `<domain>_<risk>_vqa.jsonl` in `vqa/<llm>/<vqa_prompt_type>/`. 
+saved as Saved as: `<domain>_<risk>_vqa.jsonl` in `vqa/<llm>/<vqa_prompt_type>/`.
 
 ## Running the Pipeline (Unified)
 Use crew_orchestrate.py to run the complete pipeline:
