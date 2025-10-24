@@ -8,8 +8,11 @@ temperature: 1.2
 domain: hiring
 risk: bias_discrimination #Choose from: bias_discrimination, toxicity, representation_gaps, security_risks
 
+#Add file path and name to save results
 user_prompts_file: prompts/hiring_bias_discrimination.json
 user_prompts_save: prompts/scenes_hiring_bias_discrimination.json
 mcq_data_file: prompts/mcqs_bias_discrimination.json
+scenes_file: prompts/scenes_hiring_bias_discrimination.json
+answers_file: prompts/answers_hiring_bias_discrimination.json
 
 checkpoint_dir: checkpoints

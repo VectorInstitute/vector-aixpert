@@ -1,4 +1,4 @@
-"""Schema definitions OpenAI API response."""
+"""Schema definitions for OpenAI API response."""
 
 from typing import List, Optional
 
@@ -16,12 +16,19 @@ class Candidate(BaseModel):
     model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
 
 
+class HiringScene(BaseModel):
+    """Hiring Scene Schema for hiring scenes."""
+
+    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
+    text: str
+    candidates: List[Candidate]
+
+
 class Scene(BaseModel):
     """Scene Schema for hiring scenes."""
 
     model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
     text: str
-    candidates: List[Candidate]
 
 
 class MCQ(BaseModel):
@@ -33,17 +40,25 @@ class MCQ(BaseModel):
     B: str
     C: str
     D: str
-    answer: str = Field(pattern="^[A-D]$", description="Correct option (A, B, C, or D)")
-    explanation: str
 
 
-class ToxicMCQ(BaseModel):
-    """Toxicity Multiple Choice Question Schema."""
+class BiasAnswer(BaseModel):
+    """Bias Answer Schema."""
 
     model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
-    MCQ: str
+    answer: str = Field(pattern="^[A-D]$", description="Correct option (A, B, C, or D)")
+    explanation: str
+    criteria: Optional[List[str] | None] = Field(
+        description="List of criteria relevant to bias in the scene"
+    )
+
+
+class ToxicityAnswer(BaseModel):
+    """Toxicity Answer Schema."""
+
+    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
     answer: str = Field(
-        pattern="Yes|No|Unsure", description="Correct option (Yes, No, or Unsure)"
+        pattern="^[A-E]$", description="Correct option (A, B, C, D, or E)"
     )
     explanation: str
     phrases: List[str] | None = Field(
@@ -51,15 +66,11 @@ class ToxicMCQ(BaseModel):
     )
 
 
-class RepGapMCQ(BaseModel):
-    """Representation Gap Multiple Choice Question Schema."""
+class RepGapAnswer(BaseModel):
+    """Representation Gap Answer Schema."""
 
     model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
-    MCQ: str
-    A: str = Field(pattern="Yes", description="Option A")
-    B: str = Field(pattern="No", description="Option B")
-    C: str = Field(pattern="Unsure", description="Option C")
-    answer: str = Field(pattern="A|B|C", description="Correct option (A, B, or C)")
+    answer: str = Field(pattern="^[A-C]$", description="Correct option (A, B, or C)")
     explanation: str
     underrepresented_groups: List[str] | None = Field(
         description="List of underrepresented groups mentioned in the scene"
@@ -69,43 +80,58 @@ class RepGapMCQ(BaseModel):
     )
 
 
-class LegalBias(BaseModel):
-    """Legal Bias Multiple Choice Question Schema."""
+class SecurityRiskAnswer(BaseModel):
+    """Security Risk Answer Schema."""
 
     model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
-    text: str
-    criteria: str = Field(
-        pattern="race|national or ethnic origin|colour|religion|\
-                           age|sex|sexual orientation|gender identity or expression|\
-                            marital status|family status|disability|genetic characteristics|\
-                           a conviction for which a pardon has been granted/a record suspended"
-    )
-
-
-class HealthcareBias(BaseModel):
-    """Healthcare Bias Multiple Choice Question Schema."""
-
-    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
-    text: str
-    criteria: List[str] = Field(
-        pattern="race|gender|sexual identity|age|\
-                                 ableism|obesity|socioeconomic status|education|geographic location"
-    )
-
-
-class SecurityRiskMCQ(BaseModel):
-    """Security Risks Multiple Choice Question Schema."""
-
-    model_config = ConfigDict(json_schema_extra={"additionalProperties": False})
-    MCQ: str
-    A: str = Field(pattern="Yes", description="Option A")
-    B: str = Field(pattern="No", description="Option B")
-    C: str = Field(pattern="Unsure", description="Option C")
-    answer: str = Field(pattern="A|B|C", description="Correct option (A, B, or C)")
+    answer: str = Field(pattern="^[A-C]$", description="Correct option (A, B, or C)")
     explanation: str
     risk_type: List[str] | None = Field(
-        description="Type of security risk mentioned in the scene"
+        description="Type(s) of security risks mentioned in the scene"
     )
-    risk_indicators: Optional[List[str]] = Field(
-        description="List of phrases in the scenario that indicate the security risk"
+    risk_indicators: List[str] | None = Field(
+        description="List of phrases from the scenario that indicate the security risk"
     )
+
+
+# Schema utility functions
+def get_scene_schema(domain: str) -> Optional[dict]:
+    """Get the JSON schema for scene generation.
+
+    :param domain: (str) The domain of the scene (e.g., "hiring").
+    :return: (dict) The JSON schema for the specified domain.
+    """
+    if domain == "hiring":
+        return HiringScene.model_json_schema()
+
+    return Scene.model_json_schema()
+
+
+def get_mcq_schema(risk: str) -> Optional[dict]:
+    """Get the JSON schema for MCQ generation.
+
+    :param risk: (str) The type of risk (e.g., "bias_discrimination")
+    :return: (dict) The JSON schema for the specified risk type.
+    """
+    if risk == "bias_discrimination":
+        return MCQ.model_json_schema()
+
+    return None
+
+
+def get_answer_schema(risk: str) -> Optional[dict]:
+    """Get the JSON schema for answer generation.
+
+    :param risk: (str) The type of risk (e.g., "bias_discrimination")
+    :return: (dict) The JSON schema for the specified risk type.
+    """
+    if risk == "bias_discrimination":
+        return BiasAnswer.model_json_schema()
+    if risk == "toxicity":
+        return ToxicityAnswer.model_json_schema()
+    if risk == "representation_gaps":
+        return RepGapAnswer.model_json_schema()
+    if risk == "security_risks":
+        return SecurityRiskAnswer.model_json_schema()
+
+    return None
