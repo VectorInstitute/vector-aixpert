@@ -1,4 +1,4 @@
-# Interpretability & Explanations for Social LLM (IE_Social_LLM)
+# Interpretability & Explanations for Social LLM
 
 Zero-shot toxicity classification with Integrated Gradients explanations and fairness analysis across demographic identity groups for Responsible AI evaluation.
 

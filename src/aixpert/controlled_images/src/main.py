@@ -8,7 +8,8 @@ import argparse
 from pathlib import Path
 from typing import Callable, Dict, Iterator, List, Tuple
 
-from image_utils import (
+from aixpert.controlled_images.configs.prompts import system_prompts
+from aixpert.controlled_images.utils.image_utils import (
     gen_flux_png,
     gen_gemini_png,
     gen_grok_png,
@@ -16,8 +17,7 @@ from image_utils import (
     retryable,
     save_png,
 )
-from prompts import system_prompts
-from utils import (
+from aixpert.controlled_images.utils.utils import (
     append_rows,
     default_checkpoint_path,
     ensure_dirs,
@@ -49,7 +49,7 @@ def bind_provider(
 
     if provider_name == "flux":
 
-        @retryable(max_attempts, max_backoff, "FAL generation")  # type: ignore[misc]
+        @retryable(max_attempts, max_backoff, "FAL generation")
         def generate_png(prompt: str) -> bytes:
             return gen_flux_png(api_key, model_name, prompt)
 
@@ -59,7 +59,7 @@ def bind_provider(
         predict_url = provider_cfg["predict_url"]
         sample_count = provider_cfg["sample_count"]
 
-        @retryable(max_attempts, max_backoff, "Gemini generation")  # type: ignore[misc]
+        @retryable(max_attempts, max_backoff, "Gemini generation")
         def generate_png(prompt: str) -> bytes:
             return gen_gemini_png(api_key, predict_url, prompt, sample_count)
 
@@ -68,7 +68,7 @@ def bind_provider(
     if provider_name == "gpt":
         image_size = provider_cfg["image_size"]
 
-        @retryable(max_attempts, max_backoff, "OpenAI generation")  # type: ignore[misc]
+        @retryable(max_attempts, max_backoff, "OpenAI generation")
         def generate_png(prompt: str) -> bytes:
             return gen_openai_png(api_key, model_name, prompt, image_size)
 
@@ -78,7 +78,7 @@ def bind_provider(
         # SDXL currently mirrors the Grok HTTP flow in the original code.
         image_format = provider_cfg["image_format"]
 
-        @retryable(max_attempts, max_backoff, "Grok generation")  # type: ignore[misc]
+        @retryable(max_attempts, max_backoff, "Grok generation")
         def generate_png(prompt: str) -> bytes:
             return gen_grok_png(api_key, model_name, prompt, image_format)
 
@@ -267,7 +267,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--config",
-        default="configs/img_gen_config.yaml",
+        default="../configs/img_gen_config.yaml",
         help="Path to config.yaml",
     )
     args = parser.parse_args()
