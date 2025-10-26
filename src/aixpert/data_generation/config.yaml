@@ -9,8 +9,15 @@ dalle:
 gpt:
   model: "gpt-4o" # "gpt-4", "gpt-4o", "gpt-4o-mini", "gpt-3.5-turbo"
   batch_size: 1
-  max_tokens: 2048
+  max_tokens: 4092
   temperature: 0.7 # Controls randomness in output (0.0 = deterministic, 1.0 = more random)
+
+# Text Generation Configuration (Gemini)
+gemini_text:
+  model: "gemini/gemini-2.5-pro" # "gpt-4", "gpt-4o", "gpt-4o-mini", "gpt-3.5-turbo"
+  batch_size: 1
+  max_tokens: 4092
+  temperature: 0.7 # Options: "ALLOW_ALL", "ALLOW_ADULT", "DONT_ALLOW"
 
 # Image Generation Configuration (Gemini)
 gemini:

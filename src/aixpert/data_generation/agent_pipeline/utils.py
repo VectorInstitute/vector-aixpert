@@ -4,6 +4,19 @@ import json
 import os
 
 import system_prompt
+import yaml
+
+
+def load_config(config_path: str, filename: str) -> dict:
+    """Load configuration from a YAML file."""
+    try:
+        config_file_path = os.path.join(config_path, filename)
+        with open(config_file_path, "r") as file:
+            return yaml.safe_load(file)
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"Configuration file {config_path} not found.") from e
+    except yaml.YAMLError as e:
+        raise ValueError(f"Error parsing YAML file {config_path}: {e}") from e
 
 
 def var_to_dict_prompts() -> tuple[dict, dict, dict]:

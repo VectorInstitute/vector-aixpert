@@ -1,5 +1,6 @@
 """file for creating crew and running it."""
 
+import argparse
 import json
 import os
 import re
@@ -12,8 +13,8 @@ from agent import (
 )
 from crewai import Crew
 from custom_llm import CustomLLM
-from flows.image_generation_flow import GeminiImageGenerationFlow
-from flows.vqa_generation_flow import GeminiVQAGenerationFlow
+from flows.image_generation_flow import ImageGenerationFlow
+from flows.vqa_generation_flow import VQAGenerationFlow
 from load_text_llm import load_text_llm
 from utils import check_last_index, load_prompt, read_directory, var_to_dict_prompts
 
@@ -35,17 +36,18 @@ llm = CustomLLM(my_local_model)
 
 def prompt_generation_flow(llm: Any) -> Union[str, list, None]:
     """Flow for creating the prompts."""
-    prompts_base_path = "./prompts/"
     prompts, prompts_vqa, prompt_metadata = var_to_dict_prompts()
-    print(prompts)
+    # print(prompts)
     # exit()
     task_list = []
     prompt_names = []
     for prompt_name, prompt in prompts.items():
-        llm = load_text_llm("gemini")
+        llm_model = load_text_llm(llm)
         # print(llm)
         task_list.append(
-            create_prompt_agents_and_task(role="AI Assistant", goal=prompt, llm=llm)
+            create_prompt_agents_and_task(
+                role="AI Assistant", goal=prompt, llm=llm_model
+            )
         )
         prompt_names.append(prompt_name)
     # print(prompt_names)
@@ -60,7 +62,9 @@ def prompt_generation_flow(llm: Any) -> Union[str, list, None]:
         content = "\n".join(prompts) if isinstance(prompts, list) else prompts
         json_objects = re.findall(r"```json(.*)```", content, re.DOTALL)
         os.makedirs(prompts_base_path, exist_ok=True)
-        output_jsonl_path = prompts_base_path + prompt_names[idx] + "_gemini.jsonl"
+        prompts_llm_path = os.path.join(prompts_base_path, llm)
+        os.makedirs(prompts_llm_path, exist_ok=True)
+        output_jsonl_path = os.path.join(prompts_llm_path, prompt_names[idx] + ".json")
         with open(output_jsonl_path, "w", encoding="utf-8") as f:
             for obj_str in json_objects:
                 try:
@@ -76,9 +80,9 @@ def prompt_generation_flow(llm: Any) -> Union[str, list, None]:
 
 def image_generation_flow(llm: str) -> None:
     """Flow for creating the images from the prompt."""
-    prompt_file_names = read_directory(prompts_base_path)
+    prompts_llm_path = os.path.join(prompts_base_path, llm)
+    prompt_file_names = read_directory(prompts_llm_path)
     os.makedirs(base_image_folder, exist_ok=True)
-
     for file in prompt_file_names:
         # print(file)
         prompts = load_prompt(file)
@@ -97,25 +101,26 @@ def image_generation_flow(llm: str) -> None:
             if os.path.exists(output_filename):
                 print("file exist so skipping")
                 continue
-            flow = GeminiImageGenerationFlow(elem["image_prompt"], output_filename)
+            flow = ImageGenerationFlow(llm, elem["image_prompt"], output_filename)
             flow.kickoff()
 
 
 def metadata_generation_pipeline(llm: Any) -> None:
     """Pipeline for creating the metadata from the prompt."""
     prompts, prompts_vqa, prompt_metadata = var_to_dict_prompts()
-    prompt_file_names = read_directory(prompts_base_path)
+    prompts_llm_path = os.path.join(prompts_base_path, llm)
+    prompt_file_names = read_directory(prompts_llm_path)
     # for prompt_name, prompt in prompts_metadata.items():
-    llm_model = load_text_llm("gemini")
+    llm_model = load_text_llm(llm)
     metadata_agent = create_metadata_agent(
         role="AI Assistant", goal=prompt_metadata["prompt_metadata"], llm=llm_model
     )
     for file in prompt_file_names:
-        task_list = []
         # print(file)
         prompts = load_prompt(file)
         # print(len(prompts))
         for i, elem in enumerate(prompts):
+            task_list = []
             domain = elem["domain"]
             risk = elem["risk"]
             task_list.append(
@@ -129,6 +134,8 @@ def metadata_generation_pipeline(llm: Any) -> None:
                     prompts = [task.output.raw.strip()] if task.output.raw else []
             content = "\n".join(prompts) if isinstance(prompts, list) else prompts
             metadata = re.findall(r"```json(.*)```", content, re.DOTALL)
+            if len(metadata) != 1:
+                metadata = [content]
             assert len(metadata) == 1, "there should be only one metadata generated"
             try:
                 metadata = json.loads(metadata[0])
@@ -194,10 +201,11 @@ def vqa_generation_pipeline(llm: Any) -> None:
                     "image_path": elem["image_path"],
                     "metadata": elem["metadata"],
                 }
+                print(output_jsonl_path)
                 index = check_last_index(output_jsonl_path)
                 if i < index:
                     continue
-                flow = GeminiVQAGenerationFlow(prompt, output_jsonl_path, parsed)
+                flow = VQAGenerationFlow(llm, prompt, output_jsonl_path, parsed)
                 # flow = GeminiImageGenerationFlow("./","test.png")
                 # flow.plot()
                 flow.kickoff()
@@ -209,8 +217,25 @@ def crew_create_and_launch(task_list: list) -> None:
     crew.kickoff()
 
 
+def get_arguments() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="Agentic Pipeline")
+    parser.add_argument(
+        "--llm",
+        type=str,
+        required=True,
+        help="llm to be used, Supported Models [Openai, Gemini]",
+    )
+
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    # result = prompt_generation_flow(llm)
-    # metadata_generation_pipeline("gemini")
-    vqa_generation_pipeline("gemini")
+    args = get_arguments()
+    if args.llm not in ["openai", "gemini"]:
+        raise ValueError("Supported models are Openai and Gemini only ")
+    prompt_generation_flow(args.llm)
+    image_generation_flow(args.llm)
+    metadata_generation_pipeline(args.llm)
+    vqa_generation_pipeline(args.llm)
     # print(len(result))
