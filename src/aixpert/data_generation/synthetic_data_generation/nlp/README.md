@@ -106,29 +106,29 @@ Use main.py subcommands:
 ```bash
 # Stage 1: Generate user prompts
 uv run main.py  \
-  --config_file config.yaml \
+  --config config.yaml \
   --stage user_prompt_gen
 
 # Stage 2: Generate scees
 uv run main.py  \
-  --config_file config.yaml \
+  --config config.yaml \
   --stage only_scenes
 
 # Stage 3: Generate MCQs
 uv run main.py  \
-  --config_file config.yaml \
+  --config config.yaml \
   --stage only_mcqs
 
 # Stage 4: Generate Answers
 uv run main.py  \
-  --config_file config.yaml \
+  --config config.yaml \
   --stage only_answers
 
 ### Run All (if extended)
 If `all` is configured:
 ```bash
 uv run main.py \
-  --config_file config.yaml \
+  --config config.yaml \
   --stage all
 ```
 
@@ -154,7 +154,7 @@ To resume after interruption, rerun the same command; already completed items ar
 ## Configuration Notes
 Typical config.yaml sections:
 ```yaml
-repository: /projects/aixpert/users/ananya/AIXpert
+repository: <path_to_repo>
 #Model parameters
 model: gpt-4o-mini #gpt-4o
 max_output_tokens: 800

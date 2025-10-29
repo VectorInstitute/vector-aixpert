@@ -18,6 +18,8 @@ dependencies = [
     "pydantic>=2.11.7",
     "python-decouple>=3.8",
     "crewai>=0.193.2",
+    "pandas>=2.3.3",
+    "pyyaml>=6.0.3",
 ]
 
 [build-system]

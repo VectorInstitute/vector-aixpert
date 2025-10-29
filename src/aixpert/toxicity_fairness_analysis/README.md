@@ -1,4 +1,4 @@
-# Interpretability & Explanations for Social LLM
+# Toxicity Fairness Analysis with Zero-Shot LLMs and Integrated Gradients
 
 Zero-shot toxicity classification with Integrated Gradients explanations and fairness analysis across demographic identity groups for Responsible AI evaluation.
 

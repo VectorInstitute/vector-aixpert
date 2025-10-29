@@ -29,7 +29,7 @@ providers:
     sample_count: 1                 # one image per request
     outdir: "images_imagen_4_0_generate_001"
     csv_path: "annotations_imagen_4_0_generate_001.csv"
-    env_key: "GOOGLE_API_KEY"
+    env_key: "GEMINI_API_KEY"
 
   # === FAL.ai (Flux/Recraft/SD v3.5 large) ===
   flux:

@@ -10,6 +10,7 @@ import argparse
 import os
 import sys
 from pathlib import Path
+from typing import Any, Protocol
 
 from decouple import AutoConfig
 from system_utils import (
@@ -28,17 +29,23 @@ PROJECT_ROOT = Path(__file__).resolve().parents[5]
 config = AutoConfig(search_path=str(PROJECT_ROOT))
 
 
-def get_arguments() -> argparse.Namespace:
-    """Parse command-line arguments."""
-    parser = argparse.ArgumentParser(
-        description="Generate prompts for synthetic images using GPT-4o."
+class Subparsers(Protocol):
+    """Protocol for argparse subparsers."""
+
+    def add_parser(self, name: str, **kwargs: Any) -> argparse.ArgumentParser:
+        """Create, register, and return a new argparse.ArgumentParser instance."""
+        ...
+
+
+def base_parser() -> argparse.ArgumentParser:
+    """Create the base argument parser."""
+    return argparse.ArgumentParser(
+        description="Synthetic Image Data Generation with VQA"
     )
 
-    subparsers = parser.add_subparsers(
-        dest="stage", help="Stages to run", required=True
-    )
 
-    # Stage 1: Prompt Generation
+def add_prompt_generation(subparsers: Subparsers) -> None:
+    """Stage 1: Prompt Generation."""
     stage1_parser = subparsers.add_parser(
         "prompt_generation", help="Generate prompts for synthetic images"
     )
@@ -63,13 +70,21 @@ def get_arguments() -> argparse.Namespace:
             based on the system prompt file)",
     )
     stage1_parser.add_argument(
+        "--output_dir",
+        type=str,
+        default="prompts",
+        help="Directory to save output files",
+    )
+    stage1_parser.add_argument(
         "--output_file",
         type=str,
         default="prompts.jsonl",
         help="File to save generated prompts",
     )
 
-    # Stage 2: Image Generation
+
+def add_image_generation(subparsers: Subparsers) -> None:
+    """Stage 2: Image Generation."""
     stage2_parser = subparsers.add_parser(
         "image_generation", help="Generate synthetic images based on prompts"
     )
@@ -93,7 +108,9 @@ def get_arguments() -> argparse.Namespace:
         help="Risk type for the image generation",
     )
 
-    # Stage 3: Metadata Generation
+
+def add_metadata_generation(subparsers: Subparsers) -> None:
+    """Stage 3: Metadata Generation."""
     stage3_parser = subparsers.add_parser(
         "metadata_generation", help="Generate metadata from image prompts"
     )
@@ -107,10 +124,20 @@ def get_arguments() -> argparse.Namespace:
         help="Version of the system prompt to use",
     )
     stage3_parser.add_argument(
-        "--image_prompt_file",
+        "--domain",
         type=str,
+        choices=["hiring", "legal", "healthcare"],
         required=True,
-        help="Path to the file containing image prompts",
+        help="Domain for which to generate metadata",
+    )
+    stage3_parser.add_argument(
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the metadata generation",
+    )
+    stage3_parser.add_argument(
+        "--prompt_yaml", type=str, required=True, help="Path to the prompt YAML file"
     )
     stage3_parser.add_argument(
         "--images_folder",
@@ -131,7 +158,9 @@ def get_arguments() -> argparse.Namespace:
         help="File to save generated prompts",
     )
 
-    # Stage 4a: csr-VQA Generation
+
+def add_csr_vqa_generation(subparsers: Subparsers) -> None:
+    """Stage 4a: CSR VQA Generation."""
     stage4a_parser = subparsers.add_parser(
         "csr-vqa_generation", help="Generate CSR VQA prompts from image prompts"
     )
@@ -150,6 +179,19 @@ def get_arguments() -> argparse.Namespace:
         choices=["v1", "simple", "physical"],
         default="simple",
         help="Variant of the prompt to use (e.g., v1)",
+    )
+    stage4a_parser.add_argument(
+        "--domain",
+        type=str,
+        choices=["hiring", "legal", "healthcare"],
+        required=True,
+        help="Domain for which to generate VQA prompts",
+    )
+    stage4a_parser.add_argument(
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the VQA generation",
     )
     stage4a_parser.add_argument(
         "--image_prompt_file",
@@ -176,7 +218,9 @@ def get_arguments() -> argparse.Namespace:
         help="File to save generated prompts",
     )
 
-    # Stage 4b: VQA Generation
+
+def add_vqa_generation(subparsers: Subparsers) -> None:
+    """Stage 4b: VQA Generation."""
     stage4b_parser = subparsers.add_parser(
         "vqa_generation", help="Generate VQA prompts from image prompts"
     )
@@ -194,6 +238,19 @@ def get_arguments() -> argparse.Namespace:
         type=str,
         choices=["v1", "v2", "bias"],
         help="Variant of the prompt to use (e.g., v1, v2, bias).",
+    )
+    stage4b_parser.add_argument(
+        "--domain",
+        type=str,
+        choices=["hiring", "legal", "healthcare"],
+        required=True,
+        help="Domain for which to generate VQA prompts",
+    )
+    stage4b_parser.add_argument(
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the VQA generation",
     )
     stage4b_parser.add_argument(
         "--image_prompt_file",
@@ -220,24 +277,45 @@ def get_arguments() -> argparse.Namespace:
         help="File to save generated prompts",
     )
 
-    # Common arguments for all stages
-    all_stages_parser = subparsers.add_parser("all_stages", help="Run all sequentially")
-    all_stages_parser.add_argument(
-        "--prompt_yaml", type=str, required=True, help="Path to the prompt YAML file"
+
+def all_stages_parser(subparsers: Subparsers) -> None:
+    """Parser for running all stages sequentially."""
+    all_stages = subparsers.add_parser("all_stages", help="Run all stages sequentially")
+    all_stages.add_argument("--config_file", type=str, required=True)
+    all_stages.add_argument("--prompt_yaml", type=str, required=True)
+    all_stages.add_argument(
+        "--domain", type=str, choices=["hiring", "legal", "healthcare"], required=True
     )
-    all_stages_parser.add_argument(
-        "--domain",
-        type=str,
-        choices=["hiring", "legal", "healthcare"],
+    all_stages.add_argument(
+        "--risk",
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
         required=True,
-        help="Domain for which to generate prompts",
     )
-    all_stages_parser.add_argument(
-        "--image_prompt_file",
-        type=str,
-        required=True,
-        help="Path to the file containing image prompts",
+
+    # allow overrides or use sensible defaults
+    all_stages.add_argument("--images_folder", type=str, default=None)
+    all_stages.add_argument(
+        "--metadata_output_dir", type=str, default="metadata_ground_truth"
     )
+    all_stages.add_argument("--metadata_output_file", type=str, default=None)
+    all_stages.add_argument("--vqa_output_dir", type=str, default="vqa_ground_truth")
+    all_stages.add_argument("--vqa_output_file", type=str, default=None)
+
+
+def get_arguments() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = base_parser()
+
+    subparsers = parser.add_subparsers(
+        dest="stage", help="Stages to run", required=True
+    )
+
+    add_prompt_generation(subparsers)
+    add_image_generation(subparsers)
+    add_metadata_generation(subparsers)
+    add_csr_vqa_generation(subparsers)
+    add_vqa_generation(subparsers)
+    all_stages_parser(subparsers)
 
     return parser.parse_args()
 
@@ -246,23 +324,85 @@ def run_all_stages(args: argparse.Namespace) -> None:
     """Run all stages sequentially."""
     print("Running all stages...")
 
-    # Stage 1: Prompt Generation
+    # Derive filenames if not supplied
+    stem = f"{args.domain}-{args.risk}"
+    images_folder = args.images_folder or f"{stem}_images"
+    metadata_file = args.metadata_output_file or f"{stem}_metadata.jsonl"
+    vqa_file = args.vqa_output_file or f"{stem}_vqa.jsonl"
+    image_prompt_file = os.path.join(args.metadata_output_dir, metadata_file)
+
+    # 1) Prompt generation
     print("\n--- Stage 1: Prompt Generation ---")
-    prompt_generation(args)
+    pg = argparse.Namespace(
+        stage="prompt_generation",
+        config_file=args.config_file,
+        prompt_yaml=args.prompt_yaml,
+        domain=args.domain,
+        risk=args.risk,
+        output_dir="prompts",
+        output_file=f"{stem}.jsonl",
+    )
+    prompt_generation(pg)
 
-    # Stage 2: Image Generation
+    # 2) Image generation
     print("\n--- Stage 2: Image Generation ---")
-    image_generation(args)
+    ig = argparse.Namespace(
+        stage="image_generation",
+        config_file=args.config_file,
+        prompt_yaml=args.prompt_yaml,
+        domain=args.domain,
+        risk=args.risk,
+    )
+    image_generation(ig)
 
-    # Stage 3: Metadata Generation
+    # 3) Metadata generation
     print("\n--- Stage 3: Metadata Generation ---")
-    metadata_generation(args)
+    mg = argparse.Namespace(
+        stage="metadata_generation",
+        config_file=args.config_file,
+        prompt_variant="v1",
+        domain=args.domain,
+        risk=args.risk,
+        prompt_yaml=args.prompt_yaml,
+        images_folder=images_folder,
+        output_dir=args.metadata_output_dir,
+        output_file=metadata_file,
+    )
+    metadata_generation(mg)
 
-    # Stage 4: VQA Generation
-    print("\n--- Stage 4: VQA Generation ---")
-    vqa_generation(args)
+    # 4) VQA generation (risk VQA)
+    print("\n--- Stage 4a: VQA Generation ---")
+    vg = argparse.Namespace(
+        stage="vqa_generation",
+        config_file=args.config_file,
+        prompt_domain="risk",
+        prompt_variant="v1",
+        domain=args.domain,
+        risk=args.risk,
+        image_prompt_file=image_prompt_file,
+        images_folder=images_folder,
+        output_dir=args.vqa_output_dir,
+        output_file=vqa_file,
+    )
+    vqa_generation(vg)
 
-    print("\nAll stages completed successfully!")
+    # 5) CSR-VQA generation
+    print("\n--- Stage 4b: CSR-VQA Generation ---")
+    csg = argparse.Namespace(
+        stage="csr-vqa_generation",
+        config_file=args.config_file,
+        prompt_domain="csr",
+        prompt_variant="simple",
+        domain=args.domain,
+        risk=args.risk,
+        image_prompt_file=image_prompt_file,
+        images_folder=images_folder,
+        output_dir="vqa_commonsense_ground_truth",
+        output_file=f"{stem}_csr_vqa.jsonl",
+    )
+    csr_vqa_generation(csg)
+
+    print("\nAll stages completed successfully.")
 
 
 def main(args: argparse.Namespace) -> None:
@@ -288,32 +428,3 @@ if __name__ == "__main__":
     print("Arguments received:", args)
 
     main(args)
-
-
-# To run stage1:
-# uv run main.py prompt_generation --config_file ../../config.yaml \
-# --prompt_yaml prompt_paths.yaml --domain hiring --risk toxicity \
-# --output_file test_stage1.jsonl
-
-# To run stage2:
-# uv run main.py image_generation --config_file ../../config.yaml \
-# --prompt_yaml prompt_paths.yaml --domain hiring --risk toxicity
-
-# To run stage3:
-# uv run main.py metadata_generation --config_file ../../config.yaml \
-# --prompt_variant v1 --image_prompt_file test_stage1.jsonl \
-# --images_folder hiring_toxicity_images/ --output_dir meta_test/
-
-# To run stage4a:
-# uv run main.py vqa_generation --config_file ../../config.yaml \
-# --prompt_domain risk --prompt_variant v1 \
-# --image_prompt_file meta_test/prompts_metadata.jsonl \
-# --images_folder hiring_toxicity_images/ --output_dir meta_test/ \
-# --output_file test_vqa.jsonl
-
-# To run stage4b:
-# uv run main.py csr-vqa_generation --config_file ../../config.yaml \
-# --prompt_domain csr --prompt_variant v1 \
-# --image_prompt_file meta_test/prompts_metadata.jsonl \
-# --images_folder hiring_toxicity_images/ \
-# --output_dir meta_test/ --output_file test_csr_vqa.jsonl

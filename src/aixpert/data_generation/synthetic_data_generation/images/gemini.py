@@ -111,12 +111,12 @@ def main() -> None:
             print("Image generated successfully.")
 
             # Create folder if it doesn't exist.
-            folder_name = f"{domain}_{risk}_images"
+            folder_name = f"{domain}-{risk}_images"
             os.makedirs(folder_name, exist_ok=True)
             print(f"Saving image to folder: {folder_name}")
 
             # Define the output filename and save the image.
-            output_filename = f"{domain}_{risk}_image_{i + 1}.png"
+            output_filename = f"{domain}-{risk}_image_{i + 1}.png"
             output_filename = os.path.join(folder_name, output_filename)
 
             with open(output_filename, "wb") as img_file:
@@ -131,12 +131,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-# To run this script, use the following command:
-# python gemini.py --config_file path/to/config.yaml \
-# --prompt_yaml path/to/prompt.yaml --domain hiring --risk bias
-
-# For example:
-# python3 gemini.py --config_file ../../config.yaml  \
-# --prompt_yaml prompt_paths.yaml --domain hiring --risk bias

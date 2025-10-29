@@ -18,6 +18,7 @@ import re
 import sys
 from pathlib import Path
 
+import yaml
 from decouple import AutoConfig
 from metadata_generation import process_image_prompt_metadata, save_metadata
 
@@ -50,6 +51,7 @@ def prompt_generation(args: argparse.Namespace) -> None:
     """Generate prompts and save them to a file."""
     # Load configuration settings from the specified file
     yaml_config = load_config(args.config_file)
+    prompt_yaml = args.prompt_yaml
 
     # Ensure the OpenAI API key is provided via environment variable
     api_key = config("OPENAI_API_KEY")
@@ -78,8 +80,10 @@ def prompt_generation(args: argparse.Namespace) -> None:
     prompts = generate_prompts_with_userprompt(
         system_prompt, api_key, model, batch_size, max_tokens, temperature
     )
-
-    output_jsonl_path = args.output_file
+    output_dir = args.output_dir
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    output_jsonl_path = os.path.join(output_dir, args.output_file)
     print(f"Saving prompts to {output_jsonl_path}")
 
     # Process the output prompts
@@ -96,6 +100,26 @@ def prompt_generation(args: argparse.Namespace) -> None:
                 f.write(json_line + "\n")
             except json.JSONDecodeError as e:
                 print(f"Skipping invalid JSON: {e}")
+
+    try:
+        with open(prompt_yaml, "r", encoding="utf-8") as f:
+            prompt_paths = yaml.safe_load(f) or {}
+    except FileNotFoundError:
+        prompt_paths = {}
+
+    # Ensure structure
+    prompt_paths.setdefault("prompts", {}).setdefault(domain, {})
+
+    # Update or add mapping to the exact output_jsonl_path you’re using
+    prompt_paths["prompts"][domain][risk] = output_jsonl_path
+
+    # Write back without reordering keys
+    with open(prompt_yaml, "w", encoding="utf-8") as f:
+        yaml.safe_dump(prompt_paths, f, sort_keys=False)
+
+    print(
+        f"Recorded mapping in {prompt_yaml}: prompts.{domain}.{risk} -> {output_jsonl_path}"
+    )
 
     print("Prompts generation completed successfully.")
 
@@ -169,12 +193,12 @@ def image_generation(args: argparse.Namespace) -> None:
             print("Image generated successfully.")
 
             # Create folder if it doesn't exist.
-            folder_name = f"{domain}_{risk}_images"
+            folder_name = f"{domain}-{risk}_images"
             os.makedirs(folder_name, exist_ok=True)
             print(f"Saving image to folder: {folder_name}")
 
             # Define the output filename and save the image.
-            output_filename = f"{domain}_{risk}_image_{i + 1}.png"
+            output_filename = f"{domain}-{risk}_image_{i + 1}.png"
             output_filename = os.path.join(folder_name, output_filename)
 
             with open(output_filename, "wb") as img_file:
@@ -187,13 +211,28 @@ def image_generation(args: argparse.Namespace) -> None:
         # break # Remove this break if you want to generate images for all prompts
 
 
-def metadata_generation(args: argparse.Namespace) -> None:
+def metadata_generation(args: argparse.Namespace) -> None:  # noqa: PLR0915
     """Generate metadata from image prompts."""
     # Load configuration settings from file
     yaml_config = load_config(args.config_file)
 
+    domain = args.domain
+    risk = args.risk
+    prompts = load_prompt_path(args.prompt_yaml)
+    # Get the prompt path based on domain and risk.
+    try:
+        prompt_path = prompts["prompts"][domain][risk]
+    except KeyError as e:
+        raise KeyError(
+            f"Prompt for domain '{domain}' and risk '{risk}' not found in {args.prompt_yaml}"
+        ) from e
+
+    print(
+        f"\nGenerating image for domain: {domain}, risk: {risk} has prompt path:{prompt_path}"
+    )
+
     # Load image prompts from the specified JSONL file
-    image_prompt_file = args.image_prompt_file
+    image_prompt_file = prompt_path
     if not os.path.exists(image_prompt_file):
         raise FileNotFoundError(f"Image prompt file {image_prompt_file} not found.")
     with open(image_prompt_file, "r", encoding="utf-8") as f:
@@ -231,12 +270,9 @@ def metadata_generation(args: argparse.Namespace) -> None:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    domain = image_prompts[0].get("domain", "unknown")
-    risk = image_prompts[0].get("risk", "unknown")
-
     # Checkpoint file to track progress in case of interruptions
     checkpoint_file = os.path.join(
-        output_dir, f"checkpoint_metadata_{domain}_{risk}.txt"
+        output_dir, f"checkpoint_metadata_{domain}-{risk}.txt"
     )
     last_processed_index = load_checkpoint(checkpoint_file)
 
@@ -249,7 +285,7 @@ def metadata_generation(args: argparse.Namespace) -> None:
     for i in range(last_processed_index + 1, len(image_prompts)):
         image_prompt = image_prompts[i]["image_prompt"]
         image_path = os.path.join(
-            args.images_folder, f"{domain}_{risk}_image_{i + 1}.png"
+            args.images_folder, f"{domain}-{risk}_image_{i + 1}.png"
         )
         if not os.path.exists(image_path):
             print(
@@ -295,6 +331,8 @@ def vqa_generation(args: argparse.Namespace) -> None:
     """Generate VQA prompts from image prompts."""
     # Load configuration from the provided file
     yaml_config = load_config(args.config_file)
+    domain = args.domain
+    risk = args.risk
 
     # Load image prompts from the specified JSONL file.
     image_prompt_file = args.image_prompt_file
@@ -334,12 +372,8 @@ def vqa_generation(args: argparse.Namespace) -> None:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # Get domain and risk from the first image prompt.
-    domain = image_prompts[0].get("domain", "unknown")
-    risk = image_prompts[0].get("risk", "unknown")
-
     # Initialize a checkpoint file to track progress.
-    checkpoint_file = os.path.join(output_dir, f"checkpoint_vqa_{domain}_{risk}.txt")
+    checkpoint_file = os.path.join(output_dir, f"checkpoint_vqa_{domain}-{risk}.txt")
     last_processed_index = load_checkpoint(checkpoint_file)
 
     print(f"Total image prompts to process: {len(image_prompts)}")
@@ -351,7 +385,7 @@ def vqa_generation(args: argparse.Namespace) -> None:
     for i in range(last_processed_index + 1, len(image_prompts)):
         image_prompt = image_prompts[i]["image_prompt"]
         image_path = os.path.join(
-            args.images_folder, f"{domain}_{risk}_image_{i + 1}.png"
+            args.images_folder, f"{domain}-{risk}_image_{i + 1}.png"
         )
 
         # Skip the image prompt if the corresponding image file does not exist.
@@ -410,6 +444,8 @@ def csr_vqa_generation(args: argparse.Namespace) -> None:
     """Generate VQA prompts from image prompts."""
     # Load configuration from the provided file
     yaml_config = load_config(args.config_file)
+    domain = args.domain
+    risk = args.risk
 
     # Load image prompts from a jsonl file
     image_prompt_file = args.image_prompt_file
@@ -447,13 +483,9 @@ def csr_vqa_generation(args: argparse.Namespace) -> None:
         os.makedirs(output_dir)
     print(f"Output directory created: {output_dir}")
 
-    # Get domain and risk information from the first image prompt
-    domain = image_prompts[0].get("domain", "unknown")
-    risk = image_prompts[0].get("risk", "unknown")
-
     # Initialize checkpoint to resume progress if available
     checkpoint_file = os.path.join(
-        output_dir, f"checkpoint_csr_vqa_{domain}_{risk}.txt"
+        output_dir, f"checkpoint_csr_vqa_{domain}-{risk}.txt"
     )
     last_processed_index = load_checkpoint(checkpoint_file)
 
@@ -467,7 +499,7 @@ def csr_vqa_generation(args: argparse.Namespace) -> None:
         image_prompt = image_prompts[i]["image_prompt"]
         image_path = image_prompts[i]["image_path"]
         # image_path = os.path.join(
-        #     args.images_folder, f"{domain}_{risk}_image_{i + 1}.png"
+        #     args.images_folder, f"{domain}-{risk}_image_{i + 1}.png"
         # )
 
         # Skip if the image file does not exist

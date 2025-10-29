@@ -100,6 +100,19 @@ def get_arguments() -> argparse.Namespace:
         help="Variant of the prompt to use (e.g., v1)",
     )
     parser.add_argument(
+        "--domain",
+        type=str,
+        choices=["hiring", "legal", "healthcare"],
+        required=True,
+        help="Domain for which to generate VQA prompts",
+    )
+    parser.add_argument(
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the VQA generation",
+    )
+    parser.add_argument(
         "--image_prompt_file",
         type=str,
         required=True,
@@ -132,6 +145,8 @@ def main() -> None:
 
     # Load configuration from the provided file
     yaml_config = load_config(args.config_file)
+    domain = args.domain
+    risk = args.risk
 
     # Load image prompts from a jsonl file
     image_prompt_file = args.image_prompt_file
@@ -169,13 +184,9 @@ def main() -> None:
         os.makedirs(output_dir)
     print(f"Output directory created: {output_dir}")
 
-    # Get domain and risk information from the first image prompt
-    domain = image_prompts[0].get("domain", "unknown")
-    risk = image_prompts[0].get("risk", "unknown")
-
     # Initialize checkpoint to resume progress if available
     checkpoint_file = os.path.join(
-        output_dir, f"checkpoint_csv_vqa_{domain}_{risk}.txt"
+        output_dir, f"checkpoint_csv_vqa_{domain}-{risk}.txt"
     )
     last_processed_index = load_checkpoint(checkpoint_file)
 
@@ -189,7 +200,7 @@ def main() -> None:
         image_prompt = image_prompts[i]["image_prompt"]
         image_path = image_prompts[i]["image_path"]
         # image_path = os.path.join(
-        #     args.images_folder, f"{domain}_{risk}_image_{i + 1}.png"
+        #     args.images_folder, f"{domain}-{risk}_image_{i + 1}.png"
         # )
 
         # Skip if the image file does not exist
@@ -243,20 +254,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-# To run this script, use the following command from the terminal:
-# uv run csr_vqa_generation.py --config_file <path_to_config_yaml> \
-# --image_prompts_file <path_to_image_prompts_jsonl>
-# --images_folder <folder_with_images> \
-# --prompt_domain <domain> \
-# --prompt_variant <variant> \
-# --output_file <output_jsonl_file>
-
-
-# Example:
-# uv run csr_vqa_generation.py --config_file ../../config.yaml \
-# --image_prompt_file prompts/hiring-representation_gaps.jsonl \
-# --images_folder hiring_representation_gaps_images/ \
-# --prompt_domain csr --prompt_variant simple \
-# --output_file hiring_representation_gaps.jsonl

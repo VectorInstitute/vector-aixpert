@@ -39,7 +39,7 @@ uv pip install requests pyyaml python-decouple openai
 Add to `.env` (or export):
 ```
 OPENAI_API_KEY=sk-xxxxxxxx
-GOOGLE_API_KEY=xxxxxxxx
+GEMINI_API_KEY=xxxxxxxx
 FAL_API_KEY=xxxxxxxx
 XAI_API_KEY=xxxxxxxx
 ```
@@ -112,17 +112,17 @@ Saved as: `<csv_path>.ckpt.json`
 ### Single Provider
 ```bash
 # Generate images with OpenAI DALL-E-3
-uv run python main.py \
+uv run python src/main.py \
   --provider gpt \
   --config configs/img_gen_config.yaml
 
 # Generate images with Gemini Imagen-4
-uv run python main.py \
+uv run python src/main.py \
   --provider gemini \
   --config configs/img_gen_config.yaml
 
 # Generate images with Flux
-uv run python main.py \
+uv run python src/main.py \
   --provider flux \
   --config configs/img_gen_config.yaml
 ```
@@ -130,7 +130,7 @@ uv run python main.py \
 ### All Enabled Providers
 ```bash
 # Run all providers marked with `enabled: true` in config
-uv run python main.py \
+uv run python src/main.py \
   --config configs/img_gen_config.yaml
 ```
 
@@ -141,7 +141,7 @@ uv run python main.py \
 # - Load existing CSV and checkpoint
 # - Skip already-generated files
 # - Continue from last checkpoint
-uv run python main.py \
+uv run python src/main.py \
   --provider gpt \
   --config configs/img_gen_config.yaml
 ```
@@ -172,7 +172,7 @@ providers:
     model_name: "imagen-4.0-generate-001"
     predict_url: "https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict"
     sample_count: 1
-    env_key: "GOOGLE_API_KEY"
+    env_key: "GEMINI_API_KEY"
 
   flux:
     enabled: false
@@ -230,11 +230,12 @@ providers:
 controlled_images/
 ├── src/
 │   ├── main.py
-│   ├── image_utils.py
-│   ├── utils.py
+├── configs
+│   ├── img_gen_config.yaml
 │   ├── prompts.py
-│   └── configs/
-│       └── img_gen_config.yaml
+└── utils
+    ├── image_utils.py
+    └── utils.py
 ├── images/                          # Generated images by category/setting
 │   ├── ceo/
 │   │   ├── baseline/
@@ -281,7 +282,7 @@ controlled_images/
 | CSV missing rows | Check `flush_every` setting; final flush occurs at completion. |
 | File exists but not in CSV | Run pipeline again; skipped files will be logged to CSV. |
 | Invalid image format | Check provider API response; some providers return URLs instead of base64. |
-| Gemini 403 error | Verify GOOGLE_API_KEY is valid and has access to Gemini API. |
+| Gemini 403 error | Verify GEMINI_API_KEY is valid and has access to Gemini API. |
 
 ## Extensibility
 - **Add new occupation**: Update `system_prompts` dict in `prompts.py`
@@ -307,7 +308,7 @@ uv pip install requests pyyaml python-decouple openai
 # 2. Configure API keys
 cat > .env <<EOF
 OPENAI_API_KEY=sk-xxxxxxxx
-GOOGLE_API_KEY=xxxxxxxx
+GEMINI_API_KEY=xxxxxxxx
 FAL_API_KEY=xxxxxxxx
 EOF
 
@@ -316,12 +317,12 @@ EOF
 vim configs/img_gen_config.yaml
 
 # 4. Run generation (single provider)
-uv run python main.py \
+uv run python src/main.py \
   --provider gpt \
   --config configs/img_gen_config.yaml
 
 # 5. Run all enabled providers
-uv run python main.py \
+uv run python src/main.py \
   --config configs/img_gen_config.yaml
 
 # 6. Check outputs
@@ -330,7 +331,7 @@ head annotations.csv
 
 # 7. Resume after interruption (if needed)
 # Simply re-run the same command
-uv run python main.py \
+uv run python src/main.py \
   --provider gpt \
   --config configs/img_gen_config.yaml
 ```

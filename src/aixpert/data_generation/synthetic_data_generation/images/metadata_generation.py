@@ -15,6 +15,7 @@ from utils import (
     generate_prompts_without_image,
     load_checkpoint,
     load_config,
+    load_prompt_path,
     save_checkpoint,
 )
 
@@ -103,10 +104,20 @@ def get_arguments() -> argparse.Namespace:
         help="Version of the system prompt to use",
     )
     parser.add_argument(
-        "--image_prompt_file",
+        "--domain",
         type=str,
+        choices=["hiring", "legal", "healthcare"],
         required=True,
-        help="Path to the file containing image prompts",
+        help="Domain for which to generate metadata",
+    )
+    parser.add_argument(
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the metadata generation",
+    )
+    parser.add_argument(
+        "--prompt_yaml", type=str, required=True, help="Path to the prompt YAML file"
     )
     parser.add_argument(
         "--images_folder",
@@ -129,7 +140,7 @@ def get_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def main() -> None:
+def main() -> None:  # noqa: PLR0915
     """Generate metadata from image prompts."""
     # Parse command-line arguments
     args = get_arguments()
@@ -137,8 +148,22 @@ def main() -> None:
     # Load configuration settings from file
     yaml_config = load_config(args.config_file)
 
+    domain = args.domain
+    risk = args.risk
+    prompts = load_prompt_path(args.prompt_yaml)
+    # Get the prompt path based on domain and risk.
+    try:
+        prompt_path = prompts["prompts"][domain][risk]
+    except KeyError as e:
+        raise KeyError(
+            f"Prompt for domain '{domain}' and risk '{risk}' not found in {args.prompt_yaml}"
+        ) from e
+
+    print(f"\nGenerating image for domain: {domain}, risk: {risk}")
+    print(f"\nPrompt:\n{prompt_path}")
+
     # Load image prompts from the specified JSONL file
-    image_prompt_file = args.image_prompt_file
+    image_prompt_file = prompt_path
     if not os.path.exists(image_prompt_file):
         raise FileNotFoundError(f"Image prompt file {image_prompt_file} not found.")
     with open(image_prompt_file, "r", encoding="utf-8") as f:
@@ -176,12 +201,9 @@ def main() -> None:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    domain = image_prompts[0].get("domain", "unknown")
-    risk = image_prompts[0].get("risk", "unknown")
-
     # Checkpoint file to track progress in case of interruptions
     checkpoint_file = os.path.join(
-        output_dir, f"checkpoint_metadata_{domain}_{risk}.txt"
+        output_dir, f"checkpoint_metadata_{domain}-{risk}.txt"
     )
     last_processed_index = load_checkpoint(checkpoint_file)
 
@@ -194,7 +216,7 @@ def main() -> None:
     for i in range(last_processed_index + 1, len(image_prompts)):
         image_prompt = image_prompts[i]["image_prompt"]
         image_path = os.path.join(
-            args.images_folder, f"{domain}_{risk}_image_{i + 1}.png"
+            args.images_folder, f"{domain}-{risk}_image_{i + 1}.png"
         )
         if not os.path.exists(image_path):
             print(
@@ -239,19 +261,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-# To run:
-# To run this script, use the following command from the terminal:
-#
-# uv run metadataGeneration.py --config_file <path_to_config_yaml> \
-# --prompt_variant <prompt_version> \
-# --image_prompts_file <path_to_image_prompts_jsonl> \
-# --output_file <output_jsonl_file>
-#
-# Example:
-# uv run metadata_generation.py --config_file ../../config.yaml \
-# --prompt_variant v1 \
-# --image_prompt_file prompts/hiring-representation_gaps.jsonl \
-# --images_folder hiring_representation_gaps_images/ \
-# --output_file hiring_representation_gaps.jsonl

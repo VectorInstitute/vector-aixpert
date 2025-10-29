@@ -1,16 +1,16 @@
 prompts:
   hiring:
-    bias: prompts/hiring-bias_v2.jsonl
+    bias: prompts/hiring-bias.jsonl
     toxicity: prompts/hiring-toxicity.jsonl
     representation_gaps: prompts/hiring-representation_gaps.jsonl
     security_risks: prompts/hiring-security_risks.jsonl
   legal:
-    bias: prompts/legal-bias_v2.jsonl
+    bias: prompts/legal-bias.jsonl
     toxicity: prompts/legal-toxicity.jsonl
-    representation_gaps: prompts/legal-representation_gaps_v2.jsonl
-    security_risks: prompts/legal-security_risks_v2.jsonl
+    representation_gaps: prompts/legal-representation_gaps.jsonl
+    security_risks: prompts/legal-security_risks.jsonl
   healthcare:
-    bias: prompts/healthcare-bias_v1.jsonl
+    bias: prompts/healthcare-bias.jsonl
     toxicity: prompts/healthcare-toxicity.jsonl
     representation_gaps: prompts/healthcare-representation_gaps.jsonl
-    security_risks: prompts/healthcare-security_risks_v2.jsonl
+    security_risks: prompts/healthcare-security_risks.jsonl

@@ -18,17 +18,13 @@ def load_llm(model_env_var: str, api_key_env_var: str, config_key_var: str) -> L
 
     Raise ValueError if required env vars are missing.
     """
-    model = os.getenv(model_env_var)
     api_key = os.getenv(api_key_env_var)
     config_key = config_key_var
-    if not model or not api_key:
-        raise ValueError(
-            f"Missing required environment variables: "
-            f"{' and '.join([v for v, val in [(model_env_var, model), (api_key_env_var, api_key)] if not val])}"
-        )
+    if not api_key:
+        raise ValueError(f"Missing required environment variables: {api_key_env_var}")
     yaml_config = load_config(config_path, "config.yaml")
 
-    model = yaml_config[config_key].get("model", model)  # Model choice
+    model = yaml_config[config_key].get("model")
     max_tokens = yaml_config[config_key].get(
         "max_tokens", 2048
     )  # Max tokens for response

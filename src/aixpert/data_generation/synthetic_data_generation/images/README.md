@@ -72,7 +72,7 @@ Saved as: `<domain>_<risk>_image_<index>.png` in `<domain>_<risk>_images/`.
   "domain": "hiring",
   "risk": "toxicity",
   "image_prompt": "A job interview setting...",
-  "image_path": "hiring_toxicity_images/hiring_toxicity_image_1.png",
+  "image_path": "hiring-toxicity_images/hiring-toxicity_image_1.png",
   "metadata": {
     "age": ["young", "older"],
     "gender": ["male"],
@@ -94,7 +94,7 @@ Saved as: `<domain>_<risk>_image_<index>.png` in `<domain>_<risk>_images/`.
     }
   ],
   "image_prompt": "A job interview setting...",
-  "image_path": "hiring_toxicity_images/hiring_toxicity_image_1.png",
+  "image_path": "hiring-toxicity_images/hiring-toxicity_image_1.png",
   "metadata": { ... }  // carried forward if available
 }
 ```
@@ -107,41 +107,44 @@ Use main.py subcommands:
 uv run main.py prompt_generation \
   --config_file ../../config.yaml \
   --prompt_yaml prompt_paths.yaml \
-  --domain hiring --risk toxicity \
-  --output_file hiring_toxicity_prompts.jsonl
+  --domain hiring --risk security_risks \
+  --output_file hiring-security_risks.jsonl
 
 # Stage 2: Generate images
 uv run main.py image_generation \
   --config_file ../../config.yaml \
   --prompt_yaml prompt_paths.yaml \
-  --domain hiring --risk toxicity
+  --domain hiring --risk security_risks
 
 # Stage 3: Generate metadata
 uv run main.py metadata_generation \
   --config_file ../../config.yaml \
   --prompt_variant v1 \
-  --image_prompt_file hiring_toxicity_prompts.jsonl \
-  --images_folder hiring_toxicity_images/ \
+  --domain hiring --risk security_risks \
+  --prompt_yaml prompt_paths.yaml \
+  --images_folder hiring-security_risks_images/ \
   --output_dir metadata_ground_truth/ \
-  --output_file hiring_toxicity_metadata.jsonl
+  --output_file hiring-security_risks_metadata.jsonl
 
-# Stage 4a: Risk VQA
-uv run main.py vqa_generation \
-  --config_file ../../config.yaml \
-  --prompt_domain risk --prompt_variant v1 \
-  --image_prompt_file metadata_ground_truth/hiring_toxicity_metadata.jsonl \
-  --images_folder hiring_toxicity_images/ \
-  --output_dir vqa_ground_truth/ \
-  --output_file hiring_toxicity_vqa.jsonl
-
-# Stage 4b: Commonsense VQA
+# Stage 4a: Commonsense VQA
 uv run main.py csr-vqa_generation \
   --config_file ../../config.yaml \
   --prompt_domain csr --prompt_variant simple \
-  --image_prompt_file metadata_ground_truth/hiring_toxicity_metadata.jsonl \
-  --images_folder hiring_toxicity_images/ \
+  --domain hiring --risk security_risks \
+  --image_prompt_file metadata_ground_truth/hiring-security_risks_metadata.jsonl \
+  --images_folder hiring-security_risks_images/ \
   --output_dir vqa_commonsense_ground_truth/ \
-  --output_file hiring_toxicity_csr_vqa.jsonl
+  --output_file hiring-security_risks_csr_vqa.jsonl
+
+# Stage 4b: Risk VQA
+uv run main.py vqa_generation \
+  --config_file ../../config.yaml \
+  --prompt_domain risk --prompt_variant v1 \
+  --domain hiring --risk security_risks \
+  --image_prompt_file metadata_ground_truth/hiring-security_risks_metadata.jsonl \
+  --images_folder hiring-security_risks_images/ \
+  --output_dir vqa_ground_truth/ \
+  --output_file hiring-security_risks_vqa.jsonl
 ```
 
 ### Run All (if extended)
@@ -151,26 +154,33 @@ uv run main.py all_stages \
   --config_file ../../config.yaml \
   --prompt_yaml prompt_paths.yaml \
   --domain hiring \
-  --image_prompt_file hiring_toxicity_prompts.jsonl
+  --risk security_risks
 ```
 (Requires alignment of arguments; may need enhancement to include risk.)
 
 ## Standalone Scripts
 You can also invoke individual stage scripts:
 ```bash
-uv run prompt_generation.py --config_file ../../config.yaml --domain hiring --risk toxicity --output_file prompts.jsonl
+# Stage 1
+uv run prompt_generation.py --config_file ../../config.yaml --domain hiring --risk security_risks --prompt_yaml prompt_paths.yaml --output_dir prompts/ --output_file hiring-security_risks.jsonl
 
-uv run gemini.py --config_file ../../config.yaml --prompt_yaml prompt_paths.yaml --domain hiring --risk toxicity
+# Stage 2
+uv run gemini.py --config_file ../../config.yaml --prompt_yaml prompt_paths.yaml --domain hiring --risk security_risks
 
-uv run metadata_generation.py --config_file ../../config.yaml --prompt_variant v1 --image_prompt_file prompts.jsonl --images_folder hiring_toxicity_images/ --output_dir metadata_ground_truth/
+# Stage 3
+uv run metadata_generation.py --config_file ../../config.yaml --prompt_variant v1 --domain hiring --risk security_risks --prompt_yaml prompt_paths.yaml --images_folder hiring-security_risks_images/ --output_dir metadata_ground_truth/ --output_file hiring-security_risks_metadata.jsonl
 
-uv run vqa_generation.py --config_file ../../config.yaml --prompt_domain risk --prompt_variant v1 --image_prompt_file metadata_ground_truth/prompts.jsonl --images_folder hiring_toxicity_images/ --output_dir vqa_ground_truth/
+# Stage 4a
+uv run vqa_generation.py --config_file ../../config.yaml --prompt_domain risk --prompt_variant v1 --domain hiring --risk security_risks --image_prompt_file metadata_ground_truth/hiring-security_risks_metadata.jsonl --images_folder hiring-security_risks_images/ --output_dir vqa_ground_truth/ --output_file hiring-security_risks_vqa.jsonl
+
+# Stage 4b
+uv run csr_vqa_generation.py --config_file ../../config.yaml --prompt_domain csr --prompt_variant simple --domain hiring --risk security_risks --image_prompt_file metadata_ground_truth/hiring-security_risks_metadata.jsonl --images_folder hiring-security_risks_images/ --output_dir vqa_commonsense_ground_truth/ --output_file hiring-security_risks_csr_vqa.jsonl
 ```
 
 ## Checkpointing & Resume
 Each generation stage writes a checkpoint file:
-- Metadata: `checkpoint_metadata_<domain>_<risk>.txt`
-- VQA: `checkpoint_vqa_<domain>_<risk>.txt`
+- Metadata: `checkpoint_metadata_<domain>-<risk>.txt`
+- VQA: `checkpoint_vqa_<domain>-<risk>.txt`
 - CSR‑VQA: `checkpoint_csr_vqa_<domain>_<risk>.txt`
 
 Behavior:

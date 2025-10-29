@@ -8,6 +8,7 @@ import re
 import sys
 from pathlib import Path
 
+import yaml
 from decouple import AutoConfig
 
 # Local utility functions for configuration and prompt generation
@@ -49,6 +50,18 @@ def get_arguments() -> argparse.Namespace:
     #                     type=str, required=True,
     #                     help='Path to the system prompt file')
     parser.add_argument(
+        "--prompt_yaml",
+        type=str,
+        default="prompt_params.yaml",
+        help="YAML file containing prompt parameters",
+    )
+    parser.add_argument(
+        "--output_dir",
+        type=str,
+        default="prompts",
+        help="Directory to save output files",
+    )
+    parser.add_argument(
         "--output_file",
         type=str,
         default="prompts.jsonl",
@@ -62,6 +75,7 @@ def main() -> None:
     # Parse arguments and load configuration
     args = get_arguments()
     yaml_config = load_config(args.config_file)
+    prompt_yaml = args.prompt_yaml
 
     # Ensure the OpenAI API key is provided via environment variable
     api_key = config("OPENAI_API_KEY")
@@ -90,8 +104,10 @@ def main() -> None:
     prompts = generate_prompts_with_userprompt(
         system_prompt, api_key, model, batch_size, max_tokens, temperature
     )
-
-    output_jsonl_path = args.output_file
+    output_dir = args.output_dir
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    output_jsonl_path = os.path.join(output_dir, args.output_file)
     print(f"Saving prompts to {output_jsonl_path}")
 
     # Process the output prompts
@@ -109,14 +125,28 @@ def main() -> None:
             except json.JSONDecodeError as e:
                 print(f"Skipping invalid JSON: {e}")
 
+    try:
+        with open(prompt_yaml, "r", encoding="utf-8") as f:
+            prompt_paths = yaml.safe_load(f) or {}
+    except FileNotFoundError:
+        prompt_paths = {}
+
+    # Ensure structure
+    prompt_paths.setdefault("prompts", {}).setdefault(domain, {})
+
+    # Update or add mapping to the exact output_jsonl_path you’re using
+    prompt_paths["prompts"][domain][risk] = output_jsonl_path
+
+    # Write back without reordering keys
+    with open(prompt_yaml, "w", encoding="utf-8") as f:
+        yaml.safe_dump(prompt_paths, f, sort_keys=False)
+
+    print(
+        f"Recorded mapping in {prompt_yaml}: prompts.{domain}.{risk} -> {output_jsonl_path}"
+    )
+
     print("Prompts generation completed successfully.")
 
 
 if __name__ == "__main__":
     main()
-
-# To run the script, use a command like:
-# uv run prompt_generation.py --config_file path/to/config.yaml \
-# --domain hiring \
-# --risk bias_v1 \
-# --output_file prompts.jsonl

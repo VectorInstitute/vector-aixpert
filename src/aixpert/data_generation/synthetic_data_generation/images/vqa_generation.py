@@ -101,6 +101,19 @@ def get_arguments() -> argparse.Namespace:
         help="Variant of the prompt to use (e.g., v1, v2, bias).",
     )
     parser.add_argument(
+        "--domain",
+        type=str,
+        choices=["hiring", "legal", "healthcare"],
+        required=True,
+        help="Domain for which to generate VQA prompts",
+    )
+    parser.add_argument(
+        "--risk",
+        required=True,
+        choices=["bias", "toxicity", "representation_gaps", "security_risks"],
+        help="Risk type for the VQA generation",
+    )
+    parser.add_argument(
         "--image_prompt_file",
         type=str,
         required=True,
@@ -131,6 +144,8 @@ def main() -> None:
     """Generate VQA prompts from image prompts."""
     args = get_arguments()  # Parse command-line arguments.
     yaml_config = load_config(args.config_file)  # Load configuration settings.
+    domain = args.domain
+    risk = args.risk
 
     # Load image prompts from the specified JSONL file.
     image_prompt_file = args.image_prompt_file
@@ -170,12 +185,8 @@ def main() -> None:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # Get domain and risk from the first image prompt.
-    domain = image_prompts[0].get("domain", "unknown")
-    risk = image_prompts[0].get("risk", "unknown")
-
     # Initialize a checkpoint file to track progress.
-    checkpoint_file = os.path.join(output_dir, f"checkpoint_vqa_{domain}_{risk}.txt")
+    checkpoint_file = os.path.join(output_dir, f"checkpoint_vqa_{domain}-{risk}.txt")
     last_processed_index = load_checkpoint(checkpoint_file)
 
     print(f"Total image prompts to process: {len(image_prompts)}")
@@ -187,7 +198,7 @@ def main() -> None:
     for i in range(last_processed_index + 1, len(image_prompts)):
         image_prompt = image_prompts[i]["image_prompt"]
         image_path = os.path.join(
-            args.images_folder, f"{domain}_{risk}_image_{i + 1}.png"
+            args.images_folder, f"{domain}-{risk}_image_{i + 1}.png"
         )
 
         # Skip the image prompt if the corresponding image file does not exist.
@@ -244,21 +255,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-# To run:
-# To run this script, use the following command from the terminal:
-#
-# uv run vqa_generation.py --config_file <path_to_config_yaml> \
-# --image_prompts_file <path_to_image_prompts_jsonl> \
-# --images_folder <folder_with_images> \
-# --prompt_domain <domain> \
-# --prompt_variant <variant> \
-# --output_file <output_jsonl_file>
-#
-# Example:
-# uv run vqa_generation.py --config_file ../../config.yaml \
-# --image_prompt_file prompts/hiring-representation_gaps.jsonl \
-# --images_folder hiring_representation_gaps_images/ \
-# --prompt_domain risk --prompt_variant v2 \
-# --output_file hiring_representation_gaps.jsonl
