@@ -30,8 +30,8 @@ Transparent tools and standardized benchmarks for **fair**, **explainable**, and
 #### From source (recommended)
 
 ```bash
-git clone https://github.com/VectorInstitute/AIXpert.git
-cd AIXpert
+git clone https://github.com/VectorInstitute/vector-aixpert.git
+cd vector-aixpert
 uv sync
 ```
 
@@ -159,23 +159,23 @@ Evaluates generated data and model outputs via:
 Each core module has its own README with commands, configurations, and sample outputs.
 
 * **Controlled Images** — Generate matched baseline vs fairness-aware images across professions.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/controlled_images/README.md)
+  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/controlled_images/README.md)
 
 * **Agent Pipeline (CrewAI)** — Single-agent orchestration for prompt, image, and metadata generation.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/data_generation/agent_pipeline/README.md)
+  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/agent_pipeline/README.md)
 
 * **Synthetic Data · Images** — Domain- and risk-specific image prompts and VQA pairs.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/images/README.md)
+  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/images/README.md)
 
 * **Synthetic Data · NLP** — Scene descriptions and MCQ generation for text pipelines.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
+  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
 
 
 ---
 
 ## Contributing and Documentation
 
-See [CONTRIBUTING.md](https://github.com/VectorInstitute/AIXpert/blob/main/CONTRIBUTING.md) for:
+See [CONTRIBUTING.md](https://github.com/VectorInstitute/vector-aixpert/blob/main/CONTRIBUTING.md) for:
 
 * Coding standards and style guide (PEP8 + Google docstrings)
 * Pre-commit setup (`ruff`, `mypy`, `typos`, `nbQA`)

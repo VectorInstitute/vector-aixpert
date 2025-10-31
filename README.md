@@ -1,13 +1,13 @@
 # 🧠 AI Fairness Data Generation and Question Answering System
 
-[![code checks](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml)
-[![unit tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/unit_tests.yml)
-[![integration tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml)
-[![docs](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml)
+[![code checks](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/code_checks.yml)
+[![unit tests](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/unit_tests.yml)
+[![integration tests](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/integration_tests.yml)
+[![docs](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/vector-aixpert/actions/workflows/docs.yml)
 
 <!--
-[![codecov](https://codecov.io/github/VectorInstitute/AIXpert/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/AIXpert)
-![GitHub License](https://img.shields.io/github/license/VectorInstitute/AIXpert)
+[![codecov](https://codecov.io/github/VectorInstitute/vector-aixpert/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/vector-aixpert)
+![GitHub License](https://img.shields.io/github/license/VectorInstitute/vector-aixpert)
 -->
 
 ---
@@ -30,11 +30,11 @@ It provides:
 * 📊 **Fairness metrics & explainers** to visualize disparities.
 * ⚙️ **Configurable, reproducible pipelines** for responsible AI research.
 
-📘 **Documentation:** [AIXpert website](https://vectorinstitute.github.io/AIXpert/)
+📘 **Documentation:** [AIXpert website](https://vectorinstitute.github.io/vector-aixpert/)
 
 📂 **Data:** [Hugging Face – vector-institute/aixpert](https://huggingface.co/datasets/vector-institute/aixpert)
 
-🧮 **Code:** [VectorInstitute/AIXpert](https://github.com/VectorInstitute/AIXpert)
+🧮 **Code:** [VectorInstitute/AIXpert](https://github.com/VectorInstitute/vector-aixpert)
 
 ---
 
@@ -110,7 +110,7 @@ Each module below has its own README with exact commands, configs, and outputs.
 
 <!-- # TODO: Add the website link when the docs are published on GitHub Pages
 # > Prefer a website? See the full docs:
-# > 🔗 **AIXpert website** — [https://vectorinstitute.github.io/AIXpert/](https://vectorinstitute.github.io/AIXpert/)
+# > 🔗 **AIXpert website** — [https://vectorinstitute.github.io/AIXpert/](https://vectorinstitute.github.io/vector-aixpert/)
  -->
 
 ---

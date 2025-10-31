@@ -1,6 +1,6 @@
 # Team
 
-The team at the Vector Institute behind the development of **AIXpert** focuses on ethical AI practices, promoting fairness, accountability, and sustainability.
+The team at the Vector Institute behind the development of this project focuses on ethical AI practices, promoting fairness, accountability, and sustainability.
 
 For inquiries or support, contact:
 

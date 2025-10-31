@@ -47,7 +47,7 @@ It provides:
 
 ## Pipeline
 
-![AIXpert Pipeline](assets/fairness_pipeline.jpg)
+![Project Pipeline](assets/fairness_pipeline.jpg)
 
 ---
 

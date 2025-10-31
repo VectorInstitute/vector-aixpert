@@ -19,8 +19,8 @@ Before you begin, ensure your environment is properly configured.
 ### 1️⃣ Fork and clone the repository
 
 ```bash
-git clone https://github.com/VectorInstitute/AIXpert.git
-cd AIXpert
+git clone https://github.com/VectorInstitute/vector-aixpert.git
+cd vector-aixpert
 ```
 
 ### 2️⃣ Create a virtual environment using [uv](https://docs.astral.sh/uv/getting-started/installation/)
