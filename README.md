@@ -1,80 +1,177 @@
-# AIXpert
-
-----------------------------------------------------------------------------------------
+# 🧠 AI Fairness Data Generation and Question Answering System
 
 [![code checks](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/code_checks.yml)
 [![unit tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/unit_tests.yml)
 [![integration tests](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/integration_tests.yml)
 [![docs](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml/badge.svg)](https://github.com/VectorInstitute/AIXpert/actions/workflows/docs.yml)
 
-
-<!-- TODO: Uncomment this with the right credentials once codecov is set up for this repo.
+<!--
 [![codecov](https://codecov.io/github/VectorInstitute/AIXpert/graph/badge.svg?token=83MYFZ3UPA)](https://codecov.io/github/VectorInstitute/AIXpert)
--->
-<!-- TODO: Uncomment this when the repository is made public
 ![GitHub License](https://img.shields.io/github/license/VectorInstitute/AIXpert)
 -->
 
-<!--
-TODO: Add picture / logo
--->
+---
 
-<!--
-TODO: Add introduction about AIXpert here
--->
+*Transparent tools and standardized benchmarks for **fair**, **explainable**, and **accountable** generative AI.*
 
+> The rapid expansion of GenAI magnifies long-standing concerns around **bias, fairness, and representation**.
+> This project enables systematic, controlled experimentation so researchers can identify *when* and *why* bias occurs, and test what mitigates it.
 
-## 🧑🏿‍💻 Installation
+---
 
-### Installing dependencies
+## 🌍 What is the project about?
 
-The development environment can be set up using
-[uv](https://github.com/astral-sh/uv?tab=readme-ov-file#installation).
-Instructions for installing uv can be found [here](https://docs.astral.sh/uv/getting-started/installation/).
+The **AI Fairness Data Generation and Question Answering System** is part of **[Vector Institute's](https://vectorinstitute.ai)** contribution to the broader [AIXPERT Project](https://aixpert-project.eu/), a multi-institutional initiative, to develop tools and benchmarks for **fairness-aware data generation and evaluation** in generative AI.
 
+It provides:
 
-Once installed, run:
+* 🧩 **Controlled synthetic datasets** — safely isolate bias-inducing factors.
+* 🤖 **Agentic automation** using **CrewAI** and custom LLM agents.
+* 📊 **Fairness metrics & explainers** to visualize disparities.
+* ⚙️ **Configurable, reproducible pipelines** for responsible AI research.
 
+📘 **Documentation:** [AIXpert website](https://vectorinstitute.github.io/AIXpert/)
+
+📂 **Data:** [Hugging Face – vector-institute/aixpert](https://huggingface.co/datasets/vector-institute/aixpert)
+
+🧮 **Code:** [VectorInstitute/AIXpert](https://github.com/VectorInstitute/AIXpert)
+
+---
+
+## 🧱 Repository Structure
+
+| Path                                                            | Description                                                           |
+| --------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `src/aixpert/controlled_images/`                                | Controlled image generation (baseline vs fairness-aware).             |
+| `src/aixpert/data_generation/synthetic_data_generation/images/` | Domain- and risk-specific image + VQA generation.                     |
+| `src/aixpert/data_generation/synthetic_data_generation/nlp/`    | Domain- and risk-specific Scene + MCQ generation.                                      |
+| `src/aixpert/data_generation/synthetic_data_generation/videos/` | Video synthesis using Google Veo / Gemini API.                        |
+| `src/aixpert/data_generation/agent_pipeline/`                   | Single-agent **CrewAI** pipeline for multimodal orchestration.        |
+| `src/aixpert/toxicity_fairness_analysis/`                                    | Fairness metrics and zero-shot explainability (integrated gradients). |
+| `docs/`                                                         | MkDocs documentation sources.                                         |
+| `tests/`                                                        | Tests using `pytest`.                            |
+
+---
+
+## 🚀 Getting Started
+
+New to the project? Follow the steps below to set up your development environment and explore key modules.
+
+### Prerequisites
+
+Ensure you have [uv](https://docs.astral.sh/uv/getting-started/installation/) installed (recommended environment manager).
+
+### Quick setup
 ```bash
+# 1) Create the environment
 uv sync
 source .venv/bin/activate
-```
-Note that uv supports [optional dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups)
-which helps to manage dependencies for different parts of development such as
-`documentation`, `testing`, etc.
-The core dependencies are installed using the command `uv sync`
 
-In order to install dependencies for testing (codestyle, unit tests, integration tests),
-run:
-
-```bash
+# 2) (Optional) Install dev tools
 uv sync --dev
-source .venv/bin/activate
-```
 
-In order to exclude installation of packages from a specific group (e.g. docs),
-run:
-
-```bash
+# 3) (Optional) Install and Serve docs
 uv sync --no-group docs
-```
+uv run mkdocs serve
+````
 
-## Getting Started
+### Module quick start (one-liners + deep links)
 
-## Features / Components
+Each module below has its own README with exact commands, configs, and outputs.
 
-## Examples
+* **Controlled Images** — Generate matched baseline vs fairness-aware images across professions.
+  ➜ [`src/aixpert/controlled_images/README.md`](src/aixpert/controlled_images/README.md)
 
-## Contributing
-If you are interested in contributing to the library, please see
-[CONTRIBUTING.MD](CONTRIBUTING.MD). This file contains many details around contributing
-to the code base, including development practices, code checks, tests, and more.
+* **Agent Pipeline (CrewAI)** — Single-agent orchestration for prompt/image/metadata generation.
+  ➜ [`src/aixpert/data_generation/agent_pipeline/README.md`](src/aixpert/data_generation/agent_pipeline/README.md)
+
+* **Synthetic Data · Images** — Domain/risk-specific image prompts and VQA pairs.
+  ➜ [`src/aixpert/data_generation/synthetic_data_generation/images/README.md`](src/aixpert/data_generation/synthetic_data_generation/images/README.md)
+
+* **Synthetic Data · NLP** — Scene descriptions and MCQ generation for text pipelines.
+  ➜ [`src/aixpert/data_generation/synthetic_data_generation/nlp/README.md`](src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
 
 <!--
-TODO:
-
-## Acknowledgements
-
-## Citation
-
+# TODO: Add the video module readme when ready
+# * **Synthetic Data · Videos** — Video synthesis via Google Veo / Gemini with checkpoint & resume.
+  # ➜ [`src/aixpert/data_generation/synthetic_data_generation/videos/README.md`](src/aixpert/data_generation/synthetic_data_generation/videos/README.md)
 -->
+
+* **Fairness & Explainability (Toxicity fairness analysis)** — Metrics (Statistical Parity, Equal Opportunity) + zero-shot explainers (integrated gradients).
+  ➜ [`src/aixpert/toxicity_fairness_analysis/README.md`](src/aixpert/toxicity_fairness_analysis/README.md)
+
+* **Documentation** — MkDocs site sources; how to extend and publish docs.
+  ➜ [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+<!--
+* **Tests** — Run unit/integration tests with `pytest` and pre-commit hooks.
+  ➜ [`tests/README.md`](tests/README.md)
+-->
+
+<!-- # TODO: Add the website link when the docs are published on GitHub Pages
+# > Prefer a website? See the full docs:
+# > 🔗 **AIXpert website** — [https://vectorinstitute.github.io/AIXpert/](https://vectorinstitute.github.io/AIXpert/)
+ -->
+
+---
+
+## 🧠 Key Components
+
+* **🎨 Controlled Image Generation:** Produces matched baseline vs fairness-aware images across professions.
+* **🤖 Agentic AI (CrewAI):** LLM-based prompt, image, and metadata orchestration.
+* **🧾 Synthetic Data Generation:** Domain/risk-specific image prompts, VQA pairs, scenes, and MCQs.
+* **🎬 Video Generation:** Uses Google Veo/Gemini APIs with checkpoint and resume logic.
+* **⚖️ Fairness Metrics & Explainability:** Statistical Parity, Equal Opportunity, and zero-shot explainers with integrated gradients.
+
+---
+
+## 🧪 Testing & CI/CD
+
+* Unit and integration tests via `pytest`.
+* Code quality enforced via `pre-commit` hooks:
+
+  * `ruff` — linting & formatting
+  * `mypy` — type checks
+  * `typos` — spell checks
+  * `nbQA` — notebook linting
+* Continuous checks through GitHub Actions (see badges above).
+
+---
+
+## 📚 Publications & Outputs
+
+* 🧩 [*Bias in the Picture: Benchmarking VLMs with Social-Cue News Images*](https://arxiv.org/abs/2509.19659), NeurIPS LLM Evals Workshop 2025
+* 📜 [*TRiSM for Agentic AI*](https://arxiv.org/abs/2506.04133), Preprint
+* 📘 [*Responsible Agentic Reasoning and AI Agents*](https://www.techrxiv.org/articles/1329333), TechRxiv
+* 🧠 *Single-Agent TRiSM Poster (NeurIPS LAW Workshop 2025)*
+
+---
+
+## 🤝 Contributing
+
+We welcome community contributions!
+See [CONTRIBUTING.md](CONTRIBUTING.md) for coding standards, dev setup, and workflow conventions.
+
+
+---
+
+## 📄 License
+
+This code in this repo is released under the **MIT License**.
+
+---
+
+## 💡 About AIXPERT
+
+The **AIXPERT Project** unites 17 partners across Europe and Canada under the
+**EU Horizon Europe Programme (Grant No. 101214389)** and the **Swiss SERI** to advance
+**explainable, fair, and accountable AI**.
+
+🌐 [Project Website](https://aixpert-project.eu/) · [LinkedIn](https://www.linkedin.com/company/aixpert-project/) · [X/Twitter](https://x.com/AIXPERT_project) · [YouTube](https://www.youtube.com/@AIXPERT_project)
+
+---
+
+## 💰 Funding Acknowledgment
+
+> The **AIXPERT Project** has received funding from the **European Union’s Horizon Europe Research and Innovation Programme** under Grant No. **101214389**, and from the **Swiss State Secretariat for Education, Research and Innovation (SERI)**.
+> Views expressed are those of the authors and do not necessarily reflect those of the European Union or funding authorities.

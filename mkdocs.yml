@@ -15,10 +15,22 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.keys
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.inlinehilite
-  - pymdownx.details
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.magiclink
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -27,7 +39,10 @@ markdown_extensions:
 nav:
   - Home: index.md
   - User Guide: user_guide.md
-  - API Reference: api.md
+  # - API Reference: api.md
+  - Technical Report: assets/aixpert-technical-report.pdf
+  - Team: team.md
+  - About: about.md
 plugins:
   - search
   - mkdocstrings:

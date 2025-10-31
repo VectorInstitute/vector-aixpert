@@ -20,6 +20,7 @@ dependencies = [
     "crewai>=0.193.2",
     "pandas>=2.3.3",
     "pyyaml>=6.0.3",
+    "mkdocs>=1.6.0",
 ]
 
 [build-system]

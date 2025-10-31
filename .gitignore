@@ -37,6 +37,14 @@ site/
 *.gif
 *.mp4
 
+# Exceptions: keep these file types inside docs/
+!docs/**/*.png
+!docs/**/*.jpg
+!docs/**/*.jpeg
+!docs/**/*.gif
+!docs/**/*.mp4
+
+
 # Logs
 *.log
 
