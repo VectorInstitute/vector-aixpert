@@ -30,11 +30,11 @@ It provides:
 * 📊 **Fairness metrics & explainers** to visualize disparities.
 * ⚙️ **Configurable, reproducible pipelines** for responsible AI research.
 
-📘 **Documentation:** [AIXpert website](https://vectorinstitute.github.io/vector-aixpert/)
+📘 **Documentation:** [Project website](https://vectorinstitute.github.io/vector-aixpert/)
 
-📂 **Data:** [Hugging Face – vector-institute/aixpert](https://huggingface.co/datasets/vector-institute/aixpert)
+📂 **Data:** [Hugging Face](https://huggingface.co/datasets/vector-institute/aixpert)
 
-🧮 **Code:** [VectorInstitute/AIXpert](https://github.com/VectorInstitute/vector-aixpert)
+🧮 **Code:** [GitHub Page](https://github.com/VectorInstitute/vector-aixpert)
 
 ---
 
