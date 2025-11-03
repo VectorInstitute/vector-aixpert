@@ -171,7 +171,10 @@ The **AIXPERT Project** unites 17 partners across Europe and Canada under the
 
 ---
 
-## 💰 Funding Acknowledgment
+## Acknowledgments
+> Resources used in preparing this research were provided, in part, by the Province of Ontario, the Government of Canada through CIFAR, and companies sponsoring the Vector Institute.
+
+### Funding Acknowledgment
 
 > The **AIXPERT Project** has received funding from the **European Union’s Horizon Europe Research and Innovation Programme** under Grant No. **101214389**, and from the **Swiss State Secretariat for Education, Research and Innovation (SERI)**.
 > Views expressed are those of the authors and do not necessarily reflect those of the European Union or funding authorities.
