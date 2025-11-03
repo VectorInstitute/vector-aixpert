@@ -55,9 +55,10 @@ The AIXPERT consortium brings together leading academic, research, and industry 
 ---
 
 ## Funding Acknowledgment
+> Resources used in preparing this research were provided, in part, by the Province of Ontario, the Government of Canada through CIFAR, and companies sponsoring the Vector Institute.
 
-> The **AIXPERT Project** has received funding from the **European Union’s Horizon Europe Research and Innovation Programme** under **Grant Agreement No. 101214389**, and from the **Swiss State Secretariat for Education, Research and Innovation (SERI)**.
->
+> The **AIXPERT Project** has also received funding from the **European Union’s Horizon Europe Research and Innovation Programme** under **Grant Agreement No. 101214389**, and from the **Swiss State Secretariat for Education, Research and Innovation (SERI)**.
+
 > Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the **European Union** or the granting authorities.
 > Neither the European Union nor the funding agencies can be held responsible for them.
 
