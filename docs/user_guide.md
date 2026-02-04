@@ -33,37 +33,37 @@ Factuality-aware Direct Preference Optimization (F-DPO): extends DPO with binary
 
 ## Modules in AIXpert
 
-These modules live in the main [AIXpert](https://github.com/VectorInstitute/AIXpert) repository. Clone once, run `uv sync`, then use the READMEs below for setup and commands.
+These modules live in the main [AIXpert](https://github.com/VectorInstitute/vector-aixpert) repository. Clone once, run `uv sync`, then use the READMEs below for setup and commands.
 
 ### Controlled Images
 
 Baseline vs fairness-aware image sets for occupations or social groups; configurable attributes, matched prompts, and reproducible seeds.
 
-**Links:** [Module README](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/controlled_images/README.md)
+**Links:** [Module README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/controlled_images/README.md)
 
 ### Synthetic Data Generation
 
 Multi-modal synthesis: image + VQA pairs, textual scenes and MCQs, and video generation (Veo/Gemini). Driven by LLM-designed prompts and metadata templates.
 
-**Links:** [Images README](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/images/README.md) · [NLP README](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
+**Links:** [Images README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/images/README.md) · [NLP README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
 
 ### Agent Pipeline (CrewAI)
 
 Single-agent orchestration for prompt → image → metadata generation and large-scale data creation with structured JSON task definitions.
 
-**Links:** [Module README](https://github.com/VectorInstitute/AIXpert/blob/main/src/aixpert/data_generation/agent_pipeline/README.md)
+**Links:** [Module README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/agent_pipeline/README.md)
 
 ### Fairness & Explainability
 
 Statistical metrics (e.g. Statistical Parity, Equal Opportunity), zero-shot explainers (integrated gradients, concept attributions), and visualization (disparity plots, attribution maps). Lives under `toxicity_fairness_analysis` in the AIXpert repo.
 
-**Links:** [AIXpert](https://github.com/VectorInstitute/AIXpert)
+**Links:** [AIXpert](https://github.com/VectorInstitute/vector-aixpert)
 
 ---
 
 ## Contributing and Documentation
 
-- [CONTRIBUTING.md](https://github.com/VectorInstitute/AIXpert/blob/main/CONTRIBUTING.md): coding standards (PEP8, Google docstrings), pre-commit (`ruff`, `mypy`, `typos`, `nbQA`), branching, and tests.
+- [CONTRIBUTING.md](https://github.com/VectorInstitute/vector-aixpert/blob/main/CONTRIBUTING.md): coding standards (PEP8, Google docstrings), pre-commit (`ruff`, `mypy`, `typos`, `nbQA`), branching, and tests.
 
 **Docs locally:** `uv sync --no-group docs` then `mkdocs serve` → [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
