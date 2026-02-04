@@ -1,21 +1,21 @@
-# AI Fairness Data Generation and Question Answering System
+# AIXpert at Vector Institute
 
-_Transparent tools and standardized benchmarks for **fair**, **explainable**, and **accountable** generative AI._
+_**[Vector Institute's](https://vectorinstitute.ai)** contribution to the [AIXpert Project](https://aixpert-project.eu/): tools, benchmarks, and research for **explainable**, **accountable**, and **fair** AI._
 
-> The rapid growth of generative AI brings powerful capabilities—but it also magnifies long-standing concerns around **bias, fairness, and representation**. Many models reproduce stereotypes embedded in training data, especially around demographic attributes (e.g., gender, ethnicity, age).
-> This project enables **systematic, controlled experimentation** so researchers and practitioners can pinpoint _when_ and _why_ bias occurs—and what actually mitigates it.
+> The AIXpert project aims to transform how AI is developed, deployed, and trusted by society. Vector’s work within AIXpert focuses on **responsible AI**: fairness-aware data generation and evaluation, multimodal benchmarks (audio-video, vision-language), factuality and transparency in agentic systems, and open tools for reproducible, governance-ready research.
 
+---
 
-## 🌍 What is the project about?
+## What we do
 
-The **AI Fairness Data Generation and Question Answering System** is part of **[Vector Institute's](https://vectorinstitute.ai)** contribution to the broader [AIXPERT Project](https://aixpert-project.eu/), a multi-institutional initiative, to develop tools and benchmarks for **fairness-aware data generation and evaluation** in generative AI.
+Vector’s contribution to AIXpert aligns with the project’s **vision and objectives**:
 
-It provides:
+- **Build an adaptable, explainable AI-agentic platform** — Develop interoperable tools and modules that connect explainability, accountability, and fairness.
+- **Define and assess AI trustworthiness** — Establish measurable criteria and indicators for evaluating the reliability and ethical alignment of AI systems.
+- **Advance explainable multimodal foundation models** — Drive research in interpretable vision–language–reasoning and multimodal understanding.
+- **Demonstrate real-world impact** — Validate the framework across sectors including healthcare, employment, and education.
 
-- **Controlled synthetic datasets** to isolate bias-inducing factors safely and reproducibly.
-- **Agentic automation** (CrewAI + custom LLM agents) for prompt generation, content creation, metadata, and QC.
-- **Fairness metrics & explainers** to visualize model behavior and surface disparities.
-- **Open, configurable pipelines** aligned with responsible AI practices and emerging governance needs.
+For the full **AIXpert vision, consortium, and funding**, see [About](about.md).
 
 ---
 
@@ -23,61 +23,38 @@ It provides:
 
 <div class="grid cards" markdown>
 
--   **Develop a Controlled Data Pipeline**
-    Create a reproducible, configurable pipeline for generating **text, image, and video** with precise control over **demographic** and **contextual** variables.
+-   **Explainable, accountable AI**
+    Develop tools and benchmarks for **interpretability**, **fairness**, and **transparency** in generative and multimodal AI, aligned with AIXpert’s vision.
 
--   **Enable Fairness-Aware Benchmarking**
-    Provide tools to build matched **baseline vs. fairness-aware** datasets for bias diagnosis and mitigation experiments.
+-   **Trust, risk, and security in agentic AI**
+    Advance **TRiSM** (Trust, Risk, and Security Management) and transparency frameworks for safe, explainable agentic and multi-agent systems.
 
--   **Support Multi-Domain Risk Analysis**
-    Generate multimodal data for **hiring, healthcare, legal, education**, and more, covering risks like **bias, toxicity, misinformation**.
+-   **Multimodal and real-world evaluation**
+    Create benchmarks and datasets for **audio-video understanding**, **vision-language** assessment, and **fairness** across domains and demographics.
 
--   **Integrate Agentic AI for Automation**
-    Orchestrate generation and QC with **CrewAI** and **custom LLM agents** (prompts, assets, annotations, validation).
+-   **Define and assess AI trustworthiness**
+    Establish **measurable criteria** and evaluation suites for reliability, factuality, and ethical alignment of AI systems.
 
--   **Advance Interpretability & Explainability**
-    Combine **zero-shot LLM explainers** and fairness metrics to produce **interpretable** assessments and visualizations.
+-   **Real-world impact**
+    Validate approaches across **healthcare, employment, education**, and high-stakes domains through pilots, benchmarks, and open releases.
 
--   **Foster Open Research & Collaboration**
-    Share configs, tools, and docs openly to enable **reproducible research** and **transparent governance**.
+-   **Open, reproducible research**
+    Share **code**, **datasets**, and **documentation** openly to support reproducible research, benchmarking, and transparent governance.
 
 </div>
 
 ---
 
-## Pipeline
-
-![Project Pipeline](assets/fairness_pipeline.jpg)
-
----
-
 ## Recent updates
 
-- :material-rocket-launch: **Released data generation pipeline** (multimodal, configurable, agent-orchestrated).
-- :material-robot: **Single-agent pipeline** prototype for rapid dataset bootstrapping.
-- :material-file-document: NeurIPS 2025 LLM-eval Workshop paper: [_Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge Assessment_](https://arxiv.org/abs/2509.19659)
-- :material-file-document: Preprint: [_TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems_](https://arxiv.org/abs/2506.04133)
-- :material-file-document-edit-outline: TechRxiv article: [_Responsible Agentic Reasoning and AI Agents—A Critical Survey_](https://www.techrxiv.org/users/574774/articles/1329333-responsible-agentic-reasoning-and-ai-agents-a-critical-survey?mode=edit)
-- :material-post-outline: Poster: **Single-Agent TRiSM** (NeurIPS LAW)
+- :material-newspaper: **AIXpert news** — Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).
+- :material-play-circle: **SONIC-O1** — Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://arxiv.org/abs/2601.21666) (arXiv).
+- :material-database: **SONIC-O1** — Dataset on [Hugging Face](https://huggingface.co/datasets/vector-institute/sonic-o1) (231 videos, ~60h, 4,958 QAs, 13 domains, demographic metadata).
+- :material-github: **SONIC-O1** — [Code](https://github.com/VectorInstitute/sonic-o1) and evaluation pipeline (summarization, MCQ, temporal localization).
+- :material-medal: **SONIC-O1** — [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard) for model comparisons and fairness analysis.
+
+[:material-arrow-right: **View full list**](updates.md){ .md-button .md-button--primary }
 
 ---
-
-<!-- ## Get started
-
-1. **Install project deps**
-   ```bash
-   uv sync
-   ```
-
-2. **Serve docs locally**
-   ```bash
-   uv run mkdocs serve
-   ``` -->
 
 > Have feedback or want to contribute? See the [:material-account-group: Team](team.md) page and open an issue or pull request.
-
----
-
-## License
-
-This code in this repo is released under the **MIT License**.
