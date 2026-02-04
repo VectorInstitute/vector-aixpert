@@ -5,8 +5,6 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: 404.html
-    - icon: fontawesome/brands/github
-      link: https://github.com/VectorInstitute/vector-aixpert
 markdown_extensions:
   - attr_list
   - admonition
@@ -39,8 +37,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - User Guide: user_guide.md
+  - Updates: updates.md
   # - API Reference: api.md
-  - Technical Report: assets/aixpert-technical-report.pdf
+  - Papers: papers.md
   - Team: team.md
   - About: about.md
 plugins:
@@ -59,9 +58,7 @@ plugins:
             show_root_toc_entry: false
             show_symbol_type_heading: true
             show_symbol_type_toc: true
-repo_url: https://github.com/VectorInstitute/vector-aixpert
-repo_name: VectorInstitute/vector-aixpert
-site_name: vector-aixpert
+site_name: AIXpert
 theme:
   custom_dir: docs/overrides
   favicon: assets/favicon-48x48.svg

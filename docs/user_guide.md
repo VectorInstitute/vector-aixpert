@@ -1,203 +1,70 @@
 # User Guide
 
-Transparent tools and standardized benchmarks for **fair**, **explainable**, and **accountable** generative AI. This guide introduces modules, setup, and usage patterns for fairness-aware data generation and analysis.
-
----
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Core Concepts](#core-concepts)
-- [Contributing and Documentation](#contributing-and-documentation)
+This guide points you to **each project’s repo and docs**. Installation and quick start are in the linked READMEs and project pages.
 
 ---
 
 ## Getting Started
 
-**Four Essential Questions**
+- **What is this?** — A research framework and toolkit for generating, evaluating, and mitigating bias in multimodal AI systems.
+- **Why fairness-aware data?** — Controlled datasets isolate bias-inducing factors for targeted experiments on fairness and representation.
+- **Why agentic AI?** — We use LLM agents (e.g. CrewAI) to scale prompt, image, and metadata generation.
+- **Who is it for?** — Researchers and practitioners studying or benchmarking bias in generative models.
 
-| Question | Answer |
-|-----------|---------|
-| **What is the project about?** | A research framework and toolkit for generating, evaluating, and mitigating bias in multimodal AI systems. |
-| **Why Fairness-Aware Synthetic Data?** | Controlled datasets isolate bias-inducing factors, allowing targeted experiments on fairness, explainability, and representation. |
-| **Why Agentic AI?** | We use autonomous LLM agents (via **CrewAI**) to scale prompt, image, and metadata generation. |
-| **Who is project for?** | Researchers, data scientists, and fairness practitioners studying or benchmarking bias in generative models. |
+Each project has its **own repository or module**; use the sections below for summaries and links.
 
 ---
 
-### Installation
+## SONIC-O1
 
-#### From source (recommended)
+Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks—summarization, multiple-choice QA, and temporal localization—and demographic metadata for fairness analysis.
 
-```bash
-git clone https://github.com/VectorInstitute/vector-aixpert.git
-cd vector-aixpert
-uv sync
-```
-
-#### Optional groups
-
-```bash
-# Development extras
-uv sync --dev
-# Documentation build
-uv sync --no-group docs
-```
-
-#### Verify installation
-
-```bash
-pytest -q
-mkdocs serve
-```
+**Links:** [GitHub](https://github.com/VectorInstitute/sonic-o1) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
 
 ---
 
-### Quick Starts
+## F-DPO (Factual Preference Alignment)
 
-Minimal commands to explore modules.
+Factuality-aware Direct Preference Optimization (F-DPO): extends DPO with binary factuality labels and a factuality-aware margin to reduce LLM hallucinations without an auxiliary reward model. Single-stage and compute-efficient.
 
-```bash
-# 1. Set up environment
-uv sync
-source .venv/bin/activate
-
-# 2. Run controlled image generation
-cd src/aixpert/controlled_images/
-uv run python src/main.py \
-  --config configs/img_gen_config.yaml
-
-# 3. Generate synthetic data (text)
-cd src/aixpert/data_generation/synthetic_data_generation/nlp/
-uv run main.py \
-  --config config.yaml \
-  --stage all
-
-# 4. Generate synthetic data (images)
-cd src/aixpert/data_generation/synthetic_data_generation/images/
-uv run main.py all_stages \
-  --config_file ../../config.yaml \
-  --prompt_yaml prompt_paths.yaml \
-  --domain hiring \
-  --risk security_risks
-
-# 5. Compute fairness metrics
-cd src/aixpert/toxicity_fairness_analysis/
-
-uv run python scripts/download_data.py \
-  --dataset jigsaw \
-  --out data/jigsaw.parquet \
-  --sample 50000
-
-uv run python scripts/llm_zero_shot_explain.py \
-  --in data/jigsaw.parquet \
-  --text_col comment_text \
-  --task toxicity \
-  --out outputs/zs_preds.parquet \
-  --model distilgpt2 \
-  --max_rows 1000 \
-  --ig_rows 25 \
-  --ig_steps 32 \
-  --save_heatmaps \
-  --force_float32 \
-  --label_col target
-  --id_cols male female black white muslim jewish
-```
-
-Each module provides a focused README with configuration details and output examples.
+**Links:** [GitHub](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment)
 
 ---
 
-### Standard Usage
+## Modules in AIXpert
 
-Typical workflow for fairness-aware data generation:
-
-1. **Generate controlled data**
-   Create matched datasets (e.g., gender, occupation, or ethnicity pairs).
-2. **Run agentic generation pipeline**
-   Use CrewAI agents for multimodal prompt, image, and metadata generation.
-3. **Perform fairness analysis**
-   Compute bias metrics such as Statistical Parity or Equal Opportunity.
-4. **Visualize or export results**
-   Generate structured outputs or Hugging Face datasets for benchmarking.
-
----
-
-## Core Concepts
+These modules live in the main [AIXpert](https://github.com/VectorInstitute/vector-aixpert) repository. Clone once, run `uv sync`, then use the READMEs below for setup and commands.
 
 ### Controlled Images
 
-Generates baseline vs fairness-aware image sets for occupations or social groups.
-Supports configurable attributes, matched prompts, and consistent random seeds for reproducibility.
+Baseline vs fairness-aware image sets for occupations or social groups; configurable attributes, matched prompts, and reproducible seeds.
+
+**Links:** [Module README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/controlled_images/README.md)
 
 ### Synthetic Data Generation
 
-Multi-modal data synthesis modules under:
+Multi-modal synthesis: image + VQA pairs, textual scenes and MCQs, and video generation (Veo/Gemini). Driven by LLM-designed prompts and metadata templates.
 
-* `synthetic_data_generation/images` — image + VQA pairs
-* `synthetic_data_generation/nlp` — textual scenes and MCQs
-* `synthetic_data_generation/videos` — Veo/Gemini video generation
-
-Each generator is driven by LLM-designed prompts and metadata templates.
+**Links:** [Images README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/images/README.md) · [NLP README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
 
 ### Agent Pipeline (CrewAI)
 
-Implements single-agent orchestration to chain prompt → image → metadata generation.
-Enables autonomous large-scale data creation using structured JSON task definitions.
+Single-agent orchestration for prompt → image → metadata generation and large-scale data creation with structured JSON task definitions.
 
+**Links:** [Module README](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/agent_pipeline/README.md)
 
 ### Fairness & Explainability
 
-Evaluates generated data and model outputs via:
+Statistical metrics (e.g. Statistical Parity, Equal Opportunity), zero-shot explainers (integrated gradients, concept attributions), and visualization (disparity plots, attribution maps). Lives under `toxicity_fairness_analysis` in the AIXpert repo.
 
-* **Statistical metrics** — Statistical Parity, Equal Opportunity
-* **Zero-shot explainers** — integrated gradients, concept attributions
-* **Visualization tools** — disparity plots, attribution maps
-
-### Module Quick Start (one-liners + deep links)
-
-Each core module has its own README with commands, configurations, and sample outputs.
-
-* **Controlled Images** — Generate matched baseline vs fairness-aware images across professions.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/controlled_images/README.md)
-
-* **Agent Pipeline (CrewAI)** — Single-agent orchestration for prompt, image, and metadata generation.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/agent_pipeline/README.md)
-
-* **Synthetic Data · Images** — Domain- and risk-specific image prompts and VQA pairs.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/images/README.md)
-
-* **Synthetic Data · NLP** — Scene descriptions and MCQ generation for text pipelines.
-  ➜ [`View Module README`](https://github.com/VectorInstitute/vector-aixpert/blob/main/src/aixpert/data_generation/synthetic_data_generation/nlp/README.md)
-
+**Links:** [AIXpert](https://github.com/VectorInstitute/vector-aixpert)
 
 ---
 
 ## Contributing and Documentation
 
-See [CONTRIBUTING.md](https://github.com/VectorInstitute/vector-aixpert/blob/main/CONTRIBUTING.md) for:
+- [CONTRIBUTING.md](https://github.com/VectorInstitute/vector-aixpert/blob/main/CONTRIBUTING.md): coding standards (PEP8, Google docstrings), pre-commit (`ruff`, `mypy`, `typos`, `nbQA`), branching, and tests.
 
-* Coding standards and style guide (PEP8 + Google docstrings)
-* Pre-commit setup (`ruff`, `mypy`, `typos`, `nbQA`)
-* Branching and PR workflow
-* Test coverage requirements
+**Docs locally:** `uv sync --no-group docs` then `mkdocs serve` → [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-### Docs build
-
-```bash
-uv sync --no-group docs
-mkdocs serve
-```
-
-The site will be live at [http://127.0.0.1:8000](http://127.0.0.1:8000).
-
-### Testing and Standards
-
-```bash
-pytest -v
-pre-commit run --all-files
-```
-
-Continuous integration runs these via GitHub Actions (`code_checks.yml`, `unit_tests.yml`, `integration_tests.yml`).
-
----
+**CI:** GitHub Actions (`code_checks.yml`, `unit_tests.yml`, `integration_tests.yml`).
