@@ -7,8 +7,8 @@ Full list of recent papers, releases, and news.
 - :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026.
 
   <div class="remarkable-gallery">
-    <a href="/assets/remarkable-2026/exp-agents.png" class="gallery-item" title="Explainable agents"><img src="/assets/remarkable-2026/exp-agents.png" alt="Explainable agents at Remarkable 2026"></a>
-    <a href="/assets/remarkable-2026/q3-2025-aixpert.png" class="gallery-item" title="AIXpert Q3 2025"><img src="/assets/remarkable-2026/q3-2025-aixpert.png" alt="AIXpert Q3 2025 at Remarkable 2026"></a>
+    <a href="/assets/remarkable-2026/exp-agents.png" class="gallery-item" title="Explainable agents"><img src="assets/remarkable-2026/exp-agents.png" alt="Explainable agents at Remarkable 2026"></a>
+    <a href="/assets/remarkable-2026/q3-2025-aixpert.png" class="gallery-item" title="AIXpert Q3 2025"><img src="assets/remarkable-2026/q3-2025-aixpert.png" alt="AIXpert Q3 2025 at Remarkable 2026"></a>
   </div>
 
 - :material-file-document: **From Features to Actions** — Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) and [project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
