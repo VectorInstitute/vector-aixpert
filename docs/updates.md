@@ -6,10 +6,14 @@ Full list of recent papers, releases, and news.
 
 - :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026.
 
-  <div class="remarkable-gallery">
-    <a href="assets/remarkable-2026/exp-agents.png" class="gallery-item" title="Explainable agents"><img src="assets/remarkable-2026/exp-agents.png" alt="Explainable agents at Remarkable 2026"></a>
-    <a href="assets/remarkable-2026/q3-2025-aixpert.png" class="gallery-item" title="AIXpert Q3 2025"><img src="assets/remarkable-2026/q3-2025-aixpert.png" alt="AIXpert Q3 2025 at Remarkable 2026"></a>
-  </div>
+<div class="remarkable-gallery">
+  <a class="gallery-item" href="../assets/remarkable-2026/exp-agents.png" title="Explainable agents">
+    <img src="../assets/remarkable-2026/exp-agents.png" alt="Explainable agents at Remarkable 2026">
+  </a>
+  <a class="gallery-item" href="../assets/remarkable-2026/q3-2025-aixpert.png" title="AIXpert Q3 2025">
+    <img src="../assets/remarkable-2026/q3-2025-aixpert.png" alt="AIXpert Q3 2025 at Remarkable 2026">
+  </a>
+</div>
 
 - :material-file-document: **From Features to Actions** — Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) and [project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
 - :material-book-open-variant: **Transparency in Agentic AI** — Survey: [_A Survey of Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (EngrXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
