@@ -1,5 +1,7 @@
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/lightbox.js
 extra:
   generator: false
   social:

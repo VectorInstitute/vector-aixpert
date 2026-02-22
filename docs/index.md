@@ -47,11 +47,11 @@ For the full **AIXpert vision, consortium, and funding**, see [About](about.md).
 
 ## Recent updates
 
+- :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026 ([photos on Updates](updates.md)).
+- :material-file-document: **From Features to Actions** — Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) · [Project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
+- :material-book-open-variant: **Transparency in Agentic AI** — Survey: [_Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (EngrXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
 - :material-newspaper: **AIXpert news** — Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).
-- :material-play-circle: **SONIC-O1** — Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://arxiv.org/abs/2601.21666) (arXiv).
-- :material-database: **SONIC-O1** — Dataset on [Hugging Face](https://huggingface.co/datasets/vector-institute/sonic-o1) (231 videos, ~60h, 4,958 QAs, 13 domains, demographic metadata).
-- :material-github: **SONIC-O1** — [Code](https://github.com/VectorInstitute/sonic-o1) and evaluation pipeline (summarization, MCQ, temporal localization).
-- :material-medal: **SONIC-O1** — [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard) for model comparisons and fairness analysis.
+- :material-play-circle: **SONIC-O1** — Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://arxiv.org/abs/2601.21666) (arXiv). [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
 
 [:material-arrow-right: **View full list**](updates.md){ .md-button .md-button--primary }
 
