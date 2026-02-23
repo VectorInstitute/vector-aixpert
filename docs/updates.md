@@ -15,6 +15,7 @@ Full list of recent papers, releases, and news.
   </a>
 </div>
 
+- :material-robot: **SONIC-O1 Multi-Agent** — We released a compound multi-agent system for audio-video understanding. [Code](https://github.com/VectorInstitute/sonic-o1-agent).
 - :material-file-document: **From Features to Actions** — Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) and [project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
 - :material-book-open-variant: **Transparency in Agentic AI** — Survey: [_A Survey of Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (EngrXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
 - :material-newspaper: **AIXpert news** — Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).

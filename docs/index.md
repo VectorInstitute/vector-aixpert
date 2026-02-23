@@ -26,8 +26,8 @@ For the full **AIXpert vision, consortium, and funding**, see [About](about.md).
 -   **Explainable, accountable AI**
     Develop tools and benchmarks for **interpretability**, **fairness**, and **transparency** in generative and multimodal AI, aligned with AIXpert’s vision.
 
--   **Trust, risk, and security in agentic AI**
-    Advance **TRiSM** (Trust, Risk, and Security Management) and transparency frameworks for safe, explainable agentic and multi-agent systems.
+-   **Situation-aware trustworthy agentic AI**
+    Build **transparent**, **auditable**, and **human-in-the-loop** agentic and multi-agent systems, with **measurable trustworthiness metrics** (accountability, autonomy, robustness).
 
 -   **Multimodal and real-world evaluation**
     Create benchmarks and datasets for **audio-video understanding**, **vision-language** assessment, and **fairness** across domains and demographics.
@@ -48,6 +48,7 @@ For the full **AIXpert vision, consortium, and funding**, see [About](about.md).
 ## Recent updates
 
 - :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026 ([photos on Updates](updates.md)).
+- :material-robot: **SONIC-O1 Multi-Agent** — Multi-agent framework for audio-video understanding: planning, chain-of-thought reasoning, self-reflection, and temporal grounding with Qwen3-Omni. [Code](https://github.com/VectorInstitute/sonic-o1-agent).
 - :material-file-document: **From Features to Actions** — Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) · [Project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
 - :material-book-open-variant: **Transparency in Agentic AI** — Survey: [_Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (EngrXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
 - :material-newspaper: **AIXpert news** — Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).

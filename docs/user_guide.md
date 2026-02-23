@@ -15,6 +15,24 @@ Each project has its **own repository or module**; use the sections below for su
 
 ---
 
+
+## SONIC-O1 Multi-Agent
+
+Compound multi-agent system for **audio-video understanding** with Qwen3-Omni: planner, reasoner, and reflection agents with chain-of-thought reasoning, self-reflection, temporal grounding, and optional multi-step task decomposition. Built on LangGraph and vLLM.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/sonic-o1-agent)
+
+
+---
+
+## Unified XAI Evaluation Framework (Explainability in Traditional and Agentic AI)
+
+Framework for evaluating **explainability** in both traditional (static) and **agentic** AI systems. Compares attribution-based explanations (e.g. SHAP, LIME) with trace-based diagnostics; shows that attribution is stable for static prediction but trace-grounded rubrics are needed to localize agentic failures.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/unified-xai-evaluation-framework) · [Project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/)
+
+---
+
 ## SONIC-O1
 
 Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks—summarization, multiple-choice QA, and temporal localization—and demographic metadata for fairness analysis.
@@ -28,6 +46,7 @@ Real-world benchmark for evaluating multimodal LLMs on **audio-video understandi
 Factuality-aware Direct Preference Optimization (F-DPO): extends DPO with binary factuality labels and a factuality-aware margin to reduce LLM hallucinations without an auxiliary reward model. Single-stage and compute-efficient.
 
 **Links:** [GitHub](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment)
+
 
 ---
 
