@@ -1,0 +1,21 @@
+[submodule "src/aixpert/sonic-o1"]
+	path = src/aixpert/sonic-o1
+	url = https://github.com/VectorInstitute/sonic-o1
+[submodule "src/aixpert/sonic-o1-agent"]
+	path = src/aixpert/sonic-o1-agent
+	url = https://github.com/VectorInstitute/sonic-o1-agent
+[submodule "src/aixpert/unified-xai-evaluation-framework"]
+	path = src/aixpert/unified-xai-evaluation-framework
+	url = https://github.com/VectorInstitute/unified-xai-evaluation-framework
+[submodule "src/aixpert/factual-preference-alignment"]
+	path = src/aixpert/factual-preference-alignment
+	url = https://github.com/VectorInstitute/Factual-Preference-Alignment
+[submodule "src/aixpert/bias-in-the-picture-benchmark"]
+	path = src/aixpert/bias-in-the-picture-benchmark
+	url = https://github.com/VectorInstitute/bias-in-the-picture-benchmark
+[submodule "src/aixpert/agentic-transparency"]
+	path = src/aixpert/agentic-transparency
+	url = https://github.com/VectorInstitute/Agentic-Transparency
+[submodule "src/aixpert/humanibench"]
+	path = src/aixpert/humanibench
+	url = https://github.com/VectorInstitute/humanibench
