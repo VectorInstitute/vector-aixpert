@@ -74,6 +74,53 @@
   opacity: 1;
 }
 
+/* ── System Architecture Pipeline ── */
+.arch-pipeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 540px;
+}
+
+.arch-step {
+  width: 100%;
+  background: var(--md-code-bg-color, #f5f5f5);
+  border-radius: 10px;
+  padding: 0.9rem 1.25rem;
+  border-left: 4px solid #eb088a;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.arch-step:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 0 0 #eb088a, 0 4px 16px rgba(235, 8, 138, 0.1);
+}
+
+.arch-step--last {
+  border-left-color: #b00068;
+  background: linear-gradient(135deg, rgba(235, 8, 138, 0.07), rgba(176, 0, 104, 0.03));
+}
+
+.arch-arrow {
+  font-size: 1.3rem;
+  color: #eb088a;
+  opacity: 0.45;
+  padding: 0.15rem 0;
+  text-align: center;
+  user-select: none;
+}
+
+[data-md-color-scheme="slate"] .arch-step {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-md-color-scheme="slate"] .arch-step--last {
+  background: linear-gradient(135deg, rgba(235, 8, 138, 0.1), rgba(176, 0, 104, 0.05));
+}
 /* Make the inner footer grid elements distribute evenly */
 .md-footer-meta__inner {
   display: flex;

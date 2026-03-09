@@ -2,11 +2,22 @@
 
 Selected publications and preprints from the AIXpert project. Each entry links to arXiv (or equivalent) where available.
 
+
 ---
 
 ## AIXpert project papers
 
-### From Features to Actions: Explainability in Traditional and Agentic AI Systems
+### TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems
+
+**Paper** (AI Open, Elsevier 2026) · <a href="https://doi.org/10.1016/j.aiopen.2026.02.006" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/AI_Open-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="AI Open"></a>
+
+**Authors:** Shaina Raza, Ranjan Sapkota, Manoj Karkee, Christos Emmanouilidis.
+
+A review of trust, risk, and security management (TRiSM) in LLM-based agentic and multi-agent systems.
+
+---
+
+### From Features to Actions: Explainability in Traditional and Agentic AI
 
 **Paper** · <a href="https://arxiv.org/abs/2602.06841" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/unified-xai-evaluation-framework" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/unified-xai-evaluation-framework/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
 
@@ -47,16 +58,6 @@ Agentic AI systems—LLM-based agents with planning, memory, and tool use—intr
 **Authors:** Aravind Narayanan, Vahid Reza Khazaie, Shaina Raza.
 
 Benchmarking vision-language models with social-cue news images and LLM-as-judge assessment.
-
----
-
-### TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems
-
-**Paper** · <a href="https://arxiv.org/abs/2506.04133" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a>
-
-**Authors:** Shaina Raza, Ranjan Sapkota, Manoj Karkee, Christos Emmanouilidis.
-
-A review of trust, risk, and security management (TRiSM) in LLM-based agentic and multi-agent systems.
 
 ---
 

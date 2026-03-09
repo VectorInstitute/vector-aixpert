@@ -4,6 +4,8 @@ Full list of recent papers, releases, and news.
 
 ---
 
+- :material-check-decagram: **TRiSM for Agentic AI accepted** — Paper accepted at [AI Open, Elsevier 2026](https://doi.org/10.1016/j.aiopen.2026.02.006). A review of trust, risk, and security management in LLM-based agentic multi-agent systems.
+
 - :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026.
 
 <div class="remarkable-gallery">
