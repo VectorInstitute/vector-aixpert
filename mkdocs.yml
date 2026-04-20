@@ -42,7 +42,6 @@ nav:
   - Projects: projects.md
   # - API Reference: api.md
   - Papers: papers.md
-  - Team: team.md
   - About: about.md
 plugins:
   - search

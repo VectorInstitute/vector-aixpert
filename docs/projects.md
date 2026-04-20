@@ -12,6 +12,22 @@ This page summarizes each project's scope and links to its repository, documenta
 
 ---
 
+## UnBias-Plus
+
+**UnBias-Plus** is an AI-driven toolkit for **bias detection and debiasing** in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite—usable from the **CLI**, **REST API** (FastAPI + demo UI), or **Python** (`UnBiasPlus`).
+
+**Links:** [GitHub](https://github.com/VectorInstitute/unbias-plus) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [PyPI](https://pypi.org/project/unbias-plus/)
+
+---
+
+## FairSense-AgentiX
+
+**FairSense-AgentiX** is an agentic **bias detection** and **AI-risk analysis** platform for text, images, and datasets. A reasoning agent **plans** per input type, **selects** tools (OCR, vision models, embeddings, retrieval), **critiques** and refines outputs, and **explains** steps via telemetry—aiming for more transparent, context-aware fairness checks than static classifiers.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/fairsense-agentix) · [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [PyPI](https://pypi.org/project/fairsense-agentix/)
+
+---
+
 ## SONIC-O1
 
 Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis.

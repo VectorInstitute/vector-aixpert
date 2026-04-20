@@ -2,8 +2,7 @@
 
 <!-- Add logo -->
 <div class="aixpert-logo" style="text-align:center; margin-bottom:1.5rem;">
-  <img src="https://aixpert-project.eu/wp-content/uploads/sites/157/2025/06/AIXPERT_logo_extended_white-scaled.png"
-       alt="AIXPERT Logo" width="300" loading="lazy">
+  <img src="../assets/aixpert-logo.png" alt="AIXPERT Logo" width="300">
 </div>
 
 The **AIXpert Project** is a large-scale, multi-institutional research initiative uniting **17 partners** under the **Horizon Europe Research and Innovation Programme (Grant Agreement No. 101214389)** and the **Swiss State Secretariat for Education, Research and Innovation (SERI)**.
@@ -54,19 +53,51 @@ The AIXPERT consortium brings together leading academic, research, and industry 
 
 ---
 
-## Funding Acknowledgment
+## Team
+
+The [Vector Institute](https://vectorinstitute.ai/) is a proud partner of the [AIXPERT project](https://aixpert-project.eu/) — a Horizon Europe initiative building explainable, transparent, and human-centered AI. This site is maintained by Vector's AI Engineering team.
+
+---
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<div class="team-grid">
+
+  <div class="team-card">
+    <h3>Shaina Raza, PhD</h3>
+    <p class="team-links"><a href="https://www.linkedin.com/in/shainaraza" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+  </div>
+
+  <div class="team-card">
+    <h3>Ahmed Y. Radwan</h3>
+    <p class="team-links"><a href="https://www.linkedin.com/in/ahmedyradwan/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+  </div>
+
+  <div class="team-card">
+    <h3>Aravind Narayanan</h3>
+    <p class="team-links"><a href="https://www.linkedin.com/in/aravind-n-774665144" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+  </div>
+
+  <div class="team-card">
+    <h3>Vahid Khazaie</h3>
+    <p class="team-links"><a href="https://www.linkedin.com/in/vahid0001/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+  </div>
+
+</div>
+
+---
+
+## Acknowledgment
+
 > Resources used in preparing this research were provided, in part, by the Province of Ontario, the Government of Canada through CIFAR, and companies sponsoring the Vector Institute.
+>
+> Funding for the research was partly provided through Horizon Europe project AIXpert: An agentic, multi-layer, GenAI-powered backbone to make an AI system explainable, accountable, and transparent (ID: 101214389).
 
-> The **AIXPERT Project** has also received funding from the **European Union’s Horizon Europe Research and Innovation Programme** under **Grant Agreement No. 101214389**, and from the **Swiss State Secretariat for Education, Research and Innovation (SERI)**.
 
-> Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the **European Union** or the granting authorities.
-> Neither the European Union nor the funding agencies can be held responsible for them.
-
-<div class="aixpert-logo" style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:center; margin-top:1rem;">
+<!-- Bottom acknowledgment logos -->
+<div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:center; margin-top:1rem;">
     <a href="https://research-and-innovation.ec.europa.eu/" target="_blank" rel="noopener">
-        <img src="https://aixpert-project.eu/wp-content/uploads/sites/157/2025/06/EN-Funded-by-the-EU-WHITE-scaled.png" alt="EU Flag" width="120" loading="lazy">
+        <img src="../assets/eu_funded_en.jpg" alt="Funded by the EU" width="300">
     </a>
     <a href="https://www.sbfi.admin.ch/" target="_blank" rel="noopener">
-        <img src="https://aixpert-project.eu/wp-content/uploads/sites/157/2025/10/WBF_SBFI_EU_Frameworkprogramme_E_RGB_neg_quer.png" alt="SERI Logo" width="120" loading="lazy">
+        <img src="../assets/SERI_LOGO.png" alt="SERI Logo" width="300">
     </a>
 </div>

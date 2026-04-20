@@ -56,15 +56,84 @@ Vector's responsible AI pipeline moves data through five stages — from raw inp
 
 ## Recent Updates
 
+- :material-scale-balance: **UnBias-Plus** — Bias detection and debiasing for text (CLI, REST API, Python). [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/). [More on Updates](updates.md).
+- :material-shield-search: **FairSense-AgentiX** — Agentic fairness and AI-risk analysis for text, images, and datasets (FastAPI, Web UI, Python). [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/). [More on Updates](updates.md).
+- :material-presentation: **HAICON26** — Shaina Raza, PhD at [Helmholtz AI Conference 2026: AI for Science](https://haicon.cc/) (8–11 June 2026, Munich). [More on Updates](updates.md).
+- :material-presentation: **Toronto Machine Learning Summit** — Ahmed Y. Radwan presenting **SONIC-O1** at the [Toronto Machine Learning Summit](https://www.torontomachinelearning.com/) (16–19 June 2026). [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard). [More on Updates](updates.md).
+- :material-check-decagram: **Evaluating and Regulating Agentic AI** — Forthcoming in *Information Fusion* (journal link to follow). [arXiv](https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3) · [Project page](https://itsazibfarooq.github.io/agenticEvaluation/) · [Code](https://github.com/itsazibfarooq/agenticEvaluation). [More on Updates](updates.md).
+- :material-presentation: **EU cluster webinar** — We took part in *AI-Enabled Public Services: Building Resilience and Accountability* (20 Apr 2026), hosted by EU projects TANGO, AI4REALNET, HumAIne, THEMIS 5.0, and Peer AI. [Details on Updates](updates.md).
+- :material-check-decagram: **Model immunization** — Accepted at WCCI 2026 (IJCNN). [arXiv](https://arxiv.org/abs/2505.17870) · [Project page](https://shainarazavi.github.io/ai-vaccine/) · [Code](https://github.com/shainarazavi/ai-vaccine). [More on Updates](updates.md).
+- :material-check-decagram: **F-DPO** — ACL 2026 Findings. [arXiv](https://arxiv.org/abs/2601.03027) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment). [More on Updates](updates.md).
 - :material-check-decagram: **TRiSM for Agentic AI accepted** — Paper accepted at [AI Open, Elsevier 2026](https://doi.org/10.1016/j.aiopen.2026.02.006). A review of trust, risk, and security management in LLM-based agentic multi-agent systems.
 - :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026 ([photos on Updates](updates.md)).
 - :material-robot: **SONIC-O1 Multi-Agent** — Multi-agent framework for audio-video understanding: planning, chain-of-thought reasoning, self-reflection, and temporal grounding with Qwen3-Omni. [Code](https://github.com/VectorInstitute/sonic-o1-agent).
 - :material-file-document: **From Features to Actions** — Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) · [Project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
-- :material-book-open-variant: **Transparency in Agentic AI** — Survey: [_Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (EngrXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
+- :material-book-open-variant: **Transparency in Agentic AI** — Survey: [_Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (arXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
 - :material-newspaper: **AIXpert news** — Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).
 - :material-play-circle: **SONIC-O1** — Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://arxiv.org/abs/2601.21666) (arXiv). [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
 
 [:material-arrow-right: **View full list**](updates.md){ .md-button .md-button--primary }
+
+---
+
+## Related Projects
+
+A snapshot of Vector's key contributions within AIXpert. Each project has its own repository, documentation, and quickstart.
+
+<div class="grid cards" markdown>
+
+-   :material-scale-balance: **UnBias-Plus**
+
+    AI-driven toolkit for bias detection and debiasing in text: biased spans, severity, reasoning, neutral replacements, and a full neutral rewrite for more trustworthy workflows.
+
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/)
+
+-   :material-shield-search: **FairSense-AgentiX**
+
+    Agentic workflows for bias detection and risk assessment on text, images, and datasets—planning, tool use, self-critique, and telemetry-backed explanations.
+
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/)
+
+-   :material-chart-bar: **SONIC-O1**
+
+    Real-world benchmark for evaluating MLLMs on audio-video understanding, with a public leaderboard.
+
+    [:material-arrow-right: Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
+
+-   :material-robot: **SONIC-O1 Multi-Agent**
+
+    Multi-agent framework for audio-video understanding with chain-of-thought reasoning, self-reflection, and temporal grounding.
+
+    [:material-arrow-right: Code](https://github.com/VectorInstitute/sonic-o1-agent)
+
+-   :material-magnify: **Explainable Agentic Evaluation Framework**
+
+    Analyzes reasoning traces and interpretability of agentic AI across static and agentic settings.
+
+    [:material-arrow-right: Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) · [Project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/)
+
+-   :material-tune: **Factual Preference Alignment (F-DPO)**
+
+    Factuality-aware preference learning to reduce LLM hallucinations without a separate reward model.
+
+    [:material-arrow-right: Paper](https://arxiv.org/abs/2601.03027) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment)
+
+-   :material-image-multiple: **HumaniBench**
+
+    Fairness-focused vision-language benchmark evaluating foundation models across human-centric demographics.
+
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/HumaniBench/)
+
+-   :material-shield-check: **Agentic Transparency**
+
+    Survey and framework on interpretability, explainability, and governance of agentic AI systems.
+
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/Agentic-Transparency/)
+
+</div>
+
+[:material-arrow-right: **View all papers**](papers.md){ .md-button .md-button--primary }
+[:material-book-open-variant: **Projects & quickstarts**](projects.md){ .md-button }
 
 ---
 
@@ -82,4 +151,4 @@ If you use any of our tools, datasets, or benchmarks, please cite the relevant w
 
 ---
 
-> Have feedback or want to contribute? See the [:material-account-group: Team](team.md) page and open an issue or pull request.
+> Have feedback or want to contribute? See the [:material-account-group: Team](about.md#team) section on About and open an issue or pull request.

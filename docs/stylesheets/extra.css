@@ -161,22 +161,29 @@
 }
 
 
-/* Team cards: compact, name + LinkedIn only, 3 per line */
+/* Team cards (About page): responsive grid — works for any count; avoids a lone card on row 2 when there are 4 */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 0.75rem;
   margin-top: 1rem;
 }
 
 .team-card {
-  background-color: var(--md-surface);
+  background-color: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.08));
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 0.5rem 0.75rem;
   text-align: left;
   transition: transform 0.15s ease;
   min-width: 0;
+}
+
+[data-md-color-scheme="slate"] .team-card {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .team-card:hover {
