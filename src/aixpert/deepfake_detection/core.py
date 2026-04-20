@@ -79,7 +79,9 @@ def assign_group_indices(bundles: list[FactHOBundle]) -> list[str]:
 
 def build_bundles_from_samples(samples: list[FactHOSample]) -> list[FactHOBundle]:
     """Group flat samples into deterministic FACT-HO bundles."""
-    grouped: dict[tuple[str, str, str, str, str], list[FactHOSample]] = defaultdict(list)
+    grouped: dict[tuple[str, str, str, str, str], list[FactHOSample]] = defaultdict(
+        list
+    )
     for sample in samples:
         key = (
             sample.bundle_id,
@@ -93,7 +95,9 @@ def build_bundles_from_samples(samples: list[FactHOSample]) -> list[FactHOBundle
     bundles: list[FactHOBundle] = []
     for key, bundle_samples in grouped.items():
         bundle_id, dataset_name, split, content_family, source = key
-        ordered_samples = sorted(bundle_samples, key=lambda item: (item.pattern, item.method, item.sample_id))
+        ordered_samples = sorted(
+            bundle_samples, key=lambda item: (item.pattern, item.method, item.sample_id)
+        )
         bundles.append(
             FactHOBundle(
                 bundle_id=bundle_id,
@@ -142,7 +146,9 @@ def count_dataset_samples(samples: list[FactHOSample]) -> dict[str, int]:
     return dict(sorted(counts.items()))
 
 
-def normalize_ratio(train_ratio: float, eval_ratio: float, test_ratio: float) -> tuple[float, float, float]:
+def normalize_ratio(
+    train_ratio: float, eval_ratio: float, test_ratio: float
+) -> tuple[float, float, float]:
     """Normalize split ratios so they sum to one."""
     total = train_ratio + eval_ratio + test_ratio
     if total <= 0:
@@ -161,10 +167,14 @@ def assign_source_disjoint_splits(
     seed: int,
 ) -> None:
     """Assign source-disjoint train/eval/test splits in place."""
-    train_ratio, eval_ratio, test_ratio = normalize_ratio(train_ratio, eval_ratio, test_ratio)
+    train_ratio, eval_ratio, test_ratio = normalize_ratio(
+        train_ratio, eval_ratio, test_ratio
+    )
     source_ids = sorted({sample.source for sample in samples})
     if len(source_ids) < 3:
-        raise RuntimeError(f"Need at least 3 unique source IDs for source-disjoint split, got {len(source_ids)}.")
+        raise RuntimeError(
+            f"Need at least 3 unique source IDs for source-disjoint split, got {len(source_ids)}."
+        )
 
     rng = random.Random(seed)
     rng.shuffle(source_ids)
@@ -206,7 +216,9 @@ def sanitize_slug(raw: str, default: str) -> str:
     return text or default
 
 
-def duration_bucket(duration: float, short_threshold: float, medium_threshold: float) -> str:
+def duration_bucket(
+    duration: float, short_threshold: float, medium_threshold: float
+) -> str:
     """Map clip duration to a stable content bucket label."""
     if duration <= short_threshold:
         return "face_short"
@@ -215,7 +227,9 @@ def duration_bucket(duration: float, short_threshold: float, medium_threshold: f
     return "face_long"
 
 
-def select_samples_by_split(samples: list[FactHOSample], split: str, max_samples: int, seed: int) -> list[FactHOSample]:
+def select_samples_by_split(
+    samples: list[FactHOSample], split: str, max_samples: int, seed: int
+) -> list[FactHOSample]:
     """Filter one split and optionally cap the sample count."""
     subset = [sample for sample in samples if sample.split == split]
     rng = random.Random(seed)
@@ -225,7 +239,9 @@ def select_samples_by_split(samples: list[FactHOSample], split: str, max_samples
     return subset
 
 
-def select_bundles(bundles: list[FactHOBundle], max_bundles: int, seed: int) -> list[FactHOBundle]:
+def select_bundles(
+    bundles: list[FactHOBundle], max_bundles: int, seed: int
+) -> list[FactHOBundle]:
     """Optionally subsample bundles with a deterministic shuffle."""
     rng = random.Random(seed)
     shuffled = list(bundles)
@@ -282,7 +298,9 @@ def rebalance_train_samples_by_method(
     return merged
 
 
-def infer_fakeav_modality_labels(sample_type: str, category: str, method: str) -> tuple[int, int]:
+def infer_fakeav_modality_labels(
+    sample_type: str, category: str, method: str
+) -> tuple[int, int]:
     """Infer audio/video fake labels from FakeAVCeleb metadata fields."""
     sample_type_l = (sample_type or "").strip().lower()
     category_u = (category or "").strip().upper()

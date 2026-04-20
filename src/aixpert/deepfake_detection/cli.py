@@ -21,11 +21,17 @@ from aixpert.deepfake_detection.builders import (
 
 def build_parser() -> argparse.ArgumentParser:
     """Build the top-level CLI parser."""
-    parser = argparse.ArgumentParser(description="Curated FACT-HO dataset summary helpers.")
+    parser = argparse.ArgumentParser(
+        description="Curated FACT-HO dataset summary helpers."
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    summarize = subparsers.add_parser("summarize", help="Build bundles and print a JSON summary.")
-    summarize.add_argument("--dataset", choices=["lavdf", "fakeavceleb", "vcapav"], required=True)
+    summarize = subparsers.add_parser(
+        "summarize", help="Build bundles and print a JSON summary."
+    )
+    summarize.add_argument(
+        "--dataset", choices=["lavdf", "fakeavceleb", "vcapav"], required=True
+    )
     summarize.add_argument("--data-root", type=Path, required=True)
     summarize.add_argument("--metadata-path", type=Path, default=None)
     summarize.add_argument("--output-path", type=Path, default=None)
@@ -41,13 +47,17 @@ def build_parser() -> argparse.ArgumentParser:
     summarize.add_argument("--max-test-samples", type=int, default=0)
     summarize.add_argument("--lavdf-short-threshold", type=float, default=5.0)
     summarize.add_argument("--lavdf-medium-threshold", type=float, default=10.0)
-    summarize.add_argument("--fakeav-split-strategy", choices=["source", "metadata"], default="source")
+    summarize.add_argument(
+        "--fakeav-split-strategy", choices=["source", "metadata"], default="source"
+    )
     summarize.add_argument("--fakeav-train-ratio", type=float, default=0.8)
     summarize.add_argument("--fakeav-eval-ratio", type=float, default=0.1)
     summarize.add_argument("--fakeav-test-ratio", type=float, default=0.1)
     summarize.add_argument("--fakeav-max-fake-real-ratio", type=float, default=12.0)
     summarize.add_argument("--fakeav-no-rebalance-train", action="store_true")
-    summarize.add_argument("--vcapav-split-strategy", choices=["source", "metadata"], default="source")
+    summarize.add_argument(
+        "--vcapav-split-strategy", choices=["source", "metadata"], default="source"
+    )
     summarize.add_argument("--vcapav-train-ratio", type=float, default=0.8)
     summarize.add_argument("--vcapav-eval-ratio", type=float, default=0.1)
     summarize.add_argument("--vcapav-test-ratio", type=float, default=0.1)
@@ -59,7 +69,9 @@ def build_parser() -> argparse.ArgumentParser:
 
 def make_builder(args: argparse.Namespace) -> Any:
     """Instantiate the dataset builder requested by the CLI."""
-    split_config = SplitConfig(train=args.train_split, eval=args.eval_split, test=args.test_split)
+    split_config = SplitConfig(
+        train=args.train_split, eval=args.eval_split, test=args.test_split
+    )
     if args.dataset == "lavdf":
         return LAVDFBuilder(
             config=LAVDFConfig(
@@ -89,7 +101,8 @@ def make_builder(args: argparse.Namespace) -> Any:
     return VCapAVBuilder(
         config=VCapAVConfig(
             data_root=args.data_root,
-            metadata_path=args.metadata_path or args.data_root / "vcapav_manifest.jsonl",
+            metadata_path=args.metadata_path
+            or args.data_root / "vcapav_manifest.jsonl",
             split_strategy=args.vcapav_split_strategy,
             train_ratio=args.vcapav_train_ratio,
             eval_ratio=args.vcapav_eval_ratio,

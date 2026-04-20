@@ -11,3 +11,4 @@ LLM = "LLM"  # Large Language Model
 LLMs = "LLMs"  # Large Language Models (plural)
 VQA = "VQA"  # Visual Question Answering
 IG = "IG"  # Integrated Gradients
+HumAIne = "HumAIne"  # EU project name

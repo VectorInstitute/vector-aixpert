@@ -51,7 +51,9 @@ def test_lavdf_builder_loads_counterfactual_pairs(media_root: Path) -> None:
         encoding="utf-8",
     )
 
-    builder = LAVDFBuilder(LAVDFConfig(data_root=media_root, metadata_path=metadata_path))
+    builder = LAVDFBuilder(
+        LAVDFConfig(data_root=media_root, metadata_path=metadata_path)
+    )
     partitions = builder.partition()
 
     assert partitions.summary["train_bundle_mode"] == "pairwise_counterfactual"
@@ -120,7 +122,9 @@ def test_fakeav_builder_respects_metadata_split_strategy(media_root: Path) -> No
         )
 
     builder = FakeAVCelebBuilder(
-        FakeAVCelebConfig(data_root=media_root, metadata_path=metadata_path, split_strategy="metadata")
+        FakeAVCelebConfig(
+            data_root=media_root, metadata_path=metadata_path, split_strategy="metadata"
+        )
     )
     partitions = builder.partition()
 

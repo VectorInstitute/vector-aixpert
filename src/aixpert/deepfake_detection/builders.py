@@ -111,9 +111,13 @@ class DatasetPartitions:
         }
 
 
-def build_vcapav_counterfactual_bundles(samples: list[FactHOSample]) -> list[FactHOBundle]:
+def build_vcapav_counterfactual_bundles(
+    samples: list[FactHOSample],
+) -> list[FactHOBundle]:
     """Expand VCapAV train samples into pairwise counterfactual bundles."""
-    grouped: dict[tuple[str, str, str, str, str], list[FactHOSample]] = defaultdict(list)
+    grouped: dict[tuple[str, str, str, str, str], list[FactHOSample]] = defaultdict(
+        list
+    )
     for sample in samples:
         key = (
             sample.bundle_id,
@@ -128,7 +132,9 @@ def build_vcapav_counterfactual_bundles(samples: list[FactHOSample]) -> list[Fac
     for key, group_samples in grouped.items():
         bundle_id, dataset_name, split, content_family, source = key
         by_pattern: dict[tuple[int, int], list[FactHOSample]] = defaultdict(list)
-        for sample in sorted(group_samples, key=lambda item: (item.pattern, item.method, item.sample_id)):
+        for sample in sorted(
+            group_samples, key=lambda item: (item.pattern, item.method, item.sample_id)
+        ):
             by_pattern[(sample.label_a, sample.label_v)].append(sample)
 
         real_anchor = by_pattern.get((0, 0), [None])[0]
@@ -159,7 +165,10 @@ def build_vcapav_counterfactual_bundles(samples: list[FactHOSample]) -> list[Fac
                 split=split,
                 content_family=content_family,
                 source=source,
-                samples=sorted(group_samples, key=lambda item: (item.pattern, item.method, item.sample_id)),
+                samples=sorted(
+                    group_samples,
+                    key=lambda item: (item.pattern, item.method, item.sample_id),
+                ),
             )
         )
 
@@ -167,9 +176,13 @@ def build_vcapav_counterfactual_bundles(samples: list[FactHOSample]) -> list[Fac
     return bundles
 
 
-def build_lavdf_counterfactual_bundles(samples: list[FactHOSample]) -> list[FactHOBundle]:
+def build_lavdf_counterfactual_bundles(
+    samples: list[FactHOSample],
+) -> list[FactHOBundle]:
     """Expand LAV-DF train samples into pairwise counterfactual bundles."""
-    grouped: dict[tuple[str, str, str, str, str], list[FactHOSample]] = defaultdict(list)
+    grouped: dict[tuple[str, str, str, str, str], list[FactHOSample]] = defaultdict(
+        list
+    )
     for sample in samples:
         key = (
             sample.bundle_id,
@@ -183,7 +196,9 @@ def build_lavdf_counterfactual_bundles(samples: list[FactHOSample]) -> list[Fact
     bundles: list[FactHOBundle] = []
     for key, group_samples in grouped.items():
         bundle_id, dataset_name, split, content_family, source = key
-        ordered_samples = sorted(group_samples, key=lambda item: (item.pattern, item.method, item.sample_id))
+        ordered_samples = sorted(
+            group_samples, key=lambda item: (item.pattern, item.method, item.sample_id)
+        )
         by_pattern: dict[tuple[int, int], list[FactHOSample]] = defaultdict(list)
         for sample in ordered_samples:
             by_pattern[(sample.label_a, sample.label_v)].append(sample)
@@ -197,7 +212,9 @@ def build_lavdf_counterfactual_bundles(samples: list[FactHOSample]) -> list[Fact
 
         used_anchor_indices: set[int] = set()
         created = False
-        if real_anchors and any(samples_for_pattern for _, samples_for_pattern in fake_specs):
+        if real_anchors and any(
+            samples_for_pattern for _, samples_for_pattern in fake_specs
+        ):
             for suffix, samples_for_pattern in fake_specs:
                 for sample_idx, sample in enumerate(samples_for_pattern):
                     anchor_idx = sample_idx % len(real_anchors)
@@ -238,7 +255,9 @@ def build_lavdf_counterfactual_bundles(samples: list[FactHOSample]) -> list[Fact
         ]
         used_ff_anchor_indices: set[int] = set()
         created = False
-        if ff_anchors and any(samples_for_pattern for _, samples_for_pattern in fake_only_specs):
+        if ff_anchors and any(
+            samples_for_pattern for _, samples_for_pattern in fake_only_specs
+        ):
             for suffix, samples_for_pattern in fake_only_specs:
                 for sample_idx, sample in enumerate(samples_for_pattern):
                     anchor_idx = sample_idx % len(ff_anchors)
@@ -312,7 +331,9 @@ class DatasetBuilder(ABC):
         """Build test bundles from test samples."""
         return build_bundles_from_samples(samples)
 
-    def adjust_train_samples(self, train_samples: list[FactHOSample]) -> list[FactHOSample]:
+    def adjust_train_samples(
+        self, train_samples: list[FactHOSample]
+    ) -> list[FactHOSample]:
         """Optionally rebalance or prune train samples before bundling."""
         return train_samples
 
@@ -373,9 +394,17 @@ class DatasetBuilder(ABC):
         )
 
         train_samples = self.adjust_train_samples(train_samples)
-        train_bundles = select_bundles(self.train_bundle_builder(train_samples), limits.max_train_bundles, self.seed)
-        eval_bundles = select_bundles(self.eval_bundle_builder(eval_samples), limits.max_eval_bundles, self.seed)
-        test_bundles = select_bundles(self.test_bundle_builder(test_samples), limits.max_test_bundles, self.seed)
+        train_bundles = select_bundles(
+            self.train_bundle_builder(train_samples),
+            limits.max_train_bundles,
+            self.seed,
+        )
+        eval_bundles = select_bundles(
+            self.eval_bundle_builder(eval_samples), limits.max_eval_bundles, self.seed
+        )
+        test_bundles = select_bundles(
+            self.test_bundle_builder(test_samples), limits.max_test_bundles, self.seed
+        )
 
         train_bundle_mode = "full"
         if type(self).train_bundle_builder is not DatasetBuilder.train_bundle_builder:
@@ -404,13 +433,20 @@ class LAVDFBuilder(DatasetBuilder):
 
     dataset_name = "lavdf"
 
-    def __init__(self, config: LAVDFConfig, split_config: SplitConfig | None = None, seed: int = 42) -> None:
+    def __init__(
+        self,
+        config: LAVDFConfig,
+        split_config: SplitConfig | None = None,
+        seed: int = 42,
+    ) -> None:
         super().__init__(split_config=split_config, seed=seed)
         self.config = config
 
     def load_samples(self) -> list[FactHOSample]:
         """Load LAV-DF metadata into flat FACT-HO samples."""
-        metadata_path = self.config.metadata_path or (self.config.data_root / "metadata.json")
+        metadata_path = self.config.metadata_path or (
+            self.config.data_root / "metadata.json"
+        )
         if not metadata_path.exists():
             raise FileNotFoundError(f"LAV-DF metadata not found: {metadata_path}")
 
@@ -465,13 +501,20 @@ class FakeAVCelebBuilder(DatasetBuilder):
 
     dataset_name = "fakeavceleb"
 
-    def __init__(self, config: FakeAVCelebConfig, split_config: SplitConfig | None = None, seed: int = 42) -> None:
+    def __init__(
+        self,
+        config: FakeAVCelebConfig,
+        split_config: SplitConfig | None = None,
+        seed: int = 42,
+    ) -> None:
         super().__init__(split_config=split_config, seed=seed)
         self.config = config
 
     def load_samples(self) -> list[FactHOSample]:
         """Load FakeAVCeleb metadata into flat FACT-HO samples."""
-        metadata_path = self.config.metadata_path or (self.config.data_root / "meta_data.csv")
+        metadata_path = self.config.metadata_path or (
+            self.config.data_root / "meta_data.csv"
+        )
         if not metadata_path.exists():
             raise FileNotFoundError(f"FakeAVCeleb metadata not found: {metadata_path}")
 
@@ -485,7 +528,11 @@ class FakeAVCelebBuilder(DatasetBuilder):
 
                 if raw_filename:
                     filename = raw_filename
-                    rel_dir = raw_path if raw_path and not raw_path.lower().endswith(".mp4") else raw_dir_extra
+                    rel_dir = (
+                        raw_path
+                        if raw_path and not raw_path.lower().endswith(".mp4")
+                        else raw_dir_extra
+                    )
                 else:
                     filename = raw_path
                     rel_dir = raw_dir_extra
@@ -506,7 +553,9 @@ class FakeAVCelebBuilder(DatasetBuilder):
                 source = (row.get("source") or "unknown").strip()
                 race = sanitize_slug(str(row.get("race", "")), "unknownrace")
                 gender = sanitize_slug(str(row.get("gender", "")), "unknowngender")
-                audio_label, video_label = infer_fakeav_modality_labels(sample_type, category, method)
+                audio_label, video_label = infer_fakeav_modality_labels(
+                    sample_type, category, method
+                )
                 label_y = 1 if (audio_label == 1 or video_label == 1) else 0
 
                 target1 = (row.get("target1") or "").strip()
@@ -553,7 +602,9 @@ class FakeAVCelebBuilder(DatasetBuilder):
             )
         return samples
 
-    def adjust_train_samples(self, train_samples: list[FactHOSample]) -> list[FactHOSample]:
+    def adjust_train_samples(
+        self, train_samples: list[FactHOSample]
+    ) -> list[FactHOSample]:
         """Optionally rebalance fake methods in the train split."""
         if not self.config.rebalance_train:
             return train_samples
@@ -569,7 +620,12 @@ class VCapAVBuilder(DatasetBuilder):
 
     dataset_name = "vcapav"
 
-    def __init__(self, config: VCapAVConfig, split_config: SplitConfig | None = None, seed: int = 42) -> None:
+    def __init__(
+        self,
+        config: VCapAVConfig,
+        split_config: SplitConfig | None = None,
+        seed: int = 42,
+    ) -> None:
         super().__init__(split_config=split_config, seed=seed)
         self.config = config
 
@@ -582,7 +638,9 @@ class VCapAVBuilder(DatasetBuilder):
     def load_samples(self) -> list[FactHOSample]:
         """Load a manifest-first VCapAV view without cluster-specific zip extraction."""
         if not self.config.metadata_path.exists():
-            raise FileNotFoundError(f"VCapAV metadata not found: {self.config.metadata_path}")
+            raise FileNotFoundError(
+                f"VCapAV metadata not found: {self.config.metadata_path}"
+            )
 
         samples: list[FactHOSample] = []
         with self.config.metadata_path.open("r", encoding="utf-8") as handle:
@@ -591,17 +649,30 @@ class VCapAVBuilder(DatasetBuilder):
                 if not stripped_line:
                     continue
                 row = json.loads(stripped_line)
-                source = str(row.get("source") or row.get("clip_id") or row.get("bundle_id") or row.get("group_key"))
-                content_family = row.get("content_family") or infer_vcapav_content_bucket(
+                source = str(
+                    row.get("source")
+                    or row.get("clip_id")
+                    or row.get("bundle_id")
+                    or row.get("group_key")
+                )
+                content_family = row.get(
+                    "content_family"
+                ) or infer_vcapav_content_bucket(
                     source=source,
                     num_buckets=self.config.content_buckets,
                 )
                 samples.append(
                     FactHOSample(
-                        sample_id=str(row.get("sample_id") or row.get("uid") or row.get("clip_id")),
+                        sample_id=str(
+                            row.get("sample_id") or row.get("uid") or row.get("clip_id")
+                        ),
                         dataset_name=self.dataset_name,
                         split=str(row.get("split", "unknown")),
-                        bundle_id=str(row.get("bundle_id") or row.get("group_key") or row.get("clip_id")),
+                        bundle_id=str(
+                            row.get("bundle_id")
+                            or row.get("group_key")
+                            or row.get("clip_id")
+                        ),
                         content_family=str(content_family),
                         video_path=self._resolve_path(str(row["video_path"])),
                         audio_path=self._resolve_path(str(row["audio_path"])),
@@ -631,7 +702,9 @@ class VCapAVBuilder(DatasetBuilder):
         """Build pairwise counterfactual train bundles for VCapAV."""
         return build_vcapav_counterfactual_bundles(samples)
 
-    def adjust_train_samples(self, train_samples: list[FactHOSample]) -> list[FactHOSample]:
+    def adjust_train_samples(
+        self, train_samples: list[FactHOSample]
+    ) -> list[FactHOSample]:
         """Optionally rebalance fake methods in the train split."""
         if not self.config.rebalance_train:
             return train_samples

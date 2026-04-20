@@ -5,9 +5,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from aixpert.deepfake_detection.cli import build_parser, summarize_command
 
 
+@pytest.mark.integration_test
 def test_cli_summarize_supports_one_sample_vcapav_manifest(media_root: Path) -> None:
     """The CLI should produce a JSON summary from a one-sample manifest."""
     media_dir = media_root / "vcapav"

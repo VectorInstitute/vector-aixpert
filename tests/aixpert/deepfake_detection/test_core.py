@@ -13,7 +13,9 @@ from aixpert.deepfake_detection.core import (
 )
 
 
-def make_sample(sample_id: str, source: str, split: str, label_a: int, label_v: int) -> FactHOSample:
+def make_sample(
+    sample_id: str, source: str, split: str, label_a: int, label_v: int
+) -> FactHOSample:
     """Build a compact sample fixture."""
     return FactHOSample(
         sample_id=sample_id,
@@ -57,7 +59,9 @@ def test_assign_source_disjoint_splits() -> None:
         make_sample("c1", "source_c", "unknown", 1, 0),
     ]
 
-    assign_source_disjoint_splits(samples, "train", "dev", "test", 0.6, 0.2, 0.2, seed=7)
+    assign_source_disjoint_splits(
+        samples, "train", "dev", "test", 0.6, 0.2, 0.2, seed=7
+    )
 
     splits = {sample.split for sample in samples}
     assert splits == {"train", "dev", "test"}
@@ -75,7 +79,9 @@ def test_rebalance_train_samples_by_method() -> None:
     train_samples[2].method = "audio_b"
     train_samples[3].method = "video_a"
 
-    balanced = rebalance_train_samples_by_method(train_samples, max_fake_real_ratio=1.0, seed=3)
+    balanced = rebalance_train_samples_by_method(
+        train_samples, max_fake_real_ratio=1.0, seed=3
+    )
 
     num_fake = sum(sample.label_y for sample in balanced)
     assert len(balanced) == 2
