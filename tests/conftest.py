@@ -1,15 +1,15 @@
-"""Conftest."""
+"""Shared pytest fixtures."""
+
+from __future__ import annotations
+
+from pathlib import Path
 
 import pytest
 
 
-# TODO: Replace this
 @pytest.fixture
-def my_test_number() -> int:
-    """My test number.
-
-    Returns
-    -------
-        int: A really awesome number.
-    """
-    return 42
+def media_root(tmp_path: Path) -> Path:
+    """Create a temporary media root for metadata-driven tests."""
+    root = tmp_path / "media"
+    root.mkdir()
+    return root
