@@ -8,6 +8,46 @@ Selected publications and preprints from the AIXpert project. Each entry links t
 
 ## AIXpert project papers
 
+### UnBias-Plus: Detect, Explain, and Rewrite Bias
+
+**Paper** · <a href="https://arxiv.org/abs/2606.23412" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/unbias-plus" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/unbias-plus/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Demo** · <a href="https://unbias-plus.vectorinstitute.ai/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Demo-FF6C00?style=flat-square" alt="Demo"></a>
+
+**Authors:** Ahmed Y. Radwan, Ahmed ElKady, Sindhuja Chaduvula, Mohamed Hafez, Amrit Krishnan, Shaina Raza.
+
+Open-source toolkit unifying segment-level bias classification, biased span localization, neutral text rewriting, and per-decision reasoning — available via Python, CLI, REST API, and web interfaces.
+
+---
+
+### AgentFinVQA: A Deployable Multi-Agent Pipeline for Auditable Financial Chart QA
+
+**Paper** · <a href="https://arxiv.org/abs/2606.19782" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Aravind Narayanan, Shaina Raza.
+
+Multi-agent pipeline for auditable, on-premise financial chart QA, decomposing queries into planning, OCR, legend grounding, visual inspection, and verification — with every step recorded in a traceable Model Evaluation Packet (MEP). Achieves +7.68 pp over a zero-shot baseline on FinMME while supporting full open-weights deployment for data residency.
+
+---
+
+### Generative Deepfake Videos in the Foundation-Model Era: A Timeline of Eroding Trust in Visual Evidence
+
+**Paper** (MAD '26, ACM) · <a href="https://dl.acm.org/doi/full/10.1145/3810988.3812659" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ACM-0085CA?style=flat-square&logo=acm&logoColor=white" alt="ACM"></a>
+
+**Authors:** Shaina Raza, Jessee Ho, Mahveen Raza, Christos Emmanouilidis.
+
+Review charting the post-artifact deepfake era across a forensic-assumption framework (physiological integrity, temporal coherence, geometric consistency, semantic consistency, provenance) and five detection paradigms — spatial–frequency, temporal, multimodal, vision–language, and agentic — with an audit of thirteen benchmarks and a research roadmap for assumption-aware detection and holistic evaluation.
+
+---
+
+### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
+
+**Paper** (ICML 2026) · <a href="https://arxiv.org/abs/2601.21632" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Shaina Raza, Iuliia Zarubiieva, Ahmed Radwan, Nathaniel Lesperance, Deval Pandya, Sedef Akinli Kocak, Graham Taylor.
+
+Position paper proposing Data and Impact Accounting (DIA) to track the cumulative carbon-and-water footprint of open-source AI model derivatives across lineages.
+
+---
+
 ### TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems
 
 **Paper** (AI Open, Elsevier 2026) · <a href="https://doi.org/10.1016/j.aiopen.2026.02.006" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/AI_Open-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="AI Open"></a>
@@ -20,7 +60,7 @@ A review of trust, risk, and security management (TRiSM) in LLM-based agentic an
 
 ### Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics and Regulation
 
-**Paper** (*Information Fusion*, forthcoming) · <a href="https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+**Paper** (Information Fusion, Elsevier 2026) · <a href="https://www.sciencedirect.com/science/article/pii/S1566253526003246" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ScienceDirect-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="ScienceDirect"></a> **Preprint** · <a href="https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>  **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
 
 **Authors:** Azib Farooq, **Shaina Raza**, Nazmul Karim, Hasan Iqbal, Athanasios V. Vasilakos, Christos Emmanouilidis.
 

@@ -4,6 +4,50 @@ Full list of recent papers, releases, and news.
 
 ---
 
+- :material-presentation: **Toronto Machine Learning Summit** — Ahmed Y. Radwan presented **SONIC-O1** at the [Toronto Machine Learning Summit](https://www.torontomachinelearning.com/) (16–19 June 2026, Toronto). SONIC-O1 is a real-world benchmark for evaluating multimodal LLMs on audio-video understanding across 13 conversational domains, featuring a public leaderboard for model comparison and fairness analysis.
+
+  [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
+
+<div class="remarkable-gallery">
+  <a class="gallery-item" href="../assets/tmls-2026/photo1.jpeg" title="TMLS 2026 presentation">
+    <img src="../assets/tmls-2026/photo1.jpeg" alt="SONIC-O1 Presentation at TMLS 2026">
+  </a>
+  <a class="gallery-item" href="../assets/tmls-2026/photo2.jpeg" title="SONIC-O1 at TMLS 2026">
+    <img src="../assets/tmls-2026/photo2.jpeg" alt="Ahmed Y. Radwan at TMLS 2026">
+  </a>
+</div>
+
+- :material-handshake: **HAICON26 & Vector–Helmholtz Munich MOU** — Shaina Raza, PhD presented at the [Helmholtz AI Conference 2026: AI for Science](https://haicon.cc/) (8–11 June 2026, Munich). The visit coincided with the signing of a **Memorandum of Understanding (MOU)** between Vector Institute and Helmholtz Munich's Computational Health Center, establishing a formal framework for joint research, researcher exchanges, faculty affiliations, and coordinated Germany–Canada funding programs.
+
+  [Helmholtz Munich](https://www.helmholtz-munich.de/en/newsroom/news-all/artikel/helmholtz-munich-and-vector-institute-strengthen-international-ai-research-collaboration) · [Press release (GlobeNewsWire)](https://www.globenewswire.com/news-release/2026/06/11/3310530/0/en/vector-institute-and-helmholtz-munich-sign-mou-to-advance-international-ai-and-machine-learning-research.html) · [AI Magazine](https://aimagazine.com/globenewswire/3310530) · [BNN Bloomberg](https://www.bnnbloomberg.ca/press-releases/2026/06/11/vector-institute-and-helmholtz-munich-sign-mou-to-advance-international-ai-and-machine-learning-research/)
+
+<div class="remarkable-gallery">
+  <a class="gallery-item" href="../assets/haicon-2026/photo1.jpeg" title="HAICON 2026 presentation">
+    <img src="../assets/haicon-2026/photo1.jpeg" alt="Shaina Raza at HAICON 2026">
+  </a>
+  <a class="gallery-item" href="../assets/haicon-2026/photo2.jpeg" title="Vector–Helmholtz Munich MOU signing">
+    <img src="../assets/haicon-2026/photo2.jpeg" alt="Vector Institute and Helmholtz Munich">
+  </a>
+</div>
+
+- :material-map-marker: **AIXpert General Assembly — Barcelona 2026** — The AIXPERT consortium met at the [Barcelona Supercomputing Center](https://www.bsc.es/) (3–4 June 2026) for its second-year General Assembly and Technical Meeting. Partners aligned the technical roadmap, validated implementation plans across five pilot domains (healthcare, recruitment, manufacturing, education, and creative industries), and prepared the next phase of platform development. [Read more](https://aixpert-project.eu/2026/06/05/ga-bcn-june2026/).
+
+<div class="remarkable-gallery">
+  <a class="gallery-item" href="../assets/aixpert-barcelona-2026/photo1.jpeg" title="AIXpert General Assembly Barcelona 2026">
+    <img src="../assets/aixpert-barcelona-2026/photo1.jpeg" alt="AIXpert General Assembly Barcelona 2026">
+  </a>
+</div>
+
+- :material-presentation: **AI4Good Lab 2026** — Shaina Raza, PhD and Ahmed Y. Radwan presented **UnBias-Plus** and research on disinformation and misinformation detection to the [AI4Good Lab](https://www.ai4goodlab.com/) 2026 cohort (May–June 2026, Toronto). The AI4Good Lab is a full-time summer ML training program for women and gender diverse people across Canada, hosted in Toronto in partnership with Vector Institute and CIFAR.
+
+- :material-video-off: **Deepfake Video Review** — [_Generative Deepfake Videos in the Foundation-Model Era: A Timeline of Eroding Trust in Visual Evidence_](https://dl.acm.org/doi/full/10.1145/3810988.3812659) published at MAD '26 (ACM Workshop on Multimedia AI against Disinformation, June 2026). Shaina Raza, Jessee Ho, Mahveen Raza, Christos Emmanouilidis.
+
+- :material-chart-bar: **AgentFinVQA** — Multi-agent pipeline for auditable, on-premise financial chart QA with traceable Model Evaluation Packets. [Paper](https://arxiv.org/abs/2606.19782) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
+
+- :material-trophy: **The Peak Emerging Leaders 2026** — Shaina Raza, PhD has been recognized in [The Peak's Emerging Leaders 2026](https://emergingleaders.readthepeak.com/2026/artificial-intelligence) list, celebrating Canada's most promising young leaders in **Artificial Intelligence**.
+
+- :material-leaf: **ICML 2026 Poster** — [_Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives_](https://arxiv.org/abs/2601.21632) accepted as a poster at ICML 2026. Shaina Raza, Ahmed Radwan, and co-authors propose **Data and Impact Accounting (DIA)** to make the cumulative environmental footprint of open-source AI model derivatives visible and accountable. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/).
+
 - :material-scale-balance: **UnBias-Plus** — Toolkit for bias detection and debiasing in text (segmentation, severity, reasoning, replacements, full rewrite). [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/).
 
 - :material-shield-search: **FairSense-AgentiX** — Agentic fairness and AI-risk platform for text, images, and datasets (FastAPI, WebSocket, React UI, Python API). [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/).

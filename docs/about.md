@@ -81,6 +81,16 @@ The [Vector Institute](https://vectorinstitute.ai/) is a proud partner of the [A
     <p class="team-links"><a href="https://www.linkedin.com/in/vahid0001/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
   </div>
 
+  <div class="team-card">
+    <h3>Mohamed Hafez</h3>
+    <p class="team-links"><a href="https://www.linkedin.com/in/mohamed-abdelhalem-eng/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+  </div>
+
+  <div class="team-card">
+    <h3>Ahmed ElKady</h3>
+    <p class="team-links"><a href="https://www.linkedin.com/in/ahmed-bassem-elkady/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+  </div>
+
 </div>
 
 ---

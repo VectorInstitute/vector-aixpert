@@ -16,7 +16,16 @@ This page summarizes each project's scope and links to its repository, documenta
 
 **UnBias-Plus** is an AI-driven toolkit for **bias detection and debiasing** in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite—usable from the **CLI**, **REST API** (FastAPI + demo UI), or **Python** (`UnBiasPlus`).
 
-**Links:** [GitHub](https://github.com/VectorInstitute/unbias-plus) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [PyPI](https://pypi.org/project/unbias-plus/)
+**Links:** [Demo](https://unbias-plus.vectorinstitute.ai/) · [GitHub](https://github.com/VectorInstitute/unbias-plus) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [PyPI](https://pypi.org/project/unbias-plus/)
+
+
+---
+
+## SONIC-O1
+
+Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/sonic-o1) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
 
 ---
 
@@ -28,11 +37,19 @@ This page summarizes each project's scope and links to its repository, documenta
 
 ---
 
-## SONIC-O1
+## Factual Preference Alignment (F-DPO)
 
-Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis.
+Factuality-aware Direct Preference Optimization: extends DPO with binary factuality labels and a factuality-aware margin to reduce LLM hallucinations without an auxiliary reward model. Single-stage and compute-efficient.
 
-**Links:** [GitHub](https://github.com/VectorInstitute/sonic-o1) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
+**Links:** [GitHub](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment)
+
+---
+
+## AgentFinVQA
+
+**AgentFinVQA** is a deployable multi-agent pipeline for **auditable financial chart question answering** in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification — recording every step in a traceable **Model Evaluation Packet (MEP)**. Supports both proprietary and open-weights backends for full on-premise data residency.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/AgentFinVQA/) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Paper](https://arxiv.org/abs/2606.19782)
 
 ---
 
@@ -50,13 +67,6 @@ Framework for evaluating **explainability** in both traditional (static) and **a
 
 **Links:** [GitHub](https://github.com/VectorInstitute/unified-xai-evaluation-framework) · [Project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/)
 
----
-
-## Factual Preference Alignment (F-DPO)
-
-Factuality-aware Direct Preference Optimization: extends DPO with binary factuality labels and a factuality-aware margin to reduce LLM hallucinations without an auxiliary reward model. Single-stage and compute-efficient.
-
-**Links:** [GitHub](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment)
 
 ---
 
