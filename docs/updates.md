@@ -4,7 +4,8 @@ Full list of recent papers, releases, and news.
 
 ---
 
-- :material-scale-balance: **UnBias-Plus** — Toolkit for bias detection and debiasing in text (segmentation, severity, reasoning, replacements, full rewrite). [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/).
+- :material-star-circle: **UnBias-Plus** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span> — Toolkit for **bias detection, explanation, severity assessment, and debiasing** in text (segmentation, severity scoring, reasoning, replacements, and full rewrite). [Project Page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/)
+  
 
 - :material-map-marker: **AIXpert General Assembly — Barcelona 2026** — The AIXPERT consortium met at the [Barcelona Supercomputing Center](https://www.bsc.es/) (3–4 June 2026) for its second-year General Assembly and Technical Meeting. Partners aligned the technical roadmap, validated implementation plans across five pilot domains (healthcare, recruitment, manufacturing, education, and creative industries), and prepared the next phase of platform development. [Read more](https://aixpert-project.eu/2026/06/05/ga-bcn-june2026/).
 
