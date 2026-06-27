@@ -8,6 +8,37 @@ Selected publications and preprints from the AIXpert project. Each entry links t
 
 ## AIXpert project papers
 
+---
+
+### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
+
+**Paper** (ICML 2026) · <a href="https://arxiv.org/abs/2601.21632" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Shaina Raza, Iuliia Zarubiieva, Ahmed Radwan, Nathaniel Lesperance, Deval Pandya, Sedef Akinli Kocak, Graham Taylor.
+
+Position paper proposing Data and Impact Accounting (DIA) to track the cumulative carbon-and-water footprint of open-source AI model derivatives across lineages.
+
+---
+### SONIC-O1: A Real-World Benchmark for Evaluating Multimodal Large Language Models on Audio-Video Understanding
+
+**Paper** · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
+
+**Authors:** Ahmed Y. Radwan, Christos Emmanouilidis, Hina Tabassum, Deval Pandya, Shaina Raza.
+
+SONIC-O1, a fully human-verified real-world audio-video benchmark with 4,958 annotations across 13 conversational domains. We evaluate multimodal models on video summarization, evidence-grounded QA, and temporal event localization, and release an extensible evaluation suite to support reproducible benchmarking and robustness analysis.
+
+---
+
+### Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics and Regulation
+
+**Paper** (Information Fusion, Elsevier 2026) · <a href="https://www.sciencedirect.com/science/article/pii/S1566253526003246" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ScienceDirect-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="ScienceDirect"></a> **Preprint** · <a href="https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>  **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Azib Farooq, **Shaina Raza**, Nazmul Karim, Hasan Iqbal, Athanasios V. Vasilakos, Christos Emmanouilidis.
+
+Survey of benchmarks, metrics, and governance for evaluating agentic AI in single- and multi-agent systems, toward trustworthy and auditable agents.
+
+---
+
 ### UnBias-Plus: Detect, Explain, and Rewrite Bias
 
 **Paper** · <a href="https://arxiv.org/abs/2606.23412" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/unbias-plus" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/unbias-plus/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Demo** · <a href="https://unbias-plus.vectorinstitute.ai/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Demo-FF6C00?style=flat-square" alt="Demo"></a>
@@ -18,15 +49,7 @@ Open-source toolkit unifying segment-level bias classification, biased span loca
 
 ---
 
-### AgentFinVQA: A Deployable Multi-Agent Pipeline for Auditable Financial Chart QA
 
-**Paper** · <a href="https://arxiv.org/abs/2606.19782" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
-
-**Authors:** Aravind Narayanan, Shaina Raza.
-
-Multi-agent pipeline for auditable, on-premise financial chart QA, decomposing queries into planning, OCR, legend grounding, visual inspection, and verification — with every step recorded in a traceable Model Evaluation Packet (MEP). Achieves +7.68 pp over a zero-shot baseline on FinMME while supporting full open-weights deployment for data residency.
-
----
 
 ### Generative Deepfake Videos in the Foundation-Model Era: A Timeline of Eroding Trust in Visual Evidence
 
@@ -36,15 +59,7 @@ Multi-agent pipeline for auditable, on-premise financial chart QA, decomposing q
 
 Review charting the post-artifact deepfake era across a forensic-assumption framework (physiological integrity, temporal coherence, geometric consistency, semantic consistency, provenance) and five detection paradigms — spatial–frequency, temporal, multimodal, vision–language, and agentic — with an audit of thirteen benchmarks and a research roadmap for assumption-aware detection and holistic evaluation.
 
----
 
-### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
-
-**Paper** (ICML 2026) · <a href="https://arxiv.org/abs/2601.21632" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
-
-**Authors:** Shaina Raza, Iuliia Zarubiieva, Ahmed Radwan, Nathaniel Lesperance, Deval Pandya, Sedef Akinli Kocak, Graham Taylor.
-
-Position paper proposing Data and Impact Accounting (DIA) to track the cumulative carbon-and-water footprint of open-source AI model derivatives across lineages.
 
 ---
 
@@ -58,15 +73,7 @@ A review of trust, risk, and security management (TRiSM) in LLM-based agentic an
 
 ---
 
-### Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics and Regulation
 
-**Paper** (Information Fusion, Elsevier 2026) · <a href="https://www.sciencedirect.com/science/article/pii/S1566253526003246" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ScienceDirect-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="ScienceDirect"></a> **Preprint** · <a href="https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>  **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
-
-**Authors:** Azib Farooq, **Shaina Raza**, Nazmul Karim, Hasan Iqbal, Athanasios V. Vasilakos, Christos Emmanouilidis.
-
-Survey of benchmarks, metrics, and governance for evaluating agentic AI in single- and multi-agent systems, toward trustworthy and auditable agents.
-
----
 
 ### Just as Humans Need Vaccines, So Do Models: Model Immunization to Combat Falsehoods
 
@@ -88,15 +95,7 @@ Compares attribution-based explanations (SHAP, LIME) with trace-based diagnostic
 
 ---
 
-### SONIC-O1: A Real-World Benchmark for Evaluating Multimodal Large Language Models on Audio-Video Understanding
 
-**Paper** · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
-
-**Authors:** Ahmed Y. Radwan, Christos Emmanouilidis, Hina Tabassum, Deval Pandya, Shaina Raza.
-
-SONIC-O1, a fully human-verified real-world audio-video benchmark with 4,958 annotations across 13 conversational domains. We evaluate multimodal models on video summarization, evidence-grounded QA, and temporal event localization, and release an extensible evaluation suite to support reproducible benchmarking and robustness analysis.
-
----
 
 ### Reducing Hallucinations in LLMs via Factuality-Aware Preference Learning
 
@@ -117,7 +116,15 @@ Preference-learning method (F-DPO) that targets factuality directly, improving f
 Agentic AI systems—LLM-based agents with planning, memory, and tool use—introduce transparency challenges that are poorly served by explainability methods designed for single-step predictions. This article surveys and synthesizes interpretability and explainability techniques relevant to agentic behavior across the agent lifecycle, organized using a five-axis taxonomy: cognitive objects being inspected, assurance objectives being targeted, mechanisms employed, lifecycle stages, and stakeholders served.
 
 ---
+### AgentFinVQA: A Deployable Multi-Agent Pipeline for Auditable Financial Chart QA
 
+**Paper** · <a href="https://arxiv.org/abs/2606.19782" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Aravind Narayanan, Shaina Raza.
+
+Multi-agent pipeline for auditable, on-premise financial chart QA, decomposing queries into planning, OCR, legend grounding, visual inspection, and verification — with every step recorded in a traceable Model Evaluation Packet (MEP). Achieves +7.68 pp over a zero-shot baseline on FinMME while supporting full open-weights deployment for data residency.
+
+---
 ### Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge Assessment
 
 **Paper** (NeurIPS 2025 LLM-eval Workshop) · <a href="https://arxiv.org/abs/2509.19659" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/bias-in-the-picture-benchmark" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
