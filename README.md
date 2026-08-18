@@ -37,6 +37,7 @@ vector-aixpert/
 │
 ├── src/aixpert/
 │   ├── controlled_images/                  # Baseline vs fairness-aware image generation
+│   ├── deepfake_detection/                 # Curated multimodal deepfake data preparation
 │   ├── data_generation/
 │   │   ├── synthetic_data_generation/
 │   │   │   ├── images/                     # Domain/risk-specific image + VQA generation
@@ -93,6 +94,9 @@ uv run mkdocs serve
 
 - **Controlled Images** — Matched baseline vs fairness-aware images across professions.
   ➜ [`src/aixpert/controlled_images/README.md`](src/aixpert/controlled_images/README.md)
+
+- **Deepfake Detection** — FACT-HO bundle preparation for LAV-DF, FakeAVCeleb, and VCapAV.
+  ➜ [`src/aixpert/deepfake_detection/README.md`](src/aixpert/deepfake_detection/README.md)
 
 - **Agent Pipeline (CrewAI)** — Single-agent orchestration for prompt/image/metadata generation.
   ➜ [`src/aixpert/data_generation/agent_pipeline/README.md`](src/aixpert/data_generation/agent_pipeline/README.md)
