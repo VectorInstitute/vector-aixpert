@@ -13,18 +13,6 @@ Selected publications and preprints from the AIXpert project. Each entry links t
 Position paper proposing **Data and Impact Accounting (DIA)**, now also an open-source toolkit, to track energy, water, and CO₂ impact of open-source AI models and their derivatives across lineages.
 
 ---
-
----
-
-### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
-
-**Paper** (ICML 2026) · <a href="https://arxiv.org/abs/2601.21632" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
-
-**Authors:** Shaina Raza, Iuliia Zarubiieva, Ahmed Radwan, Nathaniel Lesperance, Deval Pandya, Sedef Akinli Kocak, Graham Taylor.
-
-Position paper proposing Data and Impact Accounting (DIA) to track the cumulative carbon-and-water footprint of open-source AI model derivatives across lineages.
-
----
 ### SONIC-O1: A Real-World Benchmark for Evaluating Multimodal Large Language Models on Audio-Video Understanding
 
 **Paper** · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
