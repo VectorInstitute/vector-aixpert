@@ -4,8 +4,25 @@ Full list of recent papers, releases, and news.
 
 ---
 
-- :material-star-circle: **UnBias-Plus** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span> — Toolkit for **bias detection, explanation, severity assessment, and debiasing** in text (segmentation, severity scoring, reasoning, replacements, and full rewrite). [Project Page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/)
-  
+- :material-star-circle: **UnBias-Plus** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Toolkit for **bias detection, explanation, severity assessment, and debiasing** in text (segmentation, severity scoring, reasoning, replacements, and full rewrite). [Paper](https://arxiv.org/abs/2606.23412) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/) · [PyPI](https://pypi.org/project/unbias-plus/)
+
+- :material-star-circle: **DIA (Data & Impact Accounting)** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Open-source toolkit that tracks the **energy, water, and CO₂** footprint of open-source AI models and their derivatives, now released as the `ai-impact-accounting` package with code, docs, and an interactive dashboard. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [ICML 2026 paper](https://arxiv.org/abs/2601.21632)
+
+- :material-check-decagram: **HumaniBench accepted at ACM TIST**. Fairness-focused vision-language benchmark accepted at *ACM Transactions on Intelligent Systems and Technology* (journal link forthcoming). [Preprint](https://arxiv.org/abs/2505.11454) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
+
+- :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Keynote presenting **DIA** at the [Green AI Workshop](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program).
+
+- :material-newspaper: **DIA in the press**. Nosian Magazine's [_AI's Unasked Question: What Did That Cost?_](https://nosian.substack.com/p/ais-unasked-question-what-did-that) features **DIA** and the team behind it (Amrit Krishnan, Shaina Raza, PhD, and Ahmed Y. Radwan; written by Sally Work), on why so few ICML papers measure AI's environmental cost and how the `ai-impact-accounting` package helps.
+
+- :material-newspaper: **UnBias-Plus in the press**. Independent coverage of the open-source writing-bias detector and rewrite toolkit (healthcare, HR/AI workflows, and AI training-data screening): [CAN Health](https://www.canhealth.com/2026/07/08/unbias-plus-ai-tool-detects-and-rewrites-bias-in-text) (8 Jul 2026) · [ChannelLife](https://channellife.ca/story/vector-institute-launches-open-source-writing-bias-detector) (2 Jul 2026) · [AI Loop](https://www.ailoop.tech/article/vector-institute-unveils-unbias-plus-tool-to-detect-ai-bias) (22 Jul 2026) · [BornCity](https://borncity.com/news/unbias-plus-vector-institute-startet-kostenloses-bias-erkennungs-tool/) (3 Jul 2026) · [TechTalent.ca](https://techtalent.ca/vector-institute-launches-free-ai-tool-to-help-hr-and-ai-teams-detect-bias-in-text/) (Jul 2026) · [GlobeNewswire](https://www.globenewswire.com/news-release/2026/06/30/3319532/0/en/vector-institute-releases-unbias-plus-a-free-open-source-ai-tool-to-detect-and-rewrite-bias-in-text.html) (30 Jun 2026) · [BNN Bloomberg](https://www.bnnbloomberg.ca/press-releases/2026/06/30/vector-institute-releases-unbias-plus-a-free-open-source-ai-tool-to-detect-and-rewrite-bias-in-text/) (30 Jun 2026).
+
+- :material-microphone: **The AmberMac Show (Ep. 076)**. Kathryn Hume, VP of AI Engineering at Vector Institute, discusses [AI bias](https://ambermac.com/the-ambermac-show-ep076-rogue-ai-tiktok-doctors-angry-elon/) and how AI is reshaping high-stakes decisions like hiring and mortgage approvals, and what's needed to reduce bias and discrimination.
+
+- :material-post: **MoE blog**. [_Mixture of Experts: From Sparse Routing to Multimodal Deployment_](https://vectorinstitute.ai/mixture-of-experts-from-sparse-routing-to-multimodal-deployment/).
+
+- :material-file-document: **Detecting and Reasoning About Bias in Multimodal Content**. IASEAI 2026. [Paper](https://ojs.aaai.org/index.php/IASEAI/article/view/43054).
+
+- :material-file-document: **DiagFlowBench**. Preprint: [_Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue_](https://arxiv.org/abs/2606.17904).
 
 - :material-map-marker: **AIXpert General Assembly — Barcelona 2026** — The AIXPERT consortium met at the [Barcelona Supercomputing Center](https://www.bsc.es/) (3–4 June 2026) for its second-year General Assembly and Technical Meeting. Partners aligned the technical roadmap, validated implementation plans across five pilot domains (healthcare, recruitment, manufacturing, education, and creative industries), and prepared the next phase of platform development. [Read more](https://aixpert-project.eu/2026/06/05/ga-bcn-june2026/).
 
@@ -41,10 +58,7 @@ Full list of recent papers, releases, and news.
   </a>
 </div>
 
-- :material-leaf: **ICML 2026 Poster** — [_Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives_](https://arxiv.org/abs/2601.21632) accepted as a poster at ICML 2026. Shaina Raza, Ahmed Radwan, and co-authors propose **Data and Impact Accounting (DIA)** to make the cumulative environmental footprint of open-source AI model derivatives visible and accountable. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/).
-
-
-
+- :material-leaf: **ICML 2026 Poster** — [_Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives_](https://arxiv.org/abs/2601.21632) accepted as a poster at ICML 2026. Shaina Raza, Ahmed Radwan, and co-authors propose **Data and Impact Accounting (DIA)** to make the cumulative environmental footprint of open-source AI model derivatives visible and accountable. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/).
 
 - :material-video-off: **Deepfake Video Review** — [_Generative Deepfake Videos in the Foundation-Model Era: A Timeline of Eroding Trust in Visual Evidence_](https://dl.acm.org/doi/full/10.1145/3810988.3812659) published at MAD '26 (ACM Workshop on Multimedia AI against Disinformation, June 2026). Shaina Raza, Jessee Ho, Mahveen Raza, Christos Emmanouilidis.
 
@@ -72,7 +86,7 @@ Full list of recent papers, releases, and news.
 
 - :material-check-decagram: **TRiSM for Agentic AI accepted** — Paper accepted at [AI Open, Elsevier 2026](https://doi.org/10.1016/j.aiopen.2026.02.006). A review of trust, risk, and security management in LLM-based agentic multi-agent systems.
 
-- - :material-chart-bar: **AgentFinVQA** — Multi-agent pipeline for auditable, on-premise financial chart QA with traceable Model Evaluation Packets. [Paper](https://arxiv.org/abs/2606.19782) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
+- :material-chart-bar: **AgentFinVQA** — Multi-agent pipeline for auditable, on-premise financial chart QA with traceable Model Evaluation Packets. [Paper](https://arxiv.org/abs/2606.19782) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
 
 - :material-presentation: **Remarkable 2026** — We presented AIXpert projects at Remarkable 2026.
 

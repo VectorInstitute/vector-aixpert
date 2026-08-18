@@ -56,21 +56,22 @@ Vector's responsible AI pipeline moves data through five stages — from raw inp
 
 ## Recent Updates
 
-- :material-scale-balance: **UnBias-Plus** — Bias detection and debiasing toolkit — paper, CLI, REST API, Python, and live demo. [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/). [More on Updates](updates.md).
-- :material-account-group: **AI4Good Lab 2026** — Shaina Raza, PhD and Ahmed Y. Radwan presented **UnBias-Plus** and disinformation detection research at the [AI4Good Lab](https://www.ai4goodlab.com/) 2026 Toronto cohort. [More on Updates](updates.md).
-- :material-presentation: **Toronto Machine Learning Summit** — Ahmed Y. Radwan presented **SONIC-O1** at the [Toronto Machine Learning Summit](https://www.torontomachinelearning.com/) (16–19 June 2026). [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard). [More on Updates](updates.md).
-- :material-handshake: **HAICON26 & Vector–Helmholtz Munich MOU** — Shaina Raza, PhD presented at [HAICON 2026](https://haicon.cc/) (8–11 June 2026, Munich) and Vector Institute signed an MOU with Helmholtz Munich's Computational Health Center. [More on Updates](updates.md).
-- :material-map-marker: **AIXpert General Assembly — Barcelona 2026** — The AIXPERT consortium met at the Barcelona Supercomputing Center (3–4 June 2026) to align the technical roadmap for year two. [More on Updates](updates.md).
-- :material-trophy: **The Peak Emerging Leaders 2026** — Shaina Raza, PhD recognized in [The Peak's Emerging Leaders 2026](https://emergingleaders.readthepeak.com/2026/artificial-intelligence) in the Artificial Intelligence category. [More on Updates](updates.md).
-- :material-leaf: **ICML 2026** — [_Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives_](https://arxiv.org/abs/2601.21632). [Project page](https://vectorinstitute.github.io/ai-impact-accounting/). [More on Updates](updates.md).
-- :material-chart-bar: **AgentFinVQA** — Auditable multi-agent pipeline for financial chart QA with traceable Model Evaluation Packets. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/). [More on Updates](updates.md).
-- :material-shield-search: **FairSense-AgentiX** — Agentic fairness and AI-risk analysis for text, images, and datasets. [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix). [More on Updates](updates.md).
-- :material-check-decagram: **Evaluating and Regulating Agentic AI** — Published in *Information Fusion*, Elsevier 2026. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S1566253526003246) · [Code](https://github.com/itsazibfarooq/agenticEvaluation). [More on Updates](updates.md).
-- :material-check-decagram: **Model immunization** — Accepted at WCCI 2026 (IJCNN). [arXiv](https://arxiv.org/abs/2505.17870) · [Project page](https://shainarazavi.github.io/ai-vaccine/) · [Code](https://github.com/shainarazavi/ai-vaccine). [More on Updates](updates.md).
-- :material-check-decagram: **F-DPO** — ACL 2026 Findings. [arXiv](https://arxiv.org/abs/2601.03027) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment). [More on Updates](updates.md).
-- :material-check-decagram: **TRiSM for Agentic AI** — Published at [AI Open, Elsevier 2026](https://doi.org/10.1016/j.aiopen.2026.02.006). [More on Updates](updates.md).
-- :material-robot: **SONIC-O1 Multi-Agent** — Multi-agent framework for audio-video understanding with Qwen3-Omni. [Code](https://github.com/VectorInstitute/sonic-o1-agent). [More on Updates](updates.md).
-- :material-play-circle: **SONIC-O1** — Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://arxiv.org/abs/2601.21666). [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard). [More on Updates](updates.md).
+- :material-scale-balance: **UnBias-Plus**. Bias detection and debiasing toolkit with paper, CLI, REST API, Python, and live demo. [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/).
+- :material-leaf: **DIA (Data & Impact Accounting)**. Open-source toolkit that tracks the energy, water, and CO₂ footprint of open-source AI and its derivatives. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard).
+- :material-check-decagram: **HumaniBench accepted at ACM TIST**. [Preprint](https://arxiv.org/abs/2505.11454) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
+- :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Keynote presenting **DIA**. [Program](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program).
+- :material-newspaper: **DIA in the press**. Featured in Nosian Magazine's [_AI's Unasked Question: What Did That Cost?_](https://nosian.substack.com/p/ais-unasked-question-what-did-that).
+- :material-newspaper: **UnBias-Plus in the press**. Independent coverage across CAN Health, ChannelLife, AI Loop, BornCity, TechTalent.ca, GlobeNewswire, and BNN Bloomberg.
+- :material-post: **MoE blog**. [_Mixture of Experts: From Sparse Routing to Multimodal Deployment_](https://vectorinstitute.ai/mixture-of-experts-from-sparse-routing-to-multimodal-deployment/).
+- :material-file-document: **IASEAI 2026**. [_Detecting and Reasoning About Bias in Multimodal Content_](https://ojs.aaai.org/index.php/IASEAI/article/view/43054).
+- :material-file-document: **DiagFlowBench**. [_Off-procedure inputs in grounded diagnostic dialogue_](https://arxiv.org/abs/2606.17904).
+- :material-account-group: **AI4Good Lab 2026** — Shaina Raza, PhD and Ahmed Y. Radwan presented **UnBias-Plus** and disinformation detection research at the [AI4Good Lab](https://www.ai4goodlab.com/) 2026 Toronto cohort.
+- :material-presentation: **Toronto Machine Learning Summit** — Ahmed Y. Radwan presented **SONIC-O1** at the [Toronto Machine Learning Summit](https://www.torontomachinelearning.com/) (16–19 June 2026). [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+- :material-handshake: **HAICON26 & Vector–Helmholtz Munich MOU** — Shaina Raza, PhD presented at [HAICON 2026](https://haicon.cc/) (8–11 June 2026, Munich) and Vector Institute signed an MOU with Helmholtz Munich's Computational Health Center.
+- :material-map-marker: **AIXpert General Assembly — Barcelona 2026** — The AIXPERT consortium met at the Barcelona Supercomputing Center (3–4 June 2026) to align the technical roadmap for year two.
+- :material-trophy: **The Peak Emerging Leaders 2026** — Shaina Raza, PhD recognized in [The Peak's Emerging Leaders 2026](https://emergingleaders.readthepeak.com/2026/artificial-intelligence) in the Artificial Intelligence category.
+- :material-chart-bar: **AgentFinVQA** — Auditable multi-agent pipeline for financial chart QA with traceable Model Evaluation Packets. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
+- :material-shield-search: **FairSense-AgentiX** — Agentic fairness and AI-risk analysis for text, images, and datasets. [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix).
 
 [:material-arrow-right: **View full list**](updates.md){ .md-button .md-button--primary }
 
@@ -87,6 +88,12 @@ A snapshot of Vector's key contributions within AIXpert. Each project has its ow
     AI-driven toolkit for bias detection and debiasing in text: biased spans, severity, reasoning, neutral replacements, and a full neutral rewrite for more trustworthy workflows.
 
     [:material-arrow-right: Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [PyPI](https://pypi.org/project/unbias-plus/)
+
+-   :material-leaf: **DIA (Data & Impact Accounting)**
+
+    Open-source toolkit to track energy, water, and CO₂ impact of open-source AI models and their derivatives, with a public dashboard.
+
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard)
 
 -   :material-shield-search: **FairSense-AgentiX**
 
@@ -122,7 +129,7 @@ A snapshot of Vector's key contributions within AIXpert. Each project has its ow
 
     Fairness-focused vision-language benchmark evaluating foundation models across human-centric demographics.
 
-    [:material-arrow-right: Project page](https://vectorinstitute.github.io/HumaniBench/)
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/HumaniBench/) · [Preprint](https://arxiv.org/abs/2505.11454)
 
 -   :material-shield-check: **Agentic Transparency**
 

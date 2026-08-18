@@ -2,11 +2,17 @@
 
 Selected publications and preprints from the AIXpert project. Each entry links to arXiv where available.
 
-
-
 ---
 
-## AIXpert project papers
+### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
+
+**Paper** (ICML 2026) · <a href="https://arxiv.org/abs/2601.21632" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **PyPI** · <a href="https://pypi.org/project/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/PyPI-3775A9?style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a> **Dashboard** · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Dashboard-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Dashboard"></a>
+
+**Authors:** Shaina Raza, Iuliia Zarubiieva, Ahmed Radwan, Nathaniel Lesperance, Deval Pandya, Sedef Akinli Kocak, Graham Taylor.
+
+Position paper proposing **Data and Impact Accounting (DIA)**, now also an open-source toolkit, to track energy, water, and CO₂ impact of open-source AI models and their derivatives across lineages.
+
+---
 
 ---
 
@@ -49,7 +55,55 @@ Open-source toolkit unifying segment-level bias classification, biased span loca
 
 ---
 
+### Detecting and Reasoning About Bias in Multimodal Content
 
+**Paper** (IASEAI 2026) · <a href="https://ojs.aaai.org/index.php/IASEAI/article/view/43054" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/IASEAI-1B4F72?style=flat-square" alt="IASEAI"></a>
+
+**Authors:** Shaina Raza et al.
+
+Work on detecting and reasoning about bias in multimodal content.
+
+---
+
+### DiagFlowBench: Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue
+
+**Paper** (preprint) · <a href="https://arxiv.org/abs/2606.17904" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
+
+**Authors:** Guillermo Gil de Avalle, Laura Maruster, Shaina Raza, Christos Emmanouilidis.
+
+Benchmark evaluating how language models handle off-procedure inputs in grounded diagnostic dialogue.
+
+---
+
+### HumaniBench: A Human-Centric Framework for Large Multimodal Models Evaluation
+
+**Paper** (ACM TIST, accepted; journal link forthcoming) · <a href="https://arxiv.org/abs/2505.11454" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/HumaniBench/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/HumaniBench" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
+
+**Authors:** Shaina Raza, Aravind Narayanan, Vahid Reza Khazaie, Ashmal Vayani, Ahmed Y. Radwan, Mukund S. Chettiar, Amandeep Singh, Mubarak Shah, Deval Pandya.
+
+Fairness-focused vision-language benchmark evaluating large multimodal models across human-centric demographics and HCAI principles.
+
+---
+
+### SONIC-O1: A Real-World Benchmark for Evaluating Multimodal Large Language Models on Audio-Video Understanding
+
+**Paper** · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
+
+**Authors:** Ahmed Y. Radwan, Christos Emmanouilidis, Hina Tabassum, Deval Pandya, Shaina Raza.
+
+SONIC-O1, a fully human-verified real-world audio-video benchmark with 4,958 annotations across 13 conversational domains. We evaluate multimodal models on video summarization, evidence-grounded QA, and temporal event localization, and release an extensible evaluation suite to support reproducible benchmarking and robustness analysis.
+
+---
+
+### Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics and Regulation
+
+**Paper** (Information Fusion, Elsevier 2026) · <a href="https://www.sciencedirect.com/science/article/pii/S1566253526003246" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ScienceDirect-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="ScienceDirect"></a> **Preprint** · <a href="https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>  **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Azib Farooq, **Shaina Raza**, Nazmul Karim, Hasan Iqbal, Athanasios V. Vasilakos, Christos Emmanouilidis.
+
+Survey of benchmarks, metrics, and governance for evaluating agentic AI in single- and multi-agent systems, toward trustworthy and auditable agents.
+
+---
 
 ### Generative Deepfake Videos in the Foundation-Model Era: A Timeline of Eroding Trust in Visual Evidence
 

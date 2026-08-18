@@ -16,8 +16,15 @@ This page summarizes each project's scope and links to its repository, documenta
 
 **UnBias-Plus** is an AI-driven toolkit for **bias detection and debiasing** in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite—usable from the **CLI**, **REST API** (FastAPI + demo UI), or **Python** (`UnBiasPlus`).
 
-**Links:** [Demo](https://unbias-plus.vectorinstitute.ai/) · [GitHub](https://github.com/VectorInstitute/unbias-plus) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [PyPI](https://pypi.org/project/unbias-plus/)
+**Links:** [Demo](https://unbias-plus.vectorinstitute.ai/) · [GitHub](https://github.com/VectorInstitute/unbias-plus) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [PyPI](https://pypi.org/project/unbias-plus/) · [Paper](https://arxiv.org/abs/2606.23412)
 
+---
+
+## Data & Impact Accounting (DIA)
+
+**DIA** is an open-source toolkit for **Data and Impact Accounting**: tracking **energy, water, and CO₂** impact of open-source AI models and their derivatives across lineages. It accompanies the ICML 2026 position paper and includes a public dashboard for exploring cumulative footprint.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/ai-impact-accounting/) · [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [Paper](https://arxiv.org/abs/2601.21632)
 
 ---
 
@@ -50,6 +57,14 @@ Factuality-aware Direct Preference Optimization: extends DPO with binary factual
 **AgentFinVQA** is a deployable multi-agent pipeline for **auditable financial chart question answering** in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification — recording every step in a traceable **Model Evaluation Packet (MEP)**. Supports both proprietary and open-weights backends for full on-premise data residency.
 
 **Links:** [GitHub](https://github.com/VectorInstitute/AgentFinVQA/) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Paper](https://arxiv.org/abs/2606.19782)
+
+---
+
+## HumaniBench
+
+**HumaniBench** is a fairness-focused vision-language benchmark for evaluating large multimodal models across human-centric demographics and HCAI principles. Accepted at **ACM TIST** (journal link forthcoming).
+
+**Links:** [Project page](https://vectorinstitute.github.io/HumaniBench/) · [Preprint](https://arxiv.org/abs/2505.11454) · [Dataset](https://huggingface.co/datasets/vector-institute/HumaniBench) · [Code](https://github.com/VectorInstitute/humanibench)
 
 ---
 
