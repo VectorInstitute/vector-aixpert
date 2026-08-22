@@ -8,6 +8,10 @@ Full list of recent papers, releases, and news.
 
 - :material-star-circle: **DIA (Data & Impact Accounting)** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Open-source toolkit that tracks the **energy, water, and CO₂** footprint of open-source AI models and their derivatives, now released as the `ai-impact-accounting` package with code, docs, and an interactive dashboard. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [ICML 2026 paper](https://arxiv.org/abs/2601.21632)
 
+- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. Real-world audio-video benchmark for evaluating multimodal LLMs. [Preprint](https://arxiv.org/abs/2601.21666) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+
+- :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026 (Industry)**. Benchmark evaluating how language models handle off-procedure inputs in grounded diagnostic dialogue. [Preprint](https://arxiv.org/abs/2606.17904).
+
 - :material-check-decagram: **HumaniBench accepted at ACM TIST**. Fairness-focused vision-language benchmark accepted at *ACM Transactions on Intelligent Systems and Technology* (journal link forthcoming). [Preprint](https://arxiv.org/abs/2505.11454) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
 
 - :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Keynote presenting **DIA** at the [Green AI Workshop](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program).

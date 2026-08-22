@@ -30,7 +30,7 @@ This page summarizes each project's scope and links to its repository, documenta
 
 ## SONIC-O1
 
-Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis.
+Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis. Accepted at **EMNLP 2026** (Main).
 
 **Links:** [GitHub](https://github.com/VectorInstitute/sonic-o1) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
 

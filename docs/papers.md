@@ -36,7 +36,7 @@ Work on detecting and reasoning about bias in multimodal content.
 
 ### DiagFlowBench: Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue
 
-**Paper** (preprint) · <a href="https://arxiv.org/abs/2606.17904" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
+**Paper** (EMNLP 2026 Industry) · <a href="https://arxiv.org/abs/2606.17904" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
 
 **Authors:** Guillermo Gil de Avalle, Laura Maruster, Shaina Raza, Christos Emmanouilidis.
 
@@ -46,7 +46,7 @@ Benchmark evaluating how language models handle off-procedure inputs in grounded
 
 ### HumaniBench: A Human-Centric Framework for Large Multimodal Models Evaluation
 
-**Paper** (ACM TIST, accepted; journal link forthcoming) · <a href="https://arxiv.org/abs/2505.11454" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/HumaniBench/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/HumaniBench" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
+**Paper** (ACM TIST) · <a href="https://arxiv.org/abs/2505.11454" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/HumaniBench/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/HumaniBench" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
 
 **Authors:** Shaina Raza, Aravind Narayanan, Vahid Reza Khazaie, Ashmal Vayani, Ahmed Y. Radwan, Mukund S. Chettiar, Amandeep Singh, Mubarak Shah, Deval Pandya.
 
@@ -56,7 +56,7 @@ Fairness-focused vision-language benchmark evaluating large multimodal models ac
 
 ### SONIC-O1: A Real-World Benchmark for Evaluating Multimodal Large Language Models on Audio-Video Understanding
 
-**Paper** · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
+**Paper** (EMNLP 2026 Main) · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
 
 **Authors:** Ahmed Y. Radwan, Christos Emmanouilidis, Hina Tabassum, Deval Pandya, Shaina Raza.
 
