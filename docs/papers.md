@@ -4,6 +4,56 @@ Selected publications and preprints from the AIXpert project. Each entry links t
 
 ---
 
+### Harness-Aware Evaluation of LLM Agents: Systems, Benchmarks, and Protocols
+
+**Paper** (Preprint) · <a href="https://www.preprints.org/manuscript/202609.2140" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Preprint-B31B1B?style=flat-square" alt="Preprint"></a> **Code** · <a href="https://github.com/VectorInstitute/harness-aware-evaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/harness-aware-evaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Ahmed Y. Radwan, Athanasios V. Vasilakos, Shaina Raza.
+
+Survey of agent evaluation that separates backbone-model effects from the harness, environment, and scoring setup.
+
+---
+
+### A Unified Evaluation Framework for Trustworthy Large Language Models, Agentic AI, and Multimodal Systems
+
+**Paper** (Preprint) · <a href="https://arxiv.org/abs/2609.19524" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
+
+**Authors:** Shaina Raza, Ahmed Y. Radwan, Imran Liaquat, Kathryn Hume.
+
+Framework for evaluating trustworthy AI across LLMs, agents, and multimodal systems. It uses eight trustworthiness dimensions, shared scoring bands, safety vetoes, and evaluation-quality checks, with links to the EU AI Act, ISO standards, and the NIST AI RMF.
+
+---
+
+### Stress-Testing Efficient Responsible-AI Evaluation: When Compute Savings Change Benchmark Conclusions
+
+**Paper** (NeurIPS 2026 TAE) · <a href="https://arxiv.org/abs/2608.31108" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sustainable-rai-evaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/sustainable-rai-evaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Ahmed El Kady, Aravind Narayanan, Yani Ioannou, Shaina Raza.
+
+Study of how batching, quantization, and reduced benchmark subsets change responsible-AI conclusions on BBQ and BBQ-V: accuracy can hold while bias, reasoning quality, and subgroup results shift, and lower-precision inference can use more GPU energy rather than less.
+
+---
+
+### FairLens: Benchmarking Fairness in Vision-Language Models for High-Stakes Decision-Making
+
+**Paper** (Preprint) · <a href="https://arxiv.org/abs/2609.01691" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/fairlens" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/fairlens/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/fairlens" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
+
+**Authors:** Vahid Reza Khazaie, Ahmed Y. Radwan, Shaina Raza.
+
+Fairness benchmark for vision-language models on high-stakes hiring, legal, and healthcare decisions from a face photograph. Reports parity, soundness, demographic association, and free-text bias.
+
+---
+
+### Deepfakes in the Foundation-Model Era: A Survey of Forensics, Generation and Distribution Across Social Media Lifecycle
+
+**Paper** (Preprint) · <a href="https://www.preprints.org/manuscript/202608.1870" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Preprint-B31B1B?style=flat-square" alt="Preprint"></a> **Code** · <a href="https://github.com/VectorInstitute/deepfakes-survey-2026" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/deepfakes-survey-2026/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Shaina Raza, Jessee Ho, Ahmed Y. Radwan, Mohamed Hafez.
+
+Survey of deepfakes from text-to-video and jointly generated audio-video models through how platforms compress, repost, and spread them, and of what forensic evidence is left when a detection decision has to be made.
+
+---
+
 ### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
 
 **Paper** (ICML 2026) · <a href="https://arxiv.org/abs/2601.21632" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **PyPI** · <a href="https://pypi.org/project/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/PyPI-3775A9?style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a> **Dashboard** · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Dashboard-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Dashboard"></a>
@@ -20,7 +70,7 @@ Position paper proposing **Data and Impact Accounting (DIA)**, now also an open-
 
 **Authors:** Ahmed Y. Radwan, Ahmed ElKady, Sindhuja Chaduvula, Mohamed Hafez, Amrit Krishnan, Shaina Raza.
 
-Open-source toolkit unifying segment-level bias classification, biased span localization, neutral text rewriting, and per-decision reasoning — available via Python, CLI, REST API, and web interfaces.
+Open-source toolkit unifying segment-level bias classification, biased span localization, neutral text rewriting, and per-decision reasoning. Available via Python, CLI, REST API, and web interfaces.
 
 ---
 
@@ -80,7 +130,7 @@ Survey of benchmarks, metrics, and governance for evaluating agentic AI in singl
 
 **Authors:** Shaina Raza, Jessee Ho, Mahveen Raza, Christos Emmanouilidis.
 
-Review charting the post-artifact deepfake era across a forensic-assumption framework (physiological integrity, temporal coherence, geometric consistency, semantic consistency, provenance) and five detection paradigms — spatial–frequency, temporal, multimodal, vision–language, and agentic — with an audit of thirteen benchmarks and a research roadmap for assumption-aware detection and holistic evaluation.
+Review of the post-artifact deepfake era using a forensic-assumption framework (physiological integrity, temporal coherence, geometric consistency, semantic consistency, provenance) and five detection paradigms (spatial-frequency, temporal, multimodal, vision-language, and agentic), plus an audit of thirteen benchmarks.
 
 
 
@@ -136,7 +186,7 @@ Preference-learning method (F-DPO) that targets factuality directly, improving f
 
 **Authors:** Shaina Raza, Ahmed Y. Radwan, Sindhuja Chaduvula, Mahshid Alinoori, Christos Emmanouilidis.
 
-Agentic AI systems—LLM-based agents with planning, memory, and tool use—introduce transparency challenges that are poorly served by explainability methods designed for single-step predictions. This article surveys and synthesizes interpretability and explainability techniques relevant to agentic behavior across the agent lifecycle, organized using a five-axis taxonomy: cognitive objects being inspected, assurance objectives being targeted, mechanisms employed, lifecycle stages, and stakeholders served.
+Survey of interpretability and explainability for LLM-based agents with planning, memory, and tool use. Organized by what is inspected, what is assured, the methods used, the lifecycle stage, and who the explanation is for.
 
 ---
 ### AgentFinVQA: A Deployable Multi-Agent Pipeline for Auditable Financial Chart QA
@@ -145,7 +195,7 @@ Agentic AI systems—LLM-based agents with planning, memory, and tool use—intr
 
 **Authors:** Aravind Narayanan, Shaina Raza.
 
-Multi-agent pipeline for auditable, on-premise financial chart QA, decomposing queries into planning, OCR, legend grounding, visual inspection, and verification — with every step recorded in a traceable Model Evaluation Packet (MEP). Achieves +7.68 pp over a zero-shot baseline on FinMME while supporting full open-weights deployment for data residency.
+Multi-agent pipeline for auditable, on-premise financial chart QA. Queries are split into planning, OCR, legend grounding, visual inspection, and verification, and every step is recorded in a Model Evaluation Packet (MEP). +7.68 pp over a zero-shot baseline on FinMME, with full open-weights deployment for data residency.
 
 ---
 ### Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge Assessment

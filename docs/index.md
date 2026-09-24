@@ -11,10 +11,10 @@ _**[Vector Institute's](https://vectorinstitute.ai)** contribution to the [AIXpe
 
 Vector's contribution to AIXpert spans four core areas:
 
-- **Explainable & accountable AI** — Tools and benchmarks for interpretability, fairness, and transparency in generative and multimodal AI.
-- **Trustworthy agentic AI** — Transparent, auditable, human-in-the-loop agentic systems with measurable trustworthiness metrics.
-- **Multimodal evaluation** — Benchmarks and datasets for audio-video understanding, vision-language assessment, and fairness across domains and demographics.
-- **Open, reproducible research** — Code, datasets, and documentation shared openly to support governance-ready research.
+- **Explainable & accountable AI**. Tools and benchmarks for interpretability, fairness, and transparency in generative and multimodal AI.
+- **Trustworthy agentic AI**. Transparent, auditable, human-in-the-loop agentic systems with measurable trustworthiness metrics.
+- **Multimodal evaluation**. Benchmarks and datasets for audio-video understanding, vision-language assessment, and fairness across domains and demographics.
+- **Open, reproducible research**. Code, datasets, and documentation shared openly to support governance-ready research.
 
 For the full AIXpert vision, consortium, and funding details, see [About](about.md).
 
@@ -22,57 +22,61 @@ For the full AIXpert vision, consortium, and funding details, see [About](about.
 
 ## System Architecture
 
-Vector's responsible AI pipeline moves data through five stages — from raw inputs to governed, explainable outputs.
+Vector's responsible AI pipeline moves data through five stages: from raw inputs to governed, explainable outputs.
 
-??? note "View pipeline"
-    <div class="arch-pipeline">
-      <div class="arch-step">
-        <span class="arch-label">Synthetic Data Generation</span>
-        <span class="arch-desc">Fairness-aware multimodal data: images, VQA pairs, text scenes, and video — with demographic metadata and reproducible seeds.</span>
-      </div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-step">
-        <span class="arch-label">Multimodal Pipelines</span>
-        <span class="arch-desc">Parallel text, vision, video, and audio agents with attribution hooks and Risk-VQA for bias and toxicity detection.</span>
-      </div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-step">
-        <span class="arch-label">Agentic AI Evaluation</span>
-        <span class="arch-desc">Traceable planning and execution agents with RAG/memory, tool registry, and sandboxed task execution.</span>
-      </div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-step">
-        <span class="arch-label">Fairness Metrics + Explainability</span>
-        <span class="arch-desc">Statistical parity, equal opportunity, attribution and trace-based diagnostics — with disparity plots and explanation bundles.</span>
-      </div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-step arch-step--last">
-        <span class="arch-label">Responsible AI Insights</span>
-        <span class="arch-desc">Human-in-the-loop review, signed Governance Log (prompts, tool calls, safety decisions), and final explainable outputs.</span>
-      </div>
-    </div>
+<div class="arch-pipeline">
+  <div class="arch-step">
+    <span class="arch-label">Synthetic Data Generation</span>
+    <span class="arch-desc">Fairness-aware multimodal data: images, VQA pairs, text scenes, and video, with demographic metadata and reproducible seeds.</span>
+  </div>
+  <div class="arch-arrow">↓</div>
+  <div class="arch-step">
+    <span class="arch-label">Multimodal Pipelines</span>
+    <span class="arch-desc">Parallel text, vision, video, and audio agents with attribution hooks and Risk-VQA for bias and toxicity detection.</span>
+  </div>
+  <div class="arch-arrow">↓</div>
+  <div class="arch-step">
+    <span class="arch-label">Agentic AI Evaluation</span>
+    <span class="arch-desc">Traceable planning and execution agents with RAG/memory, tool registry, and sandboxed task execution.</span>
+  </div>
+  <div class="arch-arrow">↓</div>
+  <div class="arch-step">
+    <span class="arch-label">Fairness Metrics + Explainability</span>
+    <span class="arch-desc">Statistical parity, equal opportunity, attribution and trace-based diagnostics, with disparity plots and explanation bundles.</span>
+  </div>
+  <div class="arch-arrow">↓</div>
+  <div class="arch-step arch-step--last">
+    <span class="arch-label">Responsible AI Insights</span>
+    <span class="arch-desc">Human-in-the-loop review, signed Governance Log (prompts, tool calls, safety decisions), and final explainable outputs.</span>
+  </div>
+</div>
 
 ---
 
 ## Recent Updates
 
-- :material-scale-balance: **UnBias-Plus**. Bias detection and debiasing toolkit with paper, CLI, REST API, Python, and live demo. [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/).
-- :material-leaf: **DIA (Data & Impact Accounting)**. Open-source toolkit that tracks the energy, water, and CO₂ footprint of open-source AI and its derivatives. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard).
 - :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. [Preprint](https://arxiv.org/abs/2601.21666) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
 - :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026 (Industry)**. [Preprint](https://arxiv.org/abs/2606.17904).
+- :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Shaina Raza delivered a keynote presenting **DIA** and the ICML 2026 Spotlight Position Paper. [Program](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program) · [Project](https://vectorinstitute.github.io/ai-impact-accounting/).
+- :material-file-document: **Harness-aware evaluation**. Survey treating each agent score as model, harness, environment, and evaluator. [Project page](https://vectorinstitute.github.io/harness-aware-evaluation/) · [Preprint](https://www.preprints.org/manuscript/202609.2140) · [Code](https://github.com/VectorInstitute/harness-aware-evaluation).
+- :material-book-open-variant: **Unified evaluation framework**. Trustworthy evaluation across LLMs, agentic AI, and multimodal systems. [Preprint](https://arxiv.org/abs/2609.19524).
+- :material-check-decagram: **Stress-testing efficient RAI evaluation accepted at NeurIPS 2026 TAE**. [Preprint](https://arxiv.org/abs/2608.31108) · [Project page](https://vectorinstitute.github.io/sustainable-rai-evaluation/) · [Code](https://github.com/VectorInstitute/sustainable-rai-evaluation).
+- :material-chart-bar: **FairLens**. Fairness benchmark for VLMs in high-stakes hiring, legal, and healthcare decisions. [Project page](https://vectorinstitute.github.io/fairlens/) · [Preprint](https://arxiv.org/abs/2609.01691) · [Code](https://github.com/VectorInstitute/fairlens) · [Dataset](https://huggingface.co/datasets/vector-institute/fairlens).
+- :material-file-document: **Deepfakes survey**. Lifecycle survey of generation, distribution, and forensics in the foundation-model era. [Project page](https://vectorinstitute.github.io/deepfakes-survey-2026/) · [Preprint](https://www.preprints.org/manuscript/202608.1870) · [Code](https://github.com/VectorInstitute/deepfakes-survey-2026).
+- :material-scale-balance: **UnBias-Plus**. Bias detection and debiasing toolkit with paper, CLI, REST API, Python, and live demo. [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/).
+- :material-leaf: **DIA (Data & Impact Accounting)**. Open-source toolkit that tracks the energy, water, and CO₂ footprint of open-source AI and its derivatives. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard).
 - :material-check-decagram: **HumaniBench accepted at ACM TIST**. [Preprint](https://arxiv.org/abs/2505.11454) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
-- :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Keynote presenting **DIA**. [Program](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program).
 - :material-newspaper: **DIA in the press**. Featured in Nosian Magazine's [_AI's Unasked Question: What Did That Cost?_](https://nosian.substack.com/p/ais-unasked-question-what-did-that).
 - :material-newspaper: **UnBias-Plus in the press**. Independent coverage across CAN Health, ChannelLife, AI Loop, BornCity, TechTalent.ca, GlobeNewswire, and BNN Bloomberg.
 - :material-post: **MoE blog**. [_Mixture of Experts: From Sparse Routing to Multimodal Deployment_](https://vectorinstitute.ai/mixture-of-experts-from-sparse-routing-to-multimodal-deployment/).
 - :material-file-document: **IASEAI 2026**. [_Detecting and Reasoning About Bias in Multimodal Content_](https://ojs.aaai.org/index.php/IASEAI/article/view/43054).
-- :material-account-group: **AI4Good Lab 2026** — Shaina Raza, PhD and Ahmed Y. Radwan presented **UnBias-Plus** and disinformation detection research at the [AI4Good Lab](https://www.ai4goodlab.com/) 2026 Toronto cohort.
-- :material-presentation: **Toronto Machine Learning Summit** — Ahmed Y. Radwan presented **SONIC-O1** at the [Toronto Machine Learning Summit](https://www.torontomachinelearning.com/) (16–19 June 2026). [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
-- :material-handshake: **HAICON26 & Vector–Helmholtz Munich MOU** — Shaina Raza, PhD presented at [HAICON 2026](https://haicon.cc/) (8–11 June 2026, Munich) and Vector Institute signed an MOU with Helmholtz Munich's Computational Health Center.
-- :material-map-marker: **AIXpert General Assembly — Barcelona 2026** — The AIXPERT consortium met at the Barcelona Supercomputing Center (3–4 June 2026) to align the technical roadmap for year two.
-- :material-trophy: **The Peak Emerging Leaders 2026** — Shaina Raza, PhD recognized in [The Peak's Emerging Leaders 2026](https://emergingleaders.readthepeak.com/2026/artificial-intelligence) in the Artificial Intelligence category.
-- :material-chart-bar: **AgentFinVQA** — Auditable multi-agent pipeline for financial chart QA with traceable Model Evaluation Packets. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
-- :material-shield-search: **FairSense-AgentiX** — Agentic fairness and AI-risk analysis for text, images, and datasets. [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix).
+- :material-account-group: **AI4Good Lab 2026**. Shaina Raza, PhD and Ahmed Y. Radwan presented **UnBias-Plus** and disinformation detection research at the [AI4Good Lab](https://www.ai4goodlab.com/) 2026 Toronto cohort.
+- :material-presentation: **Toronto Machine Learning Summit**. Ahmed Y. Radwan presented **SONIC-O1** at the [Toronto Machine Learning Summit](https://www.torontomachinelearning.com/) (16-19 June 2026). [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+- :material-handshake: **HAICON26 & Vector-Helmholtz Munich MOU**. Shaina Raza, PhD presented at [HAICON 2026](https://haicon.cc/) (8-11 June 2026, Munich) and Vector Institute signed an MOU with Helmholtz Munich's Computational Health Center.
+- :material-map-marker: **AIXpert General Assembly: Barcelona 2026**. The AIXPERT consortium met at the Barcelona Supercomputing Center (3-4 June 2026) to align the technical roadmap for year two.
+- :material-trophy: **The Peak Emerging Leaders 2026**. Shaina Raza, PhD recognized in [The Peak's Emerging Leaders 2026](https://emergingleaders.readthepeak.com/2026/artificial-intelligence) in the Artificial Intelligence category.
+- :material-chart-bar: **AgentFinVQA**. Auditable multi-agent pipeline for financial chart QA with traceable Model Evaluation Packets. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
+- :material-shield-search: **FairSense-AgentiX**. Agentic fairness and AI-risk analysis for text, images, and datasets. [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix).
 
 [:material-arrow-right: **View full list**](updates.md){ .md-button .md-button--primary }
 
@@ -98,7 +102,7 @@ A snapshot of Vector's key contributions within AIXpert. Each project has its ow
 
 -   :material-shield-search: **FairSense-AgentiX**
 
-    Agentic workflows for bias detection and risk assessment on text, images, and datasets—planning, tool use, self-critique, and telemetry-backed explanations.
+    Agentic workflows for bias detection and risk assessment on text, images, and datasets: planning, tool use, self-critique, and telemetry-backed explanations.
 
     [:material-arrow-right: Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/)
 

@@ -6,15 +6,15 @@ This page summarizes each project's scope and links to its repository, documenta
 
 ## Overview
 
-- **What is this?** — A collection of research tools, benchmarks, and evaluation frameworks for responsible AI: fairness, explainability, multimodal understanding, and agentic systems.
-- **Who is it for?** — Researchers and practitioners working on fairness-aware AI, multimodal benchmarking, explainable agentic systems, and reproducible AI evaluation.
-- **How is it organized?** — Some projects have their own standalone repositories; others live as modules in the main [AIXpert repo](https://github.com/VectorInstitute/vector-aixpert). Each section below links to the relevant repo and docs.
+- **What is this?** A collection of research tools, benchmarks, and evaluation frameworks for responsible AI: fairness, explainability, multimodal understanding, and agentic systems.
+- **Who is it for?** Researchers and practitioners working on fairness-aware AI, multimodal benchmarking, explainable agentic systems, and reproducible AI evaluation.
+- **How is it organized?** Some projects have their own standalone repositories; others live as modules in the main [AIXpert repo](https://github.com/VectorInstitute/vector-aixpert). Each section below links to the relevant repo and docs.
 
 ---
 
 ## UnBias-Plus
 
-**UnBias-Plus** is an AI-driven toolkit for **bias detection and debiasing** in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite—usable from the **CLI**, **REST API** (FastAPI + demo UI), or **Python** (`UnBiasPlus`).
+**UnBias-Plus** is an AI-driven toolkit for **bias detection and debiasing** in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite. Use it from the **CLI**, **REST API** (FastAPI + demo UI), or **Python** (`UnBiasPlus`).
 
 **Links:** [Demo](https://unbias-plus.vectorinstitute.ai/) · [GitHub](https://github.com/VectorInstitute/unbias-plus) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [PyPI](https://pypi.org/project/unbias-plus/) · [Paper](https://arxiv.org/abs/2606.23412)
 
@@ -28,17 +28,33 @@ This page summarizes each project's scope and links to its repository, documenta
 
 ---
 
+## Stress-Testing Efficient Responsible-AI Evaluation
+
+Reproducible study of how **batching**, **quantization**, and **benchmark reduction** change both Responsible-AI conclusions and their energy footprint. Compares seven evaluation setups against a full-precision BF16 baseline on BBQ and BBQ-V.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/sustainable-rai-evaluation) · [Project page](https://vectorinstitute.github.io/sustainable-rai-evaluation/) · [Paper](https://arxiv.org/abs/2608.31108)
+
+---
+
 ## SONIC-O1
 
-Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis. Accepted at **EMNLP 2026** (Main).
+Real-world benchmark for evaluating multimodal LLMs on **audio-video understanding**: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks (summarization, multiple-choice QA, and temporal localization) and demographic metadata for fairness analysis. Accepted at **EMNLP 2026** (Main).
 
 **Links:** [GitHub](https://github.com/VectorInstitute/sonic-o1) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard)
 
 ---
 
+## FairLens
+
+**FairLens** is a benchmark for measuring **demographic bias** in vision-language models on high-stakes **hiring**, **legal**, and **healthcare** questions from a face photograph. It pairs real face images with closed- and open-ended items and reports parity, soundness, demographic association, and free-text bias.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/fairlens) · [Project page](https://vectorinstitute.github.io/fairlens/) · [Dataset](https://huggingface.co/datasets/vector-institute/fairlens) · [Paper](https://arxiv.org/abs/2609.01691)
+
+---
+
 ## FairSense-AgentiX
 
-**FairSense-AgentiX** is an agentic **bias detection** and **AI-risk analysis** platform for text, images, and datasets. A reasoning agent **plans** per input type, **selects** tools (OCR, vision models, embeddings, retrieval), **critiques** and refines outputs, and **explains** steps via telemetry—aiming for more transparent, context-aware fairness checks than static classifiers.
+**FairSense-AgentiX** is an agentic **bias detection** and **AI-risk analysis** platform for text, images, and datasets. A reasoning agent **plans** per input type, **selects** tools (OCR, vision models, embeddings, retrieval), **critiques** and refines outputs, and **explains** steps via telemetry.
 
 **Links:** [GitHub](https://github.com/VectorInstitute/fairsense-agentix) · [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [PyPI](https://pypi.org/project/fairsense-agentix/)
 
@@ -54,7 +70,7 @@ Factuality-aware Direct Preference Optimization: extends DPO with binary factual
 
 ## AgentFinVQA
 
-**AgentFinVQA** is a deployable multi-agent pipeline for **auditable financial chart question answering** in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification — recording every step in a traceable **Model Evaluation Packet (MEP)**. Supports both proprietary and open-weights backends for full on-premise data residency.
+**AgentFinVQA** is a deployable multi-agent pipeline for **auditable financial chart question answering** in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification, and records every step in a traceable **Model Evaluation Packet (MEP)**. Supports both proprietary and open-weights backends for full on-premise data residency.
 
 **Links:** [GitHub](https://github.com/VectorInstitute/AgentFinVQA/) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Paper](https://arxiv.org/abs/2606.19782)
 

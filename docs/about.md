@@ -27,7 +27,7 @@ The project envisions an adaptable and trustworthy AI ecosystem that integrates 
   Establish measurable criteria and indicators for evaluating the reliability and ethical alignment of AI systems.
 
 - **Advance explainable multimodal foundation models**
-  Drive research in interpretable vision–language–reasoning systems.
+  Drive research in interpretable vision-language-reasoning systems.
 
 - **Demonstrate real-world impact through pilot use cases**
   Validate the framework across sectors including healthcare, employment, and education.
@@ -55,7 +55,7 @@ The AIXPERT consortium brings together leading academic, research, and industry 
 
 ## Team
 
-The [Vector Institute](https://vectorinstitute.ai/) is a proud partner of the [AIXPERT project](https://aixpert-project.eu/) — a Horizon Europe initiative building explainable, transparent, and human-centered AI. This site is maintained by Vector's AI Engineering team.
+The [Vector Institute](https://vectorinstitute.ai/) is a proud partner of the [AIXPERT project](https://aixpert-project.eu/): a Horizon Europe initiative building explainable, transparent, and human-centered AI. This site is maintained by Vector's AI Engineering team.
 
 ---
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
