@@ -461,9 +461,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stress-testing-efficient-responsible-ai-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stress-Testing Efficient Responsible-AI Evaluation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sonic-o1" class="md-nav__link">
     <span class="md-ellipsis">
       SONIC-O1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fairlens" class="md-nav__link">
+    <span class="md-ellipsis">
+      FairLens
     </span>
   </a>
   
@@ -689,9 +707,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stress-testing-efficient-responsible-ai-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stress-Testing Efficient Responsible-AI Evaluation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sonic-o1" class="md-nav__link">
     <span class="md-ellipsis">
       SONIC-O1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fairlens" class="md-nav__link">
+    <span class="md-ellipsis">
+      FairLens
     </span>
   </a>
   
@@ -832,25 +868,33 @@
 <hr />
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>What is this?</strong> — A collection of research tools, benchmarks, and evaluation frameworks for responsible AI: fairness, explainability, multimodal understanding, and agentic systems.</li>
-<li><strong>Who is it for?</strong> — Researchers and practitioners working on fairness-aware AI, multimodal benchmarking, explainable agentic systems, and reproducible AI evaluation.</li>
-<li><strong>How is it organized?</strong> — Some projects have their own standalone repositories; others live as modules in the main <a href="https://github.com/VectorInstitute/vector-aixpert">AIXpert repo</a>. Each section below links to the relevant repo and docs.</li>
+<li><strong>What is this?</strong> A collection of research tools, benchmarks, and evaluation frameworks for responsible AI: fairness, explainability, multimodal understanding, and agentic systems.</li>
+<li><strong>Who is it for?</strong> Researchers and practitioners working on fairness-aware AI, multimodal benchmarking, explainable agentic systems, and reproducible AI evaluation.</li>
+<li><strong>How is it organized?</strong> Some projects have their own standalone repositories; others live as modules in the main <a href="https://github.com/VectorInstitute/vector-aixpert">AIXpert repo</a>. Each section below links to the relevant repo and docs.</li>
 </ul>
 <hr />
 <h2 id="unbias-plus">UnBias-Plus<a class="headerlink" href="#unbias-plus" title="Permanent link">&para;</a></h2>
-<p><strong>UnBias-Plus</strong> is an AI-driven toolkit for <strong>bias detection and debiasing</strong> in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite—usable from the <strong>CLI</strong>, <strong>REST API</strong> (FastAPI + demo UI), or <strong>Python</strong> (<code>UnBiasPlus</code>).</p>
+<p><strong>UnBias-Plus</strong> is an AI-driven toolkit for <strong>bias detection and debiasing</strong> in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite. Use it from the <strong>CLI</strong>, <strong>REST API</strong> (FastAPI + demo UI), or <strong>Python</strong> (<code>UnBiasPlus</code>).</p>
 <p><strong>Links:</strong> <a href="https://unbias-plus.vectorinstitute.ai/">Demo</a> · <a href="https://github.com/VectorInstitute/unbias-plus">GitHub</a> · <a href="https://vectorinstitute.github.io/unbias-plus/">Project page</a> · <a href="https://pypi.org/project/unbias-plus/">PyPI</a> · <a href="https://arxiv.org/abs/2606.23412">Paper</a></p>
 <hr />
 <h2 id="data-impact-accounting-dia">Data &amp; Impact Accounting (DIA)<a class="headerlink" href="#data-impact-accounting-dia" title="Permanent link">&para;</a></h2>
 <p><strong>DIA</strong> is an open-source toolkit for <strong>Data and Impact Accounting</strong>: tracking <strong>energy, water, and CO₂</strong> impact of open-source AI models and their derivatives across lineages. It accompanies the ICML 2026 position paper and includes a public dashboard for exploring cumulative footprint.</p>
 <p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/ai-impact-accounting/">GitHub</a> · <a href="https://vectorinstitute.github.io/ai-impact-accounting/">Project page</a> · <a href="https://pypi.org/project/ai-impact-accounting/">PyPI</a> · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard">Dashboard</a> · <a href="https://arxiv.org/abs/2601.21632">Paper</a></p>
 <hr />
+<h2 id="stress-testing-efficient-responsible-ai-evaluation">Stress-Testing Efficient Responsible-AI Evaluation<a class="headerlink" href="#stress-testing-efficient-responsible-ai-evaluation" title="Permanent link">&para;</a></h2>
+<p>Reproducible study of how <strong>batching</strong>, <strong>quantization</strong>, and <strong>benchmark reduction</strong> change both Responsible-AI conclusions and their energy footprint. Compares seven evaluation setups against a full-precision BF16 baseline on BBQ and BBQ-V.</p>
+<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/sustainable-rai-evaluation">GitHub</a> · <a href="https://vectorinstitute.github.io/sustainable-rai-evaluation/">Project page</a> · <a href="https://arxiv.org/abs/2608.31108">Paper</a></p>
+<hr />
 <h2 id="sonic-o1">SONIC-O1<a class="headerlink" href="#sonic-o1" title="Permanent link">&para;</a></h2>
-<p>Real-world benchmark for evaluating multimodal LLMs on <strong>audio-video understanding</strong>: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks — summarization, multiple-choice QA, and temporal localization — and demographic metadata for fairness analysis. Accepted at <strong>EMNLP 2026</strong> (Main).</p>
+<p>Real-world benchmark for evaluating multimodal LLMs on <strong>audio-video understanding</strong>: short to long-form videos across 13 conversational domains (job interviews, medical, legal, etc.), with three tasks (summarization, multiple-choice QA, and temporal localization) and demographic metadata for fairness analysis. Accepted at <strong>EMNLP 2026</strong> (Main).</p>
 <p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/sonic-o1">GitHub</a> · <a href="https://vectorinstitute.github.io/sonic-o1/">Project page</a> · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1">Dataset</a> · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard">Leaderboard</a></p>
 <hr />
+<h2 id="fairlens">FairLens<a class="headerlink" href="#fairlens" title="Permanent link">&para;</a></h2>
+<p><strong>FairLens</strong> is a benchmark for measuring <strong>demographic bias</strong> in vision-language models on high-stakes <strong>hiring</strong>, <strong>legal</strong>, and <strong>healthcare</strong> questions from a face photograph. It pairs real face images with closed- and open-ended items and reports parity, soundness, demographic association, and free-text bias.</p>
+<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/fairlens">GitHub</a> · <a href="https://vectorinstitute.github.io/fairlens/">Project page</a> · <a href="https://huggingface.co/datasets/vector-institute/fairlens">Dataset</a> · <a href="https://arxiv.org/abs/2609.01691">Paper</a></p>
+<hr />
 <h2 id="fairsense-agentix">FairSense-AgentiX<a class="headerlink" href="#fairsense-agentix" title="Permanent link">&para;</a></h2>
-<p><strong>FairSense-AgentiX</strong> is an agentic <strong>bias detection</strong> and <strong>AI-risk analysis</strong> platform for text, images, and datasets. A reasoning agent <strong>plans</strong> per input type, <strong>selects</strong> tools (OCR, vision models, embeddings, retrieval), <strong>critiques</strong> and refines outputs, and <strong>explains</strong> steps via telemetry—aiming for more transparent, context-aware fairness checks than static classifiers.</p>
+<p><strong>FairSense-AgentiX</strong> is an agentic <strong>bias detection</strong> and <strong>AI-risk analysis</strong> platform for text, images, and datasets. A reasoning agent <strong>plans</strong> per input type, <strong>selects</strong> tools (OCR, vision models, embeddings, retrieval), <strong>critiques</strong> and refines outputs, and <strong>explains</strong> steps via telemetry.</p>
 <p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/fairsense-agentix">GitHub</a> · <a href="https://vectorinstitute.github.io/fairsense-agentix/">Project page</a> · <a href="https://pypi.org/project/fairsense-agentix/">PyPI</a></p>
 <hr />
 <h2 id="factual-preference-alignment-f-dpo">Factual Preference Alignment (F-DPO)<a class="headerlink" href="#factual-preference-alignment-f-dpo" title="Permanent link">&para;</a></h2>
@@ -858,7 +902,7 @@
 <p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/Factual-Preference-Alignment">GitHub</a> · <a href="https://vectorinstitute.github.io/Factual-Preference-Alignment/">Project page</a> · <a href="https://huggingface.co/datasets/vector-institute/Factuality_Alignment">Dataset</a></p>
 <hr />
 <h2 id="agentfinvqa">AgentFinVQA<a class="headerlink" href="#agentfinvqa" title="Permanent link">&para;</a></h2>
-<p><strong>AgentFinVQA</strong> is a deployable multi-agent pipeline for <strong>auditable financial chart question answering</strong> in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification — recording every step in a traceable <strong>Model Evaluation Packet (MEP)</strong>. Supports both proprietary and open-weights backends for full on-premise data residency.</p>
+<p><strong>AgentFinVQA</strong> is a deployable multi-agent pipeline for <strong>auditable financial chart question answering</strong> in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification, and records every step in a traceable <strong>Model Evaluation Packet (MEP)</strong>. Supports both proprietary and open-weights backends for full on-premise data residency.</p>
 <p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/AgentFinVQA/">GitHub</a> · <a href="https://vectorinstitute.github.io/AgentFinVQA/">Project page</a> · <a href="https://arxiv.org/abs/2606.19782">Paper</a></p>
 <hr />
 <h2 id="humanibench">HumaniBench<a class="headerlink" href="#humanibench" title="Permanent link">&para;</a></h2>
