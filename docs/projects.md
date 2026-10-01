@@ -64,13 +64,13 @@ Real-world benchmark for evaluating multimodal LLMs on **audio-video understandi
 
 Factuality-aware Direct Preference Optimization: extends DPO with binary factuality labels and a factuality-aware margin to reduce LLM hallucinations without an auxiliary reward model. Single-stage and compute-efficient.
 
-**Links:** [GitHub](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment)
+**Links:** [GitHub](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment) · [Paper](https://aclanthology.org/2026.findings-acl.1968/)
 
 ---
 
 ## AgentFinVQA
 
-**AgentFinVQA** is a deployable multi-agent pipeline for **auditable financial chart question answering** in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification, and records every step in a traceable **Model Evaluation Packet (MEP)**. Supports both proprietary and open-weights backends for full on-premise data residency.
+**AgentFinVQA** is a deployable multi-agent pipeline for **auditable financial chart question answering** in regulated settings. It decomposes each query into planning, OCR, legend grounding, visual inspection, and verification, and records every step in a traceable **Model Evaluation Packet (MEP)**. Supports both proprietary and open-weights backends for full on-premise data residency. Accepted at **NeurIPS 2026** (AABA4ET).
 
 **Links:** [GitHub](https://github.com/VectorInstitute/AgentFinVQA/) · [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Paper](https://arxiv.org/abs/2606.19782)
 
@@ -78,9 +78,9 @@ Factuality-aware Direct Preference Optimization: extends DPO with binary factual
 
 ## HumaniBench
 
-**HumaniBench** is a fairness-focused vision-language benchmark for evaluating large multimodal models across human-centric demographics and HCAI principles. Accepted at **ACM TIST** (journal link forthcoming).
+**HumaniBench** is a fairness-focused vision-language benchmark for evaluating large multimodal models across human-centric demographics and HCAI principles. Published in **ACM TIST**.
 
-**Links:** [Project page](https://vectorinstitute.github.io/HumaniBench/) · [Preprint](https://arxiv.org/abs/2505.11454) · [Dataset](https://huggingface.co/datasets/vector-institute/HumaniBench) · [Code](https://github.com/VectorInstitute/humanibench)
+**Links:** [Project page](https://vectorinstitute.github.io/HumaniBench/) · [Paper](https://dl.acm.org/doi/10.1145/3845999) · [Dataset](https://huggingface.co/datasets/vector-institute/HumaniBench) · [Code](https://github.com/VectorInstitute/humanibench)
 
 ---
 

@@ -4,9 +4,13 @@ Full list of recent papers, releases, and news.
 
 ---
 
-- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. Real-world audio-video benchmark for evaluating multimodal LLMs. [Preprint](https://arxiv.org/abs/2601.21666) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. Real-world audio-video benchmark for evaluating multimodal LLMs. [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Preprint](https://arxiv.org/abs/2601.21666) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
 
 - :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026 (Industry)**. Benchmark evaluating how language models handle off-procedure inputs in grounded diagnostic dialogue. [Preprint](https://arxiv.org/abs/2606.17904).
+
+- :material-check-decagram: **AgentFinVQA accepted at NeurIPS 2026 AABA4ET**. Auditable financial chart QA pipeline for regulated, on-premise use. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Preprint](https://arxiv.org/abs/2606.19782) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
+
+- :material-check-decagram: **Detecting Deception, Not Deepfakes accepted at NeurIPS 2026 TAE**. Position paper on why artifact detectors miss interactive deception, adding a communication layer for speech acts, conversation, and influence. [Project page](https://jesseeho.github.io/deepfake-deception/) · [Preprint](https://arxiv.org/abs/2605.09007).
 
 - :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Shaina Raza delivered a keynote presenting **DIA** and the ICML 2026 Spotlight Position Paper on tracking the cumulative energy, carbon, and water footprint of model derivatives. [Program](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program) · [Project](https://vectorinstitute.github.io/ai-impact-accounting/).
 
@@ -33,7 +37,7 @@ Full list of recent papers, releases, and news.
 
 - :material-star-circle: **DIA (Data & Impact Accounting)** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Open-source toolkit that tracks the **energy, water, and CO₂** footprint of open-source AI models and their derivatives, now released as the `ai-impact-accounting` package with code, docs, and an interactive dashboard. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [ICML 2026 paper](https://arxiv.org/abs/2601.21632)
 
-- :material-check-decagram: **HumaniBench accepted at ACM TIST**. Fairness-focused vision-language benchmark accepted at *ACM Transactions on Intelligent Systems and Technology* (journal link forthcoming). [Preprint](https://arxiv.org/abs/2505.11454) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
+- :material-check-decagram: **HumaniBench accepted at ACM TIST**. Fairness-focused vision-language benchmark published in *ACM Transactions on Intelligent Systems and Technology*. [Project page](https://vectorinstitute.github.io/HumaniBench/) · [Paper](https://dl.acm.org/doi/10.1145/3845999).
 
 - :material-newspaper: **DIA in the press**. Nosian Magazine's [_AI's Unasked Question: What Did That Cost?_](https://nosian.substack.com/p/ais-unasked-question-what-did-that) features **DIA** and the team behind it (Amrit Krishnan, Shaina Raza, PhD, and Ahmed Y. Radwan; written by Sally Work), on why so few ICML papers measure AI's environmental cost and how the `ai-impact-accounting` package helps.
 
@@ -99,13 +103,13 @@ Full list of recent papers, releases, and news.
 
 - :material-presentation: **AI4Good Lab 2026**. Shaina Raza, PhD and Ahmed Y. Radwan presented **UnBias-Plus** and research on disinformation and misinformation detection to the [AI4Good Lab](https://www.ai4goodlab.com/) 2026 cohort (May-June 2026, Toronto). The AI4Good Lab is a full-time summer ML training program for women and gender diverse people across Canada, hosted in Toronto in partnership with Vector Institute and CIFAR.
 
-- :material-check-decagram: **Evaluating and Regulating Agentic AI**. Forthcoming in *Information Fusion* (journal page to follow). [_Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics and Regulation_](https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3) (arXiv). [Project page](https://itsazibfarooq.github.io/agenticEvaluation/) · [Code](https://github.com/itsazibfarooq/agenticEvaluation).
+- :material-check-decagram: **Evaluating and Regulating Agentic AI**. Published in *Information Fusion*. [_Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics, and Regulation_](https://www.sciencedirect.com/science/article/pii/S1566253526003246). [Project page](https://itsazibfarooq.github.io/agenticEvaluation/) · [Code](https://github.com/itsazibfarooq/agenticEvaluation).
 
 - :material-presentation: **EU cluster webinar: AI in public services**. We contributed to the webinar *AI-Enabled Public Services: Building Resilience and Accountability* (20 April 2026, 10:00 CEST). The session was the second joint online event organized by the EU-funded projects **TANGO**, **AI4REALNET**, **HumAIne**, **THEMIS 5.0**, and **Peer AI**, bringing together speakers on how these initiatives use AI in public-service settings, with emphasis on **resilience** and **accountability**. Registration was open to the general public, researchers, and policy makers; registered participants received the detailed agenda in the weeks before the event.
 
 - :material-check-decagram: **Model immunization (AI vaccine)**. Accepted at WCCI 2026 (IJCNN). [_Just as Humans Need Vaccines, So Do Models: Model Immunization to Combat Falsehoods_](https://arxiv.org/abs/2505.17870) (arXiv). [Project page](https://shainarazavi.github.io/ai-vaccine/) · [Code](https://github.com/shainarazavi/ai-vaccine).
 
-- :material-check-decagram: **F-DPO**. ACL 2026 Findings. [_Reducing Hallucinations in LLMs via Factuality-Aware Preference Learning_](https://arxiv.org/abs/2601.03027) (arXiv). [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment).
+- :material-check-decagram: **F-DPO**. ACL 2026 Findings. [_Reducing Hallucinations in LLMs via Factuality-Aware Preference Learning_](https://aclanthology.org/2026.findings-acl.1968/). [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment) · [Dataset](https://huggingface.co/datasets/vector-institute/Factuality_Alignment).
 
 - :material-check-decagram: **TRiSM for Agentic AI accepted**. Paper accepted at [AI Open, Elsevier 2026](https://doi.org/10.1016/j.aiopen.2026.02.006). A review of trust, risk, and security management in LLM-based agentic multi-agent systems.
 

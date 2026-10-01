@@ -55,17 +55,19 @@ Vector's responsible AI pipeline moves data through five stages: from raw inputs
 
 ## Recent Updates
 
-- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. [Preprint](https://arxiv.org/abs/2601.21666) · [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Preprint](https://arxiv.org/abs/2601.21666) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
 - :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026 (Industry)**. [Preprint](https://arxiv.org/abs/2606.17904).
+- :material-check-decagram: **AgentFinVQA accepted at NeurIPS 2026 AABA4ET**. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Preprint](https://arxiv.org/abs/2606.19782) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
+- :material-check-decagram: **Detecting Deception, Not Deepfakes accepted at NeurIPS 2026 TAE**. [Project page](https://jesseeho.github.io/deepfake-deception/) · [Preprint](https://arxiv.org/abs/2605.09007).
 - :material-presentation: **Green AI Workshop (ECML-PKDD 2026)**. Shaina Raza delivered a keynote presenting **DIA** and the ICML 2026 Spotlight Position Paper. [Program](https://sites.google.com/uniroma1.it/green-ai-workshop/editions/ecml-pkdd-2026/program) · [Project](https://vectorinstitute.github.io/ai-impact-accounting/).
 - :material-file-document: **Harness-aware evaluation**. Survey treating each agent score as model, harness, environment, and evaluator. [Project page](https://vectorinstitute.github.io/harness-aware-evaluation/) · [Preprint](https://www.preprints.org/manuscript/202609.2140) · [Code](https://github.com/VectorInstitute/harness-aware-evaluation).
 - :material-book-open-variant: **Unified evaluation framework**. Trustworthy evaluation across LLMs, agentic AI, and multimodal systems. [Preprint](https://arxiv.org/abs/2609.19524).
-- :material-check-decagram: **Stress-testing efficient RAI evaluation accepted at NeurIPS 2026 TAE**. [Preprint](https://arxiv.org/abs/2608.31108) · [Project page](https://vectorinstitute.github.io/sustainable-rai-evaluation/) · [Code](https://github.com/VectorInstitute/sustainable-rai-evaluation).
+- :material-check-decagram: **Stress-testing efficient RAI evaluation accepted at NeurIPS 2026 TAE**. [Project page](https://vectorinstitute.github.io/sustainable-rai-evaluation/) · [Preprint](https://arxiv.org/abs/2608.31108) · [Code](https://github.com/VectorInstitute/sustainable-rai-evaluation).
 - :material-chart-bar: **FairLens**. Fairness benchmark for VLMs in high-stakes hiring, legal, and healthcare decisions. [Project page](https://vectorinstitute.github.io/fairlens/) · [Preprint](https://arxiv.org/abs/2609.01691) · [Code](https://github.com/VectorInstitute/fairlens) · [Dataset](https://huggingface.co/datasets/vector-institute/fairlens).
 - :material-file-document: **Deepfakes survey**. Lifecycle survey of generation, distribution, and forensics in the foundation-model era. [Project page](https://vectorinstitute.github.io/deepfakes-survey-2026/) · [Preprint](https://www.preprints.org/manuscript/202608.1870) · [Code](https://github.com/VectorInstitute/deepfakes-survey-2026).
 - :material-scale-balance: **UnBias-Plus**. Bias detection and debiasing toolkit with paper, CLI, REST API, Python, and live demo. [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/).
 - :material-leaf: **DIA (Data & Impact Accounting)**. Open-source toolkit that tracks the energy, water, and CO₂ footprint of open-source AI and its derivatives. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard).
-- :material-check-decagram: **HumaniBench accepted at ACM TIST**. [Preprint](https://arxiv.org/abs/2505.11454) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
+- :material-check-decagram: **HumaniBench accepted at ACM TIST**. [Paper](https://dl.acm.org/doi/10.1145/3845999) · [Project page](https://vectorinstitute.github.io/HumaniBench/).
 - :material-newspaper: **DIA in the press**. Featured in Nosian Magazine's [_AI's Unasked Question: What Did That Cost?_](https://nosian.substack.com/p/ais-unasked-question-what-did-that).
 - :material-newspaper: **UnBias-Plus in the press**. Independent coverage across CAN Health, ChannelLife, AI Loop, BornCity, TechTalent.ca, GlobeNewswire, and BNN Bloomberg.
 - :material-post: **MoE blog**. [_Mixture of Experts: From Sparse Routing to Multimodal Deployment_](https://vectorinstitute.ai/mixture-of-experts-from-sparse-routing-to-multimodal-deployment/).
@@ -128,13 +130,13 @@ A snapshot of Vector's key contributions within AIXpert. Each project has its ow
 
     Factuality-aware preference learning to reduce LLM hallucinations without a separate reward model.
 
-    [:material-arrow-right: Paper](https://arxiv.org/abs/2601.03027) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment)
+    [:material-arrow-right: Paper](https://aclanthology.org/2026.findings-acl.1968/) · [Project page](https://vectorinstitute.github.io/Factual-Preference-Alignment/) · [Code](https://github.com/VectorInstitute/Factual-Preference-Alignment)
 
 -   :material-image-multiple: **HumaniBench**
 
     Fairness-focused vision-language benchmark evaluating foundation models across human-centric demographics.
 
-    [:material-arrow-right: Project page](https://vectorinstitute.github.io/HumaniBench/) · [Preprint](https://arxiv.org/abs/2505.11454)
+    [:material-arrow-right: Project page](https://vectorinstitute.github.io/HumaniBench/) · [Paper](https://dl.acm.org/doi/10.1145/3845999)
 
 -   :material-shield-check: **Agentic Transparency**
 

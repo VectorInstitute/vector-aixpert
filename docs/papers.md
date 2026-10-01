@@ -44,6 +44,26 @@ Fairness benchmark for vision-language models on high-stakes hiring, legal, and 
 
 ---
 
+### AgentFinVQA: A Deployable Multi-Agent Pipeline for Auditable Financial Chart QA
+
+**Paper** (NeurIPS 2026 AABA4ET) · <a href="https://arxiv.org/abs/2606.19782" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Aravind Narayanan, Shaina Raza.
+
+Multi-agent pipeline for auditable, on-premise financial chart QA. Queries are split into planning, OCR, legend grounding, visual inspection, and verification, and every step is recorded in a Model Evaluation Packet (MEP). +7.68 pp over a zero-shot baseline on FinMME, with full open-weights deployment for data residency.
+
+---
+
+### Detecting Deception, Not Deepfakes: Why Media Forensics Needs Social Theories
+
+**Paper** (NeurIPS 2026 TAE) · <a href="https://arxiv.org/abs/2605.09007" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://jesseeho.github.io/deepfake-deception/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Jessee Ho, Shweta Khushu, Shaina Raza.
+
+Position paper arguing that artifact-based deepfake detectors miss interactive deception, and that forensics also needs a communication layer covering speech acts, conversation, and influence.
+
+---
+
 ### Deepfakes in the Foundation-Model Era: A Survey of Forensics, Generation and Distribution Across Social Media Lifecycle
 
 **Paper** (Preprint) · <a href="https://www.preprints.org/manuscript/202608.1870" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Preprint-B31B1B?style=flat-square" alt="Preprint"></a> **Code** · <a href="https://github.com/VectorInstitute/deepfakes-survey-2026" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/deepfakes-survey-2026/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
@@ -96,7 +116,7 @@ Benchmark evaluating how language models handle off-procedure inputs in grounded
 
 ### HumaniBench: A Human-Centric Framework for Large Multimodal Models Evaluation
 
-**Paper** (ACM TIST) · <a href="https://arxiv.org/abs/2505.11454" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Project** · <a href="https://vectorinstitute.github.io/HumaniBench/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/HumaniBench" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
+**Paper** (ACM TIST) · <a href="https://dl.acm.org/doi/10.1145/3845999" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ACM-0085CA?style=flat-square&logo=acm&logoColor=white" alt="ACM"></a> **Project** · <a href="https://vectorinstitute.github.io/HumaniBench/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/HumaniBench" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
 
 **Authors:** Shaina Raza, Aravind Narayanan, Vahid Reza Khazaie, Ashmal Vayani, Ahmed Y. Radwan, Mukund S. Chettiar, Amandeep Singh, Mubarak Shah, Deval Pandya.
 
@@ -116,7 +136,7 @@ SONIC-O1, a fully human-verified real-world audio-video benchmark with 4,958 ann
 
 ### Evaluating and Regulating Agentic AI: A Study of Benchmarks, Metrics and Regulation
 
-**Paper** (Information Fusion, Elsevier 2026) · <a href="https://www.sciencedirect.com/science/article/pii/S1566253526003246" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ScienceDirect-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="ScienceDirect"></a> **Preprint** · <a href="https://www.techrxiv.org/doi/abs/10.36227/techrxiv.176186841.18883348/v3" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>  **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+**Paper** (Information Fusion, Elsevier 2026) · <a href="https://www.sciencedirect.com/science/article/pii/S1566253526003246" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ScienceDirect-FF6C00?style=flat-square&logo=elsevier&logoColor=white" alt="ScienceDirect"></a> **Code** · <a href="https://github.com/itsazibfarooq/agenticEvaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Project** · <a href="https://itsazibfarooq.github.io/agenticEvaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
 
 **Authors:** Azib Farooq, **Shaina Raza**, Nazmul Karim, Hasan Iqbal, Athanasios V. Vasilakos, Christos Emmanouilidis.
 
@@ -172,7 +192,7 @@ Compares attribution-based explanations (SHAP, LIME) with trace-based diagnostic
 
 ### Reducing Hallucinations in LLMs via Factuality-Aware Preference Learning
 
-**Paper** (ACL 2026 Findings) · <a href="https://arxiv.org/abs/2601.03027" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/Factual-Preference-Alignment" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/Factuality_Alignment" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Project** · <a href="https://vectorinstitute.github.io/Factual-Preference-Alignment/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+**Paper** (ACL 2026 Findings) · <a href="https://aclanthology.org/2026.findings-acl.1968/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ACL-1B4F72?style=flat-square" alt="ACL Anthology"></a> **Code** · <a href="https://github.com/VectorInstitute/Factual-Preference-Alignment" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/Factuality_Alignment" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Project** · <a href="https://vectorinstitute.github.io/Factual-Preference-Alignment/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
 
 **Authors:** Sindhuja Chaduvula, Ahmed Y. Radwan, Azib Farooq, Yani Ioannou, **Shaina Raza**.
 
@@ -189,15 +209,7 @@ Preference-learning method (F-DPO) that targets factuality directly, improving f
 Survey of interpretability and explainability for LLM-based agents with planning, memory, and tool use. Organized by what is inspected, what is assured, the methods used, the lifecycle stage, and who the explanation is for.
 
 ---
-### AgentFinVQA: A Deployable Multi-Agent Pipeline for Auditable Financial Chart QA
 
-**Paper** · <a href="https://arxiv.org/abs/2606.19782" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/AgentFinVQA/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
-
-**Authors:** Aravind Narayanan, Shaina Raza.
-
-Multi-agent pipeline for auditable, on-premise financial chart QA. Queries are split into planning, OCR, legend grounding, visual inspection, and verification, and every step is recorded in a Model Evaluation Packet (MEP). +7.68 pp over a zero-shot baseline on FinMME, with full open-weights deployment for data residency.
-
----
 ### Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge Assessment
 
 **Paper** (NeurIPS 2025 LLM-eval Workshop) · <a href="https://arxiv.org/abs/2509.19659" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/bias-in-the-picture-benchmark" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
