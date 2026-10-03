@@ -59,12 +59,11 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: pytest -m "not integration_test"
-        language: python
+        entry: uv run pytest -m "not integration_test"
+        language: system
         types: [python]
         pass_filenames: false
         always_run: true
-        additional_dependencies: [pytest]
 
 ci:
     autofix_commit_msg: |
