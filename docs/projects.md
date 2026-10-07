@@ -24,7 +24,7 @@ This page summarizes each project's scope and links to its repository, documenta
 
 **DIA** is an open-source toolkit for **Data and Impact Accounting**: tracking **energy, water, and CO₂** impact of open-source AI models and their derivatives across lineages. It accompanies the ICML 2026 position paper and includes a public dashboard for exploring cumulative footprint.
 
-**Links:** [GitHub](https://github.com/VectorInstitute/ai-impact-accounting/) · [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [Paper](https://arxiv.org/abs/2601.21632)
+**Links:** [GitHub](https://github.com/VectorInstitute/ai-impact-accounting/) · [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [Paper](https://icml.cc/virtual/2026/poster/67171)
 
 ---
 
