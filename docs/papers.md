@@ -4,6 +4,36 @@ Selected publications and preprints from the AIXpert project. Each entry links t
 
 ---
 
+### MARS: Multiscale Appearance-Residual Streams for Video Forgery Detection
+
+**Paper** (Preprint) · <a href="https://arxiv.org/abs/2611.12508" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/mars" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/mars/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
+
+**Authors:** Ahmed Y. Radwan, Shaina Raza.
+
+MARS is a two-path video detector for facial manipulation and fully generated video. A residual path models multiscale spatial and temporal differences next to appearance, a semantic path scores frames, and a clip-level gate combines them. Under a shared protocol on seven datasets it reaches 91.43% average AUROC, transfers to generated video when trained only on facial manipulation, and reports the frames and regions behind each decision.
+
+---
+
+### MOZAIC: An Audio-Video Deepfake Benchmark for Telling What Is Fake
+
+**Paper** (coming) · **Code** · <a href="https://github.com/VectorInstitute/mozaic" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/mozaic/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/Mozaic" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Hugging Face"></a>
+
+**Authors:** Shaina Raza, Mohamed Hafez, Ahmed Radwan, Khalid Elgazzar, Kathryn Hume.
+
+Mozaic labels every clip by face and voice, real or fake, so a score can be traced to the picture or the sound. It asks which part is fake, how the video was made, whether the person matches a reference, and why, across 137,745 clips. Zero-shot models reach at most 35.6% on which part is fake and catch fake video far more often than fake audio (43.6% vs 7.5%). The best trained detector falls to 78.3% when the face-swap generator is held out. Paper coming.
+
+---
+
+### FairSense-AgentiX: An Agentic Platform for Multi-Modal Fairness and AI Risk Analysis
+
+**Paper** (JOSS) · <a href="https://joss.theoj.org/papers/10.21105/joss.11060" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/JOSS-1B4F72?style=flat-square" alt="JOSS"></a> **Code** · <a href="https://github.com/VectorInstitute/fairsense-agentix" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/fairsense-agentix/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **PyPI** · <a href="https://pypi.org/project/fairsense-agentix/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/PyPI-3775A9?style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a>
+
+**Authors:** Aravind Narayanan, Karanpal Sekhon, Mahshid Alinoori, Shaina Raza.
+
+FairSense-AgentiX is an agentic platform for fairness and AI-risk analysis on text, images, and datasets. For each input, an agent plans the check, selects tools such as OCR, vision models, embeddings, and retrieval, then critiques the result and records the steps.
+
+---
+
 ### Harness-Aware Evaluation of LLM Agents: Systems, Benchmarks, and Protocols
 
 **Paper** (Preprint) · <a href="https://www.preprints.org/manuscript/202609.2140" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Preprint-B31B1B?style=flat-square" alt="Preprint"></a> **Code** · <a href="https://github.com/VectorInstitute/harness-aware-evaluation" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/harness-aware-evaluation/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a>
@@ -76,7 +106,7 @@ Survey of deepfakes from text-to-video and jointly generated audio-video models 
 
 ### Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives
 
-**Paper** (ICML 2026) · <a href="https://icml.cc/virtual/2026/poster/67171" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ICML-1B4F72?style=flat-square" alt="ICML"></a> **Code** · <a href="https://github.com/VectorInstitute/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **PyPI** · <a href="https://pypi.org/project/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/PyPI-3775A9?style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a> **Dashboard** · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Dashboard-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Dashboard"></a>
+**Paper** (ICML 2026) · <a href="https://proceedings.mlr.press/v306/raza26a.html" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ICML-1B4F72?style=flat-square" alt="ICML"></a> **Code** · <a href="https://github.com/VectorInstitute/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> **Project** · <a href="https://vectorinstitute.github.io/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Project_page-0F7DC2?style=flat-square" alt="Project"></a> **PyPI** · <a href="https://pypi.org/project/ai-impact-accounting/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/PyPI-3775A9?style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a> **Dashboard** · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Dashboard-FFD21E?style=flat-square&logo=huggingface&logoColor=000" alt="Dashboard"></a>
 
 **Authors:** Shaina Raza, Iuliia Zarubiieva, Ahmed Radwan, Nathaniel Lesperance, Deval Pandya, Sedef Akinli Kocak, Graham Taylor.
 
@@ -106,7 +136,7 @@ Work on detecting and reasoning about bias in multimodal content.
 
 ### DiagFlowBench: Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue
 
-**Paper** (EMNLP 2026 Industry) · <a href="https://arxiv.org/abs/2606.17904" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
+**Paper** (EMNLP 2026 Industry) · <a href="https://aclanthology.org/2026.emnlp-industry.108/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/EMNLP-1B4F72?style=flat-square" alt="EMNLP"></a>
 
 **Authors:** Guillermo Gil de Avalle, Laura Maruster, Shaina Raza, Christos Emmanouilidis.
 
@@ -126,7 +156,7 @@ Fairness-focused vision-language benchmark evaluating large multimodal models ac
 
 ### SONIC-O1: A Real-World Benchmark for Evaluating Multimodal Large Language Models on Audio-Video Understanding
 
-**Paper** (EMNLP 2026 Main) · <a href="https://arxiv.org/abs/2601.21666" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=flat-square&amp;logo=arxiv&amp;logoColor=white" alt="arXiv"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
+**Paper** (EMNLP 2026 Main) · <a href="https://aclanthology.org/2026.emnlp-main.767/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/EMNLP-1B4F72?style=flat-square" alt="EMNLP"></a> **Code** · <a href="https://github.com/VectorInstitute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a> **Dataset** · <a href="https://huggingface.co/datasets/vector-institute/sonic-o1" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Hugging Face"></a> **Leaderboard** · <a href="https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Leaderboard-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=000" alt="Leaderboard"></a>
 
 **Authors:** Ahmed Y. Radwan, Christos Emmanouilidis, Hina Tabassum, Deval Pandya, Shaina Raza.
 

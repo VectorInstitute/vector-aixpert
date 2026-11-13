@@ -12,6 +12,22 @@ This page summarizes each project's scope and links to its repository, documenta
 
 ---
 
+## MARS
+
+**MARS** (Multiscale Appearance-Residual Streams) is a two-path video detector for **facial manipulation** and **fully generated video**. A residual path models multiscale spatial and temporal differences next to appearance, a semantic path scores frames, and a clip-level gate combines them. Across seven datasets it reaches 91.43% average AUROC, and it reports the frames and regions behind each decision.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/mars) · [Project page](https://vectorinstitute.github.io/mars/) · [Paper](https://arxiv.org/abs/2611.12508)
+
+---
+
+## Mozaic
+
+**Mozaic** is an audio-video deepfake benchmark with a four-way label on every clip: real or fake face, and real or fake voice. It asks which part is fake, what kind of manipulation, whose identity, and why, across 137,745 clips from 1,000 people. Zero-shot models catch fake video far more often than fake audio (43.6% vs 7.5%), and the best trained detector falls to 78.3% when the face-swap generator is held out. Paper coming.
+
+**Links:** [GitHub](https://github.com/VectorInstitute/mozaic) · [Project page](https://vectorinstitute.github.io/mozaic/) · [Dataset](https://huggingface.co/datasets/vector-institute/Mozaic)
+
+---
+
 ## UnBias-Plus
 
 **UnBias-Plus** is an AI-driven toolkit for **bias detection and debiasing** in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite. Use it from the **CLI**, **REST API** (FastAPI + demo UI), or **Python** (`UnBiasPlus`).
@@ -24,7 +40,7 @@ This page summarizes each project's scope and links to its repository, documenta
 
 **DIA** is an open-source toolkit for **Data and Impact Accounting**: tracking **energy, water, and CO₂** impact of open-source AI models and their derivatives across lineages. It accompanies the ICML 2026 position paper and includes a public dashboard for exploring cumulative footprint.
 
-**Links:** [GitHub](https://github.com/VectorInstitute/ai-impact-accounting/) · [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [Paper](https://icml.cc/virtual/2026/poster/67171)
+**Links:** [GitHub](https://github.com/VectorInstitute/ai-impact-accounting/) · [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [Paper](https://proceedings.mlr.press/v306/raza26a.html)
 
 ---
 
@@ -54,9 +70,9 @@ Real-world benchmark for evaluating multimodal LLMs on **audio-video understandi
 
 ## FairSense-AgentiX
 
-**FairSense-AgentiX** is an agentic **bias detection** and **AI-risk analysis** platform for text, images, and datasets. A reasoning agent **plans** per input type, **selects** tools (OCR, vision models, embeddings, retrieval), **critiques** and refines outputs, and **explains** steps via telemetry.
+**FairSense-AgentiX** is an agentic platform for fairness and AI-risk analysis on text, images, and datasets, published in the Journal of Open Source Software. For each input, an agent plans the check, selects tools such as OCR, vision models, embeddings, and retrieval, then critiques the result and records the steps.
 
-**Links:** [GitHub](https://github.com/VectorInstitute/fairsense-agentix) · [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [PyPI](https://pypi.org/project/fairsense-agentix/)
+**Links:** [GitHub](https://github.com/VectorInstitute/fairsense-agentix) · [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [PyPI](https://pypi.org/project/fairsense-agentix/) · [Paper](https://joss.theoj.org/papers/10.21105/joss.11060)
 
 ---
 

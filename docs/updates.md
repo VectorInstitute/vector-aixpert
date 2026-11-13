@@ -4,9 +4,43 @@ Full list of recent papers, releases, and news.
 
 ---
 
-- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. Real-world audio-video benchmark for evaluating multimodal LLMs. [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Preprint](https://arxiv.org/abs/2601.21666) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+- :material-rocket-launch: **MARS**. Video forgery detector for facial manipulation and fully generated video that reports the frames and regions it used. [Project page](https://vectorinstitute.github.io/mars/) · [Preprint](https://arxiv.org/abs/2611.12508) · [Code](https://github.com/VectorInstitute/mars).
 
-- :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026 (Industry)**. Benchmark evaluating how language models handle off-procedure inputs in grounded diagnostic dialogue. [Preprint](https://arxiv.org/abs/2606.17904).
+- :material-database: **Mozaic**. Audio-video deepfake benchmark that labels the face and the voice separately and asks which part is fake, what kind, whose identity, and why. Zero-shot models catch fake video far more often than fake audio. Paper coming. [Project page](https://vectorinstitute.github.io/mozaic/) · [Code](https://github.com/VectorInstitute/mozaic) · [Dataset](https://huggingface.co/datasets/vector-institute/Mozaic).
+
+- :material-newspaper: **Deepfakes in The New York Times**. Coverage of AI-generated fakes in midterm memes (12 Nov 2026). [Article](https://www.nytimes.com/2026/11/12/technology/artifical-intelligence-fakes-midterm-memes.html).
+
+- :material-presentation: **CIFAR AI Safety Week**. Shaina Raza presented deepfake generation and detection, including **MARS** and **Mozaic**, at CAISI during CIFAR AI Safety Week (12 Nov 2026, Toronto). [Post](https://www.linkedin.com/posts/cifar_as-ai-safety-week-wraps-up-in-toronto-researchers-activity-7527029349343068161-garv).
+
+<div class="remarkable-gallery">
+  <a class="gallery-item" href="../assets/caisi-cifar-2026/photo1.png" title="CIFAR AI Safety Week panel">
+    <img src="../assets/caisi-cifar-2026/photo1.png" alt="Panel at CIFAR AI Safety Week">
+  </a>
+  <a class="gallery-item" href="../assets/caisi-cifar-2026/photo2.png" title="Shaina Raza at CIFAR AI Safety Week">
+    <img src="../assets/caisi-cifar-2026/photo2.png" alt="Shaina Raza presenting at CIFAR AI Safety Week">
+  </a>
+</div>
+
+- :material-presentation: **NVIDIA: Responsible AI & Transparency**. Shaina Raza presented **DIA** as a lightweight transparency layer for the energy, water, and carbon footprint of open models and their derivatives (1:30–1:50 pm). [Project](https://vectorinstitute.github.io/ai-impact-accounting/).
+
+- :material-presentation: **MLOps North 2026**. Shaina Raza spoke on responsible AI beyond accuracy: fairness, safety, and sustainability, from agent trajectories to safety, reliability, and governance (5–6 Nov 2026, Toronto). [Summit](https://www.torontomachinelearning.com/) · [Presenter page](https://www.torontomachinelearning.com/presenter/shaina-raza/).
+
+<div class="remarkable-gallery">
+  <a class="gallery-item" href="../assets/agent-mlops-2026/card.jpeg" title="MLOps North 2026">
+    <img src="../assets/agent-mlops-2026/card.jpeg" alt="MLOps North 2026 talk card for Shaina Raza">
+  </a>
+  <a class="gallery-item" href="../assets/agent-mlops-2026/photo2.jpeg" title="Multi-agent evaluation at MLOps North 2026">
+    <img src="../assets/agent-mlops-2026/photo2.jpeg" alt="Shaina Raza presenting multi-agent evaluation at MLOps North 2026">
+  </a>
+</div>
+
+- :material-newspaper: **Deepfakes in the Niagara Falls Review**. A Toronto expert on red flags in deepfake videos. [Article](https://www.niagarafallsreview.ca/news/municipal-elections/deepfake-videos-online-toronto-expert-explains-red-flags/article_408c9887-c76a-5c62-a55a-39460cb59d71.html).
+
+- :material-check-decagram: **FairSense-AgentiX published in JOSS**. Agentic fairness and AI-risk platform for text, images, and datasets. [Paper](https://joss.theoj.org/papers/10.21105/joss.11060) · [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/).
+
+- :material-check-decagram: **SONIC-O1 accepted at EMNLP 2026 (Main)**. Real-world audio-video benchmark for evaluating multimodal LLMs. [Project page](https://vectorinstitute.github.io/sonic-o1/) · [Paper](https://aclanthology.org/2026.emnlp-main.767/) · [Code](https://github.com/VectorInstitute/sonic-o1) · [Dataset](https://huggingface.co/datasets/vector-institute/sonic-o1) · [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard).
+
+- :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026 (Industry)**. Benchmark evaluating how language models handle off-procedure inputs in grounded diagnostic dialogue. [Paper](https://aclanthology.org/2026.emnlp-industry.108/).
 
 - :material-check-decagram: **AgentFinVQA accepted at NeurIPS 2026 AABA4ET**. Auditable financial chart QA pipeline for regulated, on-premise use. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Preprint](https://arxiv.org/abs/2606.19782) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
 
@@ -35,7 +69,7 @@ Full list of recent papers, releases, and news.
 
 - :material-star-circle: **UnBias-Plus** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Toolkit for **bias detection, explanation, severity assessment, and debiasing** in text (segmentation, severity scoring, reasoning, replacements, and full rewrite). [Paper](https://arxiv.org/abs/2606.23412) · [Project page](https://vectorinstitute.github.io/unbias-plus/) · [Code](https://github.com/VectorInstitute/unbias-plus) · [Demo](https://unbias-plus.vectorinstitute.ai/) · [PyPI](https://pypi.org/project/unbias-plus/)
 
-- :material-star-circle: **DIA (Data & Impact Accounting)** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Open-source toolkit that tracks the **energy, water, and CO₂** footprint of open-source AI models and their derivatives, now released as the `ai-impact-accounting` package with code, docs, and an interactive dashboard. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [ICML 2026 paper](https://icml.cc/virtual/2026/poster/67171)
+- :material-star-circle: **DIA (Data & Impact Accounting)** <span style="color:#2563eb;"><strong>(Featured Project)</strong></span>. Open-source toolkit that tracks the **energy, water, and CO₂** footprint of open-source AI models and their derivatives, now released as the `ai-impact-accounting` package with code, docs, and an interactive dashboard. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/) · [Dashboard](https://huggingface.co/spaces/vector-institute/dia-dashboard) · [ICML 2026 paper](https://proceedings.mlr.press/v306/raza26a.html)
 
 - :material-check-decagram: **HumaniBench accepted at ACM TIST**. Fairness-focused vision-language benchmark published in *ACM Transactions on Intelligent Systems and Technology*. [Project page](https://vectorinstitute.github.io/HumaniBench/) · [Paper](https://dl.acm.org/doi/10.1145/3845999).
 
@@ -49,7 +83,7 @@ Full list of recent papers, releases, and news.
 
 - :material-file-document: **Detecting and Reasoning About Bias in Multimodal Content**. IASEAI 2026. [Paper](https://ojs.aaai.org/index.php/IASEAI/article/view/43054).
 
-- :material-file-document: **DiagFlowBench**. Preprint: [_Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue_](https://arxiv.org/abs/2606.17904).
+- :material-file-document: **DiagFlowBench**. Paper: [_Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue_](https://aclanthology.org/2026.emnlp-industry.108/).
 
 - :material-map-marker: **AIXpert General Assembly: Barcelona 2026**. The AIXPERT consortium met at the [Barcelona Supercomputing Center](https://www.bsc.es/) (3-4 June 2026) for its second-year General Assembly and Technical Meeting. Partners aligned the technical roadmap, validated implementation plans across five pilot domains (healthcare, recruitment, manufacturing, education, and creative industries), and prepared the next phase of platform development. [Read more](https://aixpert-project.eu/2026/06/05/ga-bcn-june2026/).
 
@@ -85,7 +119,7 @@ Full list of recent papers, releases, and news.
   </a>
 </div>
 
-- :material-leaf: **ICML 2026 Poster**. [_Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives_](https://icml.cc/virtual/2026/poster/67171) accepted as a poster at ICML 2026. Shaina Raza, Ahmed Radwan, and co-authors propose **Data and Impact Accounting (DIA)** to make the cumulative environmental footprint of open-source AI model derivatives visible and accountable. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/).
+- :material-leaf: **ICML 2026 Poster**. [_Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives_](https://proceedings.mlr.press/v306/raza26a.html) accepted as a poster at ICML 2026. Shaina Raza, Ahmed Radwan, and co-authors propose **Data and Impact Accounting (DIA)** to make the cumulative environmental footprint of open-source AI model derivatives visible and accountable. [Project page](https://vectorinstitute.github.io/ai-impact-accounting/) · [Code](https://github.com/VectorInstitute/ai-impact-accounting/) · [PyPI](https://pypi.org/project/ai-impact-accounting/).
 
 - :material-video-off: **Deepfake Video Review**. [_Generative Deepfake Videos in the Foundation-Model Era: A Timeline of Eroding Trust in Visual Evidence_](https://dl.acm.org/doi/full/10.1145/3810988.3812659) published at MAD '26 (ACM Workshop on Multimedia AI against Disinformation, June 2026). Shaina Raza, Jessee Ho, Mahveen Raza, Christos Emmanouilidis.
 
@@ -95,7 +129,7 @@ Full list of recent papers, releases, and news.
 
 
 
-- :material-shield-search: **FairSense-AgentiX**. Agentic fairness and AI-risk platform for text, images, and datasets (FastAPI, WebSocket, React UI, Python API). [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/).
+- :material-shield-search: **FairSense-AgentiX**. Agentic fairness and AI-risk platform for text, images, and datasets (FastAPI, WebSocket, React UI, Python API). [Paper](https://joss.theoj.org/papers/10.21105/joss.11060) · [Project page](https://vectorinstitute.github.io/fairsense-agentix/) · [Code](https://github.com/VectorInstitute/fairsense-agentix) · [PyPI](https://pypi.org/project/fairsense-agentix/).
 
 - :material-presentation: **HAICON26**. Shaina Raza, PhD presenting at the [Helmholtz AI Conference 2026: AI for Science](https://haicon.cc/) (8-11 June 2026, Munich, Germany).
 
@@ -131,7 +165,7 @@ Full list of recent papers, releases, and news.
 - :material-file-document: **From Features to Actions**. Paper: [_Explainability in Traditional and Agentic AI Systems_](https://arxiv.org/abs/2602.06841) (arXiv). [Code](https://github.com/VectorInstitute/unified-xai-evaluation-framework) and [project page](https://vectorinstitute.github.io/unified-xai-evaluation-framework/).
 - :material-book-open-variant: **Transparency in Agentic AI**. Survey: [_A Survey of Interpretability, Explainability, and Governance_](https://doi.org/10.31224/6451) (arXiv). [Project page](https://vectorinstitute.github.io/Agentic-Transparency/).
 - :material-newspaper: **AIXpert news**. Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).
-- :material-play-circle: **SONIC-O1**. Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://arxiv.org/abs/2601.21666) (arXiv).
+- :material-play-circle: **SONIC-O1**. Paper: [_A Real-World Benchmark for Evaluating MLLMs on Audio-Video Understanding_](https://aclanthology.org/2026.emnlp-main.767/) (EMNLP 2026).
 - :material-database: **SONIC-O1**. Dataset on [Hugging Face](https://huggingface.co/datasets/vector-institute/sonic-o1) (231 videos, ~60h, 4,958 QAs, 13 domains, demographic metadata).
 - :material-github: **SONIC-O1**. [Code](https://github.com/VectorInstitute/sonic-o1) and evaluation pipeline (summarization, MCQ, temporal localization).
 - :material-medal: **SONIC-O1**. [Leaderboard](https://huggingface.co/spaces/vector-institute/sonic-o1-leaderboard) for model comparisons and fairness analysis.
