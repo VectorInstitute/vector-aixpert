@@ -443,6 +443,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mars" class="md-nav__link">
+    <span class="md-ellipsis">
+      MARS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mozaic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mozaic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#unbias-plus" class="md-nav__link">
     <span class="md-ellipsis">
       UnBias-Plus
@@ -689,6 +707,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mars" class="md-nav__link">
+    <span class="md-ellipsis">
+      MARS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mozaic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mozaic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#unbias-plus" class="md-nav__link">
     <span class="md-ellipsis">
       UnBias-Plus
@@ -873,13 +909,21 @@
 <li><strong>How is it organized?</strong> Some projects have their own standalone repositories; others live as modules in the main <a href="https://github.com/VectorInstitute/vector-aixpert">AIXpert repo</a>. Each section below links to the relevant repo and docs.</li>
 </ul>
 <hr />
+<h2 id="mars">MARS<a class="headerlink" href="#mars" title="Permanent link">&para;</a></h2>
+<p><strong>MARS</strong> (Multiscale Appearance-Residual Streams) is a two-path video detector for <strong>facial manipulation</strong> and <strong>fully generated video</strong>. A residual path models multiscale spatial and temporal differences next to appearance, a semantic path scores frames, and a clip-level gate combines them. Across seven datasets it reaches 91.43% average AUROC, and it reports the frames and regions behind each decision.</p>
+<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/mars">GitHub</a> · <a href="https://vectorinstitute.github.io/mars/">Project page</a> · <a href="https://arxiv.org/abs/2611.12508">Paper</a></p>
+<hr />
+<h2 id="mozaic">Mozaic<a class="headerlink" href="#mozaic" title="Permanent link">&para;</a></h2>
+<p><strong>Mozaic</strong> is an audio-video deepfake benchmark with a four-way label on every clip: real or fake face, and real or fake voice. It asks which part is fake, what kind of manipulation, whose identity, and why, across 137,745 clips from 1,000 people. Zero-shot models catch fake video far more often than fake audio (43.6% vs 7.5%), and the best trained detector falls to 78.3% when the face-swap generator is held out. Paper coming.</p>
+<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/mozaic">GitHub</a> · <a href="https://vectorinstitute.github.io/mozaic/">Project page</a> · <a href="https://huggingface.co/datasets/vector-institute/Mozaic">Dataset</a></p>
+<hr />
 <h2 id="unbias-plus">UnBias-Plus<a class="headerlink" href="#unbias-plus" title="Permanent link">&para;</a></h2>
 <p><strong>UnBias-Plus</strong> is an AI-driven toolkit for <strong>bias detection and debiasing</strong> in text. It locates biased segments, classifies severity, explains each span, suggests neutral wording, and returns a full neutral rewrite. Use it from the <strong>CLI</strong>, <strong>REST API</strong> (FastAPI + demo UI), or <strong>Python</strong> (<code>UnBiasPlus</code>).</p>
 <p><strong>Links:</strong> <a href="https://unbias-plus.vectorinstitute.ai/">Demo</a> · <a href="https://github.com/VectorInstitute/unbias-plus">GitHub</a> · <a href="https://vectorinstitute.github.io/unbias-plus/">Project page</a> · <a href="https://pypi.org/project/unbias-plus/">PyPI</a> · <a href="https://arxiv.org/abs/2606.23412">Paper</a></p>
 <hr />
 <h2 id="data-impact-accounting-dia">Data &amp; Impact Accounting (DIA)<a class="headerlink" href="#data-impact-accounting-dia" title="Permanent link">&para;</a></h2>
 <p><strong>DIA</strong> is an open-source toolkit for <strong>Data and Impact Accounting</strong>: tracking <strong>energy, water, and CO₂</strong> impact of open-source AI models and their derivatives across lineages. It accompanies the ICML 2026 position paper and includes a public dashboard for exploring cumulative footprint.</p>
-<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/ai-impact-accounting/">GitHub</a> · <a href="https://vectorinstitute.github.io/ai-impact-accounting/">Project page</a> · <a href="https://pypi.org/project/ai-impact-accounting/">PyPI</a> · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard">Dashboard</a> · <a href="https://icml.cc/virtual/2026/poster/67171">Paper</a></p>
+<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/ai-impact-accounting/">GitHub</a> · <a href="https://vectorinstitute.github.io/ai-impact-accounting/">Project page</a> · <a href="https://pypi.org/project/ai-impact-accounting/">PyPI</a> · <a href="https://huggingface.co/spaces/vector-institute/dia-dashboard">Dashboard</a> · <a href="https://proceedings.mlr.press/v306/raza26a.html">Paper</a></p>
 <hr />
 <h2 id="stress-testing-efficient-responsible-ai-evaluation">Stress-Testing Efficient Responsible-AI Evaluation<a class="headerlink" href="#stress-testing-efficient-responsible-ai-evaluation" title="Permanent link">&para;</a></h2>
 <p>Reproducible study of how <strong>batching</strong>, <strong>quantization</strong>, and <strong>benchmark reduction</strong> change both Responsible-AI conclusions and their energy footprint. Compares seven evaluation setups against a full-precision BF16 baseline on BBQ and BBQ-V.</p>
@@ -894,8 +938,8 @@
 <p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/fairlens">GitHub</a> · <a href="https://vectorinstitute.github.io/fairlens/">Project page</a> · <a href="https://huggingface.co/datasets/vector-institute/fairlens">Dataset</a> · <a href="https://arxiv.org/abs/2609.01691">Paper</a></p>
 <hr />
 <h2 id="fairsense-agentix">FairSense-AgentiX<a class="headerlink" href="#fairsense-agentix" title="Permanent link">&para;</a></h2>
-<p><strong>FairSense-AgentiX</strong> is an agentic <strong>bias detection</strong> and <strong>AI-risk analysis</strong> platform for text, images, and datasets. A reasoning agent <strong>plans</strong> per input type, <strong>selects</strong> tools (OCR, vision models, embeddings, retrieval), <strong>critiques</strong> and refines outputs, and <strong>explains</strong> steps via telemetry.</p>
-<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/fairsense-agentix">GitHub</a> · <a href="https://vectorinstitute.github.io/fairsense-agentix/">Project page</a> · <a href="https://pypi.org/project/fairsense-agentix/">PyPI</a></p>
+<p><strong>FairSense-AgentiX</strong> is an agentic platform for fairness and AI-risk analysis on text, images, and datasets, published in the Journal of Open Source Software. For each input, an agent plans the check, selects tools such as OCR, vision models, embeddings, and retrieval, then critiques the result and records the steps.</p>
+<p><strong>Links:</strong> <a href="https://github.com/VectorInstitute/fairsense-agentix">GitHub</a> · <a href="https://vectorinstitute.github.io/fairsense-agentix/">Project page</a> · <a href="https://pypi.org/project/fairsense-agentix/">PyPI</a> · <a href="https://joss.theoj.org/papers/10.21105/joss.11060">Paper</a></p>
 <hr />
 <h2 id="factual-preference-alignment-f-dpo">Factual Preference Alignment (F-DPO)<a class="headerlink" href="#factual-preference-alignment-f-dpo" title="Permanent link">&para;</a></h2>
 <p>Factuality-aware Direct Preference Optimization: extends DPO with binary factuality labels and a factuality-aware margin to reduce LLM hallucinations without an auxiliary reward model. Single-stage and compute-efficient.</p>
