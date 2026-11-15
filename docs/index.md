@@ -155,14 +155,6 @@ A snapshot of Vector's key contributions within AIXpert. Each project has its ow
 
 If you use any of our tools, datasets, or benchmarks, please cite the relevant work. BibTeX entries are available on each paper's entry in the [Papers](papers.md) page.
 
----
 
-!!! warning "Responsible AI Notice"
-    This project may generate synthetic data containing demographic attributes for fairness research.
-    These datasets are designed for **controlled bias analysis** and **responsible AI evaluation** only.
-    They are not intended to represent or target real individuals.
-    All data generation follows Vector Institute's responsible AI guidelines and AIXpert's ethical framework.
-
----
 
 > Have feedback or want to contribute? See the [:material-account-group: Team](about.md#team) section on About and open an issue or pull request.
