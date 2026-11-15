@@ -134,14 +134,7 @@ We welcome contributions including research prototypes, experimental implementat
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for coding standards, dev setup, and workflow conventions. Please open an issue or pull request to discuss potential contributions.
 
----
-
-
-## Responsible AI Notice
-
-This repository may generate synthetic data containing demographic attributes for fairness research. These datasets are designed for **controlled bias analysis** and **responsible AI evaluation** only. They are not intended to represent or target real individuals. All data generation follows Vector Institute's responsible AI guidelines and AIXpert's ethical framework.
-
----
+ ---
 
 ## Funding Acknowledgment
 
