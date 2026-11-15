@@ -49,6 +49,9 @@ Papers, releases, talks, and news in reverse chronological order. Each entry is 
 
 - **EMNLP 2026 (Industry)** · Paper · :material-check-decagram: **DiagFlowBench accepted at EMNLP 2026**. [_Evaluating How Language Models Handle Off-Procedure Inputs in Grounded Diagnostic Dialogue_](https://aclanthology.org/2026.emnlp-industry.108/).
 
+- **Oct 2026** · Award · :material-trophy: **Stanford/Elsevier Top 2% Scientists 2026**. Shaina Raza was recognized among the World's Top 2% Scientists in the [2026 Stanford/Elsevier database](https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/9) for the second consecutive year.
+
+
 - **NeurIPS 2026 AABA4ET** · Paper · :material-check-decagram: **AgentFinVQA accepted**. Auditable financial chart QA pipeline for regulated, on-premise use, with traceable Model Evaluation Packets. [Project page](https://vectorinstitute.github.io/AgentFinVQA/) · [Preprint](https://arxiv.org/abs/2606.19782) · [Code](https://github.com/VectorInstitute/AgentFinVQA/).
 
 - **NeurIPS 2026 TAE** · Paper · :material-check-decagram: **Detecting Deception, Not Deepfakes accepted**. Position paper on why artifact detectors miss interactive deception, adding a communication layer for speech acts, conversation, and influence. [Project page](https://jesseeho.github.io/deepfake-deception/) · [Preprint](https://arxiv.org/abs/2605.09007).
@@ -136,7 +139,6 @@ Papers, releases, talks, and news in reverse chronological order. Each entry is 
 
 - **IASEAI 2026** · Paper · :material-file-document: **Detecting and Reasoning About Bias in Multimodal Content**. [Paper](https://ojs.aaai.org/index.php/IASEAI/article/view/43054).
 
-- **2026** · Award · :material-trophy: **Stanford/Elsevier Top 2% Scientists 2026**. Shaina Raza was recognized among the World's Top 2% Scientists in the [2026 Stanford/Elsevier database](https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/9) for the second consecutive year.
 
 - **2026** · Award · :material-trophy: **The Peak Emerging Leaders 2026**. Shaina Raza, PhD has been recognized in [The Peak's Emerging Leaders 2026](https://emergingleaders.readthepeak.com/2026/artificial-intelligence) list, celebrating Canada's most promising young leaders in **Artificial Intelligence**.
 
