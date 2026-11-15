@@ -126,7 +126,7 @@ Papers, releases, talks, and news in reverse chronological order. Each entry is 
 
 - **28 Jan 2026** · Press · :material-newspaper: **AIXpert news**. Our work was highlighted on the [AIXpert project website](https://aixpert-project.eu/2026/01/28/advancing-trustworthy-explainable-and-responsible-ai-at-neurips-2025/): *Advancing Trustworthy, Explainable, and Responsible AI at NeurIPS 2025* (Bias in the Picture, HumaniBench, Carbon Literacy, and more).
 
-### Dated 2026, month to confirm
+### Dated 2026
 
 - **ACM TIST** · Paper · :material-check-decagram: **HumaniBench accepted at ACM TIST**. Fairness-focused vision-language benchmark published in *ACM Transactions on Intelligent Systems and Technology*. [Project page](https://vectorinstitute.github.io/HumaniBench/) · [Paper](https://dl.acm.org/doi/10.1145/3845999).
 
